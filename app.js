@@ -147,6 +147,21 @@
       .replace(/[\u0300-\u036f]/g, "");
   }
 
+  function isDieselMachine(machine) {
+    return machine.driveGroup === "diesel" || /diesel/i.test(machine.drive || "");
+  }
+
+  function supportsEnvironment(machine, environment) {
+    if (environment === "indoor") return Boolean(machine.indoor) && !isDieselMachine(machine);
+    if (environment === "outdoor") return Boolean(machine.outdoor);
+    return true;
+  }
+
+  function matchesRequestedEnvironment(machine, filters) {
+    if (!filters.environment || filters.environment === "any") return true;
+    return supportsEnvironment(machine, filters.environment);
+  }
+
   function chooseCategory(categoryId) {
     selectedCategory = categoryId;
     document.querySelectorAll(".category-button").forEach((button) => {
@@ -172,6 +187,7 @@
       renderResults(exact, false, filters);
     } else {
       const nearest = evaluated
+        .filter((item) => matchesRequestedEnvironment(item.machine, filters))
         .sort((a, b) => a.penalty - b.penalty || a.score - b.score)
         .slice(0, Math.min(5, evaluated.length));
       renderResults(nearest, true, filters);
@@ -195,8 +211,8 @@
     const failures = [];
     let penalty = 0;
 
-    if (filters.environment === "indoor" && !machine.indoor) addFailure("není určen pro vnitřní provoz", 1500);
-    if (filters.environment === "outdoor" && !machine.outdoor) addFailure("není určen pro venkovní provoz", 1500);
+    if (filters.environment === "indoor" && !supportsEnvironment(machine, "indoor")) addFailure("není určen pro vnitřní provoz", 1500);
+    if (filters.environment === "outdoor" && !supportsEnvironment(machine, "outdoor")) addFailure("není určen pro venkovní provoz", 1500);
 
     compareMinimum(machine.workingHeightM, filters.workingHeight, "pracovní výška", "m", 450);
     compareMinimum(machine.outreachM, filters.outreach, "boční dosah", "m", 350, true);
@@ -258,7 +274,7 @@
       : "Výsledky jsou řazené od nejmenšího stroje, který splňuje zadané podmínky.";
     elements.resultsGrid.innerHTML = items.length
       ? items.map((item, index) => renderMachineCard(item, filters, nearestOnly, index)).join("")
-      : `<div class="empty-state">V této kategorii zatím není žádný stroj v lokálním katalogu.</div>`;
+      : `<div class="empty-state">${nearestOnly ? "V této kategorii není kompatibilní stroj pro zadané provozní podmínky." : "V této kategorii zatím není žádný stroj v lokálním katalogu."}</div>`;
     elements.resultsSection.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
@@ -287,7 +303,7 @@
     const isNear = nearestOnly && item.failures.length > 0;
     const reason = wholeCatalog ? "Zobrazeno v úplném katalogu." : buildReason(machine, filters, item.failures);
     const dimensions = dimensionText(machine.dimensions);
-    const environment = [machine.indoor && "vnitřní", machine.outdoor && "venkovní"].filter(Boolean).join(" i ") || "Neuvedeno";
+    const environment = [supportsEnvironment(machine, "indoor") && "vnitřní", supportsEnvironment(machine, "outdoor") && "venkovní"].filter(Boolean).join(" i ") || "Neuvedeno";
     const terrain = machine.terrain.length ? machine.terrain.map((value) => terrainLabels[value]).join(", ") : "Neuvedeno";
     const price = machine.priceShort || "Cena neuvedena";
     const priceSecondary = machine.priceLong ? `dlouhodobě ${machine.priceLong}` : "";
