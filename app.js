@@ -40,7 +40,7 @@
 
   const terrainLabels = {
     solid: "rovná pevná podlaha",
-    paved: "zpevněná venkovní plocha",
+    paved: "rovná dostatečně únosná plocha",
     rough: "nezpevněný terén"
   };
 
