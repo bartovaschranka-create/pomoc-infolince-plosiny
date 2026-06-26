@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="520" viewBox="0 0 800 520">
+  <rect width="800" height="520" fill="#f4f5f7"/>
+  <rect x="130" y="410" width="330" height="60" rx="20" fill="#2b2f35"/>
+  <circle cx="200" cy="470" r="32" fill="#15181c"/><circle cx="390" cy="470" r="32" fill="#15181c"/>
+  <g fill="none" stroke="#f3bf18" stroke-width="34" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M335 400 L445 285 L545 185 L650 120"/>
+  </g>
+  <circle cx="445" cy="285" r="25" fill="#202328"/><circle cx="545" cy="185" r="25" fill="#202328"/>
+  <rect x="625" y="75" width="120" height="80" rx="12" fill="#f3bf18" stroke="#202328" stroke-width="9"/>
+  <text x="400" y="505" text-anchor="middle" font-family="Arial" font-size="28" font-weight="700" fill="#555">KLOUBOVÁ PLOŠINA</text>
+</svg>

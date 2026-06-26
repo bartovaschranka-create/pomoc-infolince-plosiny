@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="520" viewBox="0 0 800 520">
+  <rect width="800" height="520" fill="#f4f5f7"/>
+  <rect x="275" y="410" width="250" height="60" rx="20" fill="#2b2f35"/>
+  <circle cx="330" cy="470" r="30" fill="#15181c"/><circle cx="470" cy="470" r="30" fill="#15181c"/>
+  <rect x="365" y="115" width="70" height="300" rx="20" fill="#f3bf18" stroke="#202328" stroke-width="9"/>
+  <path d="M410 130 L545 80" stroke="#f3bf18" stroke-width="28" stroke-linecap="round"/>
+  <rect x="525" y="42" width="125" height="82" rx="12" fill="#f3bf18" stroke="#202328" stroke-width="9"/>
+  <text x="400" y="505" text-anchor="middle" font-family="Arial" font-size="28" font-weight="700" fill="#555">ANTÉNNÍ PLOŠINA</text>
+</svg>

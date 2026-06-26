@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="520" viewBox="0 0 800 520">
+  <rect width="800" height="520" fill="#f4f5f7"/>
+  <path d="M115 420 H570 L690 455" stroke="#2b2f35" stroke-width="34" stroke-linecap="round" fill="none"/>
+  <circle cx="260" cy="465" r="35" fill="#15181c"/><circle cx="480" cy="465" r="35" fill="#15181c"/>
+  <g fill="none" stroke="#f3bf18" stroke-width="30" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M380 410 L430 300 L545 225 L655 125"/>
+  </g>
+  <rect x="625" y="78" width="120" height="80" rx="12" fill="#f3bf18" stroke="#202328" stroke-width="9"/>
+  <path d="M140 430 L105 490M570 430 L600 490" stroke="#202328" stroke-width="12"/>
+  <text x="400" y="505" text-anchor="middle" font-family="Arial" font-size="28" font-weight="700" fill="#555">VLEČNÁ PLOŠINA</text>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="520" viewBox="0 0 800 520">
+  <rect width="800" height="520" fill="#f4f5f7"/>
+  <rect x="160" y="420" width="480" height="45" rx="18" fill="#2b2f35"/>
+  <circle cx="245" cy="465" r="30" fill="#1f2328"/><circle cx="555" cy="465" r="30" fill="#1f2328"/>
+  <g stroke="#f3bf18" stroke-width="22" stroke-linecap="round">
+    <path d="M270 415 L525 160"/><path d="M530 415 L275 160"/>
+    <path d="M285 300 L515 300"/>
+  </g>
+  <rect x="220" y="110" width="360" height="75" rx="12" fill="#f3bf18" stroke="#202328" stroke-width="9"/>
+  <path d="M240 110V65M560 110V65M240 70H560" stroke="#202328" stroke-width="9" fill="none"/>
+  <text x="400" y="500" text-anchor="middle" font-family="Arial" font-size="28" font-weight="700" fill="#555">NŮŽKOVÁ PLOŠINA</text>
+</svg>

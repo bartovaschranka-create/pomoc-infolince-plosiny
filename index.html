@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17191d">
+  <title>Plošinový poradce | Zeppelin CZ</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="page-shell">
+    <section id="categorySection" class="panel section-block">
+      <div class="section-heading">
+        <div>
+          <span class="step">1</span>
+          <h2>Vyberte kategorii</h2>
+        </div>
+        <button id="showAllButton" class="text-button" type="button">Zobrazit celý katalog</button>
+      </div>
+      <div id="categoryGrid" class="category-grid"></div>
+    </section>
+
+    <section id="filterSection" class="panel section-block hidden" aria-live="polite">
+      <div class="section-heading filter-heading">
+        <div>
+          <span class="step">2</span>
+          <h2>Zadejte požadavky</h2>
+          <p id="selectedCategoryLabel" class="selected-category"></p>
+        </div>
+        <button id="changeCategoryButton" class="text-button" type="button">Změnit kategorii</button>
+      </div>
+
+      <form id="filterForm" novalidate>
+        <div class="form-grid main-filters">
+          <label class="field">
+            <span>Provoz</span>
+            <select id="environment" name="environment">
+              <option value="any">Bez omezení</option>
+              <option value="indoor">Vnitřní</option>
+              <option value="outdoor">Venkovní</option>
+            </select>
+          </label>
+
+          <label class="field required-field">
+            <span>Minimální pracovní výška</span>
+            <div class="input-unit">
+              <input id="workingHeight" name="workingHeight" type="number" min="0" step="0.1" inputmode="decimal" placeholder="např. 10">
+              <em>m</em>
+            </div>
+          </label>
+        </div>
+
+        <details class="advanced-filters">
+          <summary>Další omezení a parametry</summary>
+          <div class="form-grid advanced-grid">
+            <label class="field">
+              <span>Minimální boční dosah</span>
+              <div class="input-unit">
+                <input id="outreach" name="outreach" type="number" min="0" step="0.1" inputmode="decimal" placeholder="bez omezení">
+                <em>m</em>
+              </div>
+            </label>
+            <label class="field">
+              <span>Maximální šířka stroje</span>
+              <div class="input-unit">
+                <input id="maxWidth" name="maxWidth" type="number" min="0" step="0.01" inputmode="decimal" placeholder="bez omezení">
+                <em>m</em>
+              </div>
+            </label>
+            <label class="field">
+              <span>Maximální délka stroje</span>
+              <div class="input-unit">
+                <input id="maxLength" name="maxLength" type="number" min="0" step="0.01" inputmode="decimal" placeholder="bez omezení">
+                <em>m</em>
+              </div>
+            </label>
+            <label class="field">
+              <span>Maximální výška stroje</span>
+              <div class="input-unit">
+                <input id="maxMachineHeight" name="maxMachineHeight" type="number" min="0" step="0.01" inputmode="decimal" placeholder="bez omezení">
+                <em>m</em>
+              </div>
+            </label>
+            <label class="field">
+              <span>Pohon</span>
+              <select id="drive" name="drive">
+                <option value="any">Bez omezení</option>
+                <option value="electric">Elektrický / bateriový</option>
+                <option value="diesel">Dieselový</option>
+                <option value="hybrid">Kombinovaný</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Povrch</span>
+              <select id="terrain" name="terrain">
+                <option value="any">Bez omezení</option>
+                <option value="solid">Rovná pevná podlaha</option>
+                <option value="paved">Zpevněná venkovní plocha</option>
+                <option value="rough">Nezpevněný terén</option>
+              </select>
+            </label>
+          </div>
+        </details>
+
+        <div class="form-actions">
+          <button class="primary-button" type="submit">Vyhledat vhodné plošiny</button>
+          <button id="clearFiltersButton" class="secondary-button" type="button">Vymazat filtry</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="resultsSection" class="section-block hidden" aria-live="polite">
+      <div class="results-header">
+        <div>
+          <p id="resultsStatus" class="eyebrow"></p>
+          <h2 id="resultsTitle">Výsledky</h2>
+          <p id="resultsDescription" class="results-description"></p>
+        </div>
+        <button id="editFiltersButton" class="secondary-button compact" type="button">Upravit požadavky</button>
+      </div>
+      <div id="resultsGrid" class="results-grid"></div>
+      <div class="safety-note">
+        <strong>Orientační výběr.</strong>
+        Před potvrzením nabídky ověřte technické údaje, dostupnost a vhodnost stroje pro konkrétní podmínky na produktové stránce Zeppelin CZ. Součet hmotnosti osob, nářadí a materiálu nesmí překročit nosnost plošiny.
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Data jsou převzata z veřejného katalogu Zeppelin CZ.</span>
+    <span>Aktuální dostupnost strojů na pobočkách aplikace neověřuje.</span>
+  </footer>
+
+  <script src="data/machines.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

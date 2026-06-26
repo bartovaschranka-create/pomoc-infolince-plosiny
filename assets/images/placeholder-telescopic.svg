@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="520" viewBox="0 0 800 520">
+  <rect width="800" height="520" fill="#f4f5f7"/>
+  <rect x="100" y="410" width="360" height="62" rx="20" fill="#2b2f35"/>
+  <circle cx="175" cy="470" r="32" fill="#15181c"/><circle cx="385" cy="470" r="32" fill="#15181c"/>
+  <path d="M330 400 L665 125" stroke="#f3bf18" stroke-width="42" stroke-linecap="round"/>
+  <path d="M390 355 L690 110" stroke="#d9a60f" stroke-width="24" stroke-linecap="round"/>
+  <rect x="650" y="66" width="120" height="82" rx="12" fill="#f3bf18" stroke="#202328" stroke-width="9"/>
+  <text x="400" y="505" text-anchor="middle" font-family="Arial" font-size="28" font-weight="700" fill="#555">TELESKOPICKÁ PLOŠINA</text>
+</svg>
