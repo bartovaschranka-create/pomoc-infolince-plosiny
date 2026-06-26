@@ -4,6 +4,14 @@
   const catalog = window.MACHINE_CATALOG || { version: "?", updatedAt: "", machines: [] };
   const machines = catalog.machines.filter((machine) => machine.active !== false);
 
+  const themes = [
+    { id: "minimal", label: "Minimal", description: "Čistý bílý vzhled" },
+    { id: "zeppelin", label: "Zeppelin Corporate", description: "Žlutá, tmavě modrá, bílá" },
+    { id: "material", label: "Material Design", description: "Přehledné vrstvy a modrý akcent" },
+    { id: "ios", label: "Apple / iOS", description: "Jemné stíny a tichá plocha" },
+    { id: "dashboard", label: "Profesionální dashboard", description: "Technický konfigurátor" }
+  ];
+
   const categories = [
     { id: "scissor", label: "Nůžkové", icon: iconScissor(), description: "Rovná plocha, sklad, hala, montáže" },
     { id: "articulated", label: "Kloubové", icon: iconArticulated(), description: "Přes překážku a do stran" },
@@ -23,19 +31,19 @@
 
 
   function iconScissor() {
-    return `<svg viewBox="0 0 120 90" class="icon-drawing line" role="img"><path d="M24 20h62v14H24zM32 20v14M50 20v14M68 20v14M38 35l38 36M76 35L38 71M28 72h58M34 72a6 6 0 1 0 .1 0M78 72a6 6 0 1 0 .1 0"/></svg>`;
+    return `<svg viewBox="0 0 144 96" class="icon-drawing line" role="img"><path d="M26 24h74v14H26zM36 24v14M56 24v14M78 24v14M42 40l42 34M84 40 42 74M30 76h78M38 76a7 7 0 1 0 .1 0M92 76a7 7 0 1 0 .1 0M104 38h14v28"/></svg>`;
   }
   function iconArticulated() {
-    return `<svg viewBox="0 0 120 90" class="icon-drawing line" role="img"><path d="M18 72h42M28 72a6 6 0 1 0 .1 0M54 72a6 6 0 1 0 .1 0M39 66l17-24 18 12M56 42l15-16 21 8M91 28h17v14H91z"/></svg>`;
+    return `<svg viewBox="0 0 144 96" class="icon-drawing line" role="img"><path d="M22 76h48M34 76a7 7 0 1 0 .1 0M62 76a7 7 0 1 0 .1 0M48 69l18-28 24 13M66 41l20-20 24 11M108 26h22v16h-22zM88 54l-18 15"/></svg>`;
   }
   function iconTelescopic() {
-    return `<svg viewBox="0 0 120 90" class="icon-drawing line" role="img"><path d="M20 72h42M28 72a6 6 0 1 0 .1 0M55 72a6 6 0 1 0 .1 0M36 65l16-18 43-24M49 48l46-25M92 18h16v16H92z"/></svg>`;
+    return `<svg viewBox="0 0 144 96" class="icon-drawing line" role="img"><path d="M24 76h52M36 76a7 7 0 1 0 .1 0M68 76a7 7 0 1 0 .1 0M48 68l22-24 46-24M68 44l50-26M116 16h20v18h-20z"/></svg>`;
   }
   function iconTrailerOmme() {
-    return `<svg viewBox="0 0 120 90" class="icon-drawing line" role="img"><path d="M18 72h70M28 72a6 6 0 1 0 .1 0M68 72a6 6 0 1 0 .1 0M88 72l14-8M28 64h38M46 64l16-30M62 34h24M86 28h20v14H86z"/></svg>`;
+    return `<svg viewBox="0 0 144 96" class="icon-drawing line" role="img"><path d="M20 76h86M36 76a7 7 0 1 0 .1 0M76 76a7 7 0 1 0 .1 0M106 76l18-10M34 68h44M54 68l18-34M72 34h30M100 28h24v16h-24zM22 68l-10 5"/></svg>`;
   }
   function iconMast() {
-    return `<svg viewBox="0 0 120 90" class="icon-drawing line" role="img"><path d="M36 74h48M48 74a5 5 0 1 0 .1 0M72 74a5 5 0 1 0 .1 0M60 72V24M50 24h20M50 38h20M50 52h20M72 34h22v16H72z"/></svg>`;
+    return `<svg viewBox="0 0 144 96" class="icon-drawing line" role="img"><path d="M42 78h54M54 78a6 6 0 1 0 .1 0M84 78a6 6 0 1 0 .1 0M70 76V20M58 20h24M58 34h24M58 48h24M58 62h24M84 34h28v18H84z"/></svg>`;
   }
 
   const terrainLabels = {
@@ -48,6 +56,7 @@
     appVersion: document.querySelector("#appVersion"),
     catalogMeta: document.querySelector("#catalogMeta"),
     categoryGrid: document.querySelector("#categoryGrid"),
+    themeOptions: document.querySelector("#themeOptions"),
     categorySection: document.querySelector("#categorySection"),
     filterSection: document.querySelector("#filterSection"),
     selectedCategoryLabel: document.querySelector("#selectedCategoryLabel"),
@@ -68,11 +77,16 @@
   function init() {
     if (elements.appVersion) elements.appVersion.textContent = catalog.version || "0.1.0";
     if (elements.catalogMeta) elements.catalogMeta.textContent = `${machines.length} strojů · aktualizace ${formatDate(catalog.updatedAt)}`;
+    renderThemeOptions();
     renderCategories();
     bindEvents();
   }
 
   function bindEvents() {
+    elements.themeOptions.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-theme]");
+      if (button) setTheme(button.dataset.theme);
+    });
     elements.categoryGrid.addEventListener("click", (event) => {
       const button = event.target.closest("[data-category]");
       if (button) chooseCategory(button.dataset.category);
@@ -109,6 +123,24 @@
       } else {
         elements.filterSection.scrollIntoView({ behavior: "smooth", block: "start" });
       }
+    });
+  }
+  function renderThemeOptions() {
+    const selectedTheme = localStorage.getItem("platformAdvisorTheme") || "zeppelin";
+    document.body.dataset.theme = selectedTheme;
+    elements.themeOptions.innerHTML = themes.map((theme) => `
+      <button class="theme-option" type="button" data-theme="${theme.id}" aria-pressed="${theme.id === selectedTheme}">
+        <span class="theme-swatch theme-swatch-${theme.id}" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span><strong>${escapeHtml(theme.label)}</strong><em>${escapeHtml(theme.description)}</em></span>
+      </button>`).join("");
+  }
+
+  function setTheme(themeId) {
+    if (!themes.some((theme) => theme.id === themeId)) return;
+    document.body.dataset.theme = themeId;
+    localStorage.setItem("platformAdvisorTheme", themeId);
+    document.querySelectorAll(".theme-option").forEach((button) => {
+      button.setAttribute("aria-pressed", String(button.dataset.theme === themeId));
     });
   }
 
@@ -437,5 +469,6 @@
 
   init();
 })();
+
 
 
