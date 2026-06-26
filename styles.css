@@ -561,3 +561,12 @@ body {
   .section-heading, .results-header { align-items: flex-start; }
   .category-button { min-height: 160px; }
 }
+
+
+/* Úpravy 0.1.2: bez horního pruhu, jednodušší ikony, bez filtru nosnosti */
+.page-shell { margin-top: 18px; }
+.main-filters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.category-button { position: relative; }
+.icon-drawing { stroke-width: 4.1; }
+.icon-drawing.line, .icon-drawing.blue, .icon-drawing.orange, .icon-drawing.green, .icon-drawing.purple, .icon-drawing.cyan { color: #082554; }
+@media (max-width: 760px) { .main-filters { grid-template-columns: 1fr; } }
