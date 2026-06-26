@@ -1,5 +1,5 @@
 window.MACHINE_CATALOG = {
-  "version": "0.2.4",
+  "version": "0.2.5",
   "updatedAt": "2026-06-26",
   "sourceName": "Ve?ejn? katalog P?j?ovny stroj? Zeppelin CZ",
   "machines": [
@@ -860,7 +860,7 @@ window.MACHINE_CATALOG = {
       "drive": "bateriový",
       "driveGroup": "electric",
       "indoor": true,
-      "outdoor": false,
+      "outdoor": true,
       "terrain": [
         "solid",
         "paved"
@@ -895,7 +895,7 @@ window.MACHINE_CATALOG = {
       "drive": "bateriový",
       "driveGroup": "electric",
       "indoor": true,
-      "outdoor": false,
+      "outdoor": true,
       "terrain": [
         "solid",
         "paved"
@@ -930,7 +930,7 @@ window.MACHINE_CATALOG = {
       "drive": "bateriový",
       "driveGroup": "electric",
       "indoor": true,
-      "outdoor": false,
+      "outdoor": true,
       "terrain": [
         "solid",
         "paved"
