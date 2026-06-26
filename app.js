@@ -23,19 +23,19 @@
 
 
   function iconScissor() {
-    return `<svg viewBox="0 0 120 90" class="icon-drawing line" role="img"><path d="M24 20h62v14H24zM32 20v14M50 20v14M68 20v14M38 35l38 36M76 35L38 71M28 72h58M34 72a6 6 0 1 0 .1 0M78 72a6 6 0 1 0 .1 0"/></svg>`;
+    return `<svg viewBox="0 0 120 90" class="icon-drawing blue" role="img"><path d="M24 20h62v14H24zM32 20v14M50 20v14M68 20v14M38 35l38 36M76 35L38 71M28 72h58M34 72a6 6 0 1 0 .1 0M78 72a6 6 0 1 0 .1 0"/></svg>`;
   }
   function iconArticulated() {
-    return `<svg viewBox="0 0 120 90" class="icon-drawing line" role="img"><path d="M18 72h42M28 72a6 6 0 1 0 .1 0M54 72a6 6 0 1 0 .1 0M39 66l17-24 18 12M56 42l15-16 21 8M91 28h17v14H91z"/></svg>`;
+    return `<svg viewBox="0 0 120 90" class="icon-drawing orange" role="img"><path d="M22 72h34M29 72a6 6 0 1 0 .1 0M52 72a6 6 0 1 0 .1 0M36 65l18-28 22 12M54 37l13-14 23 9M88 26h16v16H88zM58 45l-18 19"/></svg>`;
   }
   function iconTelescopic() {
-    return `<svg viewBox="0 0 120 90" class="icon-drawing line" role="img"><path d="M20 72h42M28 72a6 6 0 1 0 .1 0M55 72a6 6 0 1 0 .1 0M36 65l16-18 43-24M49 48l46-25M92 18h16v16H92z"/></svg>`;
+    return `<svg viewBox="0 0 120 90" class="icon-drawing green" role="img"><path d="M20 72h42M28 72a6 6 0 1 0 .1 0M55 72a6 6 0 1 0 .1 0M36 65l16-18 43-24M49 48l46-25M92 18h16v16H92z"/></svg>`;
   }
   function iconTrailerOmme() {
-    return `<svg viewBox="0 0 120 90" class="icon-drawing line" role="img"><path d="M15 72h73M32 72a7 7 0 1 0 .1 0M64 72a7 7 0 1 0 .1 0M82 72l18-9M25 65h45M42 65l14-28M56 37h24M79 32h20v14H79z"/></svg>`;
+    return `<svg viewBox="0 0 120 90" class="icon-drawing blue" role="img"><path d="M13 72h72M26 72h36M43 72a7 7 0 1 0 .1 0M16 66l15-7 23-30 25 10M55 29l30-8 14 7M96 22h16v18H96zM86 72l14-8"/></svg>`;
   }
   function iconMast() {
-    return `<svg viewBox="0 0 120 90" class="icon-drawing line" role="img"><path d="M38 74h42M48 74a5 5 0 1 0 .1 0M72 74a5 5 0 1 0 .1 0M58 72V24M48 24h20M48 36h20M48 48h20M48 60h20M69 31h24v16H69z"/></svg>`;
+    return `<svg viewBox="0 0 120 90" class="icon-drawing blue" role="img"><path d="M42 74h34M48 74a5 5 0 1 0 .1 0M70 74a5 5 0 1 0 .1 0M58 72V22M48 22h20M48 34h20M48 46h20M68 30h25v18H68"/></svg>`;
   }
 
   const terrainLabels = {
@@ -66,8 +66,8 @@
   let selectedCategory = null;
 
   function init() {
-    if (elements.appVersion) elements.appVersion.textContent = catalog.version || "0.1.0";
-    if (elements.catalogMeta) elements.catalogMeta.textContent = `${machines.length} strojů · aktualizace ${formatDate(catalog.updatedAt)}`;
+    elements.appVersion.textContent = catalog.version || "0.1.0";
+    elements.catalogMeta.textContent = `${machines.length} strojů · aktualizace ${formatDate(catalog.updatedAt)}`;
     renderCategories();
     bindEvents();
   }
@@ -114,7 +114,7 @@
 
   function renderCategories() {
     elements.categoryGrid.innerHTML = categories.map((category) => {
-      const count = getMachinesForCategory(category.id).length;
+      const count = machines.filter((machine) => machine.category === category.id).length;
       return `
         <button class="category-button" type="button" data-category="${category.id}" aria-label="${escapeHtml(category.label)}, ${count} strojů">
           <span class="category-icon" aria-hidden="true">${category.icon}</span>
@@ -122,22 +122,6 @@
           <span class="category-count">${count} ${pluralizeMachines(count)} · ${escapeHtml(category.description)}</span>
         </button>`;
     }).join("");
-  }
-
-
-  function getMachinesForCategory(categoryId) {
-    if (categoryId === "mast") {
-      return machines.filter((machine) => machine.category === "mast" || (machine.category === "articulated" && isMastMachine(machine)));
-    }
-    if (categoryId === "articulated") {
-      return machines.filter((machine) => machine.category === "articulated" || machine.category === "mast");
-    }
-    return machines.filter((machine) => machine.category === categoryId);
-  }
-
-  function isMastMachine(machine) {
-    const text = `${machine.manufacturer || ""} ${machine.model || ""} ${machine.sourceCategory || ""} ${machine.id || ""}`.toLowerCase();
-    return text.includes("toucan") || text.includes("mast") || text.includes("stož") || text.includes("stoz") || text.includes("star") || text.includes("vertik");
   }
 
   function chooseCategory(categoryId) {
@@ -157,7 +141,12 @@
     if (!selectedCategory || selectedCategory === "all") return;
 
     const filters = readFilters();
-    const categoryMachines = getMachinesForCategory(selectedCategory);
+    const categoryMachines = machines.filter((machine)=>{
+ if(selectedCategory==="mast"){
+   return machine.category==="mast" || /toucan|star|mast|vert/i.test(`${machine.model} ${machine.sourceCategory||""}`);
+ }
+ return machine.category===selectedCategory;
+});
     const evaluated = categoryMachines.map((machine) => evaluateMachine(machine, filters));
     const exact = evaluated.filter((item) => item.failures.length === 0).sort((a, b) => a.score - b.score);
 
@@ -175,6 +164,7 @@
     return {
       environment: value("environment"),
       workingHeight: numberValue("workingHeight"),
+      capacity: null,
       outreach: numberValue("outreach"),
       maxWidth: numberValue("maxWidth"),
       maxLength: numberValue("maxLength"),
@@ -192,6 +182,7 @@
     if (filters.environment === "outdoor" && !machine.outdoor) addFailure("není určen pro venkovní provoz", 1500);
 
     compareMinimum(machine.workingHeightM, filters.workingHeight, "pracovní výška", "m", 450);
+    
     compareMinimum(machine.outreachM, filters.outreach, "boční dosah", "m", 350, true);
     compareMaximum(machine.dimensions?.widthM, filters.maxWidth, "šířka stroje", "m", 500, true);
     compareMaximum(machine.dimensions?.lengthM, filters.maxLength, "délka stroje", "m", 250, true);
@@ -205,9 +196,10 @@
     }
 
     const heightSurplus = filters.workingHeight == null ? machine.workingHeightM : Math.max(0, machine.workingHeightM - filters.workingHeight);
+    const capacitySurplus = filters.capacity == null ? 0 : Math.max(0, machine.capacityKg - filters.capacity);
     const footprint = (machine.dimensions?.lengthM ?? 20) * (machine.dimensions?.widthM ?? 5);
     const weightFactor = (machine.weightKg ?? 50000) / 10000;
-    const score = heightSurplus * 100 + footprint * 8 + weightFactor;
+    const score = heightSurplus * 100 + capacitySurplus * 0.15 + footprint * 8 + weightFactor;
 
     return { machine, failures, penalty, score };
 
@@ -343,6 +335,9 @@
     const parts = [];
     if (filters.workingHeight != null) {
       parts.push(`pracovní výška ${formatNumber(machine.workingHeightM)} m má rezervu ${formatNumber(machine.workingHeightM - filters.workingHeight)} m`);
+    }
+    if (filters.capacity != null) {
+      parts.push(`nosnost ${machine.capacityText || `${formatNumber(machine.capacityKg)} kg`} splňuje minimum ${formatNumber(filters.capacity)} kg`);
     }
     if (filters.outreach != null && machine.outreachM != null) {
       parts.push(`boční dosah ${formatNumber(machine.outreachM)} m splňuje minimum ${formatNumber(filters.outreach)} m`);
