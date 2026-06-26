@@ -1,5 +1,5 @@
 window.MACHINE_CATALOG = {
-  "version": "0.2.7",
+  "version": "0.2.8",
   "updatedAt": "2026-06-26",
   "sourceName": "Ve?ejn? katalog P?j?ovny stroj? Zeppelin CZ",
   "machines": [
@@ -1649,41 +1649,6 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Teleskopická plošina JLG 1200 SJP nabízena k pronájmu poskytuje mimořádný dosah a stabilitu při těžkých úkolech.",
       "maxChassisTiltDeg": 5
-    },
-    {
-      "id": "niftylift-nifty-120t",
-      "manufacturer": "Niftylift",
-      "model": "NIFTY 120T",
-      "category": "trailer",
-      "sourceCategory": "vlečná plošina",
-      "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/vlecne-plosiny/niftylift-nifty-120t",
-      "image": "assets/images/niftylift-nifty-120t.webp",
-      "workingHeightM": 12.2,
-      "platformHeightM": 10.2,
-      "capacityKg": 200,
-      "capacityText": "200 kg",
-      "maxPersons": null,
-      "outreachM": 6.1,
-      "drive": "bateriový / benzinový motor",
-      "driveGroup": "hybrid",
-      "indoor": true,
-      "outdoor": true,
-      "terrain": [
-        "solid",
-        "paved"
-      ],
-      "dimensions": {
-        "lengthM": 4.5,
-        "widthM": 1.5,
-        "heightM": 1.9
-      },
-      "foldedHeightM": null,
-      "platformText": "1,10 × 0,65 m",
-      "weightKg": 1400,
-      "priceShort": "2 710 Kč/den bez DPH",
-      "priceLong": "1 840 Kč/den bez DPH",
-      "verifiedImage": true,
-      "description": "Vlečná plošina Niftylift 120T je k zapůjčení pro flexibilní práci ve výškách s jednoduchou obsluhou."
     },
     {
       "id": "ommelift-1300-ebp",
