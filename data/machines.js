@@ -1,5 +1,5 @@
 window.MACHINE_CATALOG = {
-  "version": "0.2.3",
+  "version": "0.2.4",
   "updatedAt": "2026-06-26",
   "sourceName": "Ve?ejn? katalog P?j?ovny stroj? Zeppelin CZ",
   "machines": [
@@ -1646,7 +1646,7 @@ window.MACHINE_CATALOG = {
       "priceShort": "2 710 Kč/den bez DPH",
       "priceLong": "1 840 Kč/den bez DPH",
       "verifiedImage": true,
-      "description": "Přívěsná plošina Niftylift 120T je k zapůjčení pro flexibilní práci ve výškách s jednoduchou obsluhou."
+      "description": "Vlečná plošina Niftylift 120T je k zapůjčení pro flexibilní práci ve výškách s jednoduchou obsluhou."
     },
     {
       "id": "ommelift-1300-ebp",

@@ -8,8 +8,8 @@
     { id: "scissor", label: "Nůžkové", icon: iconScissor(), description: "Rovná plocha, sklad, hala, montáže" },
     { id: "articulated", label: "Kloubové", icon: iconArticulated(), description: "Přes překážku a do stran" },
     { id: "telescopic", label: "Teleskopické", icon: iconTelescopic(), description: "Velký boční dosah" },
-    { id: "trailer", label: "Přívěsné", icon: iconTrailerOmme(), description: "Vlečné plošiny typu OMME" },
-    { id: "mast", label: "Vertikální", icon: iconMast(), description: "Úzké stožárové plošiny" }
+    { id: "trailer", label: "Vlečné", icon: iconTrailerOmme(), description: "Vlečné plošiny typu OMME" },
+    { id: "mast", label: "Anténní", icon: iconMast(), description: "Stožárové plošiny typu Toucan" }
   ];
 
   const categoryMap = Object.fromEntries(categories.map((category) => [category.id, category]));
@@ -32,10 +32,10 @@
     return `<svg viewBox="0 0 120 90" class="icon-drawing line" role="img"><path d="M20 72h42M28 72a6 6 0 1 0 .1 0M55 72a6 6 0 1 0 .1 0M36 65l16-18 43-24M49 48l46-25M92 18h16v16H92z"/></svg>`;
   }
   function iconTrailerOmme() {
-    return `<svg viewBox="0 0 120 90" class="icon-drawing line" role="img"><path d="M18 72h70M28 72a6 6 0 1 0 .1 0M68 72a6 6 0 1 0 .1 0M88 72l14-8M28 64h38M46 64l16-30M62 34h24M86 28h20v14H86z"/></svg>`;
+    return `<svg viewBox="0 0 120 90" class="icon-drawing line" role="img"><path d="M20 72h74M68 72a7 7 0 1 0 .1 0M26 72l-12 8M88 72l12 8M18 66h48M18 66l-10-7M66 66l12-7M86 66l22-11M44 63l20-27M64 36l24 16M39 63l32-18M90 48h18M24 66l7-14M31 52h26"/></svg>`;
   }
   function iconMast() {
-    return `<svg viewBox="0 0 120 90" class="icon-drawing line" role="img"><path d="M36 74h48M48 74a5 5 0 1 0 .1 0M72 74a5 5 0 1 0 .1 0M60 72V24M50 24h20M50 38h20M50 52h20M72 34h22v16H72z"/></svg>`;
+    return `<svg viewBox="0 0 120 90" class="icon-drawing line" role="img"><path d="M34 74h34M42 74a5 5 0 1 0 .1 0M60 74a5 5 0 1 0 .1 0M51 72V22M45 22h12M45 34h12M45 46h12M45 58h12M57 26l18 12M75 38l13 12M86 44h20v16H86zM40 72h30M36 66h28"/></svg>`;
   }
 
   const terrainLabels = {
