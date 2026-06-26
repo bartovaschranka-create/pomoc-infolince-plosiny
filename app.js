@@ -35,7 +35,7 @@
     return `<svg viewBox="0 0 120 90" class="icon-drawing line" role="img"><path d="M20 72h74M68 72a7 7 0 1 0 .1 0M26 72l-12 8M88 72l12 8M18 66h48M18 66l-10-7M66 66l12-7M86 66l22-11M44 63l20-27M64 36l24 16M39 63l32-18M90 48h18M24 66l7-14M31 52h26"/></svg>`;
   }
   function iconMast() {
-    return `<svg viewBox="0 0 120 90" class="icon-drawing line" role="img"><path d="M34 74h34M42 74a5 5 0 1 0 .1 0M60 74a5 5 0 1 0 .1 0M51 72V22M45 22h12M45 34h12M45 46h12M45 58h12M57 26l18 12M75 38l13 12M86 44h20v16H86zM40 72h30M36 66h28"/></svg>`;
+    return `<svg viewBox="0 0 120 90" class="icon-drawing line" role="img"><path d="M34 74h34M42 74a5 5 0 1 0 .1 0M60 74a5 5 0 1 0 .1 0M40 72h30M36 66h28M47 71V25M56 71V25M51.5 69V27M45 24h13M45 64h13M56 27l18 11M74 38l13 12M86 44h20v16H86z"/></svg>`;
   }
 
   const terrainLabels = {
