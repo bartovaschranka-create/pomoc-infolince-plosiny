@@ -1,5 +1,5 @@
 window.MACHINE_CATALOG = {
-  "version": "0.2.0",
+  "version": "0.2.1",
   "updatedAt": "2026-06-26",
   "sourceName": "Ve?ejn? katalog P?j?ovny stroj? Zeppelin CZ",
   "machines": [
@@ -10,7 +10,7 @@ window.MACHINE_CATALOG = {
       "category": "scissor",
       "sourceCategory": "nůžková plošina bateriová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/nuzkove-plosiny/genie-gs-1432",
-      "image": "assets/images/gs-1432.webp",
+      "image": "assets/images/genie-gs-1432.webp",
       "workingHeightM": 6.3,
       "platformHeightM": 4.3,
       "capacityKg": 270,
@@ -45,7 +45,7 @@ window.MACHINE_CATALOG = {
       "category": "scissor",
       "sourceCategory": "nůžková plošina bateriová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/nuzkove-plosiny/jlg-es1530l",
-      "image": "assets/images/placeholder-scissor.svg",
+      "image": "assets/images/jlg-es1530l.webp",
       "workingHeightM": 6.5,
       "platformHeightM": 4.5,
       "capacityKg": 277,
@@ -70,7 +70,7 @@ window.MACHINE_CATALOG = {
       "weightKg": 880,
       "priceShort": "680 Kč/den bez DPH",
       "priceLong": "520 Kč/den bez DPH",
-      "verifiedImage": false,
+      "verifiedImage": true,
       "description": "Nůžková plošina JLG ES1530L je k zapůjčení pro tichou, stabilní a bezpečnou práci ve vnitřních výškách."
     },
     {
@@ -80,7 +80,7 @@ window.MACHINE_CATALOG = {
       "category": "scissor",
       "sourceCategory": "nůžková plošina bateriová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/nuzkove-plosiny/jlg-1532-r",
-      "image": "assets/images/placeholder-scissor.svg",
+      "image": "assets/images/jlg-1532-r.webp",
       "workingHeightM": 6.6,
       "platformHeightM": 4.6,
       "capacityKg": 270,
@@ -105,7 +105,7 @@ window.MACHINE_CATALOG = {
       "weightKg": 1237,
       "priceShort": "710 Kč/den bez DPH",
       "priceLong": "550 Kč/den bez DPH",
-      "verifiedImage": false,
+      "verifiedImage": true,
       "description": "Nůžková plošina JLG 1532 R lze pronajmout pro údržbu a montáže s vyšším zdvihem a stabilní platformou."
     },
     {
@@ -150,7 +150,7 @@ window.MACHINE_CATALOG = {
       "category": "scissor",
       "sourceCategory": "nůžková plošina bateriová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/nuzkove-plosiny/genie-gs-1932-dc",
-      "image": "assets/images/placeholder-scissor.svg",
+      "image": "assets/images/genie-gs-1932-dc.webp",
       "workingHeightM": 7.8,
       "platformHeightM": 5.8,
       "capacityKg": 227,
@@ -175,7 +175,7 @@ window.MACHINE_CATALOG = {
       "weightKg": 1498,
       "priceShort": "740 Kč/den bez DPH",
       "priceLong": "570 Kč/den bez DPH",
-      "verifiedImage": false,
+      "verifiedImage": true,
       "description": "Nůžková plošina Genie GS-1932 DC je k zapůjčení pro tichý elektrický provoz a bezpečnou práci ve výškách."
     },
     {
@@ -185,7 +185,7 @@ window.MACHINE_CATALOG = {
       "category": "scissor",
       "sourceCategory": "nůžková plošina bateriová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/nuzkove-plosiny/genie-gs-2032-dc",
-      "image": "assets/images/placeholder-scissor.svg",
+      "image": "assets/images/genie-gs-2032-dc.webp",
       "workingHeightM": 7.9,
       "platformHeightM": 5.9,
       "capacityKg": 363,
@@ -210,7 +210,7 @@ window.MACHINE_CATALOG = {
       "weightKg": 1825,
       "priceShort": "760 Kč/den bez DPH",
       "priceLong": "600 Kč/den bez DPH",
-      "verifiedImage": false,
+      "verifiedImage": true,
       "description": "Nůžková plošina Genie GS-2032 DC je k pronájmu pro stabilní zdvih, tichý chod a bezpečný provoz v halách."
     },
     {
@@ -220,7 +220,7 @@ window.MACHINE_CATALOG = {
       "category": "scissor",
       "sourceCategory": "nůžková plošina bateriová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/nuzkove-plosiny/genie-gs-2046-dc",
-      "image": "assets/images/placeholder-scissor.svg",
+      "image": "assets/images/genie-gs-2046-dc.webp",
       "workingHeightM": 7.9,
       "platformHeightM": 5.9,
       "capacityKg": 544,
@@ -245,7 +245,7 @@ window.MACHINE_CATALOG = {
       "weightKg": 1974,
       "priceShort": "820 Kč/den bez DPH",
       "priceLong": "650 Kč/den bez DPH",
-      "verifiedImage": false,
+      "verifiedImage": true,
       "description": "Nůžková plošina Genie GS-2046 DC lze zapůjčit pro větší pracovní výšku a komfortní obsluhu."
     },
     {
@@ -255,7 +255,7 @@ window.MACHINE_CATALOG = {
       "category": "scissor",
       "sourceCategory": "nůžková plošina bateriová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/nuzkove-plosiny/jlg-2632-es",
-      "image": "assets/images/placeholder-scissor.svg",
+      "image": "assets/images/jlg-2632-es.webp",
       "workingHeightM": 9.8,
       "platformHeightM": 7.8,
       "capacityKg": 230,
@@ -280,7 +280,7 @@ window.MACHINE_CATALOG = {
       "weightKg": 2135,
       "priceShort": "820 Kč/den bez DPH",
       "priceLong": "650 Kč/den bez DPH",
-      "verifiedImage": false,
+      "verifiedImage": true,
       "description": "Nůžková plošina JLG 2632 ES lze pronajmout pro údržbu, montáže a efektivní práci ve vnitřních výškách."
     },
     {
@@ -290,7 +290,7 @@ window.MACHINE_CATALOG = {
       "category": "scissor",
       "sourceCategory": "nůžková plošina bateriová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/nuzkove-plosiny/genie-gs-2632-dc",
-      "image": "assets/images/placeholder-scissor.svg",
+      "image": "assets/images/genie-gs-2632-dc.webp",
       "workingHeightM": 9.8,
       "platformHeightM": 7.8,
       "capacityKg": 227,
@@ -315,7 +315,7 @@ window.MACHINE_CATALOG = {
       "weightKg": 1956,
       "priceShort": "820 Kč/den bez DPH",
       "priceLong": "650 Kč/den bez DPH",
-      "verifiedImage": false,
+      "verifiedImage": true,
       "description": "Nůžková plošina Genie GS-2632 DC je k zapůjčení pro přesnou práci v úzkých prostorech a tichý chod."
     },
     {
@@ -325,7 +325,7 @@ window.MACHINE_CATALOG = {
       "category": "scissor",
       "sourceCategory": "nůžková plošina bateriová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/nuzkove-plosiny/genie-gs-2646-dc",
-      "image": "assets/images/gs-2646.webp",
+      "image": "assets/images/genie-gs-2646-dc.webp",
       "workingHeightM": 9.8,
       "platformHeightM": 7.8,
       "capacityKg": 454,
@@ -360,7 +360,7 @@ window.MACHINE_CATALOG = {
       "category": "scissor",
       "sourceCategory": "nůžková plošina bateriová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/nuzkove-plosiny/jlg-2646-es",
-      "image": "assets/images/placeholder-scissor.svg",
+      "image": "assets/images/jlg-2646-es.webp",
       "workingHeightM": 9.9,
       "platformHeightM": 7.9,
       "capacityKg": 450,
@@ -385,7 +385,7 @@ window.MACHINE_CATALOG = {
       "weightKg": 2740,
       "priceShort": "870 Kč/den bez DPH",
       "priceLong": "710 Kč/den bez DPH",
-      "verifiedImage": false,
+      "verifiedImage": true,
       "description": "Nůžková plošina JLG 2646 ES nabízena k zapůjčení poskytuje velkou platformu a stabilní elektrický provoz."
     },
     {
@@ -395,7 +395,7 @@ window.MACHINE_CATALOG = {
       "category": "scissor",
       "sourceCategory": "nůžková plošina bateriová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/nuzkove-plosiny/jlg-3246-es",
-      "image": "assets/images/placeholder-scissor.svg",
+      "image": "assets/images/jlg-3246-es.webp",
       "workingHeightM": 11.7,
       "platformHeightM": 9.7,
       "capacityKg": 320,
@@ -420,7 +420,7 @@ window.MACHINE_CATALOG = {
       "weightKg": 2905,
       "priceShort": "1 140 Kč/den bez DPH",
       "priceLong": "930 Kč/den bez DPH",
-      "verifiedImage": false,
+      "verifiedImage": true,
       "description": "Nůžková plošina JLG 3246 ES lze zapůjčit pro spolehlivou práci ve výškách s komfortní obsluhou."
     },
     {
@@ -430,7 +430,7 @@ window.MACHINE_CATALOG = {
       "category": "scissor",
       "sourceCategory": "nůžková plošina bateriová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/nuzkove-plosiny/genie-gs-3246-dc",
-      "image": "assets/images/placeholder-scissor.svg",
+      "image": "assets/images/genie-gs-3246-dc.webp",
       "workingHeightM": 11.7,
       "platformHeightM": 9.7,
       "capacityKg": 318,
@@ -455,7 +455,7 @@ window.MACHINE_CATALOG = {
       "weightKg": 2812,
       "priceShort": "1 140 Kč/den bez DPH",
       "priceLong": "930 Kč/den bez DPH",
-      "verifiedImage": false,
+      "verifiedImage": true,
       "description": "Nůžková plošina Genie GS-3246 DC je k pronájmu pro vysoké zdvihy, prostornou platformu a tichý provoz."
     },
     {
@@ -465,7 +465,7 @@ window.MACHINE_CATALOG = {
       "category": "scissor",
       "sourceCategory": "nůžková plošina dieselová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/nuzkove-plosiny/genie-gs-3369-rt",
-      "image": "assets/images/gs-3369-rt.webp",
+      "image": "assets/images/genie-gs-3369-rt.webp",
       "workingHeightM": 11.8,
       "platformHeightM": 9.8,
       "capacityKg": 454,
@@ -535,7 +535,7 @@ window.MACHINE_CATALOG = {
       "category": "scissor",
       "sourceCategory": "nůžková plošina bateriová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/nuzkove-plosiny/genie-gs-3390-rt",
-      "image": "assets/images/placeholder-scissor.svg",
+      "image": "assets/images/genie-gs-3390-rt.webp",
       "workingHeightM": 12,
       "platformHeightM": 10,
       "capacityKg": 1134,
@@ -560,7 +560,7 @@ window.MACHINE_CATALOG = {
       "weightKg": 6728,
       "priceShort": "1 840 Kč/den bez DPH",
       "priceLong": "1 360 Kč/den bez DPH",
-      "verifiedImage": false,
+      "verifiedImage": true,
       "description": "Terénní nůžková plošina Genie GS-3390 RT je k zapůjčení pro extrémní pracovní výšky a stabilitu v terénu."
     },
     {
@@ -605,7 +605,7 @@ window.MACHINE_CATALOG = {
       "category": "scissor",
       "sourceCategory": "nůžková plošina bateriová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/nuzkove-plosiny/genie-gs-4046",
-      "image": "assets/images/placeholder-scissor.svg",
+      "image": "assets/images/genie-gs-4046.webp",
       "workingHeightM": 13.7,
       "platformHeightM": 11.7,
       "capacityKg": 350,
@@ -630,7 +630,7 @@ window.MACHINE_CATALOG = {
       "weightKg": 3221,
       "priceShort": "1 410 Kč/den bez DPH",
       "priceLong": "1 080 Kč/den bez DPH",
-      "verifiedImage": false,
+      "verifiedImage": true,
       "description": "Nůžková plošina Genie GS-4046 je k zapůjčení pro větší pracovní výšky, stabilitu a tichý chod."
     },
     {
@@ -675,7 +675,7 @@ window.MACHINE_CATALOG = {
       "category": "scissor",
       "sourceCategory": "nůžková plošina bateriová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/nuzkove-plosiny/jlg-4045-r",
-      "image": "assets/images/placeholder-scissor.svg",
+      "image": "assets/images/jlg-4045-r.webp",
       "workingHeightM": 14,
       "platformHeightM": 12,
       "capacityKg": 350,
@@ -700,7 +700,7 @@ window.MACHINE_CATALOG = {
       "weightKg": 3175,
       "priceShort": "1 410 Kč/den bez DPH",
       "priceLong": "1 080 Kč/den bez DPH",
-      "verifiedImage": false,
+      "verifiedImage": true,
       "description": "Nůžková plošina JLG 4045 R lze pronajmout pro efektivní práci ve výškách s úsporným elektrickým systémem."
     },
     {
@@ -710,7 +710,7 @@ window.MACHINE_CATALOG = {
       "category": "scissor",
       "sourceCategory": "nůžková plošina bateriová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/nuzkove-plosiny/genie-gs-4390-rt",
-      "image": "assets/images/placeholder-scissor.svg",
+      "image": "assets/images/genie-gs-4390-rt.webp",
       "workingHeightM": 14.8,
       "platformHeightM": 12.8,
       "capacityKg": 680,
@@ -735,7 +735,7 @@ window.MACHINE_CATALOG = {
       "weightKg": 7163,
       "priceShort": "1 950 Kč/den bez DPH",
       "priceLong": "1 460 Kč/den bez DPH",
-      "verifiedImage": false,
+      "verifiedImage": true,
       "description": "Terénní plošina Genie GS-4390 RT nabízena k zapůjčení poskytuje velkou pracovní plochu a silný výkon v terénu."
     },
     {
@@ -780,7 +780,7 @@ window.MACHINE_CATALOG = {
       "category": "scissor",
       "sourceCategory": "nůžková plošina bateriová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/nuzkove-plosiny/genie-gs-4655-dc",
-      "image": "assets/images/placeholder-scissor.svg",
+      "image": "assets/images/genie-gs-4655-dc.webp",
       "workingHeightM": 15.95,
       "platformHeightM": 13.95,
       "capacityKg": 350,
@@ -805,7 +805,7 @@ window.MACHINE_CATALOG = {
       "weightKg": 3701,
       "priceShort": "2 060 Kč/den bez DPH",
       "priceLong": "1 730 Kč/den bez DPH",
-      "verifiedImage": false,
+      "verifiedImage": true,
       "description": "Nůžková plošina Genie GS-4655 DC nabízena k pronájmu poskytuje vysoký zdvih, prostornou platformu a tichý provoz."
     },
     {
@@ -815,7 +815,7 @@ window.MACHINE_CATALOG = {
       "category": "scissor",
       "sourceCategory": "nůžková plošina bateriová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/nuzkove-plosiny/genie-gs-5390-rt",
-      "image": "assets/images/placeholder-scissor.svg",
+      "image": "assets/images/genie-gs-5390-rt.webp",
       "workingHeightM": 18,
       "platformHeightM": 16,
       "capacityKg": 680,
@@ -840,7 +840,7 @@ window.MACHINE_CATALOG = {
       "weightKg": 8050,
       "priceShort": "2 160 Kč/den bez DPH",
       "priceLong": "1 680 Kč/den bez DPH",
-      "verifiedImage": false,
+      "verifiedImage": true,
       "description": "Terénní nůžková plošina Genie GS-5390 RT je k pronájmu pro extrémní výšky, terénní provoz a vysokou stabilitu."
     },
     {
@@ -850,7 +850,7 @@ window.MACHINE_CATALOG = {
       "category": "mast",
       "sourceCategory": "kloubová plošina bateriová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/kloubove-plosiny/jlg-toucan-10e",
-      "image": "assets/images/toucan-10e.webp",
+      "image": "assets/images/jlg-toucan-10e.webp",
       "workingHeightM": 10.1,
       "platformHeightM": 8.1,
       "capacityKg": 200,
@@ -885,7 +885,7 @@ window.MACHINE_CATALOG = {
       "category": "mast",
       "sourceCategory": "kloubová plošina bateriová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/kloubove-plosiny/jlg-toucan-12e",
-      "image": "assets/images/toucan-12e.webp",
+      "image": "assets/images/jlg-toucan-12e.webp",
       "workingHeightM": 11.8,
       "platformHeightM": 9.8,
       "capacityKg": 200,
@@ -920,7 +920,7 @@ window.MACHINE_CATALOG = {
       "category": "mast",
       "sourceCategory": "kloubová plošina bateriová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/kloubove-plosiny/jlg-toucan-12e-plus",
-      "image": "assets/images/placeholder-mast.svg",
+      "image": "assets/images/jlg-toucan-12e-plus.webp",
       "workingHeightM": 12.65,
       "platformHeightM": 10.65,
       "capacityKg": 200,
@@ -945,7 +945,7 @@ window.MACHINE_CATALOG = {
       "weightKg": 4900,
       "priceShort": "1 950 Kč/den bez DPH",
       "priceLong": "1 680 Kč/den bez DPH",
-      "verifiedImage": false,
+      "verifiedImage": true,
       "description": "Kloubová plošina JLG Toucan 12E Plus je k pronájmu, ideální pro práci v halách s obrovskou manévrovatelností."
     },
     {
@@ -955,7 +955,7 @@ window.MACHINE_CATALOG = {
       "category": "articulated",
       "sourceCategory": "kloubová plošina bateriová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/kloubove-plosiny/genie-z-30-20-n",
-      "image": "assets/images/placeholder-articulated.svg",
+      "image": "assets/images/genie-z-30-20-n.webp",
       "workingHeightM": 11,
       "platformHeightM": 9,
       "capacityKg": 230,
@@ -980,7 +980,7 @@ window.MACHINE_CATALOG = {
       "weightKg": 7100,
       "priceShort": "1 730 Kč/den bez DPH",
       "priceLong": "1 460 Kč/den bez DPH",
-      "verifiedImage": false,
+      "verifiedImage": true,
       "description": "Kloubová plošina Genie Z-30/20 N nabízena k zapůjčení poskytuje přesný dosah a tichý chod v úzkých prostorách."
     },
     {
@@ -990,7 +990,7 @@ window.MACHINE_CATALOG = {
       "category": "articulated",
       "sourceCategory": "kloubová plošina bateriová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/kloubove-plosiny/genie-z-34-22-n",
-      "image": "assets/images/placeholder-articulated.svg",
+      "image": "assets/images/genie-z-34-22-n.webp",
       "workingHeightM": 12.5,
       "platformHeightM": 10.5,
       "capacityKg": 227,
@@ -1015,7 +1015,7 @@ window.MACHINE_CATALOG = {
       "weightKg": 5171,
       "priceShort": "1 840 Kč/den bez DPH",
       "priceLong": "1 580 Kč/den bez DPH",
-      "verifiedImage": false,
+      "verifiedImage": true,
       "description": "Kloubová plošina Genie Z-34/22 N lze zapůjčit pro flexibilní práci ve výškách s velmi přesným ovládáním."
     },
     {
@@ -1025,7 +1025,7 @@ window.MACHINE_CATALOG = {
       "category": "articulated",
       "sourceCategory": "kloubová plošina bateriová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/kloubove-plosiny/jlg-e400-ajpn",
-      "image": "assets/images/placeholder-articulated.svg",
+      "image": "assets/images/jlg-e400-ajpn.webp",
       "workingHeightM": 14.2,
       "platformHeightM": 12.2,
       "capacityKg": 230,
@@ -1050,7 +1050,7 @@ window.MACHINE_CATALOG = {
       "weightKg": 6850,
       "priceShort": "2 060 Kč/den bez DPH",
       "priceLong": "1 730 Kč/den bez DPH",
-      "verifiedImage": false,
+      "verifiedImage": true,
       "description": "Kloubová plošina JLG E400 AJPn nabízena k zapůjčení poskytuje kombinaci přesného dosahu a tichého elektrického chodu."
     },
     {
@@ -1060,7 +1060,7 @@ window.MACHINE_CATALOG = {
       "category": "articulated",
       "sourceCategory": "kloubová plošina bateriová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/kloubove-plosiny/jlg-450-aj",
-      "image": "assets/images/placeholder-articulated.svg",
+      "image": "assets/images/jlg-450-aj.webp",
       "workingHeightM": 15.7,
       "platformHeightM": 13.7,
       "capacityKg": 230,
@@ -1085,7 +1085,7 @@ window.MACHINE_CATALOG = {
       "weightKg": 6250,
       "priceShort": "2 270 Kč/den bez DPH",
       "priceLong": "1 890 Kč/den bez DPH",
-      "verifiedImage": false,
+      "verifiedImage": true,
       "description": "Kloubová plošina JLG 450 AJ je k zapůjčení pro flexibilní práci ve výškách s výbornou obratností."
     },
     {
@@ -1095,7 +1095,7 @@ window.MACHINE_CATALOG = {
       "category": "articulated",
       "sourceCategory": "kloubová plošina bateriová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/kloubove-plosiny/jlg-e450-aj",
-      "image": "assets/images/placeholder-articulated.svg",
+      "image": "assets/images/jlg-e450-aj.webp",
       "workingHeightM": 15.7,
       "platformHeightM": 13.7,
       "capacityKg": 230,
@@ -1120,7 +1120,7 @@ window.MACHINE_CATALOG = {
       "weightKg": 6670,
       "priceShort": "2 110 Kč/den bez DPH",
       "priceLong": "1 790 Kč/den bez DPH",
-      "verifiedImage": false,
+      "verifiedImage": true,
       "description": "Kloubová plošina JLG E450 AJ je k pronájmu pro náročné pracovní výšky s vysokým výkonem a stabilitou."
     },
     {
@@ -1165,7 +1165,7 @@ window.MACHINE_CATALOG = {
       "category": "articulated",
       "sourceCategory": "kloubová plošina bateriová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/kloubove-plosiny/genie-z-45-25-jdc",
-      "image": "assets/images/placeholder-articulated.svg",
+      "image": "assets/images/genie-z-45-25-jdc.webp",
       "workingHeightM": 15.9,
       "platformHeightM": 13.9,
       "capacityKg": 227,
@@ -1190,7 +1190,7 @@ window.MACHINE_CATALOG = {
       "weightKg": 7394,
       "priceShort": "2 110 Kč/den bez DPH",
       "priceLong": "1 790 Kč/den bez DPH",
-      "verifiedImage": false,
+      "verifiedImage": true,
       "description": "Kloubová plošina Genie Z-45/25 JDC lze zapůjčit pro efektivní práci ve výškách s rychlou a plynulou reakcí ramen."
     },
     {
@@ -1235,7 +1235,7 @@ window.MACHINE_CATALOG = {
       "category": "articulated",
       "sourceCategory": "kloubová plošina bateriová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/kloubove-plosiny/genie-z-45-25-jrt",
-      "image": "assets/images/placeholder-articulated.svg",
+      "image": "assets/images/genie-z-45-25-jrt.webp",
       "workingHeightM": 16.1,
       "platformHeightM": 14.1,
       "capacityKg": 227,
@@ -1260,7 +1260,7 @@ window.MACHINE_CATALOG = {
       "weightKg": 6460,
       "priceShort": "2 270 Kč/den bez DPH",
       "priceLong": "1 890 Kč/den bez DPH",
-      "verifiedImage": false,
+      "verifiedImage": true,
       "description": "Terénní plošina Genie Z-45/25 JRT nabízena k pronájmu poskytuje skvělou průchodnost terénem a vysoký výkon."
     },
     {
@@ -1270,7 +1270,7 @@ window.MACHINE_CATALOG = {
       "category": "articulated",
       "sourceCategory": "kloubová plošina bateriová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/kloubove-plosiny/genie-z-51-30-jrt",
-      "image": "assets/images/placeholder-articulated.svg",
+      "image": "assets/images/genie-z-51-30-jrt.webp",
       "workingHeightM": 17.6,
       "platformHeightM": 15.6,
       "capacityKg": 227,
@@ -1295,7 +1295,7 @@ window.MACHINE_CATALOG = {
       "weightKg": 7394,
       "priceShort": "2 330 Kč/den bez DPH",
       "priceLong": "1 950 Kč/den bez DPH",
-      "verifiedImage": false,
+      "verifiedImage": true,
       "description": "Kloubová plošina Genie Z-51/30 JRT je k zapůjčení pro náročné terénní práce s velkým pracovním dosahem."
     },
     {
@@ -1305,7 +1305,7 @@ window.MACHINE_CATALOG = {
       "category": "articulated",
       "sourceCategory": "kloubová plošina bateriová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/kloubove-plosiny/jlg-520-aj",
-      "image": "assets/images/placeholder-articulated.svg",
+      "image": "assets/images/jlg-520-aj.webp",
       "workingHeightM": 18,
       "platformHeightM": 16,
       "capacityKg": 250,
@@ -1330,7 +1330,7 @@ window.MACHINE_CATALOG = {
       "weightKg": 7985,
       "priceShort": "2 330 Kč/den bez DPH",
       "priceLong": "1 950 Kč/den bez DPH",
-      "verifiedImage": false,
+      "verifiedImage": true,
       "description": "Teleskopická plošina JLG 520 AJ lze pronajmout pro flexibilní přístup do výšek a náročné pracovní podmínky."
     },
     {
@@ -1340,7 +1340,7 @@ window.MACHINE_CATALOG = {
       "category": "articulated",
       "sourceCategory": "kloubová plošina bateriová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/kloubove-plosiny/jlg-600-aj",
-      "image": "assets/images/placeholder-articulated.svg",
+      "image": "assets/images/jlg-600-aj.webp",
       "workingHeightM": 20.5,
       "platformHeightM": 18.5,
       "capacityKg": 230,
@@ -1365,7 +1365,7 @@ window.MACHINE_CATALOG = {
       "weightKg": 10830,
       "priceShort": "3 190 Kč/den bez DPH",
       "priceLong": "2 810 Kč/den bez DPH",
-      "verifiedImage": false,
+      "verifiedImage": true,
       "description": "Teleskopická plošina JLG 600 AJ nabízena k pronájmu nabízí velký dosah a vysoký výkon pro průmyslové i stavební práce."
     },
     {
@@ -1375,7 +1375,7 @@ window.MACHINE_CATALOG = {
       "category": "articulated",
       "sourceCategory": "kloubová plošina bateriová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/kloubove-plosiny/genie-z-62-40-rt",
-      "image": "assets/images/placeholder-articulated.svg",
+      "image": "assets/images/genie-z-62-40-rt.webp",
       "workingHeightM": 20.9,
       "platformHeightM": 18.9,
       "capacityKg": 227,
@@ -1400,7 +1400,7 @@ window.MACHINE_CATALOG = {
       "weightKg": 10281,
       "priceShort": "3 190 Kč/den bez DPH",
       "priceLong": "2 810 Kč/den bez DPH",
-      "verifiedImage": false,
+      "verifiedImage": true,
       "description": "Teleskopická plošina Genie Z-62/40 RT je k zapůjčení pro extrémní výškové práce a stabilní výkon v terénu."
     },
     {
@@ -1410,7 +1410,7 @@ window.MACHINE_CATALOG = {
       "category": "articulated",
       "sourceCategory": "kloubová plošina bateriová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/kloubove-plosiny/jlg-800-aj",
-      "image": "assets/images/placeholder-articulated.svg",
+      "image": "assets/images/jlg-800-aj.webp",
       "workingHeightM": 26.4,
       "platformHeightM": 24.4,
       "capacityKg": 230,
@@ -1435,7 +1435,7 @@ window.MACHINE_CATALOG = {
       "weightKg": 16110,
       "priceShort": "4 750 Kč/den bez DPH",
       "priceLong": "4 100 Kč/den bez DPH",
-      "verifiedImage": false,
+      "verifiedImage": true,
       "description": "Teleskopická plošina JLG 800 AJ nabízena k pronájmu poskytuje vysoký dosah, stabilitu a jistotu i při těžkém nasazení."
     },
     {
@@ -1445,7 +1445,7 @@ window.MACHINE_CATALOG = {
       "category": "articulated",
       "sourceCategory": "kloubová plošina dieselová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/kloubove-plosiny/jlg-1250-ajp",
-      "image": "assets/images/placeholder-articulated.svg",
+      "image": "assets/images/jlg-1250-ajp.webp",
       "workingHeightM": 40.3,
       "platformHeightM": 38.3,
       "capacityKg": 0,
@@ -1470,7 +1470,7 @@ window.MACHINE_CATALOG = {
       "weightKg": 19980,
       "priceShort": "9 930 Kč/den bez DPH",
       "priceLong": "6 800 Kč/den bez DPH",
-      "verifiedImage": false,
+      "verifiedImage": true,
       "description": "Teleskopická plošina JLG 1250 AJP je k zapůjčení pro práci v extrémních výškách s maximální produktivitou."
     },
     {
@@ -1480,7 +1480,7 @@ window.MACHINE_CATALOG = {
       "category": "telescopic",
       "sourceCategory": "teleskopická plošina dieselová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/teleskopicke-plosiny/jlg-460-sj",
-      "image": "assets/images/placeholder-telescopic.svg",
+      "image": "assets/images/jlg-460-sj.webp",
       "workingHeightM": 16,
       "platformHeightM": 14,
       "capacityKg": 230,
@@ -1505,7 +1505,7 @@ window.MACHINE_CATALOG = {
       "weightKg": 7850,
       "priceShort": "2 490 Kč/den bez DPH",
       "priceLong": "2 010 Kč/den bez DPH",
-      "verifiedImage": false,
+      "verifiedImage": true,
       "description": "Teleskopická plošina JLG 460 SJ nabízena k zapůjčení poskytuje dlouhý dosah a stabilní výkon ve výškách."
     },
     {
@@ -1515,7 +1515,7 @@ window.MACHINE_CATALOG = {
       "category": "telescopic",
       "sourceCategory": "teleskopická plošina dieselová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/teleskopicke-plosiny/jlg-660-sj",
-      "image": "assets/images/placeholder-telescopic.svg",
+      "image": "assets/images/jlg-660-sj.webp",
       "workingHeightM": 22,
       "platformHeightM": 20,
       "capacityKg": 230,
@@ -1540,7 +1540,7 @@ window.MACHINE_CATALOG = {
       "weightKg": 11902,
       "priceShort": "3 140 Kč/den bez DPH",
       "priceLong": "2 650 Kč/den bez DPH",
-      "verifiedImage": false,
+      "verifiedImage": true,
       "description": "Teleskopická plošina JLG 660 SJ je k pronájmu pro robustní práci ve výškách s velkým horizontálním dosahem."
     },
     {
@@ -1620,7 +1620,7 @@ window.MACHINE_CATALOG = {
       "category": "trailer",
       "sourceCategory": "vlečná plošina",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/vlecne-plosiny/niftylift-nifty-120t",
-      "image": "assets/images/nifty-120t.webp",
+      "image": "assets/images/niftylift-nifty-120t.webp",
       "workingHeightM": 12.2,
       "platformHeightM": 10.2,
       "capacityKg": 200,
@@ -1655,7 +1655,7 @@ window.MACHINE_CATALOG = {
       "category": "trailer",
       "sourceCategory": "vlečná plošina",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/vlecne-plosiny/ommelift-1300-ebp",
-      "image": "assets/images/placeholder-trailer.svg",
+      "image": "assets/images/ommelift-1300-ebp.webp",
       "workingHeightM": 12.8,
       "platformHeightM": 10.8,
       "capacityKg": 200,
@@ -1680,7 +1680,7 @@ window.MACHINE_CATALOG = {
       "weightKg": 1850,
       "priceShort": "2 710 Kč/den bez DPH",
       "priceLong": "1 840 Kč/den bez DPH",
-      "verifiedImage": false,
+      "verifiedImage": true,
       "description": "Plošina Ommelift 1300 EBP nabízena k pronájmu poskytuje kompaktní provoz a bezpečný přístup do výšek."
     },
     {
@@ -1690,7 +1690,7 @@ window.MACHINE_CATALOG = {
       "category": "trailer",
       "sourceCategory": "vlečná plošina",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/vlecne-plosiny/ommelift-1500-exbp",
-      "image": "assets/images/placeholder-trailer.svg",
+      "image": "assets/images/ommelift-1500-exbp.webp",
       "workingHeightM": 15,
       "platformHeightM": 13,
       "capacityKg": 230,
@@ -1715,7 +1715,7 @@ window.MACHINE_CATALOG = {
       "weightKg": 2050,
       "priceShort": "3 020 Kč/den bez DPH",
       "priceLong": "2 160 Kč/den bez DPH",
-      "verifiedImage": false,
+      "verifiedImage": true,
       "description": "Plošina Ommelift 1500 EXBP lze pronajmout pro komfortní výstup do velkých výšek s tichým elektrickým pohonem."
     },
     {
@@ -1725,7 +1725,7 @@ window.MACHINE_CATALOG = {
       "category": "trailer",
       "sourceCategory": "vlečná plošina",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/vlecne-plosiny/ommelift-1700-exbp",
-      "image": "assets/images/ommelift-1700.webp",
+      "image": "assets/images/ommelift-1700-exbp.webp",
       "workingHeightM": 16.8,
       "platformHeightM": 14.8,
       "capacityKg": 200,
