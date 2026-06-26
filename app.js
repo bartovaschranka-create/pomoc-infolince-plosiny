@@ -23,19 +23,19 @@
 
 
   function iconScissor() {
-    return `<svg viewBox="0 0 120 90" class="icon-drawing line" role="img"><path d="M24 20h62v14H24zM32 20v14M50 20v14M68 20v14M38 35l38 36M76 35L38 71M28 72h58M34 72a6 6 0 1 0 .1 0M78 72a6 6 0 1 0 .1 0"/></svg>`;
+    return `<svg viewBox="0 0 120 90" class="icon-drawing line" role="img"><path d="M24 72h58M32 72a5 5 0 1 0 .1 0M74 72a5 5 0 1 0 .1 0M38 68l14-24M68 68L54 44M52 44l14-24M54 44L40 20M28 18h52v12H28zM36 18v12M54 18v12M72 18v12"/></svg>`;
   }
   function iconArticulated() {
-    return `<svg viewBox="0 0 120 90" class="icon-drawing line" role="img"><path d="M18 72h42M28 72a6 6 0 1 0 .1 0M54 72a6 6 0 1 0 .1 0M39 66l17-24 18 12M56 42l15-16 21 8M91 28h17v14H91z"/></svg>`;
+    return `<svg viewBox="0 0 120 90" class="icon-drawing line" role="img"><path d="M20 72h42M30 72a5 5 0 1 0 .1 0M54 72a5 5 0 1 0 .1 0M38 66l18-25M56 41l20 12M56 41l16-17M72 24l22 9M92 31h18v14H92z"/></svg>`;
   }
   function iconTelescopic() {
-    return `<svg viewBox="0 0 120 90" class="icon-drawing line" role="img"><path d="M20 72h42M28 72a6 6 0 1 0 .1 0M55 72a6 6 0 1 0 .1 0M36 65l16-18 43-24M49 48l46-25M92 18h16v16H92z"/></svg>`;
+    return `<svg viewBox="0 0 120 90" class="icon-drawing line" role="img"><path d="M20 72h44M30 72a5 5 0 1 0 .1 0M56 72a5 5 0 1 0 .1 0M38 66l18-19M56 47l39-22M51 52l44-25M92 19h18v14H92z"/></svg>`;
   }
   function iconTrailerOmme() {
-    return `<svg viewBox="0 0 120 90" class="icon-drawing line" role="img"><path d="M20 72h74M68 72a7 7 0 1 0 .1 0M26 72l-12 8M88 72l12 8M18 66h48M18 66l-10-7M66 66l12-7M86 66l22-11M44 63l20-27M64 36l24 16M39 63l32-18M90 48h18M24 66l7-14M31 52h26"/></svg>`;
+    return `<svg viewBox="0 0 120 90" class="icon-drawing line" role="img"><path d="M18 72h74M66 72a6 6 0 1 0 .1 0M22 72l-12 7M88 72l12 7M20 66h48M20 66l-12-8M68 66l14-8M40 64l20-24M60 40l24 14M36 64l36-18M86 52h22M24 66l8-14M32 52h22"/></svg>`;
   }
   function iconMast() {
-    return `<svg viewBox="0 0 120 90" class="icon-drawing line" role="img"><path d="M34 74h34M42 74a5 5 0 1 0 .1 0M60 74a5 5 0 1 0 .1 0M40 72h30M36 66h28M47 71V25M56 71V25M51.5 69V27M45 24h13M45 64h13M56 27l18 11M74 38l13 12M86 44h20v16H86z"/></svg>`;
+    return `<svg viewBox="0 0 120 90" class="icon-drawing line" role="img"><path d="M34 74h36M42 74a5 5 0 1 0 .1 0M62 74a5 5 0 1 0 .1 0M39 68h30M48 68V24M56 68V24M52 66V26M46 24h12M46 64h12M56 28l18 10M74 38l12 11M85 44h21v16H85z"/></svg>`;
   }
 
   const terrainLabels = {
