@@ -1,5 +1,5 @@
 window.MACHINE_CATALOG = {
-  "version": "0.2.1",
+  "version": "0.2.2",
   "updatedAt": "2026-06-26",
   "sourceName": "Ve?ejn? katalog P?j?ovny stroj? Zeppelin CZ",
   "machines": [
@@ -542,13 +542,13 @@ window.MACHINE_CATALOG = {
       "capacityText": "1134 kg",
       "maxPersons": null,
       "outreachM": 0,
-      "drive": "bateriový",
-      "driveGroup": "electric",
-      "indoor": true,
+      "drive": "diesel 4 × 4",
+      "driveGroup": "diesel",
+      "indoor": false,
       "outdoor": true,
       "terrain": [
-        "solid",
-        "paved"
+        "paved",
+        "rough"
       ],
       "dimensions": {
         "lengthM": 4.88,
@@ -577,13 +577,13 @@ window.MACHINE_CATALOG = {
       "capacityText": "1150 kg",
       "maxPersons": null,
       "outreachM": 0,
-      "drive": "bateriový",
-      "driveGroup": "electric",
-      "indoor": true,
+      "drive": "diesel 4 × 4",
+      "driveGroup": "diesel",
+      "indoor": false,
       "outdoor": true,
       "terrain": [
-        "solid",
-        "paved"
+        "paved",
+        "rough"
       ],
       "dimensions": {
         "lengthM": 4.88,
@@ -647,13 +647,13 @@ window.MACHINE_CATALOG = {
       "capacityText": "350 kg",
       "maxPersons": null,
       "outreachM": 0,
-      "drive": "bateriový",
+      "drive": "bateriový terénní",
       "driveGroup": "electric",
-      "indoor": true,
+      "indoor": false,
       "outdoor": true,
       "terrain": [
-        "solid",
-        "paved"
+        "paved",
+        "rough"
       ],
       "dimensions": {
         "lengthM": 3.5,
@@ -717,13 +717,13 @@ window.MACHINE_CATALOG = {
       "capacityText": "680 kg",
       "maxPersons": null,
       "outreachM": 0,
-      "drive": "bateriový",
-      "driveGroup": "electric",
-      "indoor": true,
+      "drive": "diesel 4 × 4",
+      "driveGroup": "diesel",
+      "indoor": false,
       "outdoor": true,
       "terrain": [
-        "solid",
-        "paved"
+        "paved",
+        "rough"
       ],
       "dimensions": {
         "lengthM": 4.88,
@@ -822,13 +822,13 @@ window.MACHINE_CATALOG = {
       "capacityText": "680 kg",
       "maxPersons": null,
       "outreachM": 0,
-      "drive": "bateriový",
-      "driveGroup": "electric",
-      "indoor": true,
+      "drive": "diesel 4 × 4",
+      "driveGroup": "diesel",
+      "indoor": false,
       "outdoor": true,
       "terrain": [
-        "solid",
-        "paved"
+        "paved",
+        "rough"
       ],
       "dimensions": {
         "lengthM": 4.88,
@@ -1242,13 +1242,13 @@ window.MACHINE_CATALOG = {
       "capacityText": "227 kg",
       "maxPersons": null,
       "outreachM": 7.5,
-      "drive": "bateriový",
-      "driveGroup": "electric",
-      "indoor": true,
+      "drive": "diesel 4 × 4",
+      "driveGroup": "diesel",
+      "indoor": false,
       "outdoor": true,
       "terrain": [
-        "solid",
-        "paved"
+        "paved",
+        "rough"
       ],
       "dimensions": {
         "lengthM": 6.65,
@@ -1277,13 +1277,13 @@ window.MACHINE_CATALOG = {
       "capacityText": "227 kg",
       "maxPersons": null,
       "outreachM": 9.3,
-      "drive": "bateriový",
-      "driveGroup": "electric",
-      "indoor": true,
+      "drive": "diesel 4 × 4",
+      "driveGroup": "diesel",
+      "indoor": false,
       "outdoor": true,
       "terrain": [
-        "solid",
-        "paved"
+        "paved",
+        "rough"
       ],
       "dimensions": {
         "lengthM": 7.58,
@@ -1382,13 +1382,13 @@ window.MACHINE_CATALOG = {
       "capacityText": "227 kg",
       "maxPersons": null,
       "outreachM": 12.5,
-      "drive": "bateriový",
-      "driveGroup": "electric",
-      "indoor": true,
+      "drive": "diesel 4 × 4",
+      "driveGroup": "diesel",
+      "indoor": false,
       "outdoor": true,
       "terrain": [
-        "solid",
-        "paved"
+        "paved",
+        "rough"
       ],
       "dimensions": {
         "lengthM": 9.25,
