@@ -41,7 +41,7 @@
   const terrainLabels = {
     solid: "rovná pevná podlaha",
     paved: "rovná dostatečně únosná plocha",
-    rough: "nezpevněný terén"
+    rough: "dostatečně únosná venkovní plocha"
   };
 
   const elements = {
@@ -304,7 +304,7 @@
     const reason = wholeCatalog ? "Zobrazeno v úplném katalogu." : buildReason(machine, filters, item.failures);
     const dimensions = dimensionText(machine.dimensions);
     const environment = [supportsEnvironment(machine, "indoor") && "vnitřní", supportsEnvironment(machine, "outdoor") && "venkovní"].filter(Boolean).join(" i ") || "Neuvedeno";
-    const terrain = machine.terrain.length ? machine.terrain.map((value) => terrainLabels[value]).join(", ") : "Neuvedeno";
+    const terrain = terrainText(machine);
     const price = machine.priceShort || "Cena neuvedena";
     const priceSecondary = machine.priceLong ? `dlouhodobě ${machine.priceLong}` : "";
     const fallback = placeholderMap[machine.category];
@@ -348,6 +348,7 @@
               ${specRow("Pohon", machine.drive || "Neuvedeno")}
               ${specRow("Použití", environment)}
               ${specRow("Vhodný povrch", terrain)}
+              ${machine.maxChassisTiltDeg == null ? "" : specRow("Max. náklon podvozku", metric(machine.maxChassisTiltDeg, "\u00b0"))}
               ${specRow("Délka stroje", metric(machine.dimensions?.lengthM, "m"))}
               ${specRow("Šířka stroje", metric(machine.dimensions?.widthM, "m"))}
               ${specRow("Výška stroje", metric(machine.dimensions?.heightM, "m"))}
@@ -388,6 +389,12 @@
 
   function specRow(label, value) {
     return `<div class="spec-row"><span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong></div>`;
+  }
+
+  function terrainText(machine) {
+    if (!machine.terrain?.length) return "Neuvedeno";
+    if (machine.terrain.includes("rough")) return terrainLabels.rough;
+    return machine.terrain.map((value) => terrainLabels[value]).filter(Boolean).join(", ") || "Neuvedeno";
   }
 
   function dimensionText(dimensions) {
