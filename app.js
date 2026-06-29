@@ -327,6 +327,8 @@
     const dimensions = dimensionText(machine.dimensions);
     const environment = [supportsEnvironment(machine, "indoor") && "vnitřní", supportsEnvironment(machine, "outdoor") && "venkovní"].filter(Boolean).join(" i ") || "Neuvedeno";
     const terrain = terrainText(machine);
+    const chassisUse = chassisUseText(machine);
+    const windLimits = windLimitText(machine);
     const price = machine.priceShort || "Cena neuvedena";
     const priceSecondary = machine.priceLong ? `dlouhodobě ${machine.priceLong}` : "";
     const fallback = placeholderMap[machine.category];
@@ -353,6 +355,7 @@
             ${keySpec("Pracovní výška", metric(machine.workingHeightM, "m"))}
             ${keySpec("Nosnost koše", machine.capacityText || metric(machine.capacityKg, "kg"))}
             ${keySpec("Boční dosah", metric(machine.outreachM, "m"))}
+            ${keySpec("Podvozek / kola", chassisUse)}
             ${keySpec("Rozměry stroje", dimensions)}
           </div>
 
@@ -369,6 +372,7 @@
               ${specRow("Max. počet osob", machine.maxPersons == null ? "Neuvedeno na webu" : String(machine.maxPersons))}
               ${specRow("Pohon", machine.drive || "Neuvedeno")}
               ${specRow("Použití", environment)}
+              ${specRow("Rozdíl vnitřní / venkovní", windLimits)}
               ${specRow("Vhodný povrch", terrain)}
               ${machine.maxChassisTiltDeg == null && !machine.maxChassisTiltText ? "" : specRow("Max. náklon podvozku", machine.maxChassisTiltText || metric(machine.maxChassisTiltDeg, "\u00b0"))}
               ${machine.maxChassisTiltNote ? specRow("Poznámka k náklonu", machine.maxChassisTiltNote) : ""}
@@ -623,6 +627,27 @@
     if (!machine.terrain?.length) return "Neuvedeno";
     if (machine.terrain.includes("rough")) return terrainLabels.rough;
     return machine.terrain.map((value) => terrainLabels[value]).filter(Boolean).join(", ") || "Neuvedeno";
+  }
+
+  function chassisUseText(machine) {
+    if (machine.category === "trailer") return "vlečná plošina na opěrách";
+    if (machine.terrain?.includes("rough")) return "terénní podvozek";
+    if (isDieselMachine(machine)) return "venkovní kola / únosná plocha";
+    if (machine.terrain?.includes("solid") && machine.terrain?.includes("paved")) return "kola do haly / rovná únosná plocha";
+    if (machine.terrain?.includes("solid")) return "kola do haly";
+    if (machine.terrain?.includes("paved")) return "rovná dostatečně únosná plocha";
+    return "ověřit podle technického listu";
+  }
+
+  function windLimitText(machine) {
+    const hasIndoor = supportsEnvironment(machine, "indoor");
+    const hasOutdoor = supportsEnvironment(machine, "outdoor");
+    if (hasIndoor && hasOutdoor) {
+      return "Vnitřní údaje platí pro 0 m/s. Při venkovním použití počítejte s limitem větru 12,5 m/s a ověřte případně sníženou výšku / počet osob v technickém listu.";
+    }
+    if (hasOutdoor) return "Venkovní provoz: ověřit limit větru a dovolené parametry v technickém listu stroje.";
+    if (hasIndoor) return "Vnitřní provoz / bezvětří: údaje se vztahují k 0 m/s.";
+    return "Neuvedeno";
   }
 
   function dimensionText(dimensions) {

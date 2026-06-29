@@ -249,6 +249,7 @@ h3 { margin-bottom: 5px; }
   color: var(--ink);
 }
 .field input:focus, .field select:focus { outline: 3px solid rgba(244, 196, 0, .24); border-color: var(--accent-dark); }
+.field-help { color: var(--muted); font-size: 12px; line-height: 1.35; font-weight: 650; }
 .input-unit { position: relative; }
 .input-unit input { padding-right: 48px; }
 .input-unit em {
@@ -329,7 +330,7 @@ h3 { margin-bottom: 5px; }
 
 .key-specs {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
   gap: 10px;
   margin: 19px 0;
 }

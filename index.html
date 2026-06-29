@@ -46,12 +46,13 @@
       <form id="filterForm" novalidate>
         <div class="form-grid main-filters">
           <label class="field">
-            <span>Provoz</span>
+            <span>Prostředí</span>
             <select id="environment" name="environment">
               <option value="any">Bez omezení</option>
-              <option value="indoor">Vnitřní</option>
-              <option value="outdoor">Venkovní</option>
+              <option value="indoor">Hala / bezvětří (0 m/s)</option>
+              <option value="outdoor">Venkovní (do 12,5 m/s)</option>
             </select>
+            <small class="field-help">Venkovní použití může znamenat snížené parametry proti údajům pro 0 m/s.</small>
           </label>
 
           <label class="field required-field">
@@ -142,12 +143,13 @@
     <span>Data jsou převzata z veřejného katalogu Zeppelin CZ.</span>
     <span>Aktuální dostupnost strojů na pobočkách aplikace neověřuje.</span>
   </footer>
-  <div id="appVersion" class="fixed-version">0.4.0</div>
+  <div id="appVersion" class="fixed-version">0.4.1</div>
 
   <script src="data/machines.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
+
 
 
 
