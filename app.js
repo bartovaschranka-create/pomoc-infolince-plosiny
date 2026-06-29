@@ -378,10 +378,12 @@
               ${specRow("Výška stroje", metric(machine.dimensions?.heightM, "m"))}
               ${specRow("Výška se sklopeným zábradlím", machine.foldedHeightText || metric(machine.foldedHeightM, "m"))}
               ${specRow("Rozměr koše", machine.platformText || "Neuvedeno")}
-              ${specRow("Hmotnost stroje", metric(machine.weightKg, "kg", 0))}
-              ${machine.datasheetLabel ? specRow("Technický list", machine.datasheetLabel) : ""}
-              ${specRow("Aktualizace katalogu", formatDate(catalog.updatedAt))}
-            </div>
+            ${specRow("Hmotnost stroje", metric(machine.weightKg, "kg", 0))}
+            ${machine.datasheetLabel ? specRow("Technický list", machine.datasheetLabel) : ""}
+            ${machine.dataSources?.length ? specRow("Zdroje dat", machine.dataSources.join(", ")) : ""}
+            ${machine.verifiedAt ? specRow("Ověřeno", formatDate(machine.verifiedAt)) : ""}
+            ${specRow("Aktualizace katalogu", formatDate(catalog.updatedAt))}
+          </div>
           </details>
 
           <div class="machine-actions">

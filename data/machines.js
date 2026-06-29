@@ -1,7 +1,7 @@
 window.MACHINE_CATALOG = {
-  "version": "0.2.19",
-  "updatedAt": "2026-06-26",
-  "sourceName": "Ve?ejn? katalog P?j?ovny stroj? Zeppelin CZ",
+  "version": "0.4.0",
+  "updatedAt": "2026-06-29",
+  "sourceName": "Zeppelin CZ + technické podklady výrobců + revize 2025",
   "machines": [
     {
       "id": "genie-gs-1432",
@@ -41,10 +41,16 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltDeg": 1.5,
       "maxChassisTiltText": "3° / 1,5°",
       "gradeabilityText": "25 % / 14°",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-1432m-gs-1932m-2025-en-us.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-1432-technicky-souhrn.pdf",
       "datasheetSourceUrl": "https://www.genielift.com/docs/default-source/product-specifications/slab-scissor-lifts-(ansi)-or-electric-and-bi-energy-lifts-(ce)/en/2025/gs-1432m-gs-1932m-product-specifications---2025---en-us.pdf?sfvrsn=d064fee6_1",
-      "datasheetLabel": "Technický list Genie GS-1432m / GS-1932m (2025)",
-      "datasheetLocalUrl": "assets/datasheets/genie-gs-1432m-gs-1932m-2025-en-us.pdf"
+      "datasheetLabel": "Technický souhrn GENIE GS-1432",
+      "datasheetLocalUrl": "assets/datasheets/genie-gs-1432-technicky-souhrn.pdf",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29"
     },
     {
       "id": "jlg-es1530l",
@@ -81,7 +87,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Nůžková plošina JLG ES1530L je k zapůjčení pro tichou, stabilní a bezpečnou práci ve vnitřních výškách.",
       "maxChassisTiltDeg": 1.5,
-      "maxChassisTiltText": "1,5° / 3°"
+      "maxChassisTiltText": "1,5° / 3°",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn JLG ES1530L",
+      "datasheetLocalUrl": "assets/datasheets/jlg-es1530l-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-es1530l-technicky-souhrn.pdf"
     },
     {
       "id": "jlg-1532-r",
@@ -118,7 +133,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Nůžková plošina JLG 1532 R lze pronajmout pro údržbu a montáže s vyšším zdvihem a stabilní platformou.",
       "maxChassisTiltDeg": 1.5,
-      "maxChassisTiltText": "1,5° / 3,75°"
+      "maxChassisTiltText": "1,5° / 3,75°",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn JLG 1532 R",
+      "datasheetLocalUrl": "assets/datasheets/jlg-1532-r-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-1532-r-technicky-souhrn.pdf"
     },
     {
       "id": "jlg-1932-es",
@@ -155,7 +179,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Nůžková plošina JLG 1932 ES nabízena k pronájmu poskytuje přesné ovládání a spolehlivý výkon v interiéru.",
       "maxChassisTiltText": "Neuvedeno ve zdroji",
-      "maxChassisTiltNote": "Kontrolováno proti produktové stránce Zeppelin a revizím 2025; konkrétní hodnota náklonu nebyla ve zdroji uvedena."
+      "maxChassisTiltNote": "Kontrolováno proti produktové stránce Zeppelin a revizím 2025; konkrétní hodnota náklonu nebyla ve zdroji uvedena.",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn JLG 1932 ES",
+      "datasheetLocalUrl": "assets/datasheets/jlg-1932-es-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-1932-es-technicky-souhrn.pdf"
     },
     {
       "id": "genie-gs-1932-dc",
@@ -195,10 +228,16 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "1,5° / 3° / 3°",
       "maxChassisTiltNote": "Použita nejmenší hodnota z dostupných revizních údajů příbuzných GS-1932/GS-2032; produktový list Zeppelin uvádí tilt alarm bez stupňů.",
       "gradeabilityText": "30 %",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-1932-dc-zeppelin.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-1932-dc-technicky-souhrn.pdf",
       "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/GS-1532_1932.pdf",
-      "datasheetLabel": "Produktový list Zeppelin GS-1532 / GS-1932",
-      "datasheetLocalUrl": "assets/datasheets/genie-gs-1932-dc-zeppelin.pdf"
+      "datasheetLabel": "Technický souhrn GENIE GS-1932 DC",
+      "datasheetLocalUrl": "assets/datasheets/genie-gs-1932-dc-technicky-souhrn.pdf",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29"
     },
     {
       "id": "genie-gs-2032-dc",
@@ -235,7 +274,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Nůžková plošina Genie GS-2032 DC je k pronájmu pro stabilní zdvih, tichý chod a bezpečný provoz v halách.",
       "maxChassisTiltDeg": 1.5,
-      "maxChassisTiltText": "1,5° / 3° / 3°"
+      "maxChassisTiltText": "1,5° / 3° / 3°",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn GENIE GS-2032 DC",
+      "datasheetLocalUrl": "assets/datasheets/genie-gs-2032-dc-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-2032-dc-technicky-souhrn.pdf"
     },
     {
       "id": "genie-gs-2046-dc",
@@ -272,7 +320,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Nůžková plošina Genie GS-2046 DC lze zapůjčit pro větší pracovní výšku a komfortní obsluhu.",
       "maxChassisTiltDeg": 1.5,
-      "maxChassisTiltText": "1,5° / 3° / 3°"
+      "maxChassisTiltText": "1,5° / 3° / 3°",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn GENIE GS-2046 DC",
+      "datasheetLocalUrl": "assets/datasheets/genie-gs-2046-dc-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-2046-dc-technicky-souhrn.pdf"
     },
     {
       "id": "jlg-2632-es",
@@ -309,7 +366,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Nůžková plošina JLG 2632 ES lze pronajmout pro údržbu, montáže a efektivní práci ve vnitřních výškách.",
       "maxChassisTiltDeg": 1.5,
-      "maxChassisTiltText": "1,5° / 3°"
+      "maxChassisTiltText": "1,5° / 3°",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn JLG 2632 ES",
+      "datasheetLocalUrl": "assets/datasheets/jlg-2632-es-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-2632-es-technicky-souhrn.pdf"
     },
     {
       "id": "genie-gs-2632-dc",
@@ -346,7 +412,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Nůžková plošina Genie GS-2632 DC je k zapůjčení pro přesnou práci v úzkých prostorech a tichý chod.",
       "maxChassisTiltDeg": 1.5,
-      "maxChassisTiltText": "1,5° / 3° / 3°"
+      "maxChassisTiltText": "1,5° / 3° / 3°",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn GENIE GS-2632 DC",
+      "datasheetLocalUrl": "assets/datasheets/genie-gs-2632-dc-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-2632-dc-technicky-souhrn.pdf"
     },
     {
       "id": "genie-gs-2646-dc",
@@ -383,7 +458,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Nůžková plošina Genie GS-2646 DC nabízena k pronájmu poskytuje vysoký zdvih a bezpečnou pracovní platformu.",
       "maxChassisTiltDeg": 1.5,
-      "maxChassisTiltText": "1,5° / 3° / 3°"
+      "maxChassisTiltText": "1,5° / 3° / 3°",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn GENIE GS-2646 DC",
+      "datasheetLocalUrl": "assets/datasheets/genie-gs-2646-dc-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-2646-dc-technicky-souhrn.pdf"
     },
     {
       "id": "jlg-2646-es",
@@ -420,7 +504,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Nůžková plošina JLG 2646 ES nabízena k zapůjčení poskytuje velkou platformu a stabilní elektrický provoz.",
       "maxChassisTiltDeg": 2,
-      "maxChassisTiltText": "2° / 3°"
+      "maxChassisTiltText": "2° / 3°",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn JLG 2646 ES",
+      "datasheetLocalUrl": "assets/datasheets/jlg-2646-es-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-2646-es-technicky-souhrn.pdf"
     },
     {
       "id": "jlg-3246-es",
@@ -458,7 +551,16 @@ window.MACHINE_CATALOG = {
       "description": "Nůžková plošina JLG 3246 ES lze zapůjčit pro spolehlivou práci ve výškách s komfortní obsluhou.",
       "maxChassisTiltDeg": 1.5,
       "maxChassisTiltText": "1,5° / 3,5°",
-      "maxChassisTiltNote": "V revizích se liší hodnoty; zobrazena je varianta s nejnižším limitem."
+      "maxChassisTiltNote": "V revizích se liší hodnoty; zobrazena je varianta s nejnižším limitem.",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn JLG 3246 ES",
+      "datasheetLocalUrl": "assets/datasheets/jlg-3246-es-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-3246-es-technicky-souhrn.pdf"
     },
     {
       "id": "genie-gs-3246-dc",
@@ -495,7 +597,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Nůžková plošina Genie GS-3246 DC je k pronájmu pro vysoké zdvihy, prostornou platformu a tichý provoz.",
       "maxChassisTiltDeg": 1.5,
-      "maxChassisTiltText": "1,5° / 3° / 3°"
+      "maxChassisTiltText": "1,5° / 3° / 3°",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn GENIE GS-3246 DC",
+      "datasheetLocalUrl": "assets/datasheets/genie-gs-3246-dc-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-3246-dc-technicky-souhrn.pdf"
     },
     {
       "id": "genie-gs-3369-rt",
@@ -511,7 +622,7 @@ window.MACHINE_CATALOG = {
       "capacityText": "454 kg",
       "maxPersons": null,
       "outreachM": 0,
-      "drive": "diesel 4 × 4",
+      "drive": "diesel 4x4",
       "driveGroup": "diesel",
       "indoor": false,
       "outdoor": true,
@@ -533,7 +644,16 @@ window.MACHINE_CATALOG = {
       "description": "Venkovní nůžková plošina Genie GS-3369 RT nabízena k pronájmu poskytuje stabilní venkovní nasazení a vysokou nosnost.",
       "maxChassisTiltDeg": 2,
       "maxChassisTiltText": "0,8° / 3° / 3°",
-      "maxChassisTiltNote": "V revizích se liší hodnoty; zobrazena je varianta s nejnižším limitem."
+      "maxChassisTiltNote": "V revizích se liší hodnoty; zobrazena je varianta s nejnižším limitem.",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn GENIE GS-3369 RT",
+      "datasheetLocalUrl": "assets/datasheets/genie-gs-3369-rt-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-3369-rt-technicky-souhrn.pdf"
     },
     {
       "id": "zoomlion-zs1012ac-li",
@@ -549,7 +669,7 @@ window.MACHINE_CATALOG = {
       "capacityText": "350 kg",
       "maxPersons": null,
       "outreachM": 0,
-      "drive": "bateriový",
+      "drive": "bateriový Li-ion",
       "driveGroup": "electric",
       "indoor": true,
       "outdoor": true,
@@ -570,7 +690,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": false,
       "description": "Nůžková plošina Zoomlion ZS1012AC-Li nabízena k pronájmu využívá Li-ion technologii pro dlouhý bezemisní provoz.",
       "maxChassisTiltText": "Neuvedeno ve zdroji",
-      "maxChassisTiltNote": "Produktová stránka Zeppelin neuvádí hodnotu náklonu podvozku; ověřit podle štítku nebo návodu konkrétního stroje."
+      "maxChassisTiltNote": "Produktová stránka Zeppelin neuvádí hodnotu náklonu podvozku; ověřit podle štítku nebo návodu konkrétního stroje.",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn Zoomlion ZS1012ACLi",
+      "datasheetLocalUrl": "assets/datasheets/zoomlion-zs1012acli-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/zoomlion-zs1012acli-technicky-souhrn.pdf"
     },
     {
       "id": "genie-gs-3390-rt",
@@ -586,7 +715,7 @@ window.MACHINE_CATALOG = {
       "capacityText": "1134 kg",
       "maxPersons": null,
       "outreachM": 0,
-      "drive": "diesel 4 × 4",
+      "drive": "diesel 4x4",
       "driveGroup": "diesel",
       "indoor": false,
       "outdoor": true,
@@ -608,7 +737,16 @@ window.MACHINE_CATALOG = {
       "description": "Venkovní nůžková plošina Genie GS-3390 RT je k zapůjčení pro extrémní pracovní výšky a stabilitu na dostatečně únosné venkovní ploše.",
       "maxChassisTiltDeg": 2,
       "maxChassisTiltText": "0,8° / 3° / 3°",
-      "maxChassisTiltNote": "V revizích se liší hodnoty; zobrazena je varianta s nejnižším limitem."
+      "maxChassisTiltNote": "V revizích se liší hodnoty; zobrazena je varianta s nejnižším limitem.",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn GENIE GS-3390 RT",
+      "datasheetLocalUrl": "assets/datasheets/genie-gs-3390-rt-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-3390-rt-technicky-souhrn.pdf"
     },
     {
       "id": "zoomlion-zs1023rt",
@@ -624,7 +762,7 @@ window.MACHINE_CATALOG = {
       "capacityText": "1150 kg",
       "maxPersons": null,
       "outreachM": 0,
-      "drive": "diesel 4 × 4",
+      "drive": "diesel 4x4",
       "driveGroup": "diesel",
       "indoor": false,
       "outdoor": true,
@@ -645,7 +783,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": false,
       "description": "Venkovní nůžková plošina Zoomlion ZS1023RT lze pronajmout pro vysokou nosnost, venkovní nasazení a robustní provoz.",
       "maxChassisTiltText": "Neuvedeno ve zdroji",
-      "maxChassisTiltNote": "Produktová stránka Zeppelin neuvádí hodnotu náklonu podvozku; ověřit podle štítku nebo návodu konkrétního stroje."
+      "maxChassisTiltNote": "Produktová stránka Zeppelin neuvádí hodnotu náklonu podvozku; ověřit podle štítku nebo návodu konkrétního stroje.",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn Zoomlion ZS1023RT",
+      "datasheetLocalUrl": "assets/datasheets/zoomlion-zs1023rt-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/zoomlion-zs1023rt-technicky-souhrn.pdf"
     },
     {
       "id": "genie-gs-4046",
@@ -682,7 +829,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Nůžková plošina Genie GS-4046 je k zapůjčení pro větší pracovní výšky, stabilitu a tichý chod.",
       "maxChassisTiltDeg": 1.5,
-      "maxChassisTiltText": "1,5° / 3°"
+      "maxChassisTiltText": "1,5° / 3°",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn GENIE GS-4046",
+      "datasheetLocalUrl": "assets/datasheets/genie-gs-4046-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-4046-technicky-souhrn.pdf"
     },
     {
       "id": "zoomlion-zs1218ert",
@@ -719,7 +875,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": false,
       "description": "Venkovní nůžková plošina Zoomlion ZS1218ERT je k zapůjčení pro náročné venkovní práce s vysokou nosností.",
       "maxChassisTiltText": "Neuvedeno ve zdroji",
-      "maxChassisTiltNote": "Produktová stránka Zeppelin neuvádí hodnotu náklonu podvozku; ověřit podle štítku nebo návodu konkrétního stroje."
+      "maxChassisTiltNote": "Produktová stránka Zeppelin neuvádí hodnotu náklonu podvozku; ověřit podle štítku nebo návodu konkrétního stroje.",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn Zoomlion ZS1218ERT",
+      "datasheetLocalUrl": "assets/datasheets/zoomlion-zs1218ert-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/zoomlion-zs1218ert-technicky-souhrn.pdf"
     },
     {
       "id": "jlg-4045-r",
@@ -756,7 +921,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Nůžková plošina JLG 4045 R lze pronajmout pro efektivní práci ve výškách s úsporným elektrickým systémem.",
       "maxChassisTiltDeg": 1.5,
-      "maxChassisTiltText": "1,5° / 3,5°"
+      "maxChassisTiltText": "1,5° / 3,5°",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn JLG 4045 R",
+      "datasheetLocalUrl": "assets/datasheets/jlg-4045-r-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-4045-r-technicky-souhrn.pdf"
     },
     {
       "id": "genie-gs-4390-rt",
@@ -772,7 +946,7 @@ window.MACHINE_CATALOG = {
       "capacityText": "680 kg",
       "maxPersons": null,
       "outreachM": 0,
-      "drive": "diesel 4 × 4",
+      "drive": "diesel 4x4",
       "driveGroup": "diesel",
       "indoor": false,
       "outdoor": true,
@@ -793,7 +967,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Venkovní plošina Genie GS-4390 RT nabízena k zapůjčení poskytuje velkou pracovní plochu a silný výkon na dostatečně únosné venkovní ploše.",
       "maxChassisTiltDeg": 2,
-      "maxChassisTiltText": "2° / 3° / 3°"
+      "maxChassisTiltText": "2° / 3° / 3°",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn GENIE GS-4390 RT",
+      "datasheetLocalUrl": "assets/datasheets/genie-gs-4390-rt-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-4390-rt-technicky-souhrn.pdf"
     },
     {
       "id": "zoomlion-zs1414ac-li",
@@ -809,7 +992,7 @@ window.MACHINE_CATALOG = {
       "capacityText": "350 kg",
       "maxPersons": null,
       "outreachM": 0,
-      "drive": "bateriový",
+      "drive": "bateriový Li-ion",
       "driveGroup": "electric",
       "indoor": true,
       "outdoor": true,
@@ -830,7 +1013,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": false,
       "description": "Nůžková plošina Zoomlion ZS1414AC-Li lze pronajmout pro čistý tichý provoz s dlouhou výdrží baterií.",
       "maxChassisTiltText": "Neuvedeno ve zdroji",
-      "maxChassisTiltNote": "Produktová stránka Zeppelin neuvádí hodnotu náklonu podvozku; ověřit podle štítku nebo návodu konkrétního stroje."
+      "maxChassisTiltNote": "Produktová stránka Zeppelin neuvádí hodnotu náklonu podvozku; ověřit podle štítku nebo návodu konkrétního stroje.",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn Zoomlion ZS1414ACLi",
+      "datasheetLocalUrl": "assets/datasheets/zoomlion-zs1414acli-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/zoomlion-zs1414acli-technicky-souhrn.pdf"
     },
     {
       "id": "genie-gs-4655-dc",
@@ -867,7 +1059,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Nůžková plošina Genie GS-4655 DC nabízena k pronájmu poskytuje vysoký zdvih, prostornou platformu a tichý provoz.",
       "maxChassisTiltDeg": 1.5,
-      "maxChassisTiltText": "1,5° / 3° / 3°"
+      "maxChassisTiltText": "1,5° / 3° / 3°",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn GENIE GS-4655 DC",
+      "datasheetLocalUrl": "assets/datasheets/genie-gs-4655-dc-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-4655-dc-technicky-souhrn.pdf"
     },
     {
       "id": "genie-gs-5390-rt",
@@ -883,7 +1084,7 @@ window.MACHINE_CATALOG = {
       "capacityText": "680 kg",
       "maxPersons": null,
       "outreachM": 0,
-      "drive": "diesel 4 × 4",
+      "drive": "diesel 4x4",
       "driveGroup": "diesel",
       "indoor": false,
       "outdoor": true,
@@ -904,7 +1105,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Venkovní nůžková plošina Genie GS-5390 RT je k pronájmu pro extrémní výšky, venkovní provoz a vysokou stabilitu.",
       "maxChassisTiltDeg": 2,
-      "maxChassisTiltText": "2° / 3° / 3°"
+      "maxChassisTiltText": "2° / 3° / 3°",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn GENIE GS-5390 RT",
+      "datasheetLocalUrl": "assets/datasheets/genie-gs-5390-rt-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-5390-rt-technicky-souhrn.pdf"
     },
     {
       "id": "jlg-toucan-10e",
@@ -940,7 +1150,16 @@ window.MACHINE_CATALOG = {
       "priceLong": "1 410 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Kloubová plošina JLG Toucan 10E je k pronájmu pro práci v interiérech, kde je potřeba obratnost a tichý provoz.",
-      "maxChassisTiltDeg": 2.5
+      "maxChassisTiltDeg": 2.5,
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn JLG Toucan 10E",
+      "datasheetLocalUrl": "assets/datasheets/jlg-toucan-10e-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-toucan-10e-technicky-souhrn.pdf"
     },
     {
       "id": "jlg-toucan-12e",
@@ -977,7 +1196,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Kloubová plošina JLG Toucan 12E je k pronájmu pro přesnou práci ve výškách a výbornou mobilitu v interiéru.",
       "maxChassisTiltDeg": 3,
-      "maxChassisTiltText": "3° / 3°"
+      "maxChassisTiltText": "3° / 3°",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn JLG Toucan 12E",
+      "datasheetLocalUrl": "assets/datasheets/jlg-toucan-12e-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-toucan-12e-technicky-souhrn.pdf"
     },
     {
       "id": "jlg-toucan-12e-plus",
@@ -1014,7 +1242,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Kloubová plošina JLG Toucan 12E Plus je k pronájmu, ideální pro práci v halách s obrovskou manévrovatelností.",
       "maxChassisTiltDeg": 3,
-      "maxChassisTiltText": "3° / 3°"
+      "maxChassisTiltText": "3° / 3°",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn JLG Toucan 12E+",
+      "datasheetLocalUrl": "assets/datasheets/jlg-toucan-12e-plus-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-toucan-12e-plus-technicky-souhrn.pdf"
     },
     {
       "id": "genie-z-30-20-n",
@@ -1054,10 +1291,16 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "2,5° / 4,5°",
       "maxChassisTiltNote": "Hodnota převzata z revize 2025 pro Z-30/20ND; zobrazena je nejmenší hodnota.",
       "gradeabilityText": "35 %",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-z-30-20-n-zeppelin.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-z-30-20-n-technicky-souhrn.pdf",
       "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/Z-3020_N.pdf",
-      "datasheetLabel": "Produktový list Zeppelin Z-30/20 N",
-      "datasheetLocalUrl": "assets/datasheets/genie-z-30-20-n-zeppelin.pdf"
+      "datasheetLabel": "Technický souhrn GENIE Z-30/20 N",
+      "datasheetLocalUrl": "assets/datasheets/genie-z-30-20-n-technicky-souhrn.pdf",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29"
     },
     {
       "id": "genie-z-34-22-n",
@@ -1094,7 +1337,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Kloubová plošina Genie Z-34/22 N lze zapůjčit pro flexibilní práci ve výškách s velmi přesným ovládáním.",
       "maxChassisTiltDeg": 2.5,
-      "maxChassisTiltText": "2,5° / 4,5°"
+      "maxChassisTiltText": "2,5° / 4,5°",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn GENIE Z-34/22 N",
+      "datasheetLocalUrl": "assets/datasheets/genie-z-34-22-n-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-z-34-22-n-technicky-souhrn.pdf"
     },
     {
       "id": "jlg-e400-ajpn",
@@ -1131,7 +1383,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Kloubová plošina JLG E400 AJPn nabízena k zapůjčení poskytuje kombinaci přesného dosahu a tichého elektrického chodu.",
       "maxChassisTiltDeg": 3,
-      "maxChassisTiltText": "3° / 3°"
+      "maxChassisTiltText": "3° / 3°",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn JLG E400 AJPN",
+      "datasheetLocalUrl": "assets/datasheets/jlg-e400-ajpn-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-e400-ajpn-technicky-souhrn.pdf"
     },
     {
       "id": "jlg-450-aj",
@@ -1147,8 +1408,8 @@ window.MACHINE_CATALOG = {
       "capacityText": "230 kg",
       "maxPersons": null,
       "outreachM": 7.4,
-      "drive": "bateriový",
-      "driveGroup": "electric",
+      "drive": "diesel 4x4",
+      "driveGroup": "diesel",
       "indoor": true,
       "outdoor": true,
       "terrain": [
@@ -1168,7 +1429,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Kloubová plošina JLG 450 AJ je k zapůjčení pro flexibilní práci ve výškách s výbornou obratností.",
       "maxChassisTiltDeg": 5,
-      "maxChassisTiltText": "5° / 5°"
+      "maxChassisTiltText": "5° / 5°",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn JLG 450 AJ",
+      "datasheetLocalUrl": "assets/datasheets/jlg-450-aj-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-450-aj-technicky-souhrn.pdf"
     },
     {
       "id": "jlg-e450-aj",
@@ -1205,7 +1475,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Kloubová plošina JLG E450 AJ je k pronájmu pro náročné pracovní výšky s vysokým výkonem a stabilitou.",
       "maxChassisTiltDeg": 3,
-      "maxChassisTiltText": "3° / 3°"
+      "maxChassisTiltText": "3° / 3°",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn JLG E450 AJ",
+      "datasheetLocalUrl": "assets/datasheets/jlg-e450-aj-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-e450-aj-technicky-souhrn.pdf"
     },
     {
       "id": "zoomlion-za14j",
@@ -1221,8 +1500,8 @@ window.MACHINE_CATALOG = {
       "capacityText": "300 kg",
       "maxPersons": null,
       "outreachM": 7.4,
-      "drive": "bateriový",
-      "driveGroup": "electric",
+      "drive": "diesel 4x4",
+      "driveGroup": "diesel",
       "indoor": true,
       "outdoor": true,
       "terrain": [
@@ -1242,7 +1521,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": false,
       "description": "Kloubová plošina Zoomlion ZA14J lze pronajmout pro bezpečnou práci ve výškách s vysokou přesností ovládání.",
       "maxChassisTiltText": "Neuvedeno ve zdroji",
-      "maxChassisTiltNote": "Produktová stránka Zeppelin neuvádí hodnotu náklonu podvozku; ověřit podle štítku nebo návodu konkrétního stroje."
+      "maxChassisTiltNote": "Produktová stránka Zeppelin neuvádí hodnotu náklonu podvozku; ověřit podle štítku nebo návodu konkrétního stroje.",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn Zoomlion ZA14J",
+      "datasheetLocalUrl": "assets/datasheets/zoomlion-za14j-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/zoomlion-za14j-technicky-souhrn.pdf"
     },
     {
       "id": "genie-z-45-25-jdc",
@@ -1279,7 +1567,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Kloubová plošina Genie Z-45/25 JDC lze zapůjčit pro efektivní práci ve výškách s rychlou a plynulou reakcí ramen.",
       "maxChassisTiltDeg": 2.5,
-      "maxChassisTiltText": "2,5° / 4,5°"
+      "maxChassisTiltText": "2,5° / 4,5°",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn GENIE Z-45/25 JDC",
+      "datasheetLocalUrl": "assets/datasheets/genie-z-45-25-jdc-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-z-45-25-jdc-technicky-souhrn.pdf"
     },
     {
       "id": "genie-z-45xc",
@@ -1291,11 +1588,11 @@ window.MACHINE_CATALOG = {
       "image": "assets/images/genie-z-45xc.webp",
       "workingHeightM": 15.9,
       "platformHeightM": 13.9,
-      "capacityKg": 0,
-      "capacityText": "0 kg",
+      "capacityKg": 454,
+      "capacityText": "300 / 454 kg",
       "maxPersons": null,
       "outreachM": 7.55,
-      "drive": "diesel 4 × 4",
+      "drive": "diesel 4x4",
       "driveGroup": "diesel",
       "indoor": false,
       "outdoor": true,
@@ -1317,7 +1614,16 @@ window.MACHINE_CATALOG = {
       "description": "Kloubová plošina Genie Z-45XC je k zapůjčení pro práci s vyšší nosností a mimořádnou stabilitou v celé výšce.",
       "maxChassisTiltDeg": 2.5,
       "maxChassisTiltText": "2,5° / 4,5°",
-      "maxChassisTiltNote": "V revizích se liší hodnoty; zobrazena je varianta s nejnižším limitem."
+      "maxChassisTiltNote": "V revizích se liší hodnoty; zobrazena je varianta s nejnižším limitem.",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn GENIE Z-45XC",
+      "datasheetLocalUrl": "assets/datasheets/genie-z-45xc-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-z-45xc-technicky-souhrn.pdf"
     },
     {
       "id": "genie-z-45-25-jrt",
@@ -1333,7 +1639,7 @@ window.MACHINE_CATALOG = {
       "capacityText": "227 kg",
       "maxPersons": null,
       "outreachM": 7.5,
-      "drive": "diesel 4 × 4",
+      "drive": "diesel 4x4",
       "driveGroup": "diesel",
       "indoor": false,
       "outdoor": true,
@@ -1354,7 +1660,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Venkovní plošina Genie Z-45/25 JRT nabízena k pronájmu poskytuje skvělou výkon pro venkovní nasazení a vysoký výkon.",
       "maxChassisTiltDeg": 2.5,
-      "maxChassisTiltText": "2,5° / 4,5°"
+      "maxChassisTiltText": "2,5° / 4,5°",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn GENIE Z-45/25 JRT",
+      "datasheetLocalUrl": "assets/datasheets/genie-z-45-25-jrt-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-z-45-25-jrt-technicky-souhrn.pdf"
     },
     {
       "id": "genie-z-51-30-jrt",
@@ -1370,7 +1685,7 @@ window.MACHINE_CATALOG = {
       "capacityText": "227 kg",
       "maxPersons": null,
       "outreachM": 9.3,
-      "drive": "diesel 4 × 4",
+      "drive": "diesel 4x4",
       "driveGroup": "diesel",
       "indoor": false,
       "outdoor": true,
@@ -1391,7 +1706,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Kloubová plošina Genie Z-51/30 JRT je k zapůjčení pro náročné venkovní práce s velkým pracovním dosahem.",
       "maxChassisTiltDeg": 2.5,
-      "maxChassisTiltText": "2,5° / 4,5°"
+      "maxChassisTiltText": "2,5° / 4,5°",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn GENIE Z-51/30 JRT",
+      "datasheetLocalUrl": "assets/datasheets/genie-z-51-30-jrt-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-z-51-30-jrt-technicky-souhrn.pdf"
     },
     {
       "id": "jlg-520-aj",
@@ -1407,8 +1731,8 @@ window.MACHINE_CATALOG = {
       "capacityText": "250 kg",
       "maxPersons": null,
       "outreachM": 10.6,
-      "drive": "bateriový",
-      "driveGroup": "electric",
+      "drive": "diesel 4x4",
+      "driveGroup": "diesel",
       "indoor": true,
       "outdoor": true,
       "terrain": [
@@ -1428,7 +1752,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Teleskopická plošina JLG 520 AJ lze pronajmout pro flexibilní přístup do výšek a náročné pracovní podmínky.",
       "maxChassisTiltDeg": 5,
-      "maxChassisTiltText": "5° / 5°"
+      "maxChassisTiltText": "5° / 5°",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn JLG 520 AJ",
+      "datasheetLocalUrl": "assets/datasheets/jlg-520-aj-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-520-aj-technicky-souhrn.pdf"
     },
     {
       "id": "jlg-600-aj",
@@ -1444,8 +1777,8 @@ window.MACHINE_CATALOG = {
       "capacityText": "230 kg",
       "maxPersons": null,
       "outreachM": 11.8,
-      "drive": "bateriový",
-      "driveGroup": "electric",
+      "drive": "diesel 4x4",
+      "driveGroup": "diesel",
       "indoor": true,
       "outdoor": true,
       "terrain": [
@@ -1465,7 +1798,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Teleskopická plošina JLG 600 AJ nabízena k pronájmu nabízí velký dosah a vysoký výkon pro průmyslové i stavební práce.",
       "maxChassisTiltDeg": 4,
-      "maxChassisTiltText": "4° / 4°"
+      "maxChassisTiltText": "4° / 4°",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn JLG 600 AJ",
+      "datasheetLocalUrl": "assets/datasheets/jlg-600-aj-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-600-aj-technicky-souhrn.pdf"
     },
     {
       "id": "genie-z-62-40-rt",
@@ -1481,7 +1823,7 @@ window.MACHINE_CATALOG = {
       "capacityText": "227 kg",
       "maxPersons": null,
       "outreachM": 12.5,
-      "drive": "diesel 4 × 4",
+      "drive": "diesel 4x4",
       "driveGroup": "diesel",
       "indoor": false,
       "outdoor": true,
@@ -1502,7 +1844,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Teleskopická plošina Genie Z-62/40 RT je k zapůjčení pro extrémní výškové práce a stabilní výkon na dostatečně únosné venkovní ploše.",
       "maxChassisTiltDeg": 2.5,
-      "maxChassisTiltText": "2,5° / 4,5°"
+      "maxChassisTiltText": "2,5° / 4,5°",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn GENIE Z-62/40 RT",
+      "datasheetLocalUrl": "assets/datasheets/genie-z-62-40-rt-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-z-62-40-rt-technicky-souhrn.pdf"
     },
     {
       "id": "jlg-800-aj",
@@ -1518,8 +1869,8 @@ window.MACHINE_CATALOG = {
       "capacityText": "230 kg",
       "maxPersons": null,
       "outreachM": 16.5,
-      "drive": "bateriový",
-      "driveGroup": "electric",
+      "drive": "diesel 4x4",
+      "driveGroup": "diesel",
       "indoor": true,
       "outdoor": true,
       "terrain": [
@@ -1539,7 +1890,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Teleskopická plošina JLG 800 AJ nabízena k pronájmu poskytuje vysoký dosah, stabilitu a jistotu i při těžkém nasazení.",
       "maxChassisTiltDeg": 4,
-      "maxChassisTiltText": "4° / 4°"
+      "maxChassisTiltText": "4° / 4°",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn JLG 800 AJ",
+      "datasheetLocalUrl": "assets/datasheets/jlg-800-aj-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-800-aj-technicky-souhrn.pdf"
     },
     {
       "id": "jlg-1250-ajp",
@@ -1551,11 +1911,11 @@ window.MACHINE_CATALOG = {
       "image": "assets/images/jlg-1250-ajp.webp",
       "workingHeightM": 40.3,
       "platformHeightM": 38.3,
-      "capacityKg": 0,
-      "capacityText": "0 kg",
+      "capacityKg": 450,
+      "capacityText": "230 / 450 kg",
       "maxPersons": null,
       "outreachM": 19.9,
-      "drive": "diesel 4 × 4",
+      "drive": "diesel 4x4",
       "driveGroup": "diesel",
       "indoor": false,
       "outdoor": true,
@@ -1576,7 +1936,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Teleskopická plošina JLG 1250 AJP je k zapůjčení pro práci v extrémních výškách s maximální produktivitou.",
       "maxChassisTiltDeg": 5,
-      "maxChassisTiltText": "5° / 5°"
+      "maxChassisTiltText": "5° / 5°",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn JLG 1250 AJP",
+      "datasheetLocalUrl": "assets/datasheets/jlg-1250-ajp-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-1250-ajp-technicky-souhrn.pdf"
     },
     {
       "id": "jlg-460-sj",
@@ -1592,7 +1961,7 @@ window.MACHINE_CATALOG = {
       "capacityText": "230 kg",
       "maxPersons": null,
       "outreachM": 12.3,
-      "drive": "diesel 4 × 4",
+      "drive": "diesel 4x4",
       "driveGroup": "diesel",
       "indoor": false,
       "outdoor": true,
@@ -1613,7 +1982,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Teleskopická plošina JLG 460 SJ nabízena k zapůjčení poskytuje dlouhý dosah a stabilní výkon ve výškách.",
       "maxChassisTiltDeg": 5,
-      "maxChassisTiltText": "5° / 5°"
+      "maxChassisTiltText": "5° / 5°",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn JLG 460 SJ",
+      "datasheetLocalUrl": "assets/datasheets/jlg-460-sj-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-460-sj-technicky-souhrn.pdf"
     },
     {
       "id": "jlg-660-sj",
@@ -1629,7 +2007,7 @@ window.MACHINE_CATALOG = {
       "capacityText": "230 kg",
       "maxPersons": null,
       "outreachM": 0,
-      "drive": "diesel 4 × 4",
+      "drive": "diesel 4x4",
       "driveGroup": "diesel",
       "indoor": false,
       "outdoor": true,
@@ -1650,7 +2028,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Teleskopická plošina JLG 660 SJ je k pronájmu pro robustní práci ve výškách s velkým horizontálním dosahem.",
       "maxChassisTiltDeg": 5,
-      "maxChassisTiltText": "5° / 5°"
+      "maxChassisTiltText": "5° / 5°",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn JLG 660 SJ",
+      "datasheetLocalUrl": "assets/datasheets/jlg-660-sj-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-660-sj-technicky-souhrn.pdf"
     },
     {
       "id": "jlg-860-sj",
@@ -1666,7 +2053,7 @@ window.MACHINE_CATALOG = {
       "capacityText": "230 kg",
       "maxPersons": null,
       "outreachM": 22.9,
-      "drive": "diesel 4 × 4",
+      "drive": "diesel 4x4",
       "driveGroup": "diesel",
       "indoor": false,
       "outdoor": true,
@@ -1687,7 +2074,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Teleskopická plošina JLG 860 SJ lze zapůjčit pro extrémní pracovní výšky a vysokou nosnost.",
       "maxChassisTiltDeg": 4,
-      "maxChassisTiltText": "4° / 4°"
+      "maxChassisTiltText": "4° / 4°",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn JLG 860 SJ",
+      "datasheetLocalUrl": "assets/datasheets/jlg-860-sj-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-860-sj-technicky-souhrn.pdf"
     },
     {
       "id": "jlg-1200-sjp",
@@ -1699,11 +2095,11 @@ window.MACHINE_CATALOG = {
       "image": "assets/images/jlg-1200-sjp.webp",
       "workingHeightM": 38.7,
       "platformHeightM": 36.7,
-      "capacityKg": 0,
-      "capacityText": "0 kg",
+      "capacityKg": 450,
+      "capacityText": "230 / 450 kg",
       "maxPersons": null,
       "outreachM": 23.5,
-      "drive": "diesel 4 × 4",
+      "drive": "diesel 4x4",
       "driveGroup": "diesel",
       "indoor": false,
       "outdoor": true,
@@ -1724,7 +2120,16 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Teleskopická plošina JLG 1200 SJP nabízena k pronájmu poskytuje mimořádný dosah a stabilitu při těžkých úkolech.",
       "maxChassisTiltDeg": 5,
-      "maxChassisTiltText": "5° / 5°"
+      "maxChassisTiltText": "5° / 5°",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29",
+      "datasheetLabel": "Technický souhrn JLG 1200 SJP",
+      "datasheetLocalUrl": "assets/datasheets/jlg-1200-sjp-technicky-souhrn.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-1200-sjp-technicky-souhrn.pdf"
     },
     {
       "id": "ommelift-1300-ebp",
@@ -1740,7 +2145,7 @@ window.MACHINE_CATALOG = {
       "capacityText": "200 kg",
       "maxPersons": null,
       "outreachM": 9,
-      "drive": "bateriový / benzinový motor",
+      "drive": "bateriový / benzinový",
       "driveGroup": "hybrid",
       "indoor": true,
       "outdoor": true,
@@ -1762,10 +2167,16 @@ window.MACHINE_CATALOG = {
       "description": "Plošina Ommelift 1300 EBP nabízena k pronájmu poskytuje kompaktní provoz a bezpečný přístup do výšek.",
       "maxChassisTiltText": "Ustavit do vodorovna na opěrách",
       "maxChassisTiltNote": "Produktový list Zeppelin neuvádí pracovní náklon ve stupních; u vlečné plošiny rozhoduje správné vyrovnání na opěrách.",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/ommelift-1300-ebp-zeppelin.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/ommelift-1300-ebp-technicky-souhrn.pdf",
       "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/OMMELIFT_1300E.pdf",
-      "datasheetLabel": "Produktový list Zeppelin Ommelift 1300 E",
-      "datasheetLocalUrl": "assets/datasheets/ommelift-1300-ebp-zeppelin.pdf"
+      "datasheetLabel": "Technický souhrn Ommelift 1300 EBP",
+      "datasheetLocalUrl": "assets/datasheets/ommelift-1300-ebp-technicky-souhrn.pdf",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29"
     },
     {
       "id": "ommelift-1500-exbp",
@@ -1781,7 +2192,7 @@ window.MACHINE_CATALOG = {
       "capacityText": "230 kg",
       "maxPersons": null,
       "outreachM": 8.5,
-      "drive": "bateriový / benzinový motor",
+      "drive": "bateriový / benzinový",
       "driveGroup": "hybrid",
       "indoor": true,
       "outdoor": true,
@@ -1804,10 +2215,16 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "Ustavit do vodorovna na opěrách",
       "maxChassisTiltNote": "Produktový list Zeppelin neuvádí pracovní náklon ve stupních; u vlečné plošiny rozhoduje správné vyrovnání na opěrách.",
       "gradeabilityText": "14 % / 8°",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/ommelift-1500-exbp-zeppelin.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/ommelift-1500-exbp-technicky-souhrn.pdf",
       "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/OMMELIFT_1500EX.pdf",
-      "datasheetLabel": "Produktový list Zeppelin Ommelift 1500 EX",
-      "datasheetLocalUrl": "assets/datasheets/ommelift-1500-exbp-zeppelin.pdf"
+      "datasheetLabel": "Technický souhrn Ommelift 1500 EXBP",
+      "datasheetLocalUrl": "assets/datasheets/ommelift-1500-exbp-technicky-souhrn.pdf",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29"
     },
     {
       "id": "ommelift-1700-exbp",
@@ -1823,7 +2240,7 @@ window.MACHINE_CATALOG = {
       "capacityText": "200 kg",
       "maxPersons": null,
       "outreachM": 9.1,
-      "drive": "bateriový / benzinový motor",
+      "drive": "bateriový / benzinový",
       "driveGroup": "hybrid",
       "indoor": true,
       "outdoor": true,
@@ -1846,10 +2263,16 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "Ustavit do vodorovna na opěrách",
       "maxChassisTiltNote": "Produktový list Zeppelin neuvádí pracovní náklon ve stupních; u vlečné plošiny rozhoduje správné vyrovnání na opěrách.",
       "gradeabilityText": "14 % / 8°",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/ommelift-1700-exbp-zeppelin.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/ommelift-1700-exbp-technicky-souhrn.pdf",
       "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/OMMELIFT_1700EX.pdf",
-      "datasheetLabel": "Produktový list Zeppelin Ommelift 1700 EX",
-      "datasheetLocalUrl": "assets/datasheets/ommelift-1700-exbp-zeppelin.pdf"
+      "datasheetLabel": "Technický souhrn Ommelift 1700 EXBP",
+      "datasheetLocalUrl": "assets/datasheets/ommelift-1700-exbp-technicky-souhrn.pdf",
+      "dataSources": [
+        "Zeppelin CZ",
+        "technické podklady výrobce",
+        "revize 2025"
+      ],
+      "verifiedAt": "2026-06-29"
     }
   ]
 };
