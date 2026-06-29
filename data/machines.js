@@ -1,7 +1,7 @@
 window.MACHINE_CATALOG = {
-  "version": "0.4.2",
+  "version": "0.4.4",
   "updatedAt": "2026-06-29",
-  "sourceName": "Zeppelin CZ + technické podklady výrobců + revize 2025",
+  "sourceName": "Zeppelin CZ + technicke podklady vyrobcu",
   "machines": [
     {
       "id": "genie-gs-1432",
@@ -47,8 +47,7 @@ window.MACHINE_CATALOG = {
       "datasheetLocalUrl": "assets/datasheets/genie-gs-1432-technicky-souhrn.pdf",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29"
     },
@@ -90,8 +89,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "1,5° / 3°",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG ES1530L",
@@ -137,8 +135,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "1,5° / 3,75°",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG 1532 R",
@@ -180,11 +177,9 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Nůžková plošina JLG 1932 ES nabízena k pronájmu poskytuje přesné ovládání a spolehlivý výkon v interiéru.",
       "maxChassisTiltText": "Neuvedeno ve zdroji",
-      "maxChassisTiltNote": "Kontrolováno proti produktové stránce Zeppelin a revizím 2025; konkrétní hodnota náklonu nebyla ve zdroji uvedena.",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG 1932 ES",
@@ -228,7 +223,6 @@ window.MACHINE_CATALOG = {
       "description": "Nůžková plošina Genie GS-1932 DC je k zapůjčení pro tichý elektrický provoz a bezpečnou práci ve výškách.",
       "maxChassisTiltDeg": 1.5,
       "maxChassisTiltText": "1,5° / 3° / 3°",
-      "maxChassisTiltNote": "Použita nejmenší hodnota z dostupných revizních údajů příbuzných GS-1932/GS-2032; produktový list Zeppelin uvádí tilt alarm bez stupňů.",
       "gradeabilityText": "30 %",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-1932-dc-technicky-souhrn.pdf",
       "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/GS-1532_1932.pdf",
@@ -236,8 +230,7 @@ window.MACHINE_CATALOG = {
       "datasheetLocalUrl": "assets/datasheets/genie-gs-1932-dc-technicky-souhrn.pdf",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29"
     },
@@ -280,8 +273,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "1,5° / 3° / 3°",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn GENIE GS-2032 DC",
@@ -326,8 +318,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "1,5° / 3° / 3°",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn GENIE GS-2046 DC",
@@ -372,8 +363,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "1,5° / 3°",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG 2632 ES",
@@ -419,8 +409,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "1,5° / 3° / 3°",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn GENIE GS-2632 DC",
@@ -465,8 +454,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "1,5° / 3° / 3°",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn GENIE GS-2646 DC",
@@ -512,8 +500,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "2° / 3°",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG 2646 ES",
@@ -557,11 +544,9 @@ window.MACHINE_CATALOG = {
       "description": "Nůžková plošina JLG 3246 ES lze zapůjčit pro spolehlivou práci ve výškách s komfortní obsluhou.",
       "maxChassisTiltDeg": 1.5,
       "maxChassisTiltText": "1,5° / 3,5°",
-      "maxChassisTiltNote": "V revizích se liší hodnoty; zobrazena je varianta s nejnižším limitem.",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG 3246 ES",
@@ -606,8 +591,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "1,5° / 3° / 3°",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn GENIE GS-3246 DC",
@@ -650,11 +634,9 @@ window.MACHINE_CATALOG = {
       "description": "Venkovní nůžková plošina Genie GS-3369 RT nabízena k pronájmu poskytuje stabilní venkovní nasazení a vysokou nosnost.",
       "maxChassisTiltDeg": 2,
       "maxChassisTiltText": "0,8° / 3° / 3°",
-      "maxChassisTiltNote": "V revizích se liší hodnoty; zobrazena je varianta s nejnižším limitem.",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn GENIE GS-3369 RT",
@@ -700,8 +682,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltNote": "Produktová stránka Zeppelin neuvádí hodnotu náklonu podvozku; ověřit podle štítku nebo návodu konkrétního stroje.",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn Zoomlion ZS1012ACLi",
@@ -744,11 +725,9 @@ window.MACHINE_CATALOG = {
       "description": "Venkovní nůžková plošina Genie GS-3390 RT je k zapůjčení pro extrémní pracovní výšky a stabilitu na dostatečně únosné venkovní ploše.",
       "maxChassisTiltDeg": 2,
       "maxChassisTiltText": "0,8° / 3° / 3°",
-      "maxChassisTiltNote": "V revizích se liší hodnoty; zobrazena je varianta s nejnižším limitem.",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn GENIE GS-3390 RT",
@@ -794,8 +773,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltNote": "Produktová stránka Zeppelin neuvádí hodnotu náklonu podvozku; ověřit podle štítku nebo návodu konkrétního stroje.",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn Zoomlion ZS1023RT",
@@ -840,8 +818,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "1,5° / 3°",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn GENIE GS-4046",
@@ -886,8 +863,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltNote": "Produktová stránka Zeppelin neuvádí hodnotu náklonu podvozku; ověřit podle štítku nebo návodu konkrétního stroje.",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn Zoomlion ZS1218ERT",
@@ -932,8 +908,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "1,5° / 3,5°",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG 4045 R",
@@ -979,8 +954,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "2° / 3° / 3°",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn GENIE GS-4390 RT",
@@ -1026,8 +1000,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltNote": "Produktová stránka Zeppelin neuvádí hodnotu náklonu podvozku; ověřit podle štítku nebo návodu konkrétního stroje.",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn Zoomlion ZS1414ACLi",
@@ -1072,8 +1045,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "1,5° / 3° / 3°",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn GENIE GS-4655 DC",
@@ -1118,8 +1090,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "2° / 3° / 3°",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn GENIE GS-5390 RT",
@@ -1164,8 +1135,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltDeg": 2.5,
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG Toucan 10E",
@@ -1210,8 +1180,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "3° / 3°",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG Toucan 12E",
@@ -1256,8 +1225,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "3° / 3°",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG Toucan 12E+",
@@ -1300,7 +1268,6 @@ window.MACHINE_CATALOG = {
       "description": "Kloubová plošina Genie Z-30/20 N nabízena k zapůjčení poskytuje přesný dosah a tichý chod v úzkých prostorách.",
       "maxChassisTiltDeg": 2.5,
       "maxChassisTiltText": "2,5° / 4,5°",
-      "maxChassisTiltNote": "Hodnota převzata z revize 2025 pro Z-30/20ND; zobrazena je nejmenší hodnota.",
       "gradeabilityText": "35 %",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-z-30-20-n-technicky-souhrn.pdf",
       "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/Z-3020_N.pdf",
@@ -1308,8 +1275,7 @@ window.MACHINE_CATALOG = {
       "datasheetLocalUrl": "assets/datasheets/genie-z-30-20-n-technicky-souhrn.pdf",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29"
     },
@@ -1351,8 +1317,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "2,5° / 4,5°",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn GENIE Z-34/22 N",
@@ -1397,8 +1362,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "3° / 3°",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG E400 AJPN",
@@ -1443,8 +1407,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "5° / 5°",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG 450 AJ",
@@ -1489,8 +1452,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "3° / 3°",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG E450 AJ",
@@ -1535,8 +1497,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltNote": "Produktová stránka Zeppelin neuvádí hodnotu náklonu podvozku; ověřit podle štítku nebo návodu konkrétního stroje.",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn Zoomlion ZA14J",
@@ -1581,8 +1542,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "2,5° / 4,5°",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn GENIE Z-45/25 JDC",
@@ -1625,11 +1585,9 @@ window.MACHINE_CATALOG = {
       "description": "Kloubová plošina Genie Z-45XC je k zapůjčení pro práci s vyšší nosností a mimořádnou stabilitou v celé výšce.",
       "maxChassisTiltDeg": 2.5,
       "maxChassisTiltText": "2,5° / 4,5°",
-      "maxChassisTiltNote": "V revizích se liší hodnoty; zobrazena je varianta s nejnižším limitem.",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn GENIE Z-45XC",
@@ -1674,8 +1632,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "2,5° / 4,5°",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn GENIE Z-45/25 JRT",
@@ -1720,8 +1677,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "2,5° / 4,5°",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn GENIE Z-51/30 JRT",
@@ -1766,8 +1722,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "5° / 5°",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG 520 AJ",
@@ -1812,8 +1767,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "4° / 4°",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG 600 AJ",
@@ -1858,8 +1812,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "2,5° / 4,5°",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn GENIE Z-62/40 RT",
@@ -1904,8 +1857,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "4° / 4°",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG 800 AJ",
@@ -1950,8 +1902,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "5° / 5°",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG 1250 AJP",
@@ -1996,8 +1947,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "5° / 5°",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG 460 SJ",
@@ -2042,8 +1992,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "5° / 5°",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG 660 SJ",
@@ -2088,8 +2037,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "4° / 4°",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG 860 SJ",
@@ -2134,8 +2082,7 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "5° / 5°",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG 1200 SJP",
@@ -2184,8 +2131,7 @@ window.MACHINE_CATALOG = {
       "datasheetLocalUrl": "assets/datasheets/ommelift-1300-ebp-technicky-souhrn.pdf",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29"
     },
@@ -2232,8 +2178,7 @@ window.MACHINE_CATALOG = {
       "datasheetLocalUrl": "assets/datasheets/ommelift-1500-exbp-technicky-souhrn.pdf",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29"
     },
@@ -2280,8 +2225,7 @@ window.MACHINE_CATALOG = {
       "datasheetLocalUrl": "assets/datasheets/ommelift-1700-exbp-technicky-souhrn.pdf",
       "dataSources": [
         "Zeppelin CZ",
-        "technické podklady výrobce",
-        "revize 2025"
+        "technické podklady výrobce"
       ],
       "verifiedAt": "2026-06-29"
     }
