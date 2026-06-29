@@ -1,5 +1,5 @@
 window.MACHINE_CATALOG = {
-  "version": "0.2.18",
+  "version": "0.2.19",
   "updatedAt": "2026-06-26",
   "sourceName": "Ve?ejn? katalog P?j?ovny stroj? Zeppelin CZ",
   "machines": [
@@ -41,9 +41,10 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltDeg": 1.5,
       "maxChassisTiltText": "3° / 1,5°",
       "gradeabilityText": "25 % / 14°",
-      "datasheetUrl": "assets/datasheets/genie-gs-1432m-gs-1932m-2025-en-us.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-1432m-gs-1932m-2025-en-us.pdf",
       "datasheetSourceUrl": "https://www.genielift.com/docs/default-source/product-specifications/slab-scissor-lifts-(ansi)-or-electric-and-bi-energy-lifts-(ce)/en/2025/gs-1432m-gs-1932m-product-specifications---2025---en-us.pdf?sfvrsn=d064fee6_1",
-      "datasheetLabel": "Technický list Genie GS-1432m / GS-1932m (2025)"
+      "datasheetLabel": "Technický list Genie GS-1432m / GS-1932m (2025)",
+      "datasheetLocalUrl": "assets/datasheets/genie-gs-1432m-gs-1932m-2025-en-us.pdf"
     },
     {
       "id": "jlg-es1530l",
@@ -194,9 +195,10 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "1,5° / 3° / 3°",
       "maxChassisTiltNote": "Použita nejmenší hodnota z dostupných revizních údajů příbuzných GS-1932/GS-2032; produktový list Zeppelin uvádí tilt alarm bez stupňů.",
       "gradeabilityText": "30 %",
-      "datasheetUrl": "assets/datasheets/genie-gs-1932-dc-zeppelin.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-1932-dc-zeppelin.pdf",
       "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/GS-1532_1932.pdf",
-      "datasheetLabel": "Produktový list Zeppelin GS-1532 / GS-1932"
+      "datasheetLabel": "Produktový list Zeppelin GS-1532 / GS-1932",
+      "datasheetLocalUrl": "assets/datasheets/genie-gs-1932-dc-zeppelin.pdf"
     },
     {
       "id": "genie-gs-2032-dc",
@@ -1052,9 +1054,10 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "2,5° / 4,5°",
       "maxChassisTiltNote": "Hodnota převzata z revize 2025 pro Z-30/20ND; zobrazena je nejmenší hodnota.",
       "gradeabilityText": "35 %",
-      "datasheetUrl": "assets/datasheets/genie-z-30-20-n-zeppelin.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-z-30-20-n-zeppelin.pdf",
       "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/Z-3020_N.pdf",
-      "datasheetLabel": "Produktový list Zeppelin Z-30/20 N"
+      "datasheetLabel": "Produktový list Zeppelin Z-30/20 N",
+      "datasheetLocalUrl": "assets/datasheets/genie-z-30-20-n-zeppelin.pdf"
     },
     {
       "id": "genie-z-34-22-n",
@@ -1759,9 +1762,10 @@ window.MACHINE_CATALOG = {
       "description": "Plošina Ommelift 1300 EBP nabízena k pronájmu poskytuje kompaktní provoz a bezpečný přístup do výšek.",
       "maxChassisTiltText": "Ustavit do vodorovna na opěrách",
       "maxChassisTiltNote": "Produktový list Zeppelin neuvádí pracovní náklon ve stupních; u vlečné plošiny rozhoduje správné vyrovnání na opěrách.",
-      "datasheetUrl": "assets/datasheets/ommelift-1300-ebp-zeppelin.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/ommelift-1300-ebp-zeppelin.pdf",
       "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/OMMELIFT_1300E.pdf",
-      "datasheetLabel": "Produktový list Zeppelin Ommelift 1300 E"
+      "datasheetLabel": "Produktový list Zeppelin Ommelift 1300 E",
+      "datasheetLocalUrl": "assets/datasheets/ommelift-1300-ebp-zeppelin.pdf"
     },
     {
       "id": "ommelift-1500-exbp",
@@ -1800,9 +1804,10 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "Ustavit do vodorovna na opěrách",
       "maxChassisTiltNote": "Produktový list Zeppelin neuvádí pracovní náklon ve stupních; u vlečné plošiny rozhoduje správné vyrovnání na opěrách.",
       "gradeabilityText": "14 % / 8°",
-      "datasheetUrl": "assets/datasheets/ommelift-1500-exbp-zeppelin.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/ommelift-1500-exbp-zeppelin.pdf",
       "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/OMMELIFT_1500EX.pdf",
-      "datasheetLabel": "Produktový list Zeppelin Ommelift 1500 EX"
+      "datasheetLabel": "Produktový list Zeppelin Ommelift 1500 EX",
+      "datasheetLocalUrl": "assets/datasheets/ommelift-1500-exbp-zeppelin.pdf"
     },
     {
       "id": "ommelift-1700-exbp",
@@ -1841,9 +1846,10 @@ window.MACHINE_CATALOG = {
       "maxChassisTiltText": "Ustavit do vodorovna na opěrách",
       "maxChassisTiltNote": "Produktový list Zeppelin neuvádí pracovní náklon ve stupních; u vlečné plošiny rozhoduje správné vyrovnání na opěrách.",
       "gradeabilityText": "14 % / 8°",
-      "datasheetUrl": "assets/datasheets/ommelift-1700-exbp-zeppelin.pdf",
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/ommelift-1700-exbp-zeppelin.pdf",
       "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/OMMELIFT_1700EX.pdf",
-      "datasheetLabel": "Produktový list Zeppelin Ommelift 1700 EX"
+      "datasheetLabel": "Produktový list Zeppelin Ommelift 1700 EX",
+      "datasheetLocalUrl": "assets/datasheets/ommelift-1700-exbp-zeppelin.pdf"
     }
   ]
 };
