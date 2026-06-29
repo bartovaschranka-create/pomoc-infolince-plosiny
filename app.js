@@ -348,7 +348,7 @@
               ${specRow("Pohon", machine.drive || "Neuvedeno")}
               ${specRow("Použití", environment)}
               ${specRow("Vhodný povrch", terrain)}
-              ${machine.maxChassisTiltDeg == null ? "" : specRow("Max. náklon podvozku", metric(machine.maxChassisTiltDeg, "\u00b0"))}
+              ${machine.maxChassisTiltDeg == null && !machine.maxChassisTiltText ? "" : specRow("Max. náklon podvozku", machine.maxChassisTiltText || metric(machine.maxChassisTiltDeg, "\u00b0"))}
               ${specRow("Délka stroje", metric(machine.dimensions?.lengthM, "m"))}
               ${specRow("Šířka stroje", metric(machine.dimensions?.widthM, "m"))}
               ${specRow("Výška stroje", metric(machine.dimensions?.heightM, "m"))}

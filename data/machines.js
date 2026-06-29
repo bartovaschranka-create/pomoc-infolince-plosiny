@@ -1,5 +1,5 @@
 window.MACHINE_CATALOG = {
-  "version": "0.2.12",
+  "version": "0.2.13",
   "updatedAt": "2026-06-26",
   "sourceName": "Ve?ejn? katalog P?j?ovny stroj? Zeppelin CZ",
   "machines": [
@@ -72,7 +72,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "520 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Nůžková plošina JLG ES1530L je k zapůjčení pro tichou, stabilní a bezpečnou práci ve vnitřních výškách.",
-      "maxChassisTiltDeg": 1.5
+      "maxChassisTiltDeg": 1.5,
+      "maxChassisTiltText": "1,5° / 3°"
     },
     {
       "id": "jlg-1532-r",
@@ -108,7 +109,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "550 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Nůžková plošina JLG 1532 R lze pronajmout pro údržbu a montáže s vyšším zdvihem a stabilní platformou.",
-      "maxChassisTiltDeg": 1.5
+      "maxChassisTiltDeg": 1.5,
+      "maxChassisTiltText": "1,5° / 3,75°"
     },
     {
       "id": "jlg-1932-es",
@@ -214,7 +216,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "600 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Nůžková plošina Genie GS-2032 DC je k pronájmu pro stabilní zdvih, tichý chod a bezpečný provoz v halách.",
-      "maxChassisTiltDeg": 1.5
+      "maxChassisTiltDeg": 1.5,
+      "maxChassisTiltText": "1,5° / 3° / 3°"
     },
     {
       "id": "genie-gs-2046-dc",
@@ -250,7 +253,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "650 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Nůžková plošina Genie GS-2046 DC lze zapůjčit pro větší pracovní výšku a komfortní obsluhu.",
-      "maxChassisTiltDeg": 1.5
+      "maxChassisTiltDeg": 1.5,
+      "maxChassisTiltText": "1,5° / 3° / 3°"
     },
     {
       "id": "jlg-2632-es",
@@ -286,7 +290,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "650 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Nůžková plošina JLG 2632 ES lze pronajmout pro údržbu, montáže a efektivní práci ve vnitřních výškách.",
-      "maxChassisTiltDeg": 1.5
+      "maxChassisTiltDeg": 1.5,
+      "maxChassisTiltText": "1,5° / 3°"
     },
     {
       "id": "genie-gs-2632-dc",
@@ -322,7 +327,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "650 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Nůžková plošina Genie GS-2632 DC je k zapůjčení pro přesnou práci v úzkých prostorech a tichý chod.",
-      "maxChassisTiltDeg": 1.5
+      "maxChassisTiltDeg": 1.5,
+      "maxChassisTiltText": "1,5° / 3° / 3°"
     },
     {
       "id": "genie-gs-2646-dc",
@@ -358,7 +364,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "710 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Nůžková plošina Genie GS-2646 DC nabízena k pronájmu poskytuje vysoký zdvih a bezpečnou pracovní platformu.",
-      "maxChassisTiltDeg": 1.5
+      "maxChassisTiltDeg": 1.5,
+      "maxChassisTiltText": "1,5° / 3° / 3°"
     },
     {
       "id": "jlg-2646-es",
@@ -394,7 +401,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "710 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Nůžková plošina JLG 2646 ES nabízena k zapůjčení poskytuje velkou platformu a stabilní elektrický provoz.",
-      "maxChassisTiltDeg": 2
+      "maxChassisTiltDeg": 2,
+      "maxChassisTiltText": "2° / 3°"
     },
     {
       "id": "jlg-3246-es",
@@ -430,7 +438,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "930 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Nůžková plošina JLG 3246 ES lze zapůjčit pro spolehlivou práci ve výškách s komfortní obsluhou.",
-      "maxChassisTiltDeg": 1.5
+      "maxChassisTiltDeg": 1.5,
+      "maxChassisTiltText": "1,5° / 3,5°"
     },
     {
       "id": "genie-gs-3246-dc",
@@ -466,7 +475,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "930 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Nůžková plošina Genie GS-3246 DC je k pronájmu pro vysoké zdvihy, prostornou platformu a tichý provoz.",
-      "maxChassisTiltDeg": 1.5
+      "maxChassisTiltDeg": 1.5,
+      "maxChassisTiltText": "1,5° / 3° / 3°"
     },
     {
       "id": "genie-gs-3369-rt",
@@ -502,7 +512,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "1 300 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Venkovní nůžková plošina Genie GS-3369 RT nabízena k pronájmu poskytuje stabilní venkovní nasazení a vysokou nosnost.",
-      "maxChassisTiltDeg": 2
+      "maxChassisTiltDeg": 2,
+      "maxChassisTiltText": "0,8° / 3° / 3°"
     },
     {
       "id": "zoomlion-zs1012ac-li",
@@ -573,7 +584,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "1 360 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Venkovní nůžková plošina Genie GS-3390 RT je k zapůjčení pro extrémní pracovní výšky a stabilitu na dostatečně únosné venkovní ploše.",
-      "maxChassisTiltDeg": 2
+      "maxChassisTiltDeg": 2,
+      "maxChassisTiltText": "0,8° / 3° / 3°"
     },
     {
       "id": "zoomlion-zs1023rt",
@@ -644,7 +656,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "1 080 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Nůžková plošina Genie GS-4046 je k zapůjčení pro větší pracovní výšky, stabilitu a tichý chod.",
-      "maxChassisTiltDeg": 1.5
+      "maxChassisTiltDeg": 1.5,
+      "maxChassisTiltText": "1,5° / 3°"
     },
     {
       "id": "zoomlion-zs1218ert",
@@ -715,7 +728,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "1 080 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Nůžková plošina JLG 4045 R lze pronajmout pro efektivní práci ve výškách s úsporným elektrickým systémem.",
-      "maxChassisTiltDeg": 1.5
+      "maxChassisTiltDeg": 1.5,
+      "maxChassisTiltText": "1,5° / 3,5°"
     },
     {
       "id": "genie-gs-4390-rt",
@@ -751,7 +765,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "1 460 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Venkovní plošina Genie GS-4390 RT nabízena k zapůjčení poskytuje velkou pracovní plochu a silný výkon na dostatečně únosné venkovní ploše.",
-      "maxChassisTiltDeg": 2
+      "maxChassisTiltDeg": 2,
+      "maxChassisTiltText": "2° / 3° / 3°"
     },
     {
       "id": "zoomlion-zs1414ac-li",
@@ -822,7 +837,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "1 730 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Nůžková plošina Genie GS-4655 DC nabízena k pronájmu poskytuje vysoký zdvih, prostornou platformu a tichý provoz.",
-      "maxChassisTiltDeg": 1.5
+      "maxChassisTiltDeg": 1.5,
+      "maxChassisTiltText": "1,5° / 3° / 3°"
     },
     {
       "id": "genie-gs-5390-rt",
@@ -858,7 +874,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "1 680 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Venkovní nůžková plošina Genie GS-5390 RT je k pronájmu pro extrémní výšky, venkovní provoz a vysokou stabilitu.",
-      "maxChassisTiltDeg": 2
+      "maxChassisTiltDeg": 2,
+      "maxChassisTiltText": "2° / 3° / 3°"
     },
     {
       "id": "jlg-toucan-10e",
@@ -930,7 +947,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "1 630 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Kloubová plošina JLG Toucan 12E je k pronájmu pro přesnou práci ve výškách a výbornou mobilitu v interiéru.",
-      "maxChassisTiltDeg": 3
+      "maxChassisTiltDeg": 3,
+      "maxChassisTiltText": "3° / 3°"
     },
     {
       "id": "jlg-toucan-12e-plus",
@@ -966,7 +984,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "1 680 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Kloubová plošina JLG Toucan 12E Plus je k pronájmu, ideální pro práci v halách s obrovskou manévrovatelností.",
-      "maxChassisTiltDeg": 3
+      "maxChassisTiltDeg": 3,
+      "maxChassisTiltText": "3° / 3°"
     },
     {
       "id": "genie-z-30-20-n",
@@ -1037,7 +1056,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "1 580 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Kloubová plošina Genie Z-34/22 N lze zapůjčit pro flexibilní práci ve výškách s velmi přesným ovládáním.",
-      "maxChassisTiltDeg": 2.5
+      "maxChassisTiltDeg": 2.5,
+      "maxChassisTiltText": "2,5° / 4,5°"
     },
     {
       "id": "jlg-e400-ajpn",
@@ -1073,7 +1093,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "1 730 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Kloubová plošina JLG E400 AJPn nabízena k zapůjčení poskytuje kombinaci přesného dosahu a tichého elektrického chodu.",
-      "maxChassisTiltDeg": 3
+      "maxChassisTiltDeg": 3,
+      "maxChassisTiltText": "3° / 3°"
     },
     {
       "id": "jlg-450-aj",
@@ -1109,7 +1130,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "1 890 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Kloubová plošina JLG 450 AJ je k zapůjčení pro flexibilní práci ve výškách s výbornou obratností.",
-      "maxChassisTiltDeg": 5
+      "maxChassisTiltDeg": 5,
+      "maxChassisTiltText": "5° / 5°"
     },
     {
       "id": "jlg-e450-aj",
@@ -1145,7 +1167,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "1 790 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Kloubová plošina JLG E450 AJ je k pronájmu pro náročné pracovní výšky s vysokým výkonem a stabilitou.",
-      "maxChassisTiltDeg": 3
+      "maxChassisTiltDeg": 3,
+      "maxChassisTiltText": "3° / 3°"
     },
     {
       "id": "zoomlion-za14j",
@@ -1216,7 +1239,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "1 790 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Kloubová plošina Genie Z-45/25 JDC lze zapůjčit pro efektivní práci ve výškách s rychlou a plynulou reakcí ramen.",
-      "maxChassisTiltDeg": 2.5
+      "maxChassisTiltDeg": 2.5,
+      "maxChassisTiltText": "2,5° / 4,5°"
     },
     {
       "id": "genie-z-45xc",
@@ -1252,7 +1276,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "1 890 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Kloubová plošina Genie Z-45XC je k zapůjčení pro práci s vyšší nosností a mimořádnou stabilitou v celé výšce.",
-      "maxChassisTiltDeg": 2.5
+      "maxChassisTiltDeg": 2.5,
+      "maxChassisTiltText": "2,5° / 4,5°"
     },
     {
       "id": "genie-z-45-25-jrt",
@@ -1288,7 +1313,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "1 890 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Venkovní plošina Genie Z-45/25 JRT nabízena k pronájmu poskytuje skvělou výkon pro venkovní nasazení a vysoký výkon.",
-      "maxChassisTiltDeg": 2.5
+      "maxChassisTiltDeg": 2.5,
+      "maxChassisTiltText": "2,5° / 4,5°"
     },
     {
       "id": "genie-z-51-30-jrt",
@@ -1324,7 +1350,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "1 950 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Kloubová plošina Genie Z-51/30 JRT je k zapůjčení pro náročné venkovní práce s velkým pracovním dosahem.",
-      "maxChassisTiltDeg": 2.5
+      "maxChassisTiltDeg": 2.5,
+      "maxChassisTiltText": "2,5° / 4,5°"
     },
     {
       "id": "jlg-520-aj",
@@ -1360,7 +1387,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "1 950 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Teleskopická plošina JLG 520 AJ lze pronajmout pro flexibilní přístup do výšek a náročné pracovní podmínky.",
-      "maxChassisTiltDeg": 5
+      "maxChassisTiltDeg": 5,
+      "maxChassisTiltText": "5° / 5°"
     },
     {
       "id": "jlg-600-aj",
@@ -1396,7 +1424,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "2 810 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Teleskopická plošina JLG 600 AJ nabízena k pronájmu nabízí velký dosah a vysoký výkon pro průmyslové i stavební práce.",
-      "maxChassisTiltDeg": 4
+      "maxChassisTiltDeg": 4,
+      "maxChassisTiltText": "4° / 4°"
     },
     {
       "id": "genie-z-62-40-rt",
@@ -1432,7 +1461,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "2 810 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Teleskopická plošina Genie Z-62/40 RT je k zapůjčení pro extrémní výškové práce a stabilní výkon na dostatečně únosné venkovní ploše.",
-      "maxChassisTiltDeg": 2.5
+      "maxChassisTiltDeg": 2.5,
+      "maxChassisTiltText": "2,5° / 4,5°"
     },
     {
       "id": "jlg-800-aj",
@@ -1468,7 +1498,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "4 100 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Teleskopická plošina JLG 800 AJ nabízena k pronájmu poskytuje vysoký dosah, stabilitu a jistotu i při těžkém nasazení.",
-      "maxChassisTiltDeg": 4
+      "maxChassisTiltDeg": 4,
+      "maxChassisTiltText": "4° / 4°"
     },
     {
       "id": "jlg-1250-ajp",
@@ -1504,7 +1535,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "6 800 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Teleskopická plošina JLG 1250 AJP je k zapůjčení pro práci v extrémních výškách s maximální produktivitou.",
-      "maxChassisTiltDeg": 5
+      "maxChassisTiltDeg": 5,
+      "maxChassisTiltText": "5° / 5°"
     },
     {
       "id": "jlg-460-sj",
@@ -1540,7 +1572,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "2 010 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Teleskopická plošina JLG 460 SJ nabízena k zapůjčení poskytuje dlouhý dosah a stabilní výkon ve výškách.",
-      "maxChassisTiltDeg": 5
+      "maxChassisTiltDeg": 5,
+      "maxChassisTiltText": "5° / 5°"
     },
     {
       "id": "jlg-660-sj",
@@ -1576,7 +1609,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "2 650 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Teleskopická plošina JLG 660 SJ je k pronájmu pro robustní práci ve výškách s velkým horizontálním dosahem.",
-      "maxChassisTiltDeg": 5
+      "maxChassisTiltDeg": 5,
+      "maxChassisTiltText": "5° / 5°"
     },
     {
       "id": "jlg-860-sj",
@@ -1612,7 +1646,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "4 320 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Teleskopická plošina JLG 860 SJ lze zapůjčit pro extrémní pracovní výšky a vysokou nosnost.",
-      "maxChassisTiltDeg": 4
+      "maxChassisTiltDeg": 4,
+      "maxChassisTiltText": "4° / 4°"
     },
     {
       "id": "jlg-1200-sjp",
@@ -1648,7 +1683,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "5 510 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Teleskopická plošina JLG 1200 SJP nabízena k pronájmu poskytuje mimořádný dosah a stabilitu při těžkých úkolech.",
-      "maxChassisTiltDeg": 5
+      "maxChassisTiltDeg": 5,
+      "maxChassisTiltText": "5° / 5°"
     },
     {
       "id": "ommelift-1300-ebp",
