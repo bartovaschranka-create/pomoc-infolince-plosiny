@@ -2,88 +2,12 @@
   "use strict";
 
   const categories = [
-    { id: "scissor", label: "Nůžkové", icon: iconScissor(), description: "Rovná plocha, sklad, hala" },
-    { id: "articulated", label: "Kloubové", icon: iconArticulated(), description: "Přes překážku a do stran" },
-    { id: "telescopic", label: "Teleskopické", icon: iconTelescopic(), description: "Velký boční dosah" },
-    { id: "trailer", label: "Vlečné", icon: iconTrailer(), description: "Vlečné plošiny OMME" },
-    { id: "mast", label: "Anténní", icon: iconMast(), description: "Toucan a stožárové plošiny" }
+    { id: "scissor", label: "Nůžkové", image: "assets/images/genie-gs-4046.webp", description: "Rovná plocha, sklad, hala" },
+    { id: "articulated", label: "Kloubové", image: "assets/images/jlg-450-aj.webp", description: "Přes překážku a do stran" },
+    { id: "telescopic", label: "Teleskopické", image: "assets/images/jlg-460-sj.webp", description: "Velký boční dosah" },
+    { id: "trailer", label: "Vlečné", image: "assets/images/ommelift-1700-exbp.webp", description: "Vlečné plošiny OMME" },
+    { id: "mast", label: "Anténní", image: "assets/images/jlg-toucan-12e.webp", description: "Toucan a stožárové plošiny" }
   ];
-
-  function iconSvg(content) {
-    return `<svg class="category-sketch category-silhouette" viewBox="0 0 160 100" aria-hidden="true" focusable="false">${content}</svg>`;
-  }
-
-  function iconScissor() {
-    return iconSvg(`
-      <path d="M26 78h104" />
-      <path d="M34 68h82c8 0 13 4 15 10H22c2-6 6-10 12-10z" />
-      <circle cx="43" cy="82" r="7" />
-      <circle cx="107" cy="82" r="7" />
-      <path d="M43 58h70" />
-      <path d="M50 32h66" />
-      <path d="M50 32v-8M65 32v-8M80 32v-8M95 32v-8M110 32v-8" />
-      <path d="M50 24h66" />
-      <path d="M53 58l43-26M96 58L53 32" />
-      <path d="M73 58l43-26M116 58L73 32" />
-      <path d="M63 58l33-26M83 58l33-26" />
-    `);
-  }
-
-  function iconArticulated() {
-    return iconSvg(`
-      <path d="M22 70h50c8 0 14 6 14 14H14c0-8 5-14 8-14z" />
-      <circle cx="34" cy="84" r="10" />
-      <circle cx="70" cy="84" r="10" />
-      <path d="M62 64l26-32 11 8-25 32z" />
-      <path d="M89 30h32l3 12H97z" />
-      <path d="M116 36l-16 30-12-5 15-29z" />
-      <path d="M94 58h36l6 10H98z" />
-      <path d="M130 48h24v24h-24z" />
-      <path d="M136 40h13v8h-13z" />
-    `);
-  }
-
-  function iconTelescopic() {
-    return iconSvg(`
-      <path d="M20 70h54c8 0 14 6 14 14H12c0-8 5-14 8-14z" />
-      <circle cx="34" cy="84" r="10" />
-      <circle cx="72" cy="84" r="10" />
-      <path d="M62 62l61-38 7 10-61 38z" />
-      <path d="M75 60l55-34 5 8-55 34z" />
-      <path d="M128 19h26v22h-26z" />
-      <path d="M49 67l16-17 9 8-16 17z" />
-    `);
-  }
-
-  function iconTrailer() {
-    return iconSvg(`
-      <path d="M18 70h82l18 10H6z" />
-      <path d="M10 76L0 88h22z" />
-      <path d="M99 70h24l28 14h-43z" />
-      <circle cx="58" cy="84" r="11" />
-      <circle cx="82" cy="84" r="11" />
-      <path d="M34 56h34v16H34z" />
-      <path d="M67 56h35l29-17 8 12-34 21H67z" />
-      <path d="M106 42h29l2 10h-31z" />
-      <path d="M128 50h26v24h-26z" />
-      <path d="M26 70l-10 22h9l12-22z" />
-      <path d="M104 70l15 22h9l-12-22z" />
-    `);
-  }
-
-  function iconMast() {
-    return iconSvg(`
-      <path d="M34 68h66c7 0 12 6 12 16H24c0-10 4-16 10-16z" />
-      <circle cx="45" cy="84" r="9" />
-      <circle cx="94" cy="84" r="9" />
-      <path d="M60 20h20v52H60z" />
-      <path d="M66 14h8v58h-8z" />
-      <path d="M76 22l27 20-8 10-27-20z" />
-      <path d="M96 44h33v10H96z" />
-      <path d="M128 34h25v25h-25z" />
-      <path d="M42 58h24v13H42z" />
-    `);
-  }
 
   let machines = [];
   let selectedCategory = null;
@@ -126,7 +50,7 @@
     el("categoryGrid").innerHTML = categories.map(category => {
       const count = machines.filter(machine => inCategory(machine, category.id)).length;
       return `<button class="category-button" data-category="${category.id}" type="button">
-        <span class="category-icon">${category.icon}</span>
+        <span class="category-icon"><img class="category-photo" src="${esc(category.image)}" alt="${esc(category.label)} plošina" loading="lazy"></span>
         <span class="category-label">${category.label}</span>
         <span class="category-count">${count} strojů · ${category.description}</span>
       </button>`;
