@@ -1,5 +1,5 @@
 window.MACHINE_CATALOG = {
-  "version": "0.2.13",
+  "version": "0.2.14",
   "updatedAt": "2026-06-26",
   "sourceName": "Ve?ejn? katalog P?j?ovny stroj? Zeppelin CZ",
   "machines": [
@@ -439,7 +439,8 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Nůžková plošina JLG 3246 ES lze zapůjčit pro spolehlivou práci ve výškách s komfortní obsluhou.",
       "maxChassisTiltDeg": 1.5,
-      "maxChassisTiltText": "1,5° / 3,5°"
+      "maxChassisTiltText": "1,5° / 3,5°",
+      "maxChassisTiltNote": "V revizích se liší hodnoty; zobrazena je varianta s nejnižším limitem."
     },
     {
       "id": "genie-gs-3246-dc",
@@ -513,7 +514,8 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Venkovní nůžková plošina Genie GS-3369 RT nabízena k pronájmu poskytuje stabilní venkovní nasazení a vysokou nosnost.",
       "maxChassisTiltDeg": 2,
-      "maxChassisTiltText": "0,8° / 3° / 3°"
+      "maxChassisTiltText": "0,8° / 3° / 3°",
+      "maxChassisTiltNote": "V revizích se liší hodnoty; zobrazena je varianta s nejnižším limitem."
     },
     {
       "id": "zoomlion-zs1012ac-li",
@@ -585,7 +587,8 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Venkovní nůžková plošina Genie GS-3390 RT je k zapůjčení pro extrémní pracovní výšky a stabilitu na dostatečně únosné venkovní ploše.",
       "maxChassisTiltDeg": 2,
-      "maxChassisTiltText": "0,8° / 3° / 3°"
+      "maxChassisTiltText": "0,8° / 3° / 3°",
+      "maxChassisTiltNote": "V revizích se liší hodnoty; zobrazena je varianta s nejnižším limitem."
     },
     {
       "id": "zoomlion-zs1023rt",
@@ -1277,7 +1280,8 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Kloubová plošina Genie Z-45XC je k zapůjčení pro práci s vyšší nosností a mimořádnou stabilitou v celé výšce.",
       "maxChassisTiltDeg": 2.5,
-      "maxChassisTiltText": "2,5° / 4,5°"
+      "maxChassisTiltText": "2,5° / 4,5°",
+      "maxChassisTiltNote": "V revizích se liší hodnoty; zobrazena je varianta s nejnižším limitem."
     },
     {
       "id": "genie-z-45-25-jrt",
