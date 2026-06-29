@@ -3,8 +3,8 @@
 
   const categories = [
     { id: "scissor", label: "Nůžkové", image: "assets/images/genie-gs-4046.webp", description: "Rovná plocha, sklad, hala" },
-    { id: "articulated", label: "Kloubové", image: "assets/images/jlg-450-aj.webp", description: "Přes překážku a do stran" },
-    { id: "telescopic", label: "Teleskopické", image: "assets/images/jlg-460-sj.webp", description: "Velký boční dosah" },
+    { id: "articulated", label: "Kloubové", image: "assets/images/genie-z-45xc.webp", description: "Přes překážku a do stran" },
+    { id: "telescopic", label: "Teleskopické", image: "assets/images/jlg-660-sj.webp", description: "Velký boční dosah" },
     { id: "trailer", label: "Vlečné", image: "assets/images/ommelift-1700-exbp.webp", description: "Vlečné plošiny OMME" },
     { id: "mast", label: "Anténní", image: "assets/images/jlg-toucan-12e.webp", description: "Toucan a stožárové plošiny" }
   ];
