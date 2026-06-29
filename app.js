@@ -1,729 +1,325 @@
-﻿(() => {
+(() => {
   "use strict";
 
-  const catalog = window.MACHINE_CATALOG || { version: "?", updatedAt: "", machines: [] };
-  const machines = catalog.machines.filter((machine) => machine.active !== false);
-
   const categories = [
-    { id: "scissor", label: "Nůžkové", icon: iconScissor(), description: "Rovná plocha, sklad, hala, montáže" },
-    { id: "articulated", label: "Kloubové", icon: iconArticulated(), description: "Přes překážku a do stran" },
-    { id: "telescopic", label: "Teleskopické", icon: iconTelescopic(), description: "Velký boční dosah" },
-    { id: "trailer", label: "Vlečné", icon: iconTrailerOmme(), description: "Vlečné plošiny typu OMME" },
-    { id: "mast", label: "Anténní", icon: iconMast(), description: "Stožárové plošiny typu Toucan" }
+    { id: "scissor", label: "Nůžkové", icon: "✕", description: "Rovná plocha, sklad, hala" },
+    { id: "articulated", label: "Kloubové", icon: "⌁", description: "Přes překážku a do stran" },
+    { id: "telescopic", label: "Teleskopické", icon: "↗", description: "Velký boční dosah" },
+    { id: "trailer", label: "Vlečné", icon: "◉", description: "Vlečné plošiny OMME" },
+    { id: "mast", label: "Anténní", icon: "↥", description: "Toucan a stožárové plošiny" }
   ];
 
-  const categoryMap = Object.fromEntries(categories.map((category) => [category.id, category]));
-  const placeholderMap = {
-    scissor: "assets/images/placeholder-scissor.svg",
-    articulated: "assets/images/placeholder-articulated.svg",
-    telescopic: "assets/images/placeholder-telescopic.svg",
-    trailer: "assets/images/placeholder-trailer.svg",
-    mast: "assets/images/placeholder-mast.svg"
-  };
-
-
-  function iconScissor() {
-    return `<svg viewBox="0 0 120 90" class="icon-drawing line" role="img"><path d="M26 72h62M36 72a5 5 0 1 0 .1 0M78 72a5 5 0 1 0 .1 0M42 66l30-36M72 66L42 30M30 20h58v12H30zM39 20v12M58 20v12M77 20v12"/></svg>`;
-  }
-  function iconArticulated() {
-    return `<svg viewBox="0 0 120 90" class="icon-drawing line" role="img"><path d="M21 72h44M31 72a5 5 0 1 0 .1 0M56 72a5 5 0 1 0 .1 0M39 66l17-28M56 38h24M80 38l-14-16M66 22h22M86 21h20v15H86z"/></svg>`;
-  }
-  function iconTelescopic() {
-    return `<svg viewBox="0 0 120 90" class="icon-drawing line" role="img"><path d="M22 72h46M32 72a5 5 0 1 0 .1 0M58 72a5 5 0 1 0 .1 0M40 66l18-18 39-24M55 50l42-26M94 20h16v14H94z"/></svg>`;
-  }
-  function iconTrailerOmme() {
-    return `<svg viewBox="0 0 120 90" class="icon-drawing line" role="img"><path d="M18 72h76M66 72a6 6 0 1 0 .1 0M22 72l-13 7M88 72l13 7M18 65h56M18 65l-13-8M74 65l18-9M36 62h34M42 58l18-18M60 40h30M90 40l16 10M92 50h18"/></svg>`;
-  }
-  function iconMast() {
-    return `<svg viewBox="0 0 120 90" class="icon-drawing line" role="img"><path d="M34 74h38M43 74a5 5 0 1 0 .1 0M63 74a5 5 0 1 0 .1 0M39 68h32M48 68V24M56 68V24M46 24h12M46 64h12M56 28l18 10M74 38l12 10M85 44h21v16H85z"/></svg>`;
-  }
-
-  const terrainLabels = {
-    solid: "rovná pevná podlaha",
-    paved: "rovná dostatečně únosná plocha",
-    rough: "dostatečně únosná venkovní plocha"
-  };
-
-  const elements = {
-    appVersion: document.querySelector("#appVersion"),
-    catalogMeta: document.querySelector("#catalogMeta"),
-    categoryGrid: document.querySelector("#categoryGrid"),
-    categorySection: document.querySelector("#categorySection"),
-    filterSection: document.querySelector("#filterSection"),
-    selectedCategoryLabel: document.querySelector("#selectedCategoryLabel"),
-    showAllButton: document.querySelector("#showAllButton"),
-    changeCategoryButton: document.querySelector("#changeCategoryButton"),
-    filterForm: document.querySelector("#filterForm"),
-    smartSearchForm: document.querySelector("#smartSearchForm"),
-    smartSearchInput: document.querySelector("#smartSearchInput"),
-    smartSuggestBox: document.querySelector("#smartSuggestBox"),
-    clearFiltersButton: document.querySelector("#clearFiltersButton"),
-    resultsSection: document.querySelector("#resultsSection"),
-    resultsStatus: document.querySelector("#resultsStatus"),
-    resultsTitle: document.querySelector("#resultsTitle"),
-    resultsDescription: document.querySelector("#resultsDescription"),
-    resultsGrid: document.querySelector("#resultsGrid"),
-    editFiltersButton: document.querySelector("#editFiltersButton")
-  };
-
+  let machines = [];
   let selectedCategory = null;
 
-  function init() {
-    if (elements.appVersion) elements.appVersion.textContent = catalog.version || "0.1.0";
-    if (elements.catalogMeta) elements.catalogMeta.textContent = `${machines.length} strojů · aktualizace ${formatDate(catalog.updatedAt)}`;
-    renderCategories();
-    bindEvents();
+  const el = id => document.getElementById(id);
+  const num = id => {
+    const value = Number(el(id).value);
+    return el(id).value === "" || Number.isNaN(value) ? null : value;
+  };
+  const fmt = value => value == null
+    ? "Neuvedeno"
+    : new Intl.NumberFormat("cs-CZ", { maximumFractionDigits: 2 }).format(value);
+  const esc = value => String(value ?? "").replace(/[&<>"']/g, char => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;"
+  }[char]));
+  const normalize = value => String(value ?? "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "");
+
+  function isMast(machine) {
+    const text = `${machine.manufacturer || ""} ${machine.model || ""} ${machine.sourceCategory || ""}`.toLowerCase();
+    return ["toucan", "mast", "star", "stožár", "vertik"].some(term => text.includes(term));
   }
 
-  function bindEvents() {
-    elements.categoryGrid.addEventListener("click", (event) => {
-      const button = event.target.closest("[data-category]");
-      if (button) chooseCategory(button.dataset.category);
-    });
+  function inCategory(machine, categoryId) {
+    if (categoryId === "mast") return machine.category === "mast" || (machine.category === "articulated" && isMast(machine));
+    if (categoryId === "articulated") return machine.category === "articulated" && !isMast(machine);
+    return machine.category === categoryId;
+  }
 
-    elements.smartSearchForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-      closeSmartSuggestions();
-      runSmartSearch(elements.smartSearchInput.value);
-    });
-
-    elements.smartSearchInput.addEventListener("input", () => openSmartSuggestions());
-    elements.smartSearchInput.addEventListener("focus", () => openSmartSuggestions());
-    elements.smartSearchInput.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") closeSmartSuggestions();
-    });
-    document.addEventListener("pointerdown", (event) => {
-      if (!event.target.closest(".smart-search-row")) closeSmartSuggestions();
-    });
-
-    elements.showAllButton.addEventListener("click", () => {
-      selectedCategory = "all";
-      elements.filterSection.classList.add("hidden");
-      renderAllCatalog();
-    });
-
-    elements.changeCategoryButton.addEventListener("click", () => {
-      selectedCategory = null;
-      document.querySelectorAll(".category-button").forEach((button) => button.classList.remove("active"));
-      elements.filterSection.classList.add("hidden");
-      elements.resultsSection.classList.add("hidden");
-      elements.categorySection.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-
-    elements.filterForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-      runSearch();
-    });
-
-    elements.clearFiltersButton.addEventListener("click", () => {
-      elements.filterForm.reset();
-      elements.resultsSection.classList.add("hidden");
-      document.querySelector("#workingHeight").focus();
-    });
-
-    elements.editFiltersButton.addEventListener("click", () => {
-      if (selectedCategory === "all") {
-        elements.categorySection.scrollIntoView({ behavior: "smooth", block: "start" });
-      } else {
-        elements.filterSection.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    });
+  function imageUrl(machine) {
+    if (!machine.image) return "";
+    if (/^https?:/i.test(machine.image)) return machine.image;
+    return `https://bartovaschranka-create.github.io/pomoc-infolince-plosiny/${machine.image}`;
   }
 
   function renderCategories() {
-    elements.categoryGrid.innerHTML = categories.map((category) => {
-      const count = getMachinesForCategory(category.id).length;
-      return `
-        <button class="category-button" type="button" data-category="${category.id}" aria-label="${escapeHtml(category.label)}, ${count} strojů">
-          <span class="category-icon" aria-hidden="true">${category.icon}</span>
-          <span class="category-label">${escapeHtml(category.label)}</span>
-          <span class="category-count">${count} ${pluralizeMachines(count)} · ${escapeHtml(category.description)}</span>
-        </button>`;
+    el("categoryGrid").innerHTML = categories.map(category => {
+      const count = machines.filter(machine => inCategory(machine, category.id)).length;
+      return `<button class="category-button" data-category="${category.id}" type="button">
+        <span class="category-icon">${category.icon}</span>
+        <span class="category-label">${category.label}</span>
+        <span class="category-count">${count} strojů · ${category.description}</span>
+      </button>`;
     }).join("");
-  }
-
-
-  function getMachinesForCategory(categoryId) {
-    if (categoryId === "mast") {
-      return machines.filter((machine) => machine.category === "mast" || (machine.category === "articulated" && isMastMachine(machine)));
-    }
-    if (categoryId === "articulated") {
-      return machines.filter((machine) => machine.category === "articulated" && !isMastMachine(machine));
-    }
-    return machines.filter((machine) => machine.category === categoryId);
-  }
-
-  function isMastMachine(machine) {
-    const text = normalizeSearchText(`${machine.manufacturer || ""} ${machine.model || ""} ${machine.sourceCategory || ""} ${machine.id || ""}`);
-    return ["toucan", "star", "mast", "stozar", "stozarov", "vertik"].some((term) => text.includes(term));
-  }
-
-  function normalizeSearchText(value) {
-    return String(value || "")
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "");
-  }
-
-  function compactSearchText(value) {
-    return normalizeSearchText(value).replace(/[^a-z0-9]+/g, "");
-  }
-
-  function isDieselMachine(machine) {
-    return machine.driveGroup === "diesel" || /diesel/i.test(machine.drive || "");
-  }
-
-  function supportsEnvironment(machine, environment) {
-    if (environment === "indoor") return Boolean(machine.indoor) && !isDieselMachine(machine);
-    if (environment === "outdoor") return Boolean(machine.outdoor);
-    return true;
-  }
-
-  function matchesRequestedEnvironment(machine, filters) {
-    if (!filters.environment || filters.environment === "any") return true;
-    return supportsEnvironment(machine, filters.environment);
   }
 
   function chooseCategory(categoryId) {
     selectedCategory = categoryId;
-    document.querySelectorAll(".category-button").forEach((button) => {
+    document.querySelectorAll(".category-button").forEach(button => {
       button.classList.toggle("active", button.dataset.category === categoryId);
     });
-    const category = categoryMap[categoryId];
-    elements.selectedCategoryLabel.textContent = `Vybraná kategorie: ${category.label}`;
-    elements.filterSection.classList.remove("hidden");
-    elements.resultsSection.classList.add("hidden");
-    elements.filterSection.scrollIntoView({ behavior: "smooth", block: "start" });
-    window.setTimeout(() => document.querySelector("#workingHeight").focus(), 250);
+    el("selectedCategoryLabel").textContent = `Vybraná kategorie: ${categories.find(category => category.id === categoryId).label}`;
+    el("filterSection").classList.remove("hidden");
+    el("resultsSection").classList.add("hidden");
+    el("filterSection").scrollIntoView({ behavior: "smooth" });
+  }
+
+  function filters() {
+    return {
+      environment: el("environment").value,
+      workingHeight: num("workingHeight"),
+      outreach: num("outreach"),
+      drive: el("drive").value
+    };
+  }
+
+  function match(machine, selectedFilters) {
+    if (selectedFilters.environment === "indoor" && (!machine.indoor || machine.driveGroup === "diesel")) return false;
+    if (selectedFilters.environment === "outdoor" && !machine.outdoor) return false;
+    if (selectedFilters.workingHeight != null && Number(machine.workingHeightM || 0) < selectedFilters.workingHeight) return false;
+    if (selectedFilters.outreach != null && Number(machine.outreachM || 0) < selectedFilters.outreach) return false;
+    if (selectedFilters.drive !== "any" && machine.driveGroup !== selectedFilters.drive) return false;
+    return true;
+  }
+
+  function machineCard(machine, index) {
+    const documentUrl = machine.officialDocumentUrl || machine.datasheetUrl;
+    const documentButton = documentUrl
+      ? `<a class="link-button secondary" target="_blank" rel="noopener" href="${esc(documentUrl)}">Dokument výrobce</a>`
+      : "";
+    const capacity = Number(machine.capacityKg) > 0
+      ? (machine.capacityText || `${fmt(machine.capacityKg)} kg`)
+      : (machine.capacityText || "Neuvedeno");
+
+    return `<article class="machine-card">
+      <div class="machine-image-wrap">
+        <span class="badge">Shoda č. ${index + 1}</span>
+        <img class="machine-image" src="${esc(imageUrl(machine))}" alt="${esc(`${machine.manufacturer} ${machine.model}`)}" onerror="this.src='assets/images/placeholder.svg'">
+      </div>
+      <div class="machine-content">
+        <h3 class="machine-title">${esc(machine.manufacturer)} ${esc(machine.model)}</h3>
+        <p class="muted">${esc(machine.sourceCategory || "")}</p>
+        <div class="key-specs">
+          <div class="key-spec"><span>Pracovní výška</span><strong>${fmt(machine.workingHeightM)} m</strong></div>
+          <div class="key-spec"><span>Nosnost koše</span><strong>${esc(capacity)}</strong></div>
+          <div class="key-spec"><span>Boční dosah</span><strong>${fmt(machine.outreachM)} m</strong></div>
+          <div class="key-spec"><span>Hmotnost</span><strong>${fmt(machine.weightKg)} kg</strong></div>
+        </div>
+        <details>
+          <summary>Technické údaje</summary>
+          <div class="spec-row"><span>Pohon</span><strong>${esc(machine.drive || "Neuvedeno")}</strong></div>
+          <div class="spec-row"><span>Délka</span><strong>${fmt(machine.dimensions?.lengthM)} m</strong></div>
+          <div class="spec-row"><span>Šířka</span><strong>${fmt(machine.dimensions?.widthM)} m</strong></div>
+          <div class="spec-row"><span>Výška</span><strong>${fmt(machine.dimensions?.heightM)} m</strong></div>
+          <div class="spec-row"><span>Rozměr koše</span><strong>${esc(machine.platformText || "Neuvedeno")}</strong></div>
+          <div class="spec-row"><span>Náklon</span><strong>${esc(machine.maxChassisTiltText || "Neuvedeno")}</strong></div>
+        </details>
+        <div class="machine-actions">
+          <a class="link-button primary" target="_blank" rel="noopener" href="${esc(machine.sourceUrl || "#")}">Zeppelin.cz ↗</a>
+          ${documentButton}
+        </div>
+      </div>
+    </article>`;
+  }
+
+  function render(list, title, description, customHtml = "") {
+    el("resultsSection").classList.remove("hidden");
+    el("resultsStatus").textContent = customHtml ? "Chytré vyhledávání" : `${list.length} výsledků`;
+    el("resultsTitle").textContent = title;
+    el("resultsDescription").textContent = description;
+    el("resultsGrid").innerHTML = customHtml || (list.length
+      ? list.map(machineCard).join("")
+      : `<div class="empty">Nebyla nalezena odpovídající plošina.</div>`);
+    el("resultsSection").scrollIntoView({ behavior: "smooth" });
   }
 
   function runSearch() {
-    if (!selectedCategory || selectedCategory === "all") return;
-
-    const filters = readFilters();
-    const categoryMachines = getMachinesForCategory(selectedCategory);
-    const evaluated = categoryMachines.map((machine) => evaluateMachine(machine, filters));
-    const exact = evaluated.filter((item) => item.failures.length === 0).sort((a, b) => a.score - b.score);
-
-    if (exact.length) {
-      renderResults(exact, false, filters);
-    } else {
-      const nearest = evaluated
-        .filter((item) => matchesRequestedEnvironment(item.machine, filters))
-        .sort((a, b) => a.penalty - b.penalty || a.score - b.score)
-        .slice(0, Math.min(5, evaluated.length));
-      renderResults(nearest, true, filters);
-    }
+    const selectedFilters = filters();
+    const list = machines
+      .filter(machine => inCategory(machine, selectedCategory))
+      .filter(machine => match(machine, selectedFilters))
+      .sort((a, b) => (a.workingHeightM || 999) - (b.workingHeightM || 999));
+    const category = categories.find(item => item.id === selectedCategory);
+    render(list, `Vhodné ${category.label.toLowerCase()} plošiny`, "Výsledky jsou řazené od nejmenší pracovní výšky.");
   }
 
-  function readFilters() {
-    return {
-      environment: value("environment"),
-      workingHeight: numberValue("workingHeight"),
-      outreach: numberValue("outreach"),
-      maxWidth: numberValue("maxWidth"),
-      maxLength: numberValue("maxLength"),
-      maxMachineHeight: numberValue("maxMachineHeight"),
-      drive: value("drive"),
-      terrain: value("terrain")
-    };
+  function modelMatchesQuery(machine, query) {
+    const compactQuery = normalize(query);
+    const compactModel = normalize(machine.model);
+    const compactWithoutDrive = compactModel.replace(/dc$|rt$|jrt$|jdc$/i, "");
+    return compactQuery.includes(compactModel) || (compactWithoutDrive.length >= 4 && compactQuery.includes(compactWithoutDrive));
   }
 
-  function evaluateMachine(machine, filters) {
-    const failures = [];
-    let penalty = 0;
-
-    if (filters.environment === "indoor" && !supportsEnvironment(machine, "indoor")) addFailure("není určen pro vnitřní provoz", 1500);
-    if (filters.environment === "outdoor" && !supportsEnvironment(machine, "outdoor")) addFailure("není určen pro venkovní provoz", 1500);
-
-    compareMinimum(machine.workingHeightM, filters.workingHeight, "pracovní výška", "m", 450);
-    compareMinimum(machine.outreachM, filters.outreach, "boční dosah", "m", 350, true);
-    compareMaximum(machine.dimensions?.widthM, filters.maxWidth, "šířka stroje", "m", 500, true);
-    compareMaximum(machine.dimensions?.lengthM, filters.maxLength, "délka stroje", "m", 250, true);
-    compareMaximum(machine.dimensions?.heightM, filters.maxMachineHeight, "výška stroje", "m", 500, true);
-
-    if (filters.drive !== "any" && machine.driveGroup !== filters.drive) {
-      addFailure(`jiný pohon (${machine.drive})`, 900);
-    }
-    if (filters.terrain !== "any" && !machine.terrain.includes(filters.terrain)) {
-      addFailure(`není určen pro povrch „${terrainLabels[filters.terrain]}“`, 1000);
-    }
-
-    const heightSurplus = filters.workingHeight == null ? machine.workingHeightM : Math.max(0, machine.workingHeightM - filters.workingHeight);
-    const footprint = (machine.dimensions?.lengthM ?? 20) * (machine.dimensions?.widthM ?? 5);
-    const weightFactor = (machine.weightKg ?? 50000) / 10000;
-    const score = heightSurplus * 100 + footprint * 8 + weightFactor;
-
-    return { machine, failures, penalty, score };
-
-    function addFailure(text, points) {
-      failures.push(text);
-      penalty += points;
-    }
-
-    function compareMinimum(actual, required, label, unit, multiplier, unknownFails = false) {
-      if (required == null) return;
-      if (actual == null) {
-        if (unknownFails) addFailure(`${label} není na webu uveden`, 1300);
-        return;
-      }
-      if (actual < required) {
-        const gap = required - actual;
-        addFailure(`${label} je ${formatNumber(actual)} ${unit}, požadováno ${formatNumber(required)} ${unit}`, 700 + gap * multiplier);
-      }
-    }
-
-    function compareMaximum(actual, maximum, label, unit, multiplier, unknownFails = false) {
-      if (maximum == null) return;
-      if (actual == null) {
-        if (unknownFails) addFailure(`${label} není na webu uvedena`, 1300);
-        return;
-      }
-      if (actual > maximum) {
-        const gap = actual - maximum;
-        addFailure(`${label} je ${formatNumber(actual)} ${unit}, maximum ${formatNumber(maximum)} ${unit}`, 700 + gap * multiplier);
-      }
-    }
+  function findMachineForWeightQuery(query) {
+    const matches = machines.filter(machine => modelMatchesQuery(machine, query));
+    if (matches.length <= 1) return matches[0] || null;
+    const compactQuery = normalize(query);
+    return matches
+      .sort((a, b) => normalize(b.model).length - normalize(a.model).length)
+      .find(machine => compactQuery.includes(normalize(machine.model))) || matches[0];
   }
 
-  function renderResults(items, nearestOnly, filters) {
-    const category = categoryMap[selectedCategory];
-    elements.resultsSection.classList.remove("hidden");
-    elements.resultsStatus.textContent = nearestOnly ? "NEBYLA NALEZENA PŘESNÁ SHODA" : `${items.length} ${pluralizeResults(items.length)}`;
-    elements.resultsTitle.textContent = nearestOnly ? "Nejbližší dostupné varianty" : `Vhodné ${category.label.toLowerCase()} plošiny`;
-    elements.resultsDescription.textContent = nearestOnly
-      ? "U každé varianty je uvedeno, který požadavek nesplňuje. Před nabídkou je nutné parametry ověřit."
-      : "Výsledky jsou řazené od nejmenšího stroje, který splňuje zadané podmínky.";
-    elements.resultsGrid.innerHTML = items.length
-      ? items.map((item, index) => renderMachineCard(item, filters, nearestOnly, index)).join("")
-      : `<div class="empty-state">${nearestOnly ? "V této kategorii není kompatibilní stroj pro zadané provozní podmínky." : "V této kategorii zatím není žádný stroj v lokálním katalogu."}</div>`;
-    elements.resultsSection.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-
-  function renderAllCatalog() {
-    const items = machines
-      .slice()
-      .sort((a, b) => a.category.localeCompare(b.category) || a.workingHeightM - b.workingHeightM)
-      .map((machine) => ({ machine, failures: [], penalty: 0, score: 0 }));
-
-    elements.resultsSection.classList.remove("hidden");
-    elements.resultsStatus.textContent = `${items.length} ${pluralizeResults(items.length)}`;
-    elements.resultsTitle.textContent = "Celý katalog plošin";
-    elements.resultsDescription.textContent = "Katalog je řazen podle kategorie a pracovní výšky.";
-    elements.resultsGrid.innerHTML = items.map((item, index) => renderMachineCard(item, {}, false, index, true)).join("");
-    elements.resultsSection.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-
-  function displayCategoryForMachine(machine) {
-    if ((selectedCategory === "mast" || machine.category === "mast") && isMastMachine(machine)) return categoryMap.mast;
-    return categoryMap[machine.category] || { label: machine.category || "Plošina" };
-  }
-
-  function renderMachineCard(item, filters, nearestOnly, index, wholeCatalog = false) {
-    const machine = item.machine;
-    const category = displayCategoryForMachine(machine);
-    const isNear = nearestOnly && item.failures.length > 0;
-    const reason = wholeCatalog ? "Zobrazeno v úplném katalogu." : buildReason(machine, filters, item.failures);
-    const dimensions = dimensionText(machine.dimensions);
-    const environment = [supportsEnvironment(machine, "indoor") && "vnitřní", supportsEnvironment(machine, "outdoor") && "venkovní"].filter(Boolean).join(" i ") || "Neuvedeno";
-    const terrain = terrainText(machine);
-    const chassisUse = chassisUseText(machine);
-    const windLimits = windLimitText(machine);
-    const price = machine.priceShort || "Cena neuvedena";
-    const priceSecondary = machine.priceLong ? `dlouhodobě ${machine.priceLong}` : "";
-    const fallback = placeholderMap[machine.category];
-
-    return `
-      <article class="machine-card">
-        <div class="machine-image-wrap">
-          <span class="match-badge ${isNear ? "near" : ""}">${isNear ? "Nejbližší varianta" : (wholeCatalog ? category.label : `Shoda č. ${index + 1}`)}</span>
-          <img class="machine-image" src="${escapeAttribute(machine.image || fallback)}" alt="${escapeAttribute(`${machine.manufacturer} ${machine.model}`)}" loading="lazy" onerror="this.onerror=null;this.src='${fallback}'">
-        </div>
-        <div class="machine-content">
-          <div class="machine-head">
-            <div>
-              <h3 class="machine-title">${escapeHtml(machine.manufacturer)} ${escapeHtml(machine.model)}</h3>
-              <p class="machine-category">${escapeHtml(category.label)} · ${escapeHtml(machine.sourceCategory || "")}</p>
-            </div>
-            <div class="price-box">
-              <strong>${escapeHtml(price)}</strong>
-              ${priceSecondary ? `<span>${escapeHtml(priceSecondary)}</span>` : ""}
-            </div>
-          </div>
-
-          <div class="key-specs">
-            ${keySpec("Pracovní výška", metric(machine.workingHeightM, "m"))}
-            ${keySpec("Nosnost koše", machine.capacityText || metric(machine.capacityKg, "kg"))}
-            ${keySpec("Boční dosah", metric(machine.outreachM, "m"))}
-            ${keySpec("Podvozek / kola", chassisUse)}
-            ${keySpec("Rozměry stroje", dimensions)}
-          </div>
-
-          <div class="match-reason ${isNear ? "near" : ""}">
-            <strong>${isNear ? "Nesplňuje všechny požadavky:" : "Proč je ve výsledku:"}</strong>
-            <div>${escapeHtml(reason)}</div>
-            ${isNear ? `<ul class="failure-list">${item.failures.map((failure) => `<li>${escapeHtml(failure)}</li>`).join("")}</ul>` : ""}
-          </div>
-
-          <details class="machine-details">
-            <summary>Technické údaje</summary>
-            <div class="spec-table">
-              ${specRow("Výška podlahy koše", metric(machine.platformHeightM, "m"))}
-              ${specRow("Max. počet osob", machine.maxPersons == null ? "Neuvedeno na webu" : String(machine.maxPersons))}
-              ${specRow("Pohon", machine.drive || "Neuvedeno")}
-              ${specRow("Použití", environment)}
-              ${specRow("Rozdíl vnitřní / venkovní", windLimits)}
-              ${specRow("Vhodný povrch", terrain)}
-              ${machine.maxChassisTiltDeg == null && !machine.maxChassisTiltText ? "" : specRow("Max. náklon podvozku", machine.maxChassisTiltText || metric(machine.maxChassisTiltDeg, "\u00b0"))}
-              ${machine.maxChassisTiltNote ? specRow("Poznámka k náklonu", machine.maxChassisTiltNote) : ""}
-              ${machine.gradeabilityText ? specRow("Stoupavost ve složeném stavu", machine.gradeabilityText) : ""}
-              ${specRow("Délka stroje", metric(machine.dimensions?.lengthM, "m"))}
-              ${specRow("Šířka stroje", metric(machine.dimensions?.widthM, "m"))}
-              ${specRow("Výška stroje", metric(machine.dimensions?.heightM, "m"))}
-              ${specRow("Výška se sklopeným zábradlím", foldedHeightDisplay(machine))}
-              ${specRow("Rozměr koše", machine.platformText || "Neuvedeno")}
-            ${specRow("Hmotnost stroje", metric(machine.weightKg, "kg", 0))}
-            ${machine.datasheetLabel ? specRow("Technický list", machine.datasheetLabel) : ""}
-            ${machine.dataSources?.length ? specRow("Zdroje dat", machine.dataSources.join(", ")) : ""}
-            ${machine.verifiedAt ? specRow("Ověřeno", formatDate(machine.verifiedAt)) : ""}
-            ${specRow("Aktualizace katalogu", formatDate(catalog.updatedAt))}
-          </div>
-          </details>
-
-          <div class="machine-actions">
-            <a class="link-button primary" href="${escapeAttribute(machine.sourceUrl)}" target="_blank" rel="noopener noreferrer">Zobrazit na Zeppelin.cz ↗</a>
-            ${machine.datasheetUrl ? `<a class="link-button secondary" href="${escapeAttribute(machine.datasheetUrl)}" target="_blank" rel="noopener noreferrer">Technický list</a>` : ""}
-            <button class="link-button secondary" type="button" onclick="this.closest('.machine-content').querySelector('details').open=true; this.closest('.machine-content').querySelector('details').scrollIntoView({behavior:'smooth',block:'nearest'})">Technické údaje</button>
-          </div>
-        </div>
-      </article>`;
-  }
-
-  function buildReason(machine, filters, failures) {
-    if (failures.length) return "Jde o jednu z parametricky nejbližších variant v dané kategorii.";
-    const parts = [];
-    if (filters.workingHeight != null) {
-      parts.push(`pracovní výška ${formatNumber(machine.workingHeightM)} m má rezervu ${formatNumber(machine.workingHeightM - filters.workingHeight)} m`);
-    }
-    if (filters.outreach != null && machine.outreachM != null) {
-      parts.push(`boční dosah ${formatNumber(machine.outreachM)} m splňuje minimum ${formatNumber(filters.outreach)} m`);
-    }
-    if (filters.maxWidth != null && machine.dimensions?.widthM != null) {
-      parts.push(`šířka ${formatNumber(machine.dimensions.widthM)} m se vejde do limitu ${formatNumber(filters.maxWidth)} m`);
-    }
-    if (!parts.length) return "Stroj odpovídá vybrané kategorii a zadaným provozním podmínkám.";
-    return capitalize(parts.join("; ")) + ".";
-  }
-
-  function keySpec(label, value) {
-    return `<div class="key-spec"><span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong></div>`;
-  }
-
-  function specRow(label, value) {
-    return `<div class="spec-row"><span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong></div>`;
-  }
-
-  function runSmartSearch(rawQuery) {
-    const parsed = parseSmartQuery(rawQuery);
-    if (!parsed.query) {
-      elements.smartSearchInput.focus();
-      return;
-    }
-
-    selectedCategory = parsed.categoryId || "smart";
-    document.querySelectorAll(".category-button").forEach((button) => {
-      button.classList.toggle("active", parsed.categoryId && button.dataset.category === parsed.categoryId);
-    });
-    elements.filterSection.classList.add("hidden");
-
-    const pool = parsed.categoryId ? getMachinesForCategory(parsed.categoryId) : machines;
-    const hasTextTerms = parsed.textTokens.length > 0 || parsed.modelCode;
-    const hasParsedFilters = parsed.filters.workingHeight != null || parsed.filters.environment !== "any" || parsed.filters.drive !== "any";
-    const evaluated = pool
-      .map((machine) => evaluateSmartMachine(machine, parsed))
-      .filter((item) => hasTextTerms ? item.textMatch : item.failures.length === 0 || hasParsedFilters)
-      .sort((a, b) => a.penalty - b.penalty || b.textScore - a.textScore || a.score - b.score)
-      .slice(0, 8);
-
-    renderSmartResults(evaluated, parsed);
-  }
-
-  function smartSuggestionItems() {
-    return machines.map((machine) => {
-      const category = displayCategoryForMachine(machine);
-      const title = `${machine.manufacturer || ""} ${machine.model || ""}`.trim();
-      const subtitle = [
-        category.label,
-        machine.workingHeightM == null ? "" : `${formatNumber(machine.workingHeightM)} m`,
-        machine.drive || ""
-      ].filter(Boolean).join(" · ");
-      const searchText = [
-        title,
-        machine.id,
-        machine.sourceCategory,
-        category.label,
-        machine.drive,
-        machine.workingHeightM == null ? "" : `${formatNumber(machine.workingHeightM)}m`
-      ].join(" ");
-      return { title, subtitle, value: title, searchText };
-    });
-  }
-
-  function filterSmartSuggestions(query) {
-    const normalized = normalizeSearchText(query).trim();
-    const compact = compactSearchText(query);
-    if (!normalized && !compact) return [];
-
-    const seen = new Set();
-    const scored = [];
-    for (const item of smartSuggestionItems()) {
-      const hay = normalizeSearchText(item.searchText);
-      const hayCompact = compactSearchText(item.searchText);
-      const valueCompact = compactSearchText(item.value);
-      if (!hay.includes(normalized) && !hayCompact.includes(compact)) continue;
-      if (seen.has(valueCompact)) continue;
-      seen.add(valueCompact);
-      const score = (valueCompact.startsWith(compact) ? 0 : 20) + (hayCompact.indexOf(compact) < 0 ? 50 : hayCompact.indexOf(compact));
-      scored.push({ ...item, score });
-    }
-    return scored.sort((a, b) => a.score - b.score || a.value.localeCompare(b.value, "cs")).slice(0, 8);
-  }
-
-  function openSmartSuggestions() {
-    const query = elements.smartSearchInput.value;
-    const items = filterSmartSuggestions(query);
-    if (!items.length) {
-      closeSmartSuggestions();
-      return;
-    }
-    elements.smartSuggestBox.innerHTML = items.map((item) => `
-      <button class="smart-suggest-item" type="button" data-value="${escapeAttribute(item.value)}" role="option">
-        <span class="smart-suggest-main">${escapeHtml(item.title)}</span>
-        <span class="smart-suggest-sub">${escapeHtml(item.subtitle)}</span>
-      </button>`).join("");
-    elements.smartSuggestBox.classList.add("show");
-    elements.smartSuggestBox.querySelectorAll(".smart-suggest-item").forEach((button) => {
-      button.addEventListener("pointerdown", (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        const value = button.dataset.value || "";
-        elements.smartSearchInput.value = value;
-        closeSmartSuggestions();
-        runSmartSearch(value);
-      });
-    });
-  }
-
-  function closeSmartSuggestions() {
-    elements.smartSuggestBox.classList.remove("show");
-    elements.smartSuggestBox.innerHTML = "";
-  }
-
-  function parseSmartQuery(rawQuery) {
-    const query = String(rawQuery || "").trim();
-    const normalized = normalizeSearchText(query);
-    const filters = {
-      environment: "any",
-      workingHeight: null,
-      outreach: null,
-      maxWidth: null,
-      maxLength: null,
-      maxMachineHeight: null,
-      drive: "any",
-      terrain: "any"
-    };
-
-    if (/\b(vnitr|vnitrni|hala|haly|sklad|uvnitr)\b/.test(normalized)) filters.environment = "indoor";
-    if (/\b(ven|venku|venkovni|exterier|venek)\b/.test(normalized)) filters.environment = "outdoor";
-    if (/\b(diesel|nafta|dieselovy)\b/.test(normalized)) filters.drive = "diesel";
-    if (/\b(elektro|bater|aku|elektricky)\b/.test(normalized)) filters.drive = "electric";
-    if (/\b(hybrid|kombin)\b/.test(normalized)) filters.drive = "hybrid";
-
-    const heightMatch = normalized.match(/(\d+(?:[,.]\d+)?)\s*(?:m|metru|metr|metry)\b/);
-    if (heightMatch) filters.workingHeight = toNumber(heightMatch[1]);
-
-    const categoryAliases = [
-      ["scissor", ["nuzk", "nuzkov", "scissor", "gs-", "gs "]],
-      ["articulated", ["kloub", "kloubov", "z-", "z ", "aj", "articulated"]],
-      ["telescopic", ["teleskop", "telescop", "sj", "boom"]],
-      ["trailer", ["vlec", "vlecn", "prives", "privesn", "omme", "trailer"]],
-      ["mast", ["anten", "antenn", "toucan", "mast", "stozar", "stozarov", "vertik"]]
-    ];
-    const categoryId = categoryAliases.find(([, aliases]) => aliases.some((alias) => normalized.includes(alias)))?.[0] || null;
-
+  function extractSerialCandidate(query, machine) {
     const ignored = new Set([
-      "ven", "venku", "venkovni", "vnitr", "vnitrni", "hala", "haly", "sklad", "uvnitr",
-      "diesel", "nafta", "dieselovy", "elektro", "bater", "aku", "elektricky", "hybrid",
-      "plosina", "plosiny", "stroj", "stroje", "m", "metru", "metr", "metry", "do", "na", "pro",
-      "nuzkova", "nuzkove", "nuzkovy", "kloubova", "kloubove", "kloubovy", "teleskopicka", "teleskopicke",
-      "vlecna", "vlecne", "vlecny", "privesna", "privesne", "antenni", "stozarova", "stozarove"
+      "hmotnost", "vaha", "vazi", "kolik", "kg", "stroj", "stroje", "vyrobni", "cislo", "vc", "sn",
+      normalize(machine.manufacturer), normalize(machine.model), normalize(machine.model).replace(/dc$|rt$|jrt$|jdc$/i, "")
     ]);
-    const compactQuery = compactSearchText(normalized);
-    const modelSource = normalized.replace(/\d+(?:[,.]\d+)?\s*(?:m|metru|metr|metry)\b/g, " ");
-    const modelMatch = modelSource.match(/\b(?:[a-z]{1,5}[-\s]?\d{2,}[a-z0-9]*|\d{2,}[-\s]?[a-z]{1,5})\b/);
-    const modelCompact = modelMatch ? compactSearchText(modelMatch[0]) : "";
-    const modelCode = modelCompact.length >= 3 && /[a-z]/.test(modelCompact) && /\d/.test(modelCompact);
-    const textTokens = normalized
-      .replace(/\d+(?:[,.]\d+)?\s*(?:m|metru|metr|metry)\b/g, " ")
-      .split(/[^a-z0-9]+/)
-      .filter((token) => token.length >= 2 && !ignored.has(token) && (!/^\d+$/.test(token) || token.length >= 3));
+    const tokens = query
+      .replace(/[,:;()]/g, " ")
+      .split(/\s+/)
+      .map(token => ({ raw: token, normalized: normalize(token) }))
+      .filter(token => token.normalized && !ignored.has(token.normalized));
 
-    return { query, normalized, compactQuery, modelCompact, modelCode, categoryId, filters, textTokens };
+    const candidates = tokens.filter(token => {
+      const value = token.normalized;
+      const hasDigit = /\d/.test(value);
+      const hasLetter = /[a-z]/.test(value);
+      return (hasDigit && hasLetter && value.length >= 6) || /^\d{6,}$/.test(value);
+    });
+    return candidates.length ? candidates[candidates.length - 1].raw : "";
   }
 
-  function evaluateSmartMachine(machine, parsed) {
-    const base = evaluateMachine(machine, parsed.filters);
-    const haystack = normalizeSearchText([
-      machine.manufacturer,
-      machine.model,
-      machine.id,
-      machine.sourceCategory,
-      machine.drive,
-      displayCategoryForMachine(machine).label
-    ].join(" "));
-    const compactHaystack = compactSearchText(haystack);
+  function unitRecords(machine) {
+    return Array.isArray(machine.units) ? machine.units.filter(unit => unit && unit.weightKg != null) : [];
+  }
 
-    let textScore = 0;
-    const modelCodeMatch = parsed.modelCode && compactHaystack.includes(parsed.modelCompact);
-    if (modelCodeMatch) textScore += 140;
-    for (const token of parsed.textTokens) {
-      if (haystack.includes(token) || compactHaystack.includes(token)) textScore += token.length >= 4 ? 35 : 22;
+  function groupWeights(machine) {
+    const units = unitRecords(machine);
+    if (units.length) {
+      const groups = new Map();
+      units.forEach(unit => {
+        const weight = Number(unit.weightKg);
+        if (!groups.has(weight)) groups.set(weight, []);
+        groups.get(weight).push(unit.serialNumber || "");
+      });
+      return [...groups.entries()]
+        .sort((a, b) => a[0] - b[0])
+        .map(([weightKg, serialNumbers]) => ({ weightKg, serialNumbers: serialNumbers.filter(Boolean) }));
+    }
+    if (Array.isArray(machine.weightGroups) && machine.weightGroups.length) return machine.weightGroups;
+    return machine.weightKg != null ? [{ weightKg: machine.weightKg, serialNumbers: [] }] : [];
+  }
+
+  function weightGroupHtml(machine, groups) {
+    return `<article class="weight-result-card">
+      <div class="weight-result-heading">
+        <div><span class="weight-kicker">${esc(machine.manufacturer)}</span><h3>${esc(machine.model)}</h3></div>
+        <span class="weight-count">${groups.length} ${groups.length === 1 ? "skupina" : groups.length < 5 ? "skupiny" : "skupin"}</span>
+      </div>
+      <div class="weight-groups">
+        ${groups.map(group => `<div class="weight-group">
+          <strong>${fmt(group.weightKg)} kg</strong>
+          ${group.serialNumbers?.length
+            ? `<span>${group.serialNumbers.length} ${group.serialNumbers.length === 1 ? "stroj" : group.serialNumbers.length < 5 ? "stroje" : "strojů"}</span><small>${esc(group.serialNumbers.join(", "))}</small>`
+            : `<span>V této verzi nejsou přiřazena výrobní čísla.</span>`}
+        </div>`).join("")}
+      </div>
+    </article>`;
+  }
+
+  function renderWeightLookup(query) {
+    const machine = findMachineForWeightQuery(query);
+    if (!machine) {
+      render([], "Hmotnost stroje", "", `<div class="empty">Model z dotazu nebyl nalezen. Zadejte například „hmotnost GS-3246“.</div>`);
+      return;
     }
 
-    const tokenMatch = parsed.textTokens.length === 0 || parsed.textTokens.every((token) => haystack.includes(token) || compactHaystack.includes(token));
-    const textMatch = tokenMatch && (!parsed.modelCode || modelCodeMatch);
-    const textPenalty = textMatch ? 0 : 900;
-    return {
-      ...base,
-      textScore,
-      textMatch,
-      penalty: base.penalty + textPenalty,
-      failures: textMatch ? base.failures : [...base.failures, "neodpovídá přesně textu hledání"]
-    };
-  }
+    const serialCandidate = extractSerialCandidate(query, machine);
+    const units = unitRecords(machine);
+    const normalizedSerial = normalize(serialCandidate);
+    const unit = normalizedSerial
+      ? units.find(item => normalize(item.serialNumber) === normalizedSerial)
+      : null;
 
-  function renderSmartResults(items, parsed) {
-    elements.resultsSection.classList.remove("hidden");
-    elements.resultsStatus.textContent = `${items.length} ${pluralizeResults(items.length)}`;
-    elements.resultsTitle.textContent = `Výsledky pro „${parsed.query}“`;
-    elements.resultsDescription.textContent = describeSmartSearch(parsed);
-    elements.resultsGrid.innerHTML = items.length
-      ? items.map((item, index) => renderMachineCard(item, parsed.filters, item.failures.length > 0, index)).join("")
-      : `<div class="empty-state">Nic přesného se nenašlo. Zkuste model, výšku nebo typ plošiny napsat jinak.</div>`;
-    elements.resultsSection.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-
-  function describeSmartSearch(parsed) {
-    const parts = [];
-    if (parsed.categoryId) parts.push(`kategorie ${categoryMap[parsed.categoryId].label.toLowerCase()}`);
-    if (parsed.filters.environment === "indoor") parts.push("vnitřní provoz");
-    if (parsed.filters.environment === "outdoor") parts.push("venkovní provoz");
-    if (parsed.filters.workingHeight != null) parts.push(`pracovní výška od ${formatNumber(parsed.filters.workingHeight)} m`);
-    if (parsed.filters.drive !== "any") parts.push(parsed.filters.drive === "diesel" ? "dieselový pohon" : parsed.filters.drive === "electric" ? "elektrický pohon" : "hybridní pohon");
-    return parts.length ? `Rozpoznáno: ${parts.join(", ")}.` : "Hledám podle modelu, výrobce, kategorie a textu v katalogu.";
-  }
-
-  function terrainText(machine) {
-    if (!machine.terrain?.length) return "Neuvedeno";
-    if (machine.terrain.includes("rough")) return terrainLabels.rough;
-    return machine.terrain.map((value) => terrainLabels[value]).filter(Boolean).join(", ") || "Neuvedeno";
-  }
-
-  function chassisUseText(machine) {
-    if (machine.category === "trailer") return "vlečná plošina na opěrách";
-    if (machine.terrain?.includes("rough")) return "terénní podvozek";
-    if (isDieselMachine(machine)) return "venkovní kola / únosná plocha";
-    if (machine.terrain?.includes("solid") && machine.terrain?.includes("paved")) return "kola do haly / rovná únosná plocha";
-    if (machine.terrain?.includes("solid")) return "kola do haly";
-    if (machine.terrain?.includes("paved")) return "rovná dostatečně únosná plocha";
-    return "ověřit podle technického listu";
-  }
-
-  function windLimitText(machine) {
-    const hasIndoor = supportsEnvironment(machine, "indoor");
-    const hasOutdoor = supportsEnvironment(machine, "outdoor");
-    if (hasIndoor && hasOutdoor) {
-      return "Vnitřní údaje platí pro 0 m/s. Při venkovním použití počítejte s limitem větru 12,5 m/s a ověřte případně sníženou výšku / počet osob v technickém listu.";
+    if (serialCandidate && unit) {
+      const html = `<article class="weight-result-card exact-weight">
+        <span class="weight-kicker">Nalezen konkrétní stroj</span>
+        <h3>${esc(machine.manufacturer)} ${esc(machine.model)}</h3>
+        <div class="exact-weight-value">${fmt(unit.weightKg)} kg</div>
+        <div class="spec-row"><span>Výrobní číslo</span><strong>${esc(unit.serialNumber)}</strong></div>
+      </article>`;
+      render([], "Hmotnost konkrétního stroje", `Výrobní číslo ${serialCandidate}`, html);
+      return;
     }
-    if (hasOutdoor) return "Venkovní provoz: ověřit limit větru a dovolené parametry v technickém listu stroje.";
-    if (hasIndoor) return "Vnitřní provoz / bezvětří: údaje se vztahují k 0 m/s.";
-    return "Neuvedeno";
+
+    const groups = groupWeights(machine);
+    const missingSerial = serialCandidate
+      ? `<div class="search-warning">Výrobní číslo <strong>${esc(serialCandidate)}</strong> není v aktuálních datech. Níže jsou všechny evidované skupiny hmotností tohoto modelu.</div>`
+      : "";
+    const html = `${missingSerial}${groups.length
+      ? weightGroupHtml(machine, groups)
+      : `<div class="empty">U modelu ${esc(machine.manufacturer)} ${esc(machine.model)} zatím není evidována hmotnost.</div>`}`;
+    render([], `Hmotnosti ${machine.manufacturer} ${machine.model}`, serialCandidate ? "Konkrétní výrobní číslo nebylo nalezeno." : "Přehled evidovaných hmotností podle provedení.", html);
   }
 
-  function dimensionText(dimensions) {
-    if (!dimensions || [dimensions.lengthM, dimensions.widthM, dimensions.heightM].some((value) => value == null)) return "Neuvedeno";
-    return `${formatNumber(dimensions.lengthM)} × ${formatNumber(dimensions.widthM)} × ${formatNumber(dimensions.heightM)} m`;
+  function smartSearch(query) {
+    const raw = query.trim();
+    const normalizedQuery = normalize(raw);
+    if (!raw) {
+      render([], "Chytré vyhledávání", "", `<div class="empty">Zadejte model nebo požadovaný údaj.</div>`);
+      return;
+    }
+
+    if (/hmotnost|vaha|vazi|kg/.test(normalizedQuery)) {
+      renderWeightLookup(raw);
+      return;
+    }
+
+    const compact = normalize(raw);
+    let list = machines.filter(machine => {
+      const text = `${machine.manufacturer} ${machine.model} ${machine.sourceCategory} ${machine.drive}`.toLowerCase();
+      return text.includes(raw.toLowerCase())
+        || normalize(text).includes(compact)
+        || compact.includes(normalize(machine.model));
+    });
+
+    if (/diesel/.test(normalizedQuery)) list = list.filter(machine => machine.driveGroup === "diesel");
+    if (/toucan|anten|stoz|vertik/.test(normalizedQuery)) list = list.filter(isMast);
+    if (/vlec|omme/.test(normalizedQuery)) list = list.filter(machine => machine.category === "trailer");
+
+    render(
+      list.sort((a, b) => (a.workingHeightM || 999) - (b.workingHeightM || 999)),
+      "Výsledky chytrého hledání",
+      `Dotaz: ${raw}`
+    );
   }
 
-  function foldedHeightDisplay(machine) {
-    if (machine.foldedHeightText) return machine.foldedHeightText;
-    if (machine.foldedHeightM != null) return metric(machine.foldedHeightM, "m");
-    if (machine.category !== "scissor") return "Neřeší se - nejde o nůžkovou plošinu se sklápěcím zábradlím";
-    return "Ověřit v technickém listu";
+  function init() {
+    machines = (window.MACHINE_CATALOG?.machines || []).filter(machine => machine.active !== false);
+    renderCategories();
+
+    el("categoryGrid").addEventListener("click", event => {
+      const button = event.target.closest("[data-category]");
+      if (button) chooseCategory(button.dataset.category);
+    });
+    el("showAllButton").addEventListener("click", () => render(
+      [...machines].sort((a, b) => (a.workingHeightM || 999) - (b.workingHeightM || 999)),
+      "Celý katalog plošin",
+      "Katalog je řazen podle pracovní výšky."
+    ));
+    el("changeCategoryButton").addEventListener("click", () => {
+      el("filterSection").classList.add("hidden");
+      el("resultsSection").classList.add("hidden");
+      el("categorySection").scrollIntoView({ behavior: "smooth" });
+    });
+    el("filterForm").addEventListener("submit", event => {
+      event.preventDefault();
+      runSearch();
+    });
+    el("clearFiltersButton").addEventListener("click", () => {
+      el("filterForm").reset();
+      el("resultsSection").classList.add("hidden");
+    });
+    el("smartSearchForm").addEventListener("submit", event => {
+      event.preventDefault();
+      smartSearch(el("smartSearchInput").value);
+    });
   }
 
-  function metric(value, unit, decimals = 1) {
-    if (value == null || Number.isNaN(value)) return "Neuvedeno";
-    return `${formatNumber(value, decimals)} ${unit}`;
-  }
-
-  function formatNumber(value, maximumFractionDigits = 2) {
-    return new Intl.NumberFormat("cs-CZ", { maximumFractionDigits }).format(value);
-  }
-
-  function formatDate(value) {
-    if (!value) return "neuvedena";
-    const date = new Date(`${value}T12:00:00`);
-    if (Number.isNaN(date.getTime())) return value;
-    return new Intl.DateTimeFormat("cs-CZ").format(date);
-  }
-
-  function value(id) {
-    return document.querySelector(`#${id}`).value;
-  }
-
-  function numberValue(id) {
-    const raw = document.querySelector(`#${id}`).value.trim().replace(",", ".");
-    if (!raw) return null;
-    const parsed = Number(raw);
-    return Number.isFinite(parsed) && parsed >= 0 ? parsed : null;
-  }
-
-  function toNumber(value) {
-    const parsed = Number(String(value || "").replace(",", "."));
-    return Number.isFinite(parsed) ? parsed : null;
-  }
-
-  function pluralizeMachines(count) {
-    if (count === 1) return "stroj";
-    if (count >= 2 && count <= 4) return "stroje";
-    return "strojů";
-  }
-
-  function pluralizeResults(count) {
-    if (count === 1) return "nalezený stroj";
-    if (count >= 2 && count <= 4) return "nalezené stroje";
-    return "nalezených strojů";
-  }
-
-  function capitalize(text) {
-    return text ? text.charAt(0).toUpperCase() + text.slice(1) : text;
-  }
-
-  function escapeHtml(value) {
-    return String(value ?? "")
-      .replaceAll("&", "&amp;")
-      .replaceAll("<", "&lt;")
-      .replaceAll(">", "&gt;")
-      .replaceAll('"', "&quot;")
-      .replaceAll("'", "&#039;");
-  }
-
-  function escapeAttribute(value) {
-    return escapeHtml(value);
-  }
-
-  init();
+  window.addEventListener("catalog-ready", init, { once: true });
+  if (window.MACHINE_CATALOG) init();
 })();
-
-

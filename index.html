@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="cs">
 <head>
   <meta charset="utf-8">
@@ -9,14 +9,13 @@
 </head>
 <body>
   <main class="page-shell">
-    <section id="smartSearchSection" class="panel smart-search section-block">
-      <form id="smartSearchForm" novalidate>
-        <label class="field smart-search-field">
+    <section class="panel smart-search section-block">
+      <form id="smartSearchForm">
+        <label class="field">
           <span>Chytré vyhledávání</span>
-          <div class="smart-search-row">
-            <input id="smartSearchInput" name="smartSearchInput" type="search" autocomplete="off" placeholder="např. GS 3246, diesel ven 18 m, Toucan, vlečná OMME">
+          <div class="smart-row">
+            <input id="smartSearchInput" type="search" placeholder="např. hmotnost GS-3246, hmotnost GS-3246 + výrobní číslo">
             <button class="primary-button" type="submit">Hledat</button>
-            <div id="smartSuggestBox" class="smart-suggest-box" role="listbox"></div>
           </div>
         </label>
       </form>
@@ -24,97 +23,41 @@
 
     <section id="categorySection" class="panel section-block">
       <div class="section-heading">
-        <div>
-          <span class="step">1</span>
-          <h2>Vyberte kategorii</h2>
-        </div>
+        <div><span class="step">1</span><h2>Vyberte kategorii</h2></div>
         <button id="showAllButton" class="text-button" type="button">Zobrazit celý katalog</button>
       </div>
       <div id="categoryGrid" class="category-grid"></div>
     </section>
 
-    <section id="filterSection" class="panel section-block hidden" aria-live="polite">
-      <div class="section-heading filter-heading">
-        <div>
-          <span class="step">2</span>
-          <h2>Zadejte požadavky</h2>
-          <p id="selectedCategoryLabel" class="selected-category"></p>
-        </div>
+    <section id="filterSection" class="panel section-block hidden">
+      <div class="section-heading">
+        <div><span class="step">2</span><h2>Zadejte požadavky</h2><p id="selectedCategoryLabel"></p></div>
         <button id="changeCategoryButton" class="text-button" type="button">Změnit kategorii</button>
       </div>
-
-      <form id="filterForm" novalidate>
-        <div class="form-grid main-filters">
-          <label class="field">
-            <span>Prostředí</span>
-            <select id="environment" name="environment">
+      <form id="filterForm">
+        <div class="form-grid">
+          <label class="field"><span>Provoz</span>
+            <select id="environment">
               <option value="any">Bez omezení</option>
-              <option value="indoor">Hala / bezvětří (0 m/s)</option>
-              <option value="outdoor">Venkovní (do 12,5 m/s)</option>
+              <option value="indoor">Vnitřní</option>
+              <option value="outdoor">Venkovní</option>
             </select>
-            <small class="field-help">Venkovní použití může znamenat snížené parametry proti údajům pro 0 m/s.</small>
           </label>
-
-          <label class="field required-field">
-            <span>Minimální pracovní výška</span>
-            <div class="input-unit">
-              <input id="workingHeight" name="workingHeight" type="number" min="0" step="0.1" inputmode="decimal" placeholder="např. 10">
-              <em>m</em>
-            </div>
+          <label class="field"><span>Minimální pracovní výška</span>
+            <div class="input-unit"><input id="workingHeight" type="number" min="0" step="0.1" placeholder="např. 10"><em>m</em></div>
+          </label>
+          <label class="field"><span>Minimální boční dosah</span>
+            <div class="input-unit"><input id="outreach" type="number" min="0" step="0.1" placeholder="bez omezení"><em>m</em></div>
+          </label>
+          <label class="field"><span>Pohon</span>
+            <select id="drive">
+              <option value="any">Bez omezení</option>
+              <option value="electric">Elektrický / bateriový</option>
+              <option value="diesel">Dieselový</option>
+              <option value="hybrid">Kombinovaný</option>
+            </select>
           </label>
         </div>
-
-        <details class="advanced-filters">
-          <summary>Další omezení a parametry</summary>
-          <div class="form-grid advanced-grid">
-            <label class="field">
-              <span>Minimální boční dosah</span>
-              <div class="input-unit">
-                <input id="outreach" name="outreach" type="number" min="0" step="0.1" inputmode="decimal" placeholder="bez omezení">
-                <em>m</em>
-              </div>
-            </label>
-            <label class="field">
-              <span>Maximální šířka stroje</span>
-              <div class="input-unit">
-                <input id="maxWidth" name="maxWidth" type="number" min="0" step="0.01" inputmode="decimal" placeholder="bez omezení">
-                <em>m</em>
-              </div>
-            </label>
-            <label class="field">
-              <span>Maximální délka stroje</span>
-              <div class="input-unit">
-                <input id="maxLength" name="maxLength" type="number" min="0" step="0.01" inputmode="decimal" placeholder="bez omezení">
-                <em>m</em>
-              </div>
-            </label>
-            <label class="field">
-              <span>Maximální výška stroje</span>
-              <div class="input-unit">
-                <input id="maxMachineHeight" name="maxMachineHeight" type="number" min="0" step="0.01" inputmode="decimal" placeholder="bez omezení">
-                <em>m</em>
-              </div>
-            </label>
-            <label class="field">
-              <span>Pohon</span>
-              <select id="drive" name="drive">
-                <option value="any">Bez omezení</option>
-                <option value="electric">Elektrický / bateriový</option>
-                <option value="diesel">Dieselový</option>
-                <option value="hybrid">Kombinovaný</option>
-              </select>
-            </label>
-            <label class="field">
-              <span>Povrch</span>
-              <select id="terrain" name="terrain">
-                <option value="any">Bez omezení</option>
-                <option value="solid">Rovná pevná podlaha</option>
-                <option value="paved">Rovná dostatečně únosná plocha</option>
-              </select>
-            </label>
-          </div>
-        </details>
-
         <div class="form-actions">
           <button class="primary-button" type="submit">Vyhledat vhodné plošiny</button>
           <button id="clearFiltersButton" class="secondary-button" type="button">Vymazat filtry</button>
@@ -122,35 +65,21 @@
       </form>
     </section>
 
-    <section id="resultsSection" class="section-block hidden" aria-live="polite">
+    <section id="resultsSection" class="section-block hidden">
       <div class="results-header">
-        <div>
-          <p id="resultsStatus" class="eyebrow"></p>
-          <h2 id="resultsTitle">Výsledky</h2>
-          <p id="resultsDescription" class="results-description"></p>
-        </div>
-        <button id="editFiltersButton" class="secondary-button compact" type="button">Upravit požadavky</button>
+        <div><p id="resultsStatus" class="eyebrow"></p><h2 id="resultsTitle">Výsledky</h2><p id="resultsDescription"></p></div>
       </div>
       <div id="resultsGrid" class="results-grid"></div>
-      <div class="safety-note">
-        <strong>Orientační výběr.</strong>
-        Před potvrzením nabídky ověřte technické údaje, dostupnost a vhodnost stroje pro konkrétní podmínky na produktové stránce Zeppelin CZ. Součet hmotnosti osob, nářadí a materiálu nesmí překročit nosnost plošiny.
-      </div>
+      <div class="safety-note"><strong>Orientační výběr.</strong> Před potvrzením nabídky ověřte vhodnost konkrétního stroje a aktuální dostupnost.</div>
     </section>
   </main>
 
   <footer class="footer">
-    <span>Data jsou převzata z veřejného katalogu Zeppelin CZ.</span>
     <span>Aktuální dostupnost strojů na pobočkách aplikace neověřuje.</span>
   </footer>
-  <div id="appVersion" class="fixed-version">0.4.2</div>
+  <div class="fixed-version">0.4.1</div>
 
-  <script src="data/machines.js"></script>
+  <script src="data/catalog-loader.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
-
-
-
-
-
