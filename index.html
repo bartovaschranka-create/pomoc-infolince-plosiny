@@ -9,6 +9,18 @@
 </head>
 <body>
   <main class="page-shell">
+    <section id="smartSearchSection" class="panel smart-search section-block">
+      <form id="smartSearchForm" novalidate>
+        <label class="field smart-search-field">
+          <span>Chytré vyhledávání</span>
+          <div class="smart-search-row">
+            <input id="smartSearchInput" name="smartSearchInput" type="search" autocomplete="off" placeholder="např. GS 3246, diesel ven 18 m, Toucan, vlečná OMME">
+            <button class="primary-button" type="submit">Hledat</button>
+          </div>
+        </label>
+      </form>
+    </section>
+
     <section id="categorySection" class="panel section-block">
       <div class="section-heading">
         <div>
@@ -129,7 +141,7 @@
     <span>Data jsou převzata z veřejného katalogu Zeppelin CZ.</span>
     <span>Aktuální dostupnost strojů na pobočkách aplikace neověřuje.</span>
   </footer>
-  <div id="appVersion" class="fixed-version">0.2.14</div>
+  <div id="appVersion" class="fixed-version">0.2.15</div>
 
   <script src="data/machines.js"></script>
   <script src="app.js"></script>

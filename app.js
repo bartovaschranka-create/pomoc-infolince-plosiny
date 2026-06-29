@@ -54,6 +54,8 @@
     showAllButton: document.querySelector("#showAllButton"),
     changeCategoryButton: document.querySelector("#changeCategoryButton"),
     filterForm: document.querySelector("#filterForm"),
+    smartSearchForm: document.querySelector("#smartSearchForm"),
+    smartSearchInput: document.querySelector("#smartSearchInput"),
     clearFiltersButton: document.querySelector("#clearFiltersButton"),
     resultsSection: document.querySelector("#resultsSection"),
     resultsStatus: document.querySelector("#resultsStatus"),
@@ -76,6 +78,11 @@
     elements.categoryGrid.addEventListener("click", (event) => {
       const button = event.target.closest("[data-category]");
       if (button) chooseCategory(button.dataset.category);
+    });
+
+    elements.smartSearchForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      runSmartSearch(elements.smartSearchInput.value);
     });
 
     elements.showAllButton.addEventListener("click", () => {
@@ -392,6 +399,135 @@
     return `<div class="spec-row"><span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong></div>`;
   }
 
+  function runSmartSearch(rawQuery) {
+    const parsed = parseSmartQuery(rawQuery);
+    if (!parsed.query) {
+      elements.smartSearchInput.focus();
+      return;
+    }
+
+    selectedCategory = parsed.categoryId || "smart";
+    document.querySelectorAll(".category-button").forEach((button) => {
+      button.classList.toggle("active", parsed.categoryId && button.dataset.category === parsed.categoryId);
+    });
+    elements.filterSection.classList.add("hidden");
+
+    const pool = parsed.categoryId ? getMachinesForCategory(parsed.categoryId) : machines;
+    const hasTextTerms = parsed.textTokens.length > 0 || parsed.modelCode;
+    const hasParsedFilters = parsed.filters.workingHeight != null || parsed.filters.environment !== "any" || parsed.filters.drive !== "any";
+    const evaluated = pool
+      .map((machine) => evaluateSmartMachine(machine, parsed))
+      .filter((item) => hasTextTerms ? item.textMatch : item.failures.length === 0 || hasParsedFilters)
+      .sort((a, b) => a.penalty - b.penalty || b.textScore - a.textScore || a.score - b.score)
+      .slice(0, 8);
+
+    renderSmartResults(evaluated, parsed);
+  }
+
+  function parseSmartQuery(rawQuery) {
+    const query = String(rawQuery || "").trim();
+    const normalized = normalizeSearchText(query);
+    const filters = {
+      environment: "any",
+      workingHeight: null,
+      outreach: null,
+      maxWidth: null,
+      maxLength: null,
+      maxMachineHeight: null,
+      drive: "any",
+      terrain: "any"
+    };
+
+    if (/\b(vnitr|vnitrni|hala|haly|sklad|uvnitr)\b/.test(normalized)) filters.environment = "indoor";
+    if (/\b(ven|venku|venkovni|exterier|venek)\b/.test(normalized)) filters.environment = "outdoor";
+    if (/\b(diesel|nafta|dieselovy)\b/.test(normalized)) filters.drive = "diesel";
+    if (/\b(elektro|bater|aku|elektricky)\b/.test(normalized)) filters.drive = "electric";
+    if (/\b(hybrid|kombin)\b/.test(normalized)) filters.drive = "hybrid";
+
+    const heightMatch = normalized.match(/(\d+(?:[,.]\d+)?)\s*(?:m|metru|metr|metry)\b/);
+    if (heightMatch) filters.workingHeight = toNumber(heightMatch[1]);
+
+    const categoryAliases = [
+      ["scissor", ["nuzk", "nuzkov", "scissor", "gs-", "gs "]],
+      ["articulated", ["kloub", "kloubov", "z-", "z ", "aj", "articulated"]],
+      ["telescopic", ["teleskop", "telescop", "sj", "boom"]],
+      ["trailer", ["vlec", "vlecn", "prives", "privesn", "omme", "trailer"]],
+      ["mast", ["anten", "antenn", "toucan", "mast", "stozar", "stozarov", "vertik"]]
+    ];
+    const categoryId = categoryAliases.find(([, aliases]) => aliases.some((alias) => normalized.includes(alias)))?.[0] || null;
+
+    const ignored = new Set([
+      "ven", "venku", "venkovni", "vnitr", "vnitrni", "hala", "haly", "sklad", "uvnitr",
+      "diesel", "nafta", "dieselovy", "elektro", "bater", "aku", "elektricky", "hybrid",
+      "plosina", "plosiny", "stroj", "stroje", "m", "metru", "metr", "metry", "do", "na", "pro",
+      "nuzkova", "nuzkove", "nuzkovy", "kloubova", "kloubove", "kloubovy", "teleskopicka", "teleskopicke",
+      "vlecna", "vlecne", "vlecny", "privesna", "privesne", "antenni", "stozarova", "stozarove"
+    ]);
+    const compactQuery = normalized.replace(/[^a-z0-9]+/g, "");
+    const modelSource = normalized.replace(/\d+(?:[,.]\d+)?\s*(?:m|metru|metr|metry)\b/g, " ");
+    const modelMatch = modelSource.match(/\b(?:[a-z]{1,5}[-\s]?\d{2,}[a-z0-9]*|\d{2,}[-\s]?[a-z]{1,5})\b/);
+    const modelCompact = modelMatch ? modelMatch[0].replace(/[^a-z0-9]+/g, "") : "";
+    const modelCode = modelCompact.length >= 3 && /[a-z]/.test(modelCompact) && /\d/.test(modelCompact);
+    const textTokens = normalized
+      .replace(/\d+(?:[,.]\d+)?\s*(?:m|metru|metr|metry)\b/g, " ")
+      .split(/[^a-z0-9]+/)
+      .filter((token) => token.length >= 2 && !ignored.has(token) && (!/^\d+$/.test(token) || token.length >= 3));
+
+    return { query, normalized, compactQuery, modelCompact, modelCode, categoryId, filters, textTokens };
+  }
+
+  function evaluateSmartMachine(machine, parsed) {
+    const base = evaluateMachine(machine, parsed.filters);
+    const haystack = normalizeSearchText([
+      machine.manufacturer,
+      machine.model,
+      machine.id,
+      machine.sourceCategory,
+      machine.drive,
+      displayCategoryForMachine(machine).label
+    ].join(" "));
+    const compactHaystack = haystack.replace(/[^a-z0-9]+/g, "");
+
+    let textScore = 0;
+    const modelCodeMatch = parsed.modelCode && compactHaystack.includes(parsed.modelCompact);
+    if (modelCodeMatch) textScore += 140;
+    for (const token of parsed.textTokens) {
+      if (haystack.includes(token) || compactHaystack.includes(token)) textScore += token.length >= 4 ? 35 : 22;
+    }
+
+    const tokenMatch = parsed.textTokens.length === 0 || parsed.textTokens.every((token) => haystack.includes(token) || compactHaystack.includes(token));
+    const textMatch = tokenMatch && (!parsed.modelCode || modelCodeMatch);
+    const textPenalty = textMatch ? 0 : 900;
+    return {
+      ...base,
+      textScore,
+      textMatch,
+      penalty: base.penalty + textPenalty,
+      failures: textMatch ? base.failures : [...base.failures, "neodpovídá přesně textu hledání"]
+    };
+  }
+
+  function renderSmartResults(items, parsed) {
+    elements.resultsSection.classList.remove("hidden");
+    elements.resultsStatus.textContent = `${items.length} ${pluralizeResults(items.length)}`;
+    elements.resultsTitle.textContent = `Výsledky pro „${parsed.query}“`;
+    elements.resultsDescription.textContent = describeSmartSearch(parsed);
+    elements.resultsGrid.innerHTML = items.length
+      ? items.map((item, index) => renderMachineCard(item, parsed.filters, item.failures.length > 0, index)).join("")
+      : `<div class="empty-state">Nic přesného se nenašlo. Zkuste model, výšku nebo typ plošiny napsat jinak.</div>`;
+    elements.resultsSection.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function describeSmartSearch(parsed) {
+    const parts = [];
+    if (parsed.categoryId) parts.push(`kategorie ${categoryMap[parsed.categoryId].label.toLowerCase()}`);
+    if (parsed.filters.environment === "indoor") parts.push("vnitřní provoz");
+    if (parsed.filters.environment === "outdoor") parts.push("venkovní provoz");
+    if (parsed.filters.workingHeight != null) parts.push(`pracovní výška od ${formatNumber(parsed.filters.workingHeight)} m`);
+    if (parsed.filters.drive !== "any") parts.push(parsed.filters.drive === "diesel" ? "dieselový pohon" : parsed.filters.drive === "electric" ? "elektrický pohon" : "hybridní pohon");
+    return parts.length ? `Rozpoznáno: ${parts.join(", ")}.` : "Hledám podle modelu, výrobce, kategorie a textu v katalogu.";
+  }
+
   function terrainText(machine) {
     if (!machine.terrain?.length) return "Neuvedeno";
     if (machine.terrain.includes("rough")) return terrainLabels.rough;
@@ -428,6 +564,11 @@
     if (!raw) return null;
     const parsed = Number(raw);
     return Number.isFinite(parsed) && parsed >= 0 ? parsed : null;
+  }
+
+  function toNumber(value) {
+    const parsed = Number(String(value || "").replace(",", "."));
+    return Number.isFinite(parsed) ? parsed : null;
   }
 
   function pluralizeMachines(count) {

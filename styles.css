@@ -137,6 +137,34 @@ h3 { margin-bottom: 5px; }
 }
 .selected-category { width: 100%; margin: -4px 0 0 46px; color: var(--muted); }
 
+.smart-search {
+  margin-top: 0;
+}
+.smart-search-field {
+  gap: 10px;
+}
+.smart-search-field > span {
+  font-size: 18px;
+  font-weight: 900;
+}
+.smart-search-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+}
+.smart-search-row input {
+  min-height: 52px;
+  border: 1px solid #cfd4da;
+  border-radius: 9px;
+  padding: 11px 14px;
+  background: #fff;
+  color: var(--ink);
+}
+.smart-search-row input:focus {
+  outline: 3px solid rgba(244, 196, 0, .24);
+  border-color: var(--accent-dark);
+}
+
 .category-grid {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
