@@ -1,5 +1,5 @@
 window.MACHINE_CATALOG = {
-  "version": "0.2.17",
+  "version": "0.2.18",
   "updatedAt": "2026-06-26",
   "sourceName": "Ve?ejn? katalog P?j?ovny stroj? Zeppelin CZ",
   "machines": [
@@ -152,7 +152,9 @@ window.MACHINE_CATALOG = {
       "priceShort": "740 Kč/den bez DPH",
       "priceLong": "570 Kč/den bez DPH",
       "verifiedImage": true,
-      "description": "Nůžková plošina JLG 1932 ES nabízena k pronájmu poskytuje přesné ovládání a spolehlivý výkon v interiéru."
+      "description": "Nůžková plošina JLG 1932 ES nabízena k pronájmu poskytuje přesné ovládání a spolehlivý výkon v interiéru.",
+      "maxChassisTiltText": "Neuvedeno ve zdroji",
+      "maxChassisTiltNote": "Kontrolováno proti produktové stránce Zeppelin a revizím 2025; konkrétní hodnota náklonu nebyla ve zdroji uvedena."
     },
     {
       "id": "genie-gs-1932-dc",
@@ -187,7 +189,14 @@ window.MACHINE_CATALOG = {
       "priceShort": "740 Kč/den bez DPH",
       "priceLong": "570 Kč/den bez DPH",
       "verifiedImage": true,
-      "description": "Nůžková plošina Genie GS-1932 DC je k zapůjčení pro tichý elektrický provoz a bezpečnou práci ve výškách."
+      "description": "Nůžková plošina Genie GS-1932 DC je k zapůjčení pro tichý elektrický provoz a bezpečnou práci ve výškách.",
+      "maxChassisTiltDeg": 1.5,
+      "maxChassisTiltText": "1,5° / 3° / 3°",
+      "maxChassisTiltNote": "Použita nejmenší hodnota z dostupných revizních údajů příbuzných GS-1932/GS-2032; produktový list Zeppelin uvádí tilt alarm bez stupňů.",
+      "gradeabilityText": "30 %",
+      "datasheetUrl": "assets/datasheets/genie-gs-1932-dc-zeppelin.pdf",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/GS-1532_1932.pdf",
+      "datasheetLabel": "Produktový list Zeppelin GS-1532 / GS-1932"
     },
     {
       "id": "genie-gs-2032-dc",
@@ -557,7 +566,9 @@ window.MACHINE_CATALOG = {
       "priceShort": "1 140 Kč/den bez DPH",
       "priceLong": "930 Kč/den bez DPH",
       "verifiedImage": false,
-      "description": "Nůžková plošina Zoomlion ZS1012AC-Li nabízena k pronájmu využívá Li-ion technologii pro dlouhý bezemisní provoz."
+      "description": "Nůžková plošina Zoomlion ZS1012AC-Li nabízena k pronájmu využívá Li-ion technologii pro dlouhý bezemisní provoz.",
+      "maxChassisTiltText": "Neuvedeno ve zdroji",
+      "maxChassisTiltNote": "Produktová stránka Zeppelin neuvádí hodnotu náklonu podvozku; ověřit podle štítku nebo návodu konkrétního stroje."
     },
     {
       "id": "genie-gs-3390-rt",
@@ -630,7 +641,9 @@ window.MACHINE_CATALOG = {
       "priceShort": "1 840 Kč/den bez DPH",
       "priceLong": "1 360 Kč/den bez DPH",
       "verifiedImage": false,
-      "description": "Venkovní nůžková plošina Zoomlion ZS1023RT lze pronajmout pro vysokou nosnost, venkovní nasazení a robustní provoz."
+      "description": "Venkovní nůžková plošina Zoomlion ZS1023RT lze pronajmout pro vysokou nosnost, venkovní nasazení a robustní provoz.",
+      "maxChassisTiltText": "Neuvedeno ve zdroji",
+      "maxChassisTiltNote": "Produktová stránka Zeppelin neuvádí hodnotu náklonu podvozku; ověřit podle štítku nebo návodu konkrétního stroje."
     },
     {
       "id": "genie-gs-4046",
@@ -702,7 +715,9 @@ window.MACHINE_CATALOG = {
       "priceShort": "1 850 Kč/den bez DPH",
       "priceLong": "1 340 Kč/den bez DPH",
       "verifiedImage": false,
-      "description": "Venkovní nůžková plošina Zoomlion ZS1218ERT je k zapůjčení pro náročné venkovní práce s vysokou nosností."
+      "description": "Venkovní nůžková plošina Zoomlion ZS1218ERT je k zapůjčení pro náročné venkovní práce s vysokou nosností.",
+      "maxChassisTiltText": "Neuvedeno ve zdroji",
+      "maxChassisTiltNote": "Produktová stránka Zeppelin neuvádí hodnotu náklonu podvozku; ověřit podle štítku nebo návodu konkrétního stroje."
     },
     {
       "id": "jlg-4045-r",
@@ -811,7 +826,9 @@ window.MACHINE_CATALOG = {
       "priceShort": "2 060 Kč/den bez DPH",
       "priceLong": "1 730 Kč/den bez DPH",
       "verifiedImage": false,
-      "description": "Nůžková plošina Zoomlion ZS1414AC-Li lze pronajmout pro čistý tichý provoz s dlouhou výdrží baterií."
+      "description": "Nůžková plošina Zoomlion ZS1414AC-Li lze pronajmout pro čistý tichý provoz s dlouhou výdrží baterií.",
+      "maxChassisTiltText": "Neuvedeno ve zdroji",
+      "maxChassisTiltNote": "Produktová stránka Zeppelin neuvádí hodnotu náklonu podvozku; ověřit podle štítku nebo návodu konkrétního stroje."
     },
     {
       "id": "genie-gs-4655-dc",
@@ -1030,7 +1047,14 @@ window.MACHINE_CATALOG = {
       "priceShort": "1 730 Kč/den bez DPH",
       "priceLong": "1 460 Kč/den bez DPH",
       "verifiedImage": true,
-      "description": "Kloubová plošina Genie Z-30/20 N nabízena k zapůjčení poskytuje přesný dosah a tichý chod v úzkých prostorách."
+      "description": "Kloubová plošina Genie Z-30/20 N nabízena k zapůjčení poskytuje přesný dosah a tichý chod v úzkých prostorách.",
+      "maxChassisTiltDeg": 2.5,
+      "maxChassisTiltText": "2,5° / 4,5°",
+      "maxChassisTiltNote": "Hodnota převzata z revize 2025 pro Z-30/20ND; zobrazena je nejmenší hodnota.",
+      "gradeabilityText": "35 %",
+      "datasheetUrl": "assets/datasheets/genie-z-30-20-n-zeppelin.pdf",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/Z-3020_N.pdf",
+      "datasheetLabel": "Produktový list Zeppelin Z-30/20 N"
     },
     {
       "id": "genie-z-34-22-n",
@@ -1213,7 +1237,9 @@ window.MACHINE_CATALOG = {
       "priceShort": "2 270 Kč/den bez DPH",
       "priceLong": "1 890 Kč/den bez DPH",
       "verifiedImage": false,
-      "description": "Kloubová plošina Zoomlion ZA14J lze pronajmout pro bezpečnou práci ve výškách s vysokou přesností ovládání."
+      "description": "Kloubová plošina Zoomlion ZA14J lze pronajmout pro bezpečnou práci ve výškách s vysokou přesností ovládání.",
+      "maxChassisTiltText": "Neuvedeno ve zdroji",
+      "maxChassisTiltNote": "Produktová stránka Zeppelin neuvádí hodnotu náklonu podvozku; ověřit podle štítku nebo návodu konkrétního stroje."
     },
     {
       "id": "genie-z-45-25-jdc",
@@ -1730,7 +1756,12 @@ window.MACHINE_CATALOG = {
       "priceShort": "2 710 Kč/den bez DPH",
       "priceLong": "1 840 Kč/den bez DPH",
       "verifiedImage": true,
-      "description": "Plošina Ommelift 1300 EBP nabízena k pronájmu poskytuje kompaktní provoz a bezpečný přístup do výšek."
+      "description": "Plošina Ommelift 1300 EBP nabízena k pronájmu poskytuje kompaktní provoz a bezpečný přístup do výšek.",
+      "maxChassisTiltText": "Ustavit do vodorovna na opěrách",
+      "maxChassisTiltNote": "Produktový list Zeppelin neuvádí pracovní náklon ve stupních; u vlečné plošiny rozhoduje správné vyrovnání na opěrách.",
+      "datasheetUrl": "assets/datasheets/ommelift-1300-ebp-zeppelin.pdf",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/OMMELIFT_1300E.pdf",
+      "datasheetLabel": "Produktový list Zeppelin Ommelift 1300 E"
     },
     {
       "id": "ommelift-1500-exbp",
@@ -1765,7 +1796,13 @@ window.MACHINE_CATALOG = {
       "priceShort": "3 020 Kč/den bez DPH",
       "priceLong": "2 160 Kč/den bez DPH",
       "verifiedImage": true,
-      "description": "Plošina Ommelift 1500 EXBP lze pronajmout pro komfortní výstup do velkých výšek s tichým elektrickým pohonem."
+      "description": "Plošina Ommelift 1500 EXBP lze pronajmout pro komfortní výstup do velkých výšek s tichým elektrickým pohonem.",
+      "maxChassisTiltText": "Ustavit do vodorovna na opěrách",
+      "maxChassisTiltNote": "Produktový list Zeppelin neuvádí pracovní náklon ve stupních; u vlečné plošiny rozhoduje správné vyrovnání na opěrách.",
+      "gradeabilityText": "14 % / 8°",
+      "datasheetUrl": "assets/datasheets/ommelift-1500-exbp-zeppelin.pdf",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/OMMELIFT_1500EX.pdf",
+      "datasheetLabel": "Produktový list Zeppelin Ommelift 1500 EX"
     },
     {
       "id": "ommelift-1700-exbp",
@@ -1800,7 +1837,13 @@ window.MACHINE_CATALOG = {
       "priceShort": "3 350 Kč/den bez DPH",
       "priceLong": "2 590 Kč/den bez DPH",
       "verifiedImage": true,
-      "description": "Plošina Ommelift 1700 EXBP nabízena k zapůjčení poskytuje extra dosah a stabilitu pro náročné projekty."
+      "description": "Plošina Ommelift 1700 EXBP nabízena k zapůjčení poskytuje extra dosah a stabilitu pro náročné projekty.",
+      "maxChassisTiltText": "Ustavit do vodorovna na opěrách",
+      "maxChassisTiltNote": "Produktový list Zeppelin neuvádí pracovní náklon ve stupních; u vlečné plošiny rozhoduje správné vyrovnání na opěrách.",
+      "gradeabilityText": "14 % / 8°",
+      "datasheetUrl": "assets/datasheets/ommelift-1700-exbp-zeppelin.pdf",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/OMMELIFT_1700EX.pdf",
+      "datasheetLabel": "Produktový list Zeppelin Ommelift 1700 EX"
     }
   ]
 };
