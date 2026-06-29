@@ -86,10 +86,27 @@
     return true;
   }
 
+  function getOfficialDocumentUrl(machine) {
+    const candidates = [machine.officialDocumentUrl, machine.datasheetSourceUrl, machine.datasheetUrl];
+    return candidates.find(value => {
+      const url = String(value || "").trim();
+      if (!url) return false;
+      const normalizedUrl = url.toLowerCase();
+
+      // Nikdy nezobrazovat dříve vytvořené technické souhrny.
+      if (normalizedUrl.includes("technicky-souhrn") || normalizedUrl.includes("/assets/datasheets/")) return false;
+      if (normalizedUrl.includes("raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny")) return false;
+
+      // Lokálně smí být pouze nezměněný originální dokument výrobce.
+      if (normalizedUrl.startsWith("assets/manufacturer-docs/")) return true;
+      return /^https?:\/\//i.test(url);
+    }) || "";
+  }
+
   function machineCard(machine, index) {
-    const documentUrl = machine.officialDocumentUrl || machine.datasheetUrl;
+    const documentUrl = getOfficialDocumentUrl(machine);
     const documentButton = documentUrl
-      ? `<a class="link-button secondary" target="_blank" rel="noopener" href="${esc(documentUrl)}">Dokument výrobce</a>`
+      ? `<a class="link-button secondary" target="_blank" rel="noopener" href="${esc(documentUrl)}">Originální dokument</a>`
       : "";
     const capacity = Number(machine.capacityKg) > 0
       ? (machine.capacityText || `${fmt(machine.capacityKg)} kg`)
