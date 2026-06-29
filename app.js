@@ -357,18 +357,21 @@
               ${specRow("Vhodný povrch", terrain)}
               ${machine.maxChassisTiltDeg == null && !machine.maxChassisTiltText ? "" : specRow("Max. náklon podvozku", machine.maxChassisTiltText || metric(machine.maxChassisTiltDeg, "\u00b0"))}
               ${machine.maxChassisTiltNote ? specRow("Poznámka k náklonu", machine.maxChassisTiltNote) : ""}
+              ${machine.gradeabilityText ? specRow("Stoupavost ve složeném stavu", machine.gradeabilityText) : ""}
               ${specRow("Délka stroje", metric(machine.dimensions?.lengthM, "m"))}
               ${specRow("Šířka stroje", metric(machine.dimensions?.widthM, "m"))}
               ${specRow("Výška stroje", metric(machine.dimensions?.heightM, "m"))}
-              ${specRow("Výška se sklopeným zábradlím", metric(machine.foldedHeightM, "m"))}
+              ${specRow("Výška se sklopeným zábradlím", machine.foldedHeightText || metric(machine.foldedHeightM, "m"))}
               ${specRow("Rozměr koše", machine.platformText || "Neuvedeno")}
               ${specRow("Hmotnost stroje", metric(machine.weightKg, "kg", 0))}
+              ${machine.datasheetLabel ? specRow("Technický list", machine.datasheetLabel) : ""}
               ${specRow("Aktualizace katalogu", formatDate(catalog.updatedAt))}
             </div>
           </details>
 
           <div class="machine-actions">
             <a class="link-button primary" href="${escapeAttribute(machine.sourceUrl)}" target="_blank" rel="noopener noreferrer">Zobrazit na Zeppelin.cz ↗</a>
+            ${machine.datasheetUrl ? `<a class="link-button secondary" href="${escapeAttribute(machine.datasheetUrl)}" target="_blank" rel="noopener noreferrer">Technický list</a>` : ""}
             <button class="link-button secondary" type="button" onclick="this.closest('.machine-content').querySelector('details').open=true; this.closest('.machine-content').querySelector('details').scrollIntoView({behavior:'smooth',block:'nearest'})">Technické údaje</button>
           </div>
         </div>

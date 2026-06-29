@@ -1,5 +1,5 @@
 window.MACHINE_CATALOG = {
-  "version": "0.2.15",
+  "version": "0.2.16",
   "updatedAt": "2026-06-26",
   "sourceName": "Ve?ejn? katalog P?j?ovny stroj? Zeppelin CZ",
   "machines": [
@@ -31,12 +31,19 @@ window.MACHINE_CATALOG = {
         "heightM": 1.88
       },
       "foldedHeightM": null,
+      "foldedHeightText": "Nevztahuje se - pevné zábradlí, výška stroje 1,88 m",
       "platformText": "0,78 × 1,40 m + vysunutí 0,60 m",
       "weightKg": 900,
       "priceShort": "590 Kč/den bez DPH",
       "priceLong": "470 Kč/den bez DPH",
       "verifiedImage": true,
-      "description": ""
+      "description": "",
+      "maxChassisTiltDeg": 1.5,
+      "maxChassisTiltText": "3° / 1,5°",
+      "gradeabilityText": "25 % / 14°",
+      "datasheetUrl": "assets/datasheets/genie-gs-1432m-gs-1932m-2025-en-us.pdf",
+      "datasheetSourceUrl": "https://www.genielift.com/docs/default-source/product-specifications/slab-scissor-lifts-(ansi)-or-electric-and-bi-energy-lifts-(ce)/en/2025/gs-1432m-gs-1932m-product-specifications---2025---en-us.pdf?sfvrsn=d064fee6_1",
+      "datasheetLabel": "Technický list Genie GS-1432m / GS-1932m (2025)"
     },
     {
       "id": "jlg-es1530l",
