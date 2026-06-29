@@ -2,12 +2,75 @@
   "use strict";
 
   const categories = [
-    { id: "scissor", label: "Nůžkové", icon: "✕", description: "Rovná plocha, sklad, hala" },
-    { id: "articulated", label: "Kloubové", icon: "⌁", description: "Přes překážku a do stran" },
-    { id: "telescopic", label: "Teleskopické", icon: "↗", description: "Velký boční dosah" },
-    { id: "trailer", label: "Vlečné", icon: "◉", description: "Vlečné plošiny OMME" },
-    { id: "mast", label: "Anténní", icon: "↥", description: "Toucan a stožárové plošiny" }
+    { id: "scissor", label: "Nůžkové", icon: iconScissor(), description: "Rovná plocha, sklad, hala" },
+    { id: "articulated", label: "Kloubové", icon: iconArticulated(), description: "Přes překážku a do stran" },
+    { id: "telescopic", label: "Teleskopické", icon: iconTelescopic(), description: "Velký boční dosah" },
+    { id: "trailer", label: "Vlečné", icon: iconTrailer(), description: "Vlečné plošiny OMME" },
+    { id: "mast", label: "Anténní", icon: iconMast(), description: "Toucan a stožárové plošiny" }
   ];
+
+  function iconSvg(content) {
+    return `<svg class="category-sketch" viewBox="0 0 160 100" aria-hidden="true" focusable="false">${content}</svg>`;
+  }
+
+  function iconScissor() {
+    return iconSvg(`
+      <path d="M34 84h84" />
+      <path d="M44 74h58" />
+      <path d="M58 74l34-42M92 74L58 32M72 74l34-42M106 74L72 32" />
+      <path d="M54 22h62v10H54z" />
+      <path d="M48 84a6 6 0 1 0 0 .1M106 84a6 6 0 1 0 0 .1" />
+    `);
+  }
+
+  function iconArticulated() {
+    return iconSvg(`
+      <path d="M28 84h38" />
+      <path d="M38 84a7 7 0 1 0 0 .1M62 84a7 7 0 1 0 0 .1" />
+      <path d="M55 74l27-34 25 20 22-24" />
+      <path d="M77 46l25 20" />
+      <path d="M129 30h22v18h-22z" />
+      <path d="M134 30v-8h12v8" />
+    `);
+  }
+
+  function iconTelescopic() {
+    return iconSvg(`
+      <path d="M26 84h42" />
+      <path d="M38 84a7 7 0 1 0 0 .1M62 84a7 7 0 1 0 0 .1" />
+      <path d="M58 73l62-44" />
+      <path d="M68 66l58-41" />
+      <path d="M126 20h25v17h-25z" />
+      <path d="M48 71l12-12" />
+    `);
+  }
+
+  function iconTrailer() {
+    return iconSvg(`
+      <path d="M18 78h92" />
+      <path d="M18 78l-14 10" />
+      <path d="M60 78a9 9 0 1 0 0 .1M82 78a9 9 0 1 0 0 .1" />
+      <path d="M30 78l-12 14M100 78l16 14" />
+      <path d="M42 64h34" />
+      <path d="M75 64l35-28 30 18" />
+      <path d="M132 47h22v18h-22z" />
+      <path d="M42 58h18v20H42z" />
+    `);
+  }
+
+  function iconMast() {
+    return iconSvg(`
+      <path d="M42 84h50" />
+      <path d="M52 84a6 6 0 1 0 0 .1M82 84a6 6 0 1 0 0 .1" />
+      <path d="M64 78V24" />
+      <path d="M74 78V24" />
+      <path d="M58 24h22" />
+      <path d="M76 28l22 18" />
+      <path d="M98 46h28" />
+      <path d="M126 38h24v18h-24z" />
+      <path d="M54 78h30" />
+    `);
+  }
 
   let machines = [];
   let selectedCategory = null;
