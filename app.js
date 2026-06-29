@@ -380,7 +380,7 @@
               ${specRow("Délka stroje", metric(machine.dimensions?.lengthM, "m"))}
               ${specRow("Šířka stroje", metric(machine.dimensions?.widthM, "m"))}
               ${specRow("Výška stroje", metric(machine.dimensions?.heightM, "m"))}
-              ${specRow("Výška se sklopeným zábradlím", machine.foldedHeightText || metric(machine.foldedHeightM, "m"))}
+              ${specRow("Výška se sklopeným zábradlím", foldedHeightDisplay(machine))}
               ${specRow("Rozměr koše", machine.platformText || "Neuvedeno")}
             ${specRow("Hmotnost stroje", metric(machine.weightKg, "kg", 0))}
             ${machine.datasheetLabel ? specRow("Technický list", machine.datasheetLabel) : ""}
@@ -653,6 +653,13 @@
   function dimensionText(dimensions) {
     if (!dimensions || [dimensions.lengthM, dimensions.widthM, dimensions.heightM].some((value) => value == null)) return "Neuvedeno";
     return `${formatNumber(dimensions.lengthM)} × ${formatNumber(dimensions.widthM)} × ${formatNumber(dimensions.heightM)} m`;
+  }
+
+  function foldedHeightDisplay(machine) {
+    if (machine.foldedHeightText) return machine.foldedHeightText;
+    if (machine.foldedHeightM != null) return metric(machine.foldedHeightM, "m");
+    if (machine.category !== "scissor") return "Neřeší se - nejde o nůžkovou plošinu se sklápěcím zábradlím";
+    return "Ověřit v technickém listu";
   }
 
   function metric(value, unit, decimals = 1) {

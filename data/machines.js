@@ -1,5 +1,5 @@
 window.MACHINE_CATALOG = {
-  "version": "0.4.1",
+  "version": "0.4.2",
   "updatedAt": "2026-06-29",
   "sourceName": "Zeppelin CZ + technické podklady výrobců + revize 2025",
   "machines": [
@@ -31,7 +31,7 @@ window.MACHINE_CATALOG = {
         "heightM": 1.88
       },
       "foldedHeightM": null,
-      "foldedHeightText": "Nevztahuje se - pevné zábradlí, výška stroje 1,88 m",
+      "foldedHeightText": "Pevne zabradli - nelze sklopit; vyska stroje 1,88 m",
       "platformText": "0,78 × 1,40 m + vysunutí 0,60 m",
       "weightKg": 900,
       "priceShort": "590 Kč/den bez DPH",
@@ -125,7 +125,8 @@ window.MACHINE_CATALOG = {
         "widthM": 0.81,
         "heightM": 2.03
       },
-      "foldedHeightM": null,
+      "foldedHeightM": 1.61,
+      "foldedHeightText": "1,61 m",
       "platformText": "Neuvedeno",
       "weightKg": 1237,
       "priceShort": "710 Kč/den bez DPH",
@@ -217,7 +218,8 @@ window.MACHINE_CATALOG = {
         "widthM": 0.81,
         "heightM": 2.11
       },
-      "foldedHeightM": null,
+      "foldedHeightM": 1.75,
+      "foldedHeightText": "1,75 m",
       "platformText": "Neuvedeno",
       "weightKg": 1498,
       "priceShort": "740 Kč/den bez DPH",
@@ -266,7 +268,8 @@ window.MACHINE_CATALOG = {
         "widthM": 0.81,
         "heightM": 2.13
       },
-      "foldedHeightM": null,
+      "foldedHeightM": 1.75,
+      "foldedHeightText": "1,75 m",
       "platformText": "Neuvedeno",
       "weightKg": 1825,
       "priceShort": "760 Kč/den bez DPH",
@@ -404,7 +407,8 @@ window.MACHINE_CATALOG = {
         "widthM": 0.81,
         "heightM": 2.26
       },
-      "foldedHeightM": null,
+      "foldedHeightM": 1.91,
+      "foldedHeightText": "1,91 m",
       "platformText": "Neuvedeno",
       "weightKg": 1956,
       "priceShort": "820 Kč/den bez DPH",
@@ -496,7 +500,8 @@ window.MACHINE_CATALOG = {
         "widthM": 1.17,
         "heightM": 2.36
       },
-      "foldedHeightM": null,
+      "foldedHeightM": 1.97,
+      "foldedHeightText": "1,97 m",
       "platformText": "Neuvedeno",
       "weightKg": 2740,
       "priceShort": "870 Kč/den bez DPH",
@@ -542,7 +547,8 @@ window.MACHINE_CATALOG = {
         "widthM": 1.17,
         "heightM": 2.36
       },
-      "foldedHeightM": null,
+      "foldedHeightM": 1.97,
+      "foldedHeightText": "1,97 m",
       "platformText": "1,12 × 2,50 m + vysunutí 1,30 m",
       "weightKg": 2905,
       "priceShort": "1 140 Kč/den bez DPH",
@@ -635,7 +641,7 @@ window.MACHINE_CATALOG = {
         "widthM": 1.75,
         "heightM": 2.59
       },
-      "foldedHeightM": null,
+      "foldedHeightM": 1.92,
       "platformText": "1,60 × 2,79 m + vysunutí 1,50 m",
       "weightKg": 3949,
       "priceShort": "1 790 Kč/den bez DPH",
@@ -653,7 +659,8 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn GENIE GS-3369 RT",
       "datasheetLocalUrl": "assets/datasheets/genie-gs-3369-rt-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-3369-rt-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-3369-rt-technicky-souhrn.pdf",
+      "foldedHeightText": "1,92 m"
     },
     {
       "id": "zoomlion-zs1012ac-li",
@@ -728,7 +735,7 @@ window.MACHINE_CATALOG = {
         "widthM": 2.29,
         "heightM": 2.71
       },
-      "foldedHeightM": null,
+      "foldedHeightM": 2.03,
       "platformText": "Neuvedeno",
       "weightKg": 6728,
       "priceShort": "1 840 Kč/den bez DPH",
@@ -746,7 +753,8 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn GENIE GS-3390 RT",
       "datasheetLocalUrl": "assets/datasheets/genie-gs-3390-rt-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-3390-rt-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-3390-rt-technicky-souhrn.pdf",
+      "foldedHeightText": "2,03 m"
     },
     {
       "id": "zoomlion-zs1023rt",
@@ -913,7 +921,7 @@ window.MACHINE_CATALOG = {
         "widthM": 1.14,
         "heightM": 2.53
       },
-      "foldedHeightM": null,
+      "foldedHeightM": 1.92,
       "platformText": "Neuvedeno",
       "weightKg": 3175,
       "priceShort": "1 410 Kč/den bez DPH",
@@ -930,7 +938,8 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG 4045 R",
       "datasheetLocalUrl": "assets/datasheets/jlg-4045-r-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-4045-r-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-4045-r-technicky-souhrn.pdf",
+      "foldedHeightText": "1,92 m"
     },
     {
       "id": "genie-gs-4390-rt",
@@ -959,7 +968,7 @@ window.MACHINE_CATALOG = {
         "widthM": 2.29,
         "heightM": 2.93
       },
-      "foldedHeightM": null,
+      "foldedHeightM": 2.25,
       "platformText": "Neuvedeno",
       "weightKg": 7163,
       "priceShort": "1 950 Kč/den bez DPH",
@@ -976,7 +985,8 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn GENIE GS-4390 RT",
       "datasheetLocalUrl": "assets/datasheets/genie-gs-4390-rt-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-4390-rt-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-4390-rt-technicky-souhrn.pdf",
+      "foldedHeightText": "2,25 m"
     },
     {
       "id": "zoomlion-zs1414ac-li",
@@ -1097,7 +1107,7 @@ window.MACHINE_CATALOG = {
         "widthM": 2.29,
         "heightM": 3.15
       },
-      "foldedHeightM": null,
+      "foldedHeightM": 2.47,
       "platformText": "Neuvedeno",
       "weightKg": 8050,
       "priceShort": "2 160 Kč/den bez DPH",
@@ -1114,7 +1124,8 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn GENIE GS-5390 RT",
       "datasheetLocalUrl": "assets/datasheets/genie-gs-5390-rt-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-5390-rt-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-5390-rt-technicky-souhrn.pdf",
+      "foldedHeightText": "2,47 m"
     },
     {
       "id": "jlg-toucan-10e",
