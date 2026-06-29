@@ -1,5 +1,5 @@
 window.MACHINE_CATALOG = {
-  "version": "0.2.16",
+  "version": "0.2.17",
   "updatedAt": "2026-06-26",
   "sourceName": "Ve?ejn? katalog P?j?ovny stroj? Zeppelin CZ",
   "machines": [

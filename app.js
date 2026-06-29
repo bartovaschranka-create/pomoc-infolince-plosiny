@@ -56,6 +56,7 @@
     filterForm: document.querySelector("#filterForm"),
     smartSearchForm: document.querySelector("#smartSearchForm"),
     smartSearchInput: document.querySelector("#smartSearchInput"),
+    smartSuggestBox: document.querySelector("#smartSuggestBox"),
     clearFiltersButton: document.querySelector("#clearFiltersButton"),
     resultsSection: document.querySelector("#resultsSection"),
     resultsStatus: document.querySelector("#resultsStatus"),
@@ -82,7 +83,17 @@
 
     elements.smartSearchForm.addEventListener("submit", (event) => {
       event.preventDefault();
+      closeSmartSuggestions();
       runSmartSearch(elements.smartSearchInput.value);
+    });
+
+    elements.smartSearchInput.addEventListener("input", () => openSmartSuggestions());
+    elements.smartSearchInput.addEventListener("focus", () => openSmartSuggestions());
+    elements.smartSearchInput.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeSmartSuggestions();
+    });
+    document.addEventListener("pointerdown", (event) => {
+      if (!event.target.closest(".smart-search-row")) closeSmartSuggestions();
     });
 
     elements.showAllButton.addEventListener("click", () => {
@@ -152,6 +163,10 @@
       .toLowerCase()
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "");
+  }
+
+  function compactSearchText(value) {
+    return normalizeSearchText(value).replace(/[^a-z0-9]+/g, "");
   }
 
   function isDieselMachine(machine) {
@@ -427,6 +442,77 @@
     renderSmartResults(evaluated, parsed);
   }
 
+  function smartSuggestionItems() {
+    return machines.map((machine) => {
+      const category = displayCategoryForMachine(machine);
+      const title = `${machine.manufacturer || ""} ${machine.model || ""}`.trim();
+      const subtitle = [
+        category.label,
+        machine.workingHeightM == null ? "" : `${formatNumber(machine.workingHeightM)} m`,
+        machine.drive || ""
+      ].filter(Boolean).join(" · ");
+      const searchText = [
+        title,
+        machine.id,
+        machine.sourceCategory,
+        category.label,
+        machine.drive,
+        machine.workingHeightM == null ? "" : `${formatNumber(machine.workingHeightM)}m`
+      ].join(" ");
+      return { title, subtitle, value: title, searchText };
+    });
+  }
+
+  function filterSmartSuggestions(query) {
+    const normalized = normalizeSearchText(query).trim();
+    const compact = compactSearchText(query);
+    if (!normalized && !compact) return [];
+
+    const seen = new Set();
+    const scored = [];
+    for (const item of smartSuggestionItems()) {
+      const hay = normalizeSearchText(item.searchText);
+      const hayCompact = compactSearchText(item.searchText);
+      const valueCompact = compactSearchText(item.value);
+      if (!hay.includes(normalized) && !hayCompact.includes(compact)) continue;
+      if (seen.has(valueCompact)) continue;
+      seen.add(valueCompact);
+      const score = (valueCompact.startsWith(compact) ? 0 : 20) + (hayCompact.indexOf(compact) < 0 ? 50 : hayCompact.indexOf(compact));
+      scored.push({ ...item, score });
+    }
+    return scored.sort((a, b) => a.score - b.score || a.value.localeCompare(b.value, "cs")).slice(0, 8);
+  }
+
+  function openSmartSuggestions() {
+    const query = elements.smartSearchInput.value;
+    const items = filterSmartSuggestions(query);
+    if (!items.length) {
+      closeSmartSuggestions();
+      return;
+    }
+    elements.smartSuggestBox.innerHTML = items.map((item) => `
+      <button class="smart-suggest-item" type="button" data-value="${escapeAttribute(item.value)}" role="option">
+        <span class="smart-suggest-main">${escapeHtml(item.title)}</span>
+        <span class="smart-suggest-sub">${escapeHtml(item.subtitle)}</span>
+      </button>`).join("");
+    elements.smartSuggestBox.classList.add("show");
+    elements.smartSuggestBox.querySelectorAll(".smart-suggest-item").forEach((button) => {
+      button.addEventListener("pointerdown", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        const value = button.dataset.value || "";
+        elements.smartSearchInput.value = value;
+        closeSmartSuggestions();
+        runSmartSearch(value);
+      });
+    });
+  }
+
+  function closeSmartSuggestions() {
+    elements.smartSuggestBox.classList.remove("show");
+    elements.smartSuggestBox.innerHTML = "";
+  }
+
   function parseSmartQuery(rawQuery) {
     const query = String(rawQuery || "").trim();
     const normalized = normalizeSearchText(query);
@@ -466,10 +552,10 @@
       "nuzkova", "nuzkove", "nuzkovy", "kloubova", "kloubove", "kloubovy", "teleskopicka", "teleskopicke",
       "vlecna", "vlecne", "vlecny", "privesna", "privesne", "antenni", "stozarova", "stozarove"
     ]);
-    const compactQuery = normalized.replace(/[^a-z0-9]+/g, "");
+    const compactQuery = compactSearchText(normalized);
     const modelSource = normalized.replace(/\d+(?:[,.]\d+)?\s*(?:m|metru|metr|metry)\b/g, " ");
     const modelMatch = modelSource.match(/\b(?:[a-z]{1,5}[-\s]?\d{2,}[a-z0-9]*|\d{2,}[-\s]?[a-z]{1,5})\b/);
-    const modelCompact = modelMatch ? modelMatch[0].replace(/[^a-z0-9]+/g, "") : "";
+    const modelCompact = modelMatch ? compactSearchText(modelMatch[0]) : "";
     const modelCode = modelCompact.length >= 3 && /[a-z]/.test(modelCompact) && /\d/.test(modelCompact);
     const textTokens = normalized
       .replace(/\d+(?:[,.]\d+)?\s*(?:m|metru|metr|metry)\b/g, " ")
@@ -489,7 +575,7 @@
       machine.drive,
       displayCategoryForMachine(machine).label
     ].join(" "));
-    const compactHaystack = haystack.replace(/[^a-z0-9]+/g, "");
+    const compactHaystack = compactSearchText(haystack);
 
     let textScore = 0;
     const modelCodeMatch = parsed.modelCode && compactHaystack.includes(parsed.modelCompact);
