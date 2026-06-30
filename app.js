@@ -86,27 +86,30 @@
     return true;
   }
 
-  function getOfficialDocumentUrl(machine) {
-    const candidates = [machine.officialDocumentUrl, machine.datasheetSourceUrl, machine.datasheetUrl];
-    return candidates.find(value => {
+  function usableDocumentUrl(value, allowLocalFallback = false) {
       const url = String(value || "").trim();
       if (!url) return false;
       const normalizedUrl = url.toLowerCase();
 
-      // Nikdy nezobrazovat dříve vytvořené technické souhrny.
-      if (normalizedUrl.includes("technicky-souhrn") || normalizedUrl.includes("/assets/datasheets/")) return false;
-      if (normalizedUrl.includes("raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny")) return false;
-
-      // Lokálně smí být pouze nezměněný originální dokument výrobce.
       if (normalizedUrl.startsWith("assets/manufacturer-docs/")) return true;
+      if (allowLocalFallback && normalizedUrl.startsWith("assets/datasheets/")) return true;
+      if (normalizedUrl.includes("raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny")) return allowLocalFallback;
       return /^https?:\/\//i.test(url);
-    }) || "";
+  }
+
+  function getTechnicalDocumentUrl(machine) {
+    const officialCandidates = [machine.officialDocumentUrl, machine.datasheetSourceUrl];
+    const officialUrl = officialCandidates.find(value => usableDocumentUrl(value, false));
+    if (officialUrl) return officialUrl;
+
+    const fallbackCandidates = [machine.datasheetLocalUrl, machine.datasheetUrl];
+    return fallbackCandidates.find(value => usableDocumentUrl(value, true)) || "";
   }
 
   function machineCard(machine, index) {
-    const documentUrl = getOfficialDocumentUrl(machine);
+    const documentUrl = getTechnicalDocumentUrl(machine);
     const documentButton = documentUrl
-      ? `<a class="link-button secondary" target="_blank" rel="noopener" href="${esc(documentUrl)}">Originální dokument</a>`
+      ? `<a class="link-button secondary" target="_blank" rel="noopener" href="${esc(documentUrl)}">Technický list</a>`
       : "";
     const capacity = Number(machine.capacityKg) > 0
       ? (machine.capacityText || `${fmt(machine.capacityKg)} kg`)
