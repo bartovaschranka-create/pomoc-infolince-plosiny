@@ -1,5 +1,5 @@
 window.MACHINE_CATALOG = {
-  "version": "0.5.8",
+  "version": "0.5.9",
   "updatedAt": "2026-06-30",
   "sourceName": "Zeppelin CZ + technicke podklady vyrobcu",
   "machines": [
@@ -972,7 +972,8 @@ window.MACHINE_CATALOG = {
           "weightKg": 3860,
           "source": "revize 2025"
         }
-      ]
+      ],
+      "hasStabilizers": true
     },
     {
       "id": "zoomlion-zs1012ac-li",
@@ -1111,7 +1112,8 @@ window.MACHINE_CATALOG = {
           "weightKg": 6546,
           "source": "revize 2025"
         }
-      ]
+      ],
+      "hasStabilizers": true
     },
     {
       "id": "zoomlion-zs1023rt",
@@ -1156,7 +1158,8 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn Zoomlion ZS1023RT",
       "datasheetLocalUrl": "assets/datasheets/zoomlion-zs1023rt-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/zoomlion-zs1023rt-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/zoomlion-zs1023rt-technicky-souhrn.pdf",
+      "hasStabilizers": true
     },
     {
       "id": "genie-gs-4046",
@@ -1279,7 +1282,8 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn Zoomlion ZS1218ERT",
       "datasheetLocalUrl": "assets/datasheets/zoomlion-zs1218ert-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/zoomlion-zs1218ert-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/zoomlion-zs1218ert-technicky-souhrn.pdf",
+      "hasStabilizers": true
     },
     {
       "id": "jlg-4045-r",
@@ -1467,7 +1471,8 @@ window.MACHINE_CATALOG = {
           "weightKg": 7016,
           "source": "revize 2025"
         }
-      ]
+      ],
+      "hasStabilizers": true
     },
     {
       "id": "zoomlion-zs1414ac-li",
@@ -1659,7 +1664,8 @@ window.MACHINE_CATALOG = {
           "weightKg": 8059,
           "source": "revize 2025"
         }
-      ]
+      ],
+      "hasStabilizers": true
     },
     {
       "id": "jlg-toucan-10e",
