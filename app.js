@@ -163,15 +163,15 @@
         </div>
         ${priceBlock(machine)}
         ${matchDeltaBlock(machine, requestedFilters)}
-        <details>
-          <summary>Technické údaje</summary>
+        <div class="spec-panel">
+          <h4>Technické údaje</h4>
           <div class="spec-row"><span>Pohon</span><strong>${esc(machine.drive || "Neuvedeno")}</strong></div>
           <div class="spec-row"><span>Délka</span><strong>${fmt(machine.dimensions?.lengthM)} m</strong></div>
           <div class="spec-row"><span>Šířka</span><strong>${fmt(machine.dimensions?.widthM)} m</strong></div>
           <div class="spec-row"><span>Výška</span><strong>${fmt(machine.dimensions?.heightM)} m</strong></div>
           <div class="spec-row"><span>Rozměr koše</span><strong>${esc(machine.platformText || "Neuvedeno")}</strong></div>
           <div class="spec-row"><span>Náklon</span><strong>${esc(machine.maxChassisTiltText || "Neuvedeno")}</strong></div>
-        </details>
+        </div>
         <div class="machine-actions">
           <a class="link-button primary" target="_blank" rel="noopener" href="${esc(machine.sourceUrl || "#")}">Zeppelin.cz ↗</a>
           ${documentButton}
