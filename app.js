@@ -141,7 +141,7 @@
   function machineCard(machine, index, requestedFilters = {}) {
     const documentUrl = getTechnicalDocumentUrl(machine);
     const documentButton = documentUrl
-      ? `<a class="link-button secondary" target="_blank" rel="noopener" href="${esc(documentUrl)}">Technický list výrobce</a>`
+      ? `<a class="link-button secondary" target="_blank" rel="noopener" href="${esc(documentUrl)}">Technický list</a>`
       : "";
     const capacity = Number(machine.capacityKg) > 0
       ? (machine.capacityText || `${fmt(machine.capacityKg)} kg`)

@@ -1,5 +1,5 @@
 window.MACHINE_CATALOG = {
-  "version": "0.5.5",
+  "version": "0.5.6",
   "updatedAt": "2026-06-29",
   "sourceName": "Zeppelin CZ + technicke podklady vyrobcu",
   "machines": [
@@ -94,7 +94,8 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG ES1530L",
       "datasheetLocalUrl": "assets/datasheets/jlg-es1530l-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-es1530l-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-es1530l-technicky-souhrn.pdf",
+      "datasheetSourceUrl": "https://stevensoncrane.com/wp-content/uploads/JLG-ES1530L-Spec-Sheet.pdf"
     },
     {
       "id": "jlg-1532-r",
@@ -140,7 +141,8 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG 1532 R",
       "datasheetLocalUrl": "assets/datasheets/jlg-1532-r-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-1532-r-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-1532-r-technicky-souhrn.pdf",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/1532R.pdf"
     },
     {
       "id": "jlg-1932-es",
@@ -278,7 +280,8 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn GENIE GS-2032 DC",
       "datasheetLocalUrl": "assets/datasheets/genie-gs-2032-dc-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-2032-dc-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-2032-dc-technicky-souhrn.pdf",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/GS-2032_2632.pdf"
     },
     {
       "id": "genie-gs-2046-dc",
@@ -323,7 +326,8 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn GENIE GS-2046 DC",
       "datasheetLocalUrl": "assets/datasheets/genie-gs-2046-dc-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-2046-dc-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-2046-dc-technicky-souhrn.pdf",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/GS-2046-2646-3246.pdf"
     },
     {
       "id": "jlg-2632-es",
@@ -368,7 +372,8 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG 2632 ES",
       "datasheetLocalUrl": "assets/datasheets/jlg-2632-es-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-2632-es-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-2632-es-technicky-souhrn.pdf",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/2630ES.pdf"
     },
     {
       "id": "genie-gs-2632-dc",
@@ -414,7 +419,8 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn GENIE GS-2632 DC",
       "datasheetLocalUrl": "assets/datasheets/genie-gs-2632-dc-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-2632-dc-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-2632-dc-technicky-souhrn.pdf",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/GS-2032_2632.pdf"
     },
     {
       "id": "genie-gs-2646-dc",
@@ -459,7 +465,8 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn GENIE GS-2646 DC",
       "datasheetLocalUrl": "assets/datasheets/genie-gs-2646-dc-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-2646-dc-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-2646-dc-technicky-souhrn.pdf",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/GS-2046-2646-3246.pdf"
     },
     {
       "id": "jlg-2646-es",
@@ -505,7 +512,8 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG 2646 ES",
       "datasheetLocalUrl": "assets/datasheets/jlg-2646-es-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-2646-es-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-2646-es-technicky-souhrn.pdf",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/2646ES.pdf"
     },
     {
       "id": "jlg-3246-es",
@@ -551,7 +559,8 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG 3246 ES",
       "datasheetLocalUrl": "assets/datasheets/jlg-3246-es-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-3246-es-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-3246-es-technicky-souhrn.pdf",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/3246ES.pdf"
     },
     {
       "id": "genie-gs-3246-dc",
@@ -596,7 +605,8 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn GENIE GS-3246 DC",
       "datasheetLocalUrl": "assets/datasheets/genie-gs-3246-dc-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-3246-dc-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-3246-dc-technicky-souhrn.pdf",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/GS-2046-2646-3246.pdf"
     },
     {
       "id": "genie-gs-3369-rt",
@@ -642,7 +652,8 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn GENIE GS-3369 RT",
       "datasheetLocalUrl": "assets/datasheets/genie-gs-3369-rt-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-3369-rt-technicky-souhrn.pdf",
-      "foldedHeightText": "1,92 m"
+      "foldedHeightText": "1,92 m",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/GS-3369RT.pdf"
     },
     {
       "id": "zoomlion-zs1012ac-li",
@@ -733,7 +744,8 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn GENIE GS-3390 RT",
       "datasheetLocalUrl": "assets/datasheets/genie-gs-3390-rt-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-3390-rt-technicky-souhrn.pdf",
-      "foldedHeightText": "2,03 m"
+      "foldedHeightText": "2,03 m",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/GS-3390_4390_5390.pdf"
     },
     {
       "id": "zoomlion-zs1023rt",
@@ -823,7 +835,8 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn GENIE GS-4046",
       "datasheetLocalUrl": "assets/datasheets/genie-gs-4046-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-4046-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-4046-technicky-souhrn.pdf",
+      "datasheetSourceUrl": "https://www.genielift.com/docs/default-source/product-specifications/slab-scissor-lifts-(ansi)-or-electric-and-bi-energy-lifts-(ce)/en/2025/gs-4046-product-specifications---2025---en-us.pdf"
     },
     {
       "id": "zoomlion-zs1218ert",
@@ -914,7 +927,8 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn JLG 4045 R",
       "datasheetLocalUrl": "assets/datasheets/jlg-4045-r-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-4045-r-technicky-souhrn.pdf",
-      "foldedHeightText": "1,92 m"
+      "foldedHeightText": "1,92 m",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/4045R.pdf"
     },
     {
       "id": "genie-gs-4390-rt",
@@ -960,7 +974,8 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn GENIE GS-4390 RT",
       "datasheetLocalUrl": "assets/datasheets/genie-gs-4390-rt-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-4390-rt-technicky-souhrn.pdf",
-      "foldedHeightText": "2,25 m"
+      "foldedHeightText": "2,25 m",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/GS-3390_4390_5390.pdf"
     },
     {
       "id": "zoomlion-zs1414ac-li",
@@ -1050,7 +1065,8 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn GENIE GS-4655 DC",
       "datasheetLocalUrl": "assets/datasheets/genie-gs-4655-dc-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-4655-dc-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-4655-dc-technicky-souhrn.pdf",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/GS4655.pdf"
     },
     {
       "id": "genie-gs-5390-rt",
@@ -1096,7 +1112,8 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn GENIE GS-5390 RT",
       "datasheetLocalUrl": "assets/datasheets/genie-gs-5390-rt-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-5390-rt-technicky-souhrn.pdf",
-      "foldedHeightText": "2,47 m"
+      "foldedHeightText": "2,47 m",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/GS-3390_4390_5390.pdf"
     },
     {
       "id": "jlg-toucan-10e",
@@ -1230,7 +1247,8 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG Toucan 12E+",
       "datasheetLocalUrl": "assets/datasheets/jlg-toucan-12e-plus-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-toucan-12e-plus-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-toucan-12e-plus-technicky-souhrn.pdf",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/Toucan_12Eplus.pdf"
     },
     {
       "id": "genie-z-30-20-n",
@@ -1322,7 +1340,8 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn GENIE Z-34/22 N",
       "datasheetLocalUrl": "assets/datasheets/genie-z-34-22-n-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-z-34-22-n-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-z-34-22-n-technicky-souhrn.pdf",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/Z-3422_N.pdf"
     },
     {
       "id": "jlg-e400-ajpn",
@@ -1367,7 +1386,8 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG E400 AJPN",
       "datasheetLocalUrl": "assets/datasheets/jlg-e400-ajpn-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-e400-ajpn-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-e400-ajpn-technicky-souhrn.pdf",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/E400AJPn.pdf"
     },
     {
       "id": "jlg-450-aj",
@@ -1412,7 +1432,8 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG 450 AJ",
       "datasheetLocalUrl": "assets/datasheets/jlg-450-aj-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-450-aj-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-450-aj-technicky-souhrn.pdf",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/450AJ.pdf"
     },
     {
       "id": "jlg-e450-aj",
@@ -1457,7 +1478,8 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG E450 AJ",
       "datasheetLocalUrl": "assets/datasheets/jlg-e450-aj-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-e450-aj-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-e450-aj-technicky-souhrn.pdf",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/E450AJ.pdf"
     },
     {
       "id": "zoomlion-za14j",
@@ -1547,7 +1569,8 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn GENIE Z-45/25 JDC",
       "datasheetLocalUrl": "assets/datasheets/genie-z-45-25-jdc-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-z-45-25-jdc-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-z-45-25-jdc-technicky-souhrn.pdf",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/Z-4525_DC-Bi.pdf"
     },
     {
       "id": "genie-z-45xc",
@@ -1592,7 +1615,8 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn GENIE Z-45XC",
       "datasheetLocalUrl": "assets/datasheets/genie-z-45xc-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-z-45xc-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-z-45xc-technicky-souhrn.pdf",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/Z-45_XC.pdf"
     },
     {
       "id": "genie-z-45-25-jrt",
@@ -1637,7 +1661,8 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn GENIE Z-45/25 JRT",
       "datasheetLocalUrl": "assets/datasheets/genie-z-45-25-jrt-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-z-45-25-jrt-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-z-45-25-jrt-technicky-souhrn.pdf",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/Z-4525_RT.pdf"
     },
     {
       "id": "genie-z-51-30-jrt",
@@ -1682,7 +1707,8 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn GENIE Z-51/30 JRT",
       "datasheetLocalUrl": "assets/datasheets/genie-z-51-30-jrt-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-z-51-30-jrt-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-z-51-30-jrt-technicky-souhrn.pdf",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/Z-5130J_RT.pdf"
     },
     {
       "id": "jlg-520-aj",
@@ -1727,7 +1753,8 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG 520 AJ",
       "datasheetLocalUrl": "assets/datasheets/jlg-520-aj-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-520-aj-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-520-aj-technicky-souhrn.pdf",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/520AJ.pdf"
     },
     {
       "id": "jlg-600-aj",
@@ -1772,7 +1799,8 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG 600 AJ",
       "datasheetLocalUrl": "assets/datasheets/jlg-600-aj-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-600-aj-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-600-aj-technicky-souhrn.pdf",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/600AJ.pdf"
     },
     {
       "id": "genie-z-62-40-rt",
@@ -1817,7 +1845,8 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn GENIE Z-62/40 RT",
       "datasheetLocalUrl": "assets/datasheets/genie-z-62-40-rt-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-z-62-40-rt-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-z-62-40-rt-technicky-souhrn.pdf",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/Z-6240.pdf"
     },
     {
       "id": "jlg-800-aj",
@@ -1862,7 +1891,8 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG 800 AJ",
       "datasheetLocalUrl": "assets/datasheets/jlg-800-aj-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-800-aj-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-800-aj-technicky-souhrn.pdf",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/800_AJ_new.pdf"
     },
     {
       "id": "jlg-1250-ajp",
@@ -1907,7 +1937,8 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG 1250 AJP",
       "datasheetLocalUrl": "assets/datasheets/jlg-1250-ajp-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-1250-ajp-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-1250-ajp-technicky-souhrn.pdf",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/1250_AJP_2024.pdf"
     },
     {
       "id": "jlg-460-sj",
@@ -1952,7 +1983,8 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG 460 SJ",
       "datasheetLocalUrl": "assets/datasheets/jlg-460-sj-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-460-sj-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-460-sj-technicky-souhrn.pdf",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/460SJ.pdf"
     },
     {
       "id": "jlg-660-sj",
@@ -1997,7 +2029,8 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG 660 SJ",
       "datasheetLocalUrl": "assets/datasheets/jlg-660-sj-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-660-sj-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-660-sj-technicky-souhrn.pdf",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/660_SJ.pdf"
     },
     {
       "id": "jlg-860-sj",
@@ -2042,7 +2075,8 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG 860 SJ",
       "datasheetLocalUrl": "assets/datasheets/jlg-860-sj-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-860-sj-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-860-sj-technicky-souhrn.pdf",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/860SJ.pdf"
     },
     {
       "id": "jlg-1200-sjp",
@@ -2087,7 +2121,8 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG 1200 SJP",
       "datasheetLocalUrl": "assets/datasheets/jlg-1200-sjp-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-1200-sjp-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-1200-sjp-technicky-souhrn.pdf",
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/1200SJP.pdf"
     },
     {
       "id": "ommelift-1300-ebp",
