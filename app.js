@@ -86,24 +86,20 @@
     return true;
   }
 
-  function usableDocumentUrl(value, allowLocalFallback = false) {
+  function usableDocumentUrl(value) {
       const url = String(value || "").trim();
       if (!url) return false;
       const normalizedUrl = url.toLowerCase();
 
       if (normalizedUrl.startsWith("assets/manufacturer-docs/")) return true;
-      if (allowLocalFallback && normalizedUrl.startsWith("assets/datasheets/")) return true;
-      if (normalizedUrl.includes("raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny")) return allowLocalFallback;
+      if (normalizedUrl.includes("technicky-souhrn") || normalizedUrl.includes("/assets/datasheets/")) return false;
+      if (normalizedUrl.includes("raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny")) return false;
       return /^https?:\/\//i.test(url);
   }
 
   function getTechnicalDocumentUrl(machine) {
     const officialCandidates = [machine.officialDocumentUrl, machine.datasheetSourceUrl];
-    const officialUrl = officialCandidates.find(value => usableDocumentUrl(value, false));
-    if (officialUrl) return officialUrl;
-
-    const fallbackCandidates = [machine.datasheetLocalUrl, machine.datasheetUrl];
-    return fallbackCandidates.find(value => usableDocumentUrl(value, true)) || "";
+    return officialCandidates.find(value => usableDocumentUrl(value)) || "";
   }
 
   function priceBlock(machine) {
@@ -145,7 +141,7 @@
   function machineCard(machine, index, requestedFilters = {}) {
     const documentUrl = getTechnicalDocumentUrl(machine);
     const documentButton = documentUrl
-      ? `<a class="link-button secondary" target="_blank" rel="noopener" href="${esc(documentUrl)}">Technický list</a>`
+      ? `<a class="link-button secondary" target="_blank" rel="noopener" href="${esc(documentUrl)}">Technický list výrobce</a>`
       : "";
     const capacity = Number(machine.capacityKg) > 0
       ? (machine.capacityText || `${fmt(machine.capacityKg)} kg`)
