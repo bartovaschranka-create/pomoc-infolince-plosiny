@@ -106,7 +106,43 @@
     return fallbackCandidates.find(value => usableDocumentUrl(value, true)) || "";
   }
 
-  function machineCard(machine, index) {
+  function priceBlock(machine) {
+    const shortPrice = machine.priceShort || "";
+    const longPrice = machine.priceLong || "";
+    if (!shortPrice && !longPrice) return "";
+
+    return `<div class="price-box">
+      <span>Cena půjčení</span>
+      <div>
+        ${shortPrice ? `<strong>${esc(shortPrice)}</strong>` : ""}
+        ${longPrice ? `<small>Dlouhodobě: ${esc(longPrice)}</small>` : ""}
+      </div>
+    </div>`;
+  }
+
+  function deltaText(actual, requested, unit) {
+    if (requested == null || actual == null) return "";
+    const difference = Number(actual) - Number(requested);
+    const sign = difference >= 0 ? "+" : "-";
+    return `${sign}${fmt(Math.abs(difference))} ${unit}`;
+  }
+
+  function matchDeltaBlock(machine, requestedFilters = {}) {
+    const items = [];
+    const heightDelta = deltaText(machine.workingHeightM, requestedFilters.workingHeight, "m");
+    const outreachDelta = deltaText(machine.outreachM, requestedFilters.outreach, "m");
+
+    if (heightDelta) items.push(`<span><em>Výška</em><strong>${heightDelta}</strong></span>`);
+    if (outreachDelta) items.push(`<span><em>Dosah</em><strong>${outreachDelta}</strong></span>`);
+    if (!items.length) return "";
+
+    return `<div class="match-delta">
+      <p>Rozdíl oproti zadání</p>
+      <div>${items.join("")}</div>
+    </div>`;
+  }
+
+  function machineCard(machine, index, requestedFilters = {}) {
     const documentUrl = getTechnicalDocumentUrl(machine);
     const documentButton = documentUrl
       ? `<a class="link-button secondary" target="_blank" rel="noopener" href="${esc(documentUrl)}">Technický list</a>`
@@ -129,6 +165,8 @@
           <div class="key-spec"><span>Boční dosah</span><strong>${fmt(machine.outreachM)} m</strong></div>
           <div class="key-spec"><span>Hmotnost</span><strong>${fmt(machine.weightKg)} kg</strong></div>
         </div>
+        ${priceBlock(machine)}
+        ${matchDeltaBlock(machine, requestedFilters)}
         <details>
           <summary>Technické údaje</summary>
           <div class="spec-row"><span>Pohon</span><strong>${esc(machine.drive || "Neuvedeno")}</strong></div>
@@ -146,13 +184,13 @@
     </article>`;
   }
 
-  function render(list, title, description, customHtml = "") {
+  function render(list, title, description, customHtml = "", context = {}) {
     el("resultsSection").classList.remove("hidden");
     el("resultsStatus").textContent = customHtml ? "Chytré vyhledávání" : `${list.length} výsledků`;
     el("resultsTitle").textContent = title;
     el("resultsDescription").textContent = description;
     el("resultsGrid").innerHTML = customHtml || (list.length
-      ? list.map(machineCard).join("")
+      ? list.map((machine, index) => machineCard(machine, index, context.filters || {})).join("")
       : `<div class="empty">Nebyla nalezena odpovídající plošina.</div>`);
     el("resultsSection").scrollIntoView({ behavior: "smooth" });
   }
@@ -164,7 +202,7 @@
       .filter(machine => match(machine, selectedFilters))
       .sort((a, b) => (a.workingHeightM || 999) - (b.workingHeightM || 999));
     const category = categories.find(item => item.id === selectedCategory);
-    render(list, `Vhodné ${category.label.toLowerCase()} plošiny`, "Výsledky jsou řazené od nejmenší pracovní výšky.");
+    render(list, `Vhodné ${category.label.toLowerCase()} plošiny`, "Výsledky jsou řazené od nejmenší pracovní výšky.", "", { filters: selectedFilters });
   }
 
   function modelMatchesQuery(machine, query) {
