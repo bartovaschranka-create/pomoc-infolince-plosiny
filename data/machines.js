@@ -1,5 +1,5 @@
 window.MACHINE_CATALOG = {
-  "version": "0.5.9",
+  "version": "0.6.0",
   "updatedAt": "2026-06-30",
   "sourceName": "Zeppelin CZ + technicke podklady vyrobcu",
   "machines": [
@@ -636,28 +636,7 @@ window.MACHINE_CATALOG = {
       "datasheetLocalUrl": "assets/datasheets/genie-gs-2646-dc-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-2646-dc-technicky-souhrn.pdf",
       "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/GS-2046-2646-3246.pdf",
-      "units": [
-        {
-          "serialNumber": "GS46D-23994",
-          "weightKg": 1972,
-          "source": "revize 2025"
-        },
-        {
-          "serialNumber": "GS46D-23995",
-          "weightKg": 1972,
-          "source": "revize 2025"
-        },
-        {
-          "serialNumber": "GS46D-23996",
-          "weightKg": 1972,
-          "source": "revize 2025"
-        },
-        {
-          "serialNumber": "GS46D-26313",
-          "weightKg": 1974,
-          "source": "revize 2025"
-        }
-      ]
+      "dataQualityNote": "Kusove hmotnosti z revizi 2025 uvadely 1972-1974 kg, technicky list Zeppelin pro GS-2646 uvadi 2447 kg; kusove zaznamy byly vyrazeny z presneho vyhledavani."
     },
     {
       "id": "jlg-2646-es",
@@ -1025,7 +1004,7 @@ window.MACHINE_CATALOG = {
       "manufacturer": "GENIE",
       "model": "GS-3390 RT",
       "category": "scissor",
-      "sourceCategory": "nůžková plošina bateriová",
+      "sourceCategory": "nůžková plošina dieselová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/nuzkove-plosiny/genie-gs-3390-rt",
       "image": "assets/images/genie-gs-3390-rt.webp",
       "workingHeightM": 12,
@@ -1067,11 +1046,6 @@ window.MACHINE_CATALOG = {
       "foldedHeightText": "2,03 m",
       "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/GS-3390_4390_5390.pdf",
       "units": [
-        {
-          "serialNumber": "3",
-          "weightKg": 13,
-          "source": "revize 2025"
-        },
         {
           "serialNumber": "GS90D-1069",
           "weightKg": 6680,
@@ -1120,7 +1094,7 @@ window.MACHINE_CATALOG = {
       "manufacturer": "Zoomlion",
       "model": "ZS1023RT",
       "category": "scissor",
-      "sourceCategory": "nůžková plošina bateriová",
+      "sourceCategory": "nůžková plošina dieselová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/nuzkove-plosiny/zoomlion-zs1023rt",
       "image": "assets/images/placeholder-scissor.svg",
       "workingHeightM": 12,
@@ -1374,7 +1348,7 @@ window.MACHINE_CATALOG = {
       "manufacturer": "GENIE",
       "model": "GS-4390 RT",
       "category": "scissor",
-      "sourceCategory": "nůžková plošina bateriová",
+      "sourceCategory": "nůžková plošina dieselová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/nuzkove-plosiny/genie-gs-4390-rt",
       "image": "assets/images/genie-gs-4390-rt.webp",
       "workingHeightM": 14.8,
@@ -1587,7 +1561,7 @@ window.MACHINE_CATALOG = {
       "manufacturer": "GENIE",
       "model": "GS-5390 RT",
       "category": "scissor",
-      "sourceCategory": "nůžková plošina bateriová",
+      "sourceCategory": "nůžková plošina dieselová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/nuzkove-plosiny/genie-gs-5390-rt",
       "image": "assets/images/genie-gs-5390-rt.webp",
       "workingHeightM": 18,
@@ -2051,7 +2025,7 @@ window.MACHINE_CATALOG = {
       "manufacturer": "JLG",
       "model": "450 AJ",
       "category": "articulated",
-      "sourceCategory": "kloubová plošina bateriová",
+      "sourceCategory": "kloubová plošina dieselová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/kloubove-plosiny/jlg-450-aj",
       "image": "assets/images/jlg-450-aj.webp",
       "workingHeightM": 15.7,
@@ -2207,7 +2181,7 @@ window.MACHINE_CATALOG = {
       "manufacturer": "Zoomlion",
       "model": "ZA14J",
       "category": "articulated",
-      "sourceCategory": "kloubová plošina bateriová",
+      "sourceCategory": "kloubová plošina dieselová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/kloubove-plosiny/zoomlion-za14j",
       "image": "assets/images/placeholder-articulated.svg",
       "workingHeightM": 15.8,
@@ -2293,11 +2267,6 @@ window.MACHINE_CATALOG = {
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-z-45-25-jdc-technicky-souhrn.pdf",
       "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/Z-4525_DC-Bi.pdf",
       "units": [
-        {
-          "serialNumber": "3",
-          "weightKg": 13,
-          "source": "revize 2025"
-        },
         {
           "serialNumber": "Z4525M-10173",
           "weightKg": 7482,
@@ -2388,7 +2357,7 @@ window.MACHINE_CATALOG = {
       "manufacturer": "GENIE",
       "model": "Z-45/25 JRT",
       "category": "articulated",
-      "sourceCategory": "kloubová plošina bateriová",
+      "sourceCategory": "kloubová plošina dieselová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/kloubove-plosiny/genie-z-45-25-jrt",
       "image": "assets/images/genie-z-45-25-jrt.webp",
       "workingHeightM": 16.1,
@@ -2434,7 +2403,7 @@ window.MACHINE_CATALOG = {
       "manufacturer": "GENIE",
       "model": "Z-51/30 JRT",
       "category": "articulated",
-      "sourceCategory": "kloubová plošina bateriová",
+      "sourceCategory": "kloubová plošina dieselová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/kloubove-plosiny/genie-z-51-30-jrt",
       "image": "assets/images/genie-z-51-30-jrt.webp",
       "workingHeightM": 17.6,
@@ -2492,7 +2461,7 @@ window.MACHINE_CATALOG = {
       "manufacturer": "JLG",
       "model": "520 AJ",
       "category": "articulated",
-      "sourceCategory": "kloubová plošina bateriová",
+      "sourceCategory": "kloubová plošina dieselová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/kloubove-plosiny/jlg-520-aj",
       "image": "assets/images/jlg-520-aj.webp",
       "workingHeightM": 18,
@@ -2580,7 +2549,7 @@ window.MACHINE_CATALOG = {
       "manufacturer": "JLG",
       "model": "600 AJ",
       "category": "articulated",
-      "sourceCategory": "kloubová plošina bateriová",
+      "sourceCategory": "kloubová plošina dieselová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/kloubove-plosiny/jlg-600-aj",
       "image": "assets/images/jlg-600-aj.webp",
       "workingHeightM": 20.5,
@@ -2633,7 +2602,7 @@ window.MACHINE_CATALOG = {
       "manufacturer": "GENIE",
       "model": "Z-62/40 RT",
       "category": "articulated",
-      "sourceCategory": "kloubová plošina bateriová",
+      "sourceCategory": "kloubová plošina dieselová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/kloubove-plosiny/genie-z-62-40-rt",
       "image": "assets/images/genie-z-62-40-rt.webp",
       "workingHeightM": 20.9,
@@ -2696,7 +2665,7 @@ window.MACHINE_CATALOG = {
       "manufacturer": "JLG",
       "model": "800 AJ",
       "category": "articulated",
-      "sourceCategory": "kloubová plošina bateriová",
+      "sourceCategory": "kloubová plošina dieselová",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/pracovni-plosiny-a-leseni/kloubove-plosiny/jlg-800-aj",
       "image": "assets/images/jlg-800-aj.webp",
       "workingHeightM": 26.4,
