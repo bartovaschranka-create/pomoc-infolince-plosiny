@@ -1,5 +1,5 @@
 window.MACHINE_CATALOG = {
-  "version": "0.4.9",
+  "version": "0.5.0",
   "updatedAt": "2026-06-29",
   "sourceName": "Zeppelin CZ + technicke podklady vyrobcu",
   "machines": [
