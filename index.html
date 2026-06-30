@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#17191d">
   <title>Plošinový poradce | Zeppelin CZ</title>
-  <link rel="stylesheet" href="styles.css?v=0.5.7">
+  <link rel="stylesheet" href="styles.css?v=0.5.8">
 </head>
 <body>
   <main class="page-shell">
@@ -57,6 +57,13 @@
               <option value="hybrid">Kombinovaný</option>
             </select>
           </label>
+          <label class="field"><span>Hmotnost stroje do</span>
+            <div class="input-unit"><input id="maxWeight" type="number" min="0" step="1" placeholder="bez omezen&iacute;"><em>kg</em></div>
+          </label>
+          <label class="field checkbox-field">
+            <input id="requiresStabilizers" type="checkbox">
+            <span>Se stabiliz&aacute;tory</span>
+          </label>
         </div>
         <div class="form-actions">
           <button class="primary-button" type="submit">Vyhledat vhodné plošiny</button>
@@ -77,9 +84,9 @@
   <footer class="footer">
     <span>Aktuální dostupnost strojů na pobočkách aplikace neověřuje.</span>
   </footer>
-  <div class="fixed-version">0.5.7</div>
+  <div class="fixed-version">0.5.8</div>
 
-  <script src="data/machines.js?v=0.5.7"></script>
-  <script src="app.js?v=0.5.7"></script>
+  <script src="data/machines.js?v=0.5.8"></script>
+  <script src="app.js?v=0.5.8"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 window.MACHINE_CATALOG = {
-  "version": "0.5.7",
-  "updatedAt": "2026-06-29",
+  "version": "0.5.8",
+  "updatedAt": "2026-06-30",
   "sourceName": "Zeppelin CZ + technicke podklady vyrobcu",
   "machines": [
     {
@@ -95,7 +95,39 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn JLG ES1530L",
       "datasheetLocalUrl": "assets/datasheets/jlg-es1530l-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-es1530l-technicky-souhrn.pdf",
-      "datasheetSourceUrl": "https://stevensoncrane.com/wp-content/uploads/JLG-ES1530L-Spec-Sheet.pdf"
+      "datasheetSourceUrl": "https://stevensoncrane.com/wp-content/uploads/JLG-ES1530L-Spec-Sheet.pdf",
+      "units": [
+        {
+          "serialNumber": "B200079996",
+          "weightKg": 869,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "B200080640",
+          "weightKg": 868,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "B200080641",
+          "weightKg": 874,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "B200080642",
+          "weightKg": 870,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "B200090887",
+          "weightKg": 862,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "B200090888",
+          "weightKg": 871,
+          "source": "revize 2025"
+        }
+      ]
     },
     {
       "id": "jlg-1532-r",
@@ -142,7 +174,14 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn JLG 1532 R",
       "datasheetLocalUrl": "assets/datasheets/jlg-1532-r-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-1532-r-technicky-souhrn.pdf",
-      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/1532R.pdf"
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/1532R.pdf",
+      "units": [
+        {
+          "serialNumber": "B200049917",
+          "weightKg": 1328,
+          "source": "revize 2025"
+        }
+      ]
     },
     {
       "id": "jlg-1932-es",
@@ -186,7 +225,24 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG 1932 ES",
       "datasheetLocalUrl": "assets/datasheets/jlg-1932-es-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-1932-es-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-1932-es-technicky-souhrn.pdf",
+      "units": [
+        {
+          "serialNumber": "1200039798",
+          "weightKg": 1560,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "1200042928",
+          "weightKg": 1566,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "B200076971",
+          "weightKg": 1544,
+          "source": "revize 2025"
+        }
+      ]
     },
     {
       "id": "genie-gs-1932-dc",
@@ -281,7 +337,74 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn GENIE GS-2032 DC",
       "datasheetLocalUrl": "assets/datasheets/genie-gs-2032-dc-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-2032-dc-technicky-souhrn.pdf",
-      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/GS-2032_2632.pdf"
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/GS-2032_2632.pdf",
+      "units": [
+        {
+          "serialNumber": "GS32D-10424",
+          "weightKg": 1862,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS32D-10582",
+          "weightKg": 1862,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS32D-11811",
+          "weightKg": 1845,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS32D-12499",
+          "weightKg": 1864,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS32D-12632",
+          "weightKg": 1862,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS32D-12634",
+          "weightKg": 1862,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS32D-12909",
+          "weightKg": 1864,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS32D-14718",
+          "weightKg": 1864,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS32D-14719",
+          "weightKg": 1864,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS32D-14720",
+          "weightKg": 1864,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS32D-14721",
+          "weightKg": 1864,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS32D-14725",
+          "weightKg": 1864,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS32D-14726",
+          "weightKg": 1864,
+          "source": "revize 2025"
+        }
+      ]
     },
     {
       "id": "genie-gs-2046-dc",
@@ -327,7 +450,14 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn GENIE GS-2046 DC",
       "datasheetLocalUrl": "assets/datasheets/genie-gs-2046-dc-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-2046-dc-technicky-souhrn.pdf",
-      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/GS-2046-2646-3246.pdf"
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/GS-2046-2646-3246.pdf",
+      "units": [
+        {
+          "serialNumber": "GS46D-25184",
+          "weightKg": 1775,
+          "source": "revize 2025"
+        }
+      ]
     },
     {
       "id": "jlg-2632-es",
@@ -373,7 +503,19 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn JLG 2632 ES",
       "datasheetLocalUrl": "assets/datasheets/jlg-2632-es-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-2632-es-technicky-souhrn.pdf",
-      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/2630ES.pdf"
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/2630ES.pdf",
+      "units": [
+        {
+          "serialNumber": "1200031294",
+          "weightKg": 2126,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "1200033844",
+          "weightKg": 2098,
+          "source": "revize 2025"
+        }
+      ]
     },
     {
       "id": "genie-gs-2632-dc",
@@ -420,7 +562,34 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn GENIE GS-2632 DC",
       "datasheetLocalUrl": "assets/datasheets/genie-gs-2632-dc-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-2632-dc-technicky-souhrn.pdf",
-      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/GS-2032_2632.pdf"
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/GS-2032_2632.pdf",
+      "units": [
+        {
+          "serialNumber": "GS32D-13268",
+          "weightKg": 2169,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS32D-13270",
+          "weightKg": 2169,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS32D-13277",
+          "weightKg": 2169,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS32D-13647",
+          "weightKg": 2185,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS32D-13648",
+          "weightKg": 2185,
+          "source": "revize 2025"
+        }
+      ]
     },
     {
       "id": "genie-gs-2646-dc",
@@ -466,7 +635,29 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn GENIE GS-2646 DC",
       "datasheetLocalUrl": "assets/datasheets/genie-gs-2646-dc-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-2646-dc-technicky-souhrn.pdf",
-      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/GS-2046-2646-3246.pdf"
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/GS-2046-2646-3246.pdf",
+      "units": [
+        {
+          "serialNumber": "GS46D-23994",
+          "weightKg": 1972,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS46D-23995",
+          "weightKg": 1972,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS46D-23996",
+          "weightKg": 1972,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS46D-26313",
+          "weightKg": 1974,
+          "source": "revize 2025"
+        }
+      ]
     },
     {
       "id": "jlg-2646-es",
@@ -513,7 +704,19 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn JLG 2646 ES",
       "datasheetLocalUrl": "assets/datasheets/jlg-2646-es-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-2646-es-technicky-souhrn.pdf",
-      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/2646ES.pdf"
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/2646ES.pdf",
+      "units": [
+        {
+          "serialNumber": "0200265740",
+          "weightKg": 2748,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "1200032826",
+          "weightKg": 2770,
+          "source": "revize 2025"
+        }
+      ]
     },
     {
       "id": "jlg-3246-es",
@@ -560,7 +763,64 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn JLG 3246 ES",
       "datasheetLocalUrl": "assets/datasheets/jlg-3246-es-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-3246-es-technicky-souhrn.pdf",
-      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/3246ES.pdf"
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/3246ES.pdf",
+      "units": [
+        {
+          "serialNumber": "1200031320",
+          "weightKg": 2954,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "1200032638",
+          "weightKg": 2936,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "1200036654",
+          "weightKg": 2950,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "1200039459",
+          "weightKg": 2528,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "1200041923",
+          "weightKg": 2548,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "1200041924",
+          "weightKg": 2544,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "1200042231",
+          "weightKg": 2538,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "1200042232",
+          "weightKg": 2538,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "1200042235",
+          "weightKg": 2542,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "1200046962",
+          "weightKg": 2534,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "1200046963",
+          "weightKg": 2544,
+          "source": "revize 2025"
+        }
+      ]
     },
     {
       "id": "genie-gs-3246-dc",
@@ -606,7 +866,29 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn GENIE GS-3246 DC",
       "datasheetLocalUrl": "assets/datasheets/genie-gs-3246-dc-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-3246-dc-technicky-souhrn.pdf",
-      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/GS-2046-2646-3246.pdf"
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/GS-2046-2646-3246.pdf",
+      "units": [
+        {
+          "serialNumber": "GS46D-15998",
+          "weightKg": 2801,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS46D-26756",
+          "weightKg": 2397,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS46D-26757",
+          "weightKg": 2397,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS46D-28142",
+          "weightKg": 2397,
+          "source": "revize 2025"
+        }
+      ]
     },
     {
       "id": "genie-gs-3369-rt",
@@ -653,7 +935,44 @@ window.MACHINE_CATALOG = {
       "datasheetLocalUrl": "assets/datasheets/genie-gs-3369-rt-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-3369-rt-technicky-souhrn.pdf",
       "foldedHeightText": "1,92 m",
-      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/GS-3369RT.pdf"
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/GS-3369RT.pdf",
+      "units": [
+        {
+          "serialNumber": "GS69F-13555",
+          "weightKg": 3910,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS69M-1127",
+          "weightKg": 3860,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS69M-1446",
+          "weightKg": 3860,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS69M-1508",
+          "weightKg": 3860,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS69M-1883",
+          "weightKg": 3860,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS69M-1889",
+          "weightKg": 3860,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS69M-539",
+          "weightKg": 3860,
+          "source": "revize 2025"
+        }
+      ]
     },
     {
       "id": "zoomlion-zs1012ac-li",
@@ -745,7 +1064,54 @@ window.MACHINE_CATALOG = {
       "datasheetLocalUrl": "assets/datasheets/genie-gs-3390-rt-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-3390-rt-technicky-souhrn.pdf",
       "foldedHeightText": "2,03 m",
-      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/GS-3390_4390_5390.pdf"
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/GS-3390_4390_5390.pdf",
+      "units": [
+        {
+          "serialNumber": "3",
+          "weightKg": 13,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS90D-1069",
+          "weightKg": 6680,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS90D-1076",
+          "weightKg": 6660,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS90D-1439",
+          "weightKg": 6546,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS90D-1594",
+          "weightKg": 6660,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS90D-3666",
+          "weightKg": 6677,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS90D-4446",
+          "weightKg": 6677,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS90D-4800",
+          "weightKg": 6677,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS90D-897",
+          "weightKg": 6546,
+          "source": "revize 2025"
+        }
+      ]
     },
     {
       "id": "zoomlion-zs1023rt",
@@ -836,7 +1202,39 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn GENIE GS-4046",
       "datasheetLocalUrl": "assets/datasheets/genie-gs-4046-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-4046-technicky-souhrn.pdf",
-      "datasheetSourceUrl": "https://www.genielift.com/docs/default-source/product-specifications/slab-scissor-lifts-(ansi)-or-electric-and-bi-energy-lifts-(ce)/en/2025/gs-4046-product-specifications---2025---en-us.pdf"
+      "datasheetSourceUrl": "https://www.genielift.com/docs/default-source/product-specifications/slab-scissor-lifts-(ansi)-or-electric-and-bi-energy-lifts-(ce)/en/2025/gs-4046-product-specifications---2025---en-us.pdf",
+      "units": [
+        {
+          "serialNumber": "GS46D-26155",
+          "weightKg": 3153,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS46D-26591",
+          "weightKg": 3153,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS46D-26874",
+          "weightKg": 3180,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS46D-26875",
+          "weightKg": 3180,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS46D-28574",
+          "weightKg": 3180,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS46D-28577",
+          "weightKg": 3180,
+          "source": "revize 2025"
+        }
+      ]
     },
     {
       "id": "zoomlion-zs1218ert",
@@ -928,7 +1326,44 @@ window.MACHINE_CATALOG = {
       "datasheetLocalUrl": "assets/datasheets/jlg-4045-r-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-4045-r-technicky-souhrn.pdf",
       "foldedHeightText": "1,92 m",
-      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/4045R.pdf"
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/4045R.pdf",
+      "units": [
+        {
+          "serialNumber": "1200038919",
+          "weightKg": 3196,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "1200043078",
+          "weightKg": 3172,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "1200043079",
+          "weightKg": 3172,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "1200043182",
+          "weightKg": 3174,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "B200043865",
+          "weightKg": 3160,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "B200050405",
+          "weightKg": 3166,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "B200050406",
+          "weightKg": 3159,
+          "source": "revize 2025"
+        }
+      ]
     },
     {
       "id": "genie-gs-4390-rt",
@@ -975,7 +1410,64 @@ window.MACHINE_CATALOG = {
       "datasheetLocalUrl": "assets/datasheets/genie-gs-4390-rt-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-4390-rt-technicky-souhrn.pdf",
       "foldedHeightText": "2,25 m",
-      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/GS-3390_4390_5390.pdf"
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/GS-3390_4390_5390.pdf",
+      "units": [
+        {
+          "serialNumber": "GS90D-1158",
+          "weightKg": 7128,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS90D-3461",
+          "weightKg": 7144,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS90D-4507",
+          "weightKg": 7144,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS90D-4537",
+          "weightKg": 7145,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS90D-4538",
+          "weightKg": 7145,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS90D-4542",
+          "weightKg": 7144,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS90D-5513",
+          "weightKg": 7311,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS90D-5546",
+          "weightKg": 7311,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS90D-5650",
+          "weightKg": 7311,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS90D-5744",
+          "weightKg": 7311,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS90D-807",
+          "weightKg": 7016,
+          "source": "revize 2025"
+        }
+      ]
     },
     {
       "id": "zoomlion-zs1414ac-li",
@@ -1066,7 +1558,24 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn GENIE GS-4655 DC",
       "datasheetLocalUrl": "assets/datasheets/genie-gs-4655-dc-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-4655-dc-technicky-souhrn.pdf",
-      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/GS4655.pdf"
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/GS4655.pdf",
+      "units": [
+        {
+          "serialNumber": "GS55D-1926",
+          "weightKg": 3709,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS55D-1928",
+          "weightKg": 3709,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS55D-2726",
+          "weightKg": 3709,
+          "source": "revize 2025"
+        }
+      ]
     },
     {
       "id": "genie-gs-5390-rt",
@@ -1113,7 +1622,44 @@ window.MACHINE_CATALOG = {
       "datasheetLocalUrl": "assets/datasheets/genie-gs-5390-rt-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-5390-rt-technicky-souhrn.pdf",
       "foldedHeightText": "2,47 m",
-      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/GS-3390_4390_5390.pdf"
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/GS-3390_4390_5390.pdf",
+      "units": [
+        {
+          "serialNumber": "GS90D-1082",
+          "weightKg": 7882,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS90D-3766",
+          "weightKg": 7899,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS90D-5569",
+          "weightKg": 8059,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS90D-5802",
+          "weightKg": 8059,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS90D-5856",
+          "weightKg": 8059,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS90D-5859",
+          "weightKg": 8059,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "GS90D-6007",
+          "weightKg": 8059,
+          "source": "revize 2025"
+        }
+      ]
     },
     {
       "id": "jlg-toucan-10e",
@@ -1157,7 +1703,34 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG Toucan 10E",
       "datasheetLocalUrl": "assets/datasheets/jlg-toucan-10e-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-toucan-10e-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-toucan-10e-technicky-souhrn.pdf",
+      "units": [
+        {
+          "serialNumber": "A300038870",
+          "weightKg": 2600,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "A300039744",
+          "weightKg": 2610,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "A300039904",
+          "weightKg": 2600,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "A300065934",
+          "weightKg": 2600,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "A300066276",
+          "weightKg": 2600,
+          "source": "revize 2025"
+        }
+      ]
     },
     {
       "id": "jlg-toucan-12e",
@@ -1202,7 +1775,59 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn JLG Toucan 12E",
       "datasheetLocalUrl": "assets/datasheets/jlg-toucan-12e-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-toucan-12e-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-toucan-12e-technicky-souhrn.pdf",
+      "units": [
+        {
+          "serialNumber": "A300055885",
+          "weightKg": 4300,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "A300057170",
+          "weightKg": 4900,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "A300064208",
+          "weightKg": 4300,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "A300065695",
+          "weightKg": 4300,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "A300066031",
+          "weightKg": 4300,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "A300066707",
+          "weightKg": 4900,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "A300069402",
+          "weightKg": 4900,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "A300069403",
+          "weightKg": 4900,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "A300069438",
+          "weightKg": 4900,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "A300069439",
+          "weightKg": 4900,
+          "source": "revize 2025"
+        }
+      ]
     },
     {
       "id": "jlg-toucan-12e-plus",
@@ -1295,7 +1920,14 @@ window.MACHINE_CATALOG = {
         "Zeppelin CZ",
         "technické podklady výrobce"
       ],
-      "verifiedAt": "2026-06-29"
+      "verifiedAt": "2026-06-29",
+      "units": [
+        {
+          "serialNumber": "Z30ND-1696",
+          "weightKg": 6612,
+          "source": "revize 2025"
+        }
+      ]
     },
     {
       "id": "genie-z-34-22-n",
@@ -1341,7 +1973,14 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn GENIE Z-34/22 N",
       "datasheetLocalUrl": "assets/datasheets/genie-z-34-22-n-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-z-34-22-n-technicky-souhrn.pdf",
-      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/Z-3422_N.pdf"
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/Z-3422_N.pdf",
+      "units": [
+        {
+          "serialNumber": "Z34ND-2357",
+          "weightKg": 5286,
+          "source": "revize 2025"
+        }
+      ]
     },
     {
       "id": "jlg-e400-ajpn",
@@ -1387,7 +2026,19 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn JLG E400 AJPN",
       "datasheetLocalUrl": "assets/datasheets/jlg-e400-ajpn-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-e400-ajpn-technicky-souhrn.pdf",
-      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/E400AJPn.pdf"
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/E400AJPn.pdf",
+      "units": [
+        {
+          "serialNumber": "0300280729",
+          "weightKg": 6810,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "0300285103",
+          "weightKg": 6854,
+          "source": "revize 2025"
+        }
+      ]
     },
     {
       "id": "jlg-450-aj",
@@ -1433,7 +2084,59 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn JLG 450 AJ",
       "datasheetLocalUrl": "assets/datasheets/jlg-450-aj-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-450-aj-technicky-souhrn.pdf",
-      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/450AJ.pdf"
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/450AJ.pdf",
+      "units": [
+        {
+          "serialNumber": "0300017090",
+          "weightKg": 6205,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "B300013742",
+          "weightKg": 6422,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "B300015524",
+          "weightKg": 6386,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "B300017805",
+          "weightKg": 6223,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "B300018573",
+          "weightKg": 6713,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "B300023538",
+          "weightKg": 6177,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "C300002889",
+          "weightKg": 6165,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "C300002951",
+          "weightKg": 6180,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "E300004918",
+          "weightKg": 6410,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "E300005110",
+          "weightKg": 6420,
+          "source": "revize 2025"
+        }
+      ]
     },
     {
       "id": "jlg-e450-aj",
@@ -1479,7 +2182,19 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn JLG E450 AJ",
       "datasheetLocalUrl": "assets/datasheets/jlg-e450-aj-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-e450-aj-technicky-souhrn.pdf",
-      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/E450AJ.pdf"
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/E450AJ.pdf",
+      "units": [
+        {
+          "serialNumber": "B300022997",
+          "weightKg": 6713,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "C300001293",
+          "weightKg": 6690,
+          "source": "revize 2025"
+        }
+      ]
     },
     {
       "id": "zoomlion-za14j",
@@ -1570,7 +2285,29 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn GENIE Z-45/25 JDC",
       "datasheetLocalUrl": "assets/datasheets/genie-z-45-25-jdc-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-z-45-25-jdc-technicky-souhrn.pdf",
-      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/Z-4525_DC-Bi.pdf"
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/Z-4525_DC-Bi.pdf",
+      "units": [
+        {
+          "serialNumber": "3",
+          "weightKg": 13,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "Z4525M-10173",
+          "weightKg": 7482,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "Z4525M-10213",
+          "weightKg": 7482,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "Z4525M-9953",
+          "weightKg": 7482,
+          "source": "revize 2025"
+        }
+      ]
     },
     {
       "id": "genie-z-45xc",
@@ -1616,7 +2353,29 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn GENIE Z-45XC",
       "datasheetLocalUrl": "assets/datasheets/genie-z-45xc-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-z-45xc-technicky-souhrn.pdf",
-      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/Z-45_XC.pdf"
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/Z-45_XC.pdf",
+      "units": [
+        {
+          "serialNumber": "Z4525XCM-1565",
+          "weightKg": 7247,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "Z4525XCM-1846",
+          "weightKg": 7247,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "Z4525XCM-2343",
+          "weightKg": 7251,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "Z4525XCM-2350",
+          "weightKg": 7247,
+          "source": "revize 2025"
+        }
+      ]
     },
     {
       "id": "genie-z-45-25-jrt",
@@ -1708,7 +2467,19 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn GENIE Z-51/30 JRT",
       "datasheetLocalUrl": "assets/datasheets/genie-z-51-30-jrt-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-z-51-30-jrt-technicky-souhrn.pdf",
-      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/Z-5130J_RT.pdf"
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/Z-5130J_RT.pdf",
+      "units": [
+        {
+          "serialNumber": "Z5130M-2881",
+          "weightKg": 7400,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "Z5130M-2898",
+          "weightKg": 7400,
+          "source": "revize 2025"
+        }
+      ]
     },
     {
       "id": "jlg-520-aj",
@@ -1754,7 +2525,49 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn JLG 520 AJ",
       "datasheetLocalUrl": "assets/datasheets/jlg-520-aj-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-520-aj-technicky-souhrn.pdf",
-      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/520AJ.pdf"
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/520AJ.pdf",
+      "units": [
+        {
+          "serialNumber": "B300012866",
+          "weightKg": 7992,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "B300012867",
+          "weightKg": 7919,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "B300013848",
+          "weightKg": 7937,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "B300018212",
+          "weightKg": 7937,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "B300023963",
+          "weightKg": 7729,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "B300023964",
+          "weightKg": 7756,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "C300002749",
+          "weightKg": 7650,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "E300008594",
+          "weightKg": 7960,
+          "source": "revize 2025"
+        }
+      ]
     },
     {
       "id": "jlg-600-aj",
@@ -1800,7 +2613,14 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn JLG 600 AJ",
       "datasheetLocalUrl": "assets/datasheets/jlg-600-aj-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-600-aj-technicky-souhrn.pdf",
-      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/600AJ.pdf"
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/600AJ.pdf",
+      "units": [
+        {
+          "serialNumber": "C300002864",
+          "weightKg": 10510,
+          "source": "revize 2025"
+        }
+      ]
     },
     {
       "id": "genie-z-62-40-rt",
@@ -1846,7 +2666,24 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn GENIE Z-62/40 RT",
       "datasheetLocalUrl": "assets/datasheets/genie-z-62-40-rt-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-z-62-40-rt-technicky-souhrn.pdf",
-      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/Z-6240.pdf"
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/Z-6240.pdf",
+      "units": [
+        {
+          "serialNumber": "Z62M-1876",
+          "weightKg": 10579,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "Z62M-1908",
+          "weightKg": 10579,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "Z62M-887",
+          "weightKg": 10348,
+          "source": "revize 2025"
+        }
+      ]
     },
     {
       "id": "jlg-800-aj",
@@ -1892,7 +2729,29 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn JLG 800 AJ",
       "datasheetLocalUrl": "assets/datasheets/jlg-800-aj-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-800-aj-technicky-souhrn.pdf",
-      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/800_AJ_new.pdf"
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/800_AJ_new.pdf",
+      "units": [
+        {
+          "serialNumber": "0300258479",
+          "weightKg": 15920,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "0300292720",
+          "weightKg": 15749,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "0300298142",
+          "weightKg": 15964,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "0300330777",
+          "weightKg": 15776,
+          "source": "revize 2025"
+        }
+      ]
     },
     {
       "id": "jlg-1250-ajp",
@@ -1938,7 +2797,19 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn JLG 1250 AJP",
       "datasheetLocalUrl": "assets/datasheets/jlg-1250-ajp-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-1250-ajp-technicky-souhrn.pdf",
-      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/1250_AJP_2024.pdf"
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/1250_AJP_2024.pdf",
+      "units": [
+        {
+          "serialNumber": "0300268622",
+          "weightKg": 19980,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "0300326094",
+          "weightKg": 20010,
+          "source": "revize 2025"
+        }
+      ]
     },
     {
       "id": "jlg-460-sj",
@@ -1984,7 +2855,14 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn JLG 460 SJ",
       "datasheetLocalUrl": "assets/datasheets/jlg-460-sj-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-460-sj-technicky-souhrn.pdf",
-      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/460SJ.pdf"
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/460SJ.pdf",
+      "units": [
+        {
+          "serialNumber": "0300279903",
+          "weightKg": 8067,
+          "source": "revize 2025"
+        }
+      ]
     },
     {
       "id": "jlg-660-sj",
@@ -2030,7 +2908,34 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn JLG 660 SJ",
       "datasheetLocalUrl": "assets/datasheets/jlg-660-sj-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-660-sj-technicky-souhrn.pdf",
-      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/660_SJ.pdf"
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/660_SJ.pdf",
+      "units": [
+        {
+          "serialNumber": "0300255062",
+          "weightKg": 11902,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "B300013646",
+          "weightKg": 11775,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "B300020903",
+          "weightKg": 11875,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "B300022659",
+          "weightKg": 11875,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "C300001355",
+          "weightKg": 11840,
+          "source": "revize 2025"
+        }
+      ]
     },
     {
       "id": "jlg-860-sj",
@@ -2076,7 +2981,24 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn JLG 860 SJ",
       "datasheetLocalUrl": "assets/datasheets/jlg-860-sj-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-860-sj-technicky-souhrn.pdf",
-      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/860SJ.pdf"
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/860SJ.pdf",
+      "units": [
+        {
+          "serialNumber": "B300013475",
+          "weightKg": 16837,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "B300017091",
+          "weightKg": 16837,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "B300019174",
+          "weightKg": 16855,
+          "source": "revize 2025"
+        }
+      ]
     },
     {
       "id": "jlg-1200-sjp",
@@ -2122,7 +3044,19 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn JLG 1200 SJP",
       "datasheetLocalUrl": "assets/datasheets/jlg-1200-sjp-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/jlg-1200-sjp-technicky-souhrn.pdf",
-      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/1200SJP.pdf"
+      "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/1200SJP.pdf",
+      "units": [
+        {
+          "serialNumber": "0300273862",
+          "weightKg": 18340,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "0300275077",
+          "weightKg": 18350,
+          "source": "revize 2025"
+        }
+      ]
     },
     {
       "id": "ommelift-1300-ebp",
@@ -2168,7 +3102,20 @@ window.MACHINE_CATALOG = {
         "Zeppelin CZ",
         "technické podklady výrobce"
       ],
-      "verifiedAt": "2026-06-29"
+      "verifiedAt": "2026-06-29",
+      "units": [
+        {
+          "serialNumber": "11069LM",
+          "weightKg": 1850,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "11070LM",
+          "weightKg": 1850,
+          "source": "revize 2025"
+        }
+      ],
+      "hasStabilizers": true
     },
     {
       "id": "ommelift-1500-exbp",
@@ -2215,7 +3162,50 @@ window.MACHINE_CATALOG = {
         "Zeppelin CZ",
         "technické podklady výrobce"
       ],
-      "verifiedAt": "2026-06-29"
+      "verifiedAt": "2026-06-29",
+      "units": [
+        {
+          "serialNumber": "10371MM",
+          "weightKg": 2130,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "10372MM",
+          "weightKg": 2130,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "10849MM",
+          "weightKg": 2130,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "10850MM",
+          "weightKg": 2130,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "10851MM",
+          "weightKg": 2130,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "10854MM",
+          "weightKg": 2130,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "11071MM",
+          "weightKg": 2130,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "11072MM",
+          "weightKg": 2130,
+          "source": "revize 2025"
+        }
+      ],
+      "hasStabilizers": true
     },
     {
       "id": "ommelift-1700-exbp",
@@ -2262,7 +3252,30 @@ window.MACHINE_CATALOG = {
         "Zeppelin CZ",
         "technické podklady výrobce"
       ],
-      "verifiedAt": "2026-06-29"
+      "verifiedAt": "2026-06-29",
+      "units": [
+        {
+          "serialNumber": "10374KM",
+          "weightKg": 2300,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "10651KM",
+          "weightKg": 2300,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "10652KM",
+          "weightKg": 2300,
+          "source": "revize 2025"
+        },
+        {
+          "serialNumber": "10855KM",
+          "weightKg": 2300,
+          "source": "revize 2025"
+        }
+      ],
+      "hasStabilizers": true
     }
   ]
 };

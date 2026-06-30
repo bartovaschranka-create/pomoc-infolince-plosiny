@@ -73,7 +73,9 @@
       environment: el("environment").value,
       workingHeight: num("workingHeight"),
       outreach: num("outreach"),
-      drive: el("drive").value
+      drive: el("drive").value,
+      maxWeight: num("maxWeight"),
+      requiresStabilizers: el("requiresStabilizers").checked
     };
   }
 
@@ -83,7 +85,15 @@
     if (selectedFilters.workingHeight != null && Number(machine.workingHeightM || 0) < selectedFilters.workingHeight) return false;
     if (selectedFilters.outreach != null && Number(machine.outreachM || 0) < selectedFilters.outreach) return false;
     if (selectedFilters.drive !== "any" && machine.driveGroup !== selectedFilters.drive) return false;
+    if (selectedFilters.maxWeight != null && Number(machine.weightKg || 0) > selectedFilters.maxWeight) return false;
+    if (selectedFilters.requiresStabilizers && !machineHasStabilizers(machine)) return false;
     return true;
+  }
+
+  function machineHasStabilizers(machine) {
+    if (typeof machine.hasStabilizers === "boolean") return machine.hasStabilizers;
+    const text = normalize(`${machine.manufacturer || ""} ${machine.model || ""} ${machine.sourceCategory || ""}`);
+    return machine.category === "trailer" || text.includes("omme") || text.includes("stabiliz") || text.includes("oper");
   }
 
   function usableDocumentUrl(value) {
@@ -127,9 +137,13 @@
     const items = [];
     const heightDelta = deltaText(machine.workingHeightM, requestedFilters.workingHeight, "m");
     const outreachDelta = deltaText(machine.outreachM, requestedFilters.outreach, "m");
+    const weightDelta = requestedFilters.maxWeight != null && machine.weightKg != null
+      ? deltaText(requestedFilters.maxWeight, machine.weightKg, "kg")
+      : "";
 
     if (heightDelta) items.push(`<span><em>Výška</em><strong>${heightDelta}</strong></span>`);
     if (outreachDelta) items.push(`<span><em>Dosah</em><strong>${outreachDelta}</strong></span>`);
+    if (weightDelta) items.push(`<span><em>Hmotnost do</em><strong>${weightDelta}</strong></span>`);
     if (!items.length) return "";
 
     return `<div class="match-delta">
@@ -217,13 +231,22 @@
       .find(machine => compactQuery.includes(normalize(machine.model))) || matches[0];
   }
 
-  function extractSerialCandidate(query, machine) {
+  function extractSerialCandidate(query, machine = null) {
+    const normalizedQuery = normalize(query);
+    const directMatch = normalizedQuery.match(/(?:vc|sn|vyrobnicislo)([a-z0-9]{3,})/);
+    if (directMatch) return directMatch[1];
+
     const ignored = new Set([
-      "hmotnost", "vaha", "vazi", "kolik", "kg", "stroj", "stroje", "vyrobni", "cislo", "vc", "sn",
-      normalize(machine.manufacturer), normalize(machine.model), normalize(machine.model).replace(/dc$|rt$|jrt$|jdc$/i, "")
+      "hmotnost", "vaha", "vazi", "kolik", "kg", "stroj", "stroje", "vyrobni", "cislo", "vc", "sn"
     ]);
+    if (machine) {
+      ignored.add(normalize(machine.manufacturer));
+      ignored.add(normalize(machine.model));
+      ignored.add(normalize(machine.model).replace(/dc$|rt$|jrt$|jdc$/i, ""));
+    }
+    const hasSerialKeyword = /(?:vc|vyrobni|sn)/i.test(normalizedQuery);
     const tokens = query
-      .replace(/[,:;()]/g, " ")
+      .replace(/[^0-9a-zA-Z]+/g, " ")
       .split(/\s+/)
       .map(token => ({ raw: token, normalized: normalize(token) }))
       .filter(token => token.normalized && !ignored.has(token.normalized));
@@ -232,13 +255,31 @@
       const value = token.normalized;
       const hasDigit = /\d/.test(value);
       const hasLetter = /[a-z]/.test(value);
-      return (hasDigit && hasLetter && value.length >= 6) || /^\d{6,}$/.test(value);
+      return (hasSerialKeyword && hasDigit && value.length >= 3)
+        || (hasDigit && hasLetter && value.length >= 6)
+        || /^\d{6,}$/.test(value);
     });
     return candidates.length ? candidates[candidates.length - 1].raw : "";
   }
 
   function unitRecords(machine) {
     return Array.isArray(machine.units) ? machine.units.filter(unit => unit && unit.weightKg != null) : [];
+  }
+
+  function serialMatches(candidate, serialNumber) {
+    const normalizedCandidate = normalize(candidate);
+    const normalizedSerial = normalize(serialNumber);
+    return normalizedCandidate
+      && normalizedSerial
+      && (normalizedSerial === normalizedCandidate || normalizedSerial.endsWith(normalizedCandidate));
+  }
+
+  function findUnitBySerial(serialCandidate) {
+    for (const machine of machines) {
+      const unit = unitRecords(machine).find(item => serialMatches(serialCandidate, item.serialNumber));
+      if (unit) return { machine, unit };
+    }
+    return null;
   }
 
   function groupWeights(machine) {
@@ -276,38 +317,39 @@
   }
 
   function renderWeightLookup(query) {
-    const machine = findMachineForWeightQuery(query);
-    if (!machine) {
-      render([], "Hmotnost stroje", "", `<div class="empty">Model z dotazu nebyl nalezen. Zadejte například „hmotnost GS-3246“.</div>`);
+    const serialCandidate = extractSerialCandidate(query);
+    const serialMatch = serialCandidate ? findUnitBySerial(serialCandidate) : null;
+    const requestedMachine = findMachineForWeightQuery(query);
+
+    if (serialMatch) {
+      const { machine, unit } = serialMatch;
+      const mismatchNote = requestedMachine && requestedMachine.id !== machine.id
+        ? `<div class="search-warning">Zadane vyrobni cislo odpovida modelu <strong>${esc(machine.manufacturer)} ${esc(machine.model)}</strong>, ne modelu <strong>${esc(requestedMachine.manufacturer)} ${esc(requestedMachine.model)}</strong>.</div>`
+        : "";
+      const html = `${mismatchNote}<article class="weight-result-card exact-weight">
+        <span class="weight-kicker">Nalezen konkretni stroj</span>
+        <h3>${esc(machine.manufacturer)} ${esc(machine.model)}</h3>
+        <div class="exact-weight-value">${fmt(unit.weightKg)} kg</div>
+        <div class="spec-row"><span>Vyrobni cislo</span><strong>${esc(unit.serialNumber)}</strong></div>
+      </article>`;
+      render([], "Hmotnost konkretniho stroje", `Vyrobni cislo ${serialCandidate}`, html);
       return;
     }
 
-    const serialCandidate = extractSerialCandidate(query, machine);
-    const units = unitRecords(machine);
-    const normalizedSerial = normalize(serialCandidate);
-    const unit = normalizedSerial
-      ? units.find(item => normalize(item.serialNumber) === normalizedSerial)
-      : null;
-
-    if (serialCandidate && unit) {
-      const html = `<article class="weight-result-card exact-weight">
-        <span class="weight-kicker">Nalezen konkrétní stroj</span>
-        <h3>${esc(machine.manufacturer)} ${esc(machine.model)}</h3>
-        <div class="exact-weight-value">${fmt(unit.weightKg)} kg</div>
-        <div class="spec-row"><span>Výrobní číslo</span><strong>${esc(unit.serialNumber)}</strong></div>
-      </article>`;
-      render([], "Hmotnost konkrétního stroje", `Výrobní číslo ${serialCandidate}`, html);
+    const machine = requestedMachine;
+    if (!machine) {
+      render([], "Hmotnost stroje", "", `<div class="empty">Model z dotazu nebyl nalezen. Zadejte napriklad hmotnost GS-3246.</div>`);
       return;
     }
 
     const groups = groupWeights(machine);
     const missingSerial = serialCandidate
-      ? `<div class="search-warning">Výrobní číslo <strong>${esc(serialCandidate)}</strong> není v aktuálních datech. Níže jsou všechny evidované skupiny hmotností tohoto modelu.</div>`
+      ? `<div class="search-warning">Vyrobni cislo <strong>${esc(serialCandidate)}</strong> neni v aktualnich kusovych datech. Nize jsou vsechny evidovane skupiny hmotnosti tohoto modelu.</div>`
       : "";
     const html = `${missingSerial}${groups.length
       ? weightGroupHtml(machine, groups)
-      : `<div class="empty">U modelu ${esc(machine.manufacturer)} ${esc(machine.model)} zatím není evidována hmotnost.</div>`}`;
-    render([], `Hmotnosti ${machine.manufacturer} ${machine.model}`, serialCandidate ? "Konkrétní výrobní číslo nebylo nalezeno." : "Přehled evidovaných hmotností podle provedení.", html);
+      : `<div class="empty">U modelu ${esc(machine.manufacturer)} ${esc(machine.model)} zatim neni evidovana hmotnost.</div>`}`;
+    render([], `Hmotnosti ${machine.manufacturer} ${machine.model}`, serialCandidate ? "Konkretni vyrobni cislo nebylo nalezeno." : "Prehled evidovanych hmotnosti podle provedeni.", html);
   }
 
   function smartSearch(query) {
