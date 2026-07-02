@@ -191,6 +191,16 @@
     return "Neuvedeno";
   }
 
+  function chassisTiltText(machine) {
+    const text = String(machine.maxChassisTiltText || "").trim();
+    if (!text) return "Neuvedeno";
+    const values = text.split("/").map(value => value.trim()).filter(Boolean);
+    if (values.length >= 2 && values.slice(0, 2).every(value => /°/.test(value))) {
+      return `${values[0]} / ${values[1]}`;
+    }
+    return text;
+  }
+
   function offerSpecRows(machine) {
     const rows = [
       ["Pracovní výška", machine.workingHeightM != null ? `${fmt(machine.workingHeightM)} m` : "Neuvedeno"],
@@ -202,7 +212,7 @@
       ["Šířka", machine.dimensions?.widthM != null ? `${fmt(machine.dimensions.widthM)} m` : "Neuvedeno"],
       [transportHeightLabel(machine), transportHeightText(machine)],
       ...(machine.platformText && !/neuvedeno/i.test(machine.platformText) ? [["Rozměr koše", machine.platformText]] : []),
-      ["Max. náklon podvozku", machine.maxChassisTiltText || "Neuvedeno"],
+      ["Max. náklon podvozku (boční / čelní)", chassisTiltText(machine)],
       ["Stabilizátory", machineHasStabilizers(machine) ? "Ano" : "Ne"]
     ];
     return rows;
@@ -302,7 +312,7 @@
           <div class="spec-row"><span>Šířka</span><strong>${fmt(machine.dimensions?.widthM)} m</strong></div>
           <div class="spec-row"><span>${esc(transportHeightLabel(machine))}</span><strong>${esc(transportHeightText(machine))}</strong></div>
           <div class="spec-row"><span>Rozměr koše</span><strong>${esc(machine.platformText || "Neuvedeno")}</strong></div>
-          <div class="spec-row"><span>Náklon</span><strong>${esc(machine.maxChassisTiltText || "Neuvedeno")}</strong></div>
+          <div class="spec-row"><span>Náklon (boční / čelní)</span><strong>${esc(chassisTiltText(machine))}</strong></div>
         </div>
         <div class="machine-actions">
           <a class="link-button primary" target="_blank" rel="noopener" href="${esc(machine.sourceUrl || "#")}">Zeppelin.cz ↗</a>

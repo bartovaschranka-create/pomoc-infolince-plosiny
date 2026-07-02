@@ -1,5 +1,5 @@
 window.MACHINE_CATALOG = {
-  "version": "0.7.5",
+  "version": "0.7.8",
   "updatedAt": "2026-07-02",
   "sourceName": "Zeppelin CZ + technicke podklady vyrobcu",
   "machines": [
@@ -39,7 +39,7 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "",
       "maxChassisTiltDeg": 1.5,
-      "maxChassisTiltText": "3° / 1,5°",
+      "maxChassisTiltText": "1,5° / 3°",
       "gradeabilityText": "25 % / 14°",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-1432-technicky-souhrn.pdf",
       "datasheetSourceUrl": "https://www.genielift.com/docs/default-source/product-specifications/slab-scissor-lifts-(ansi)-or-electric-and-bi-energy-lifts-(ce)/en/2025/gs-1432m-gs-1932m-product-specifications---2025---en-us.pdf?sfvrsn=d064fee6_1",
@@ -217,7 +217,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "570 Kč/den bez DPH",
       "verifiedImage": true,
       "description": "Nůžková plošina JLG 1932 ES nabízena k pronájmu poskytuje přesné ovládání a spolehlivý výkon v interiéru.",
-      "maxChassisTiltText": "Neuvedeno ve zdroji",
+      "maxChassisTiltDeg": 1.5,
+      "maxChassisTiltText": "1,5° / 3°",
       "dataSources": [
         "Zeppelin CZ",
         "technické podklady výrobce"
