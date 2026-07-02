@@ -178,6 +178,12 @@
     </div>`;
   }
 
+  function transportHeightLabel(machine) {
+    return machine.foldedHeightText || machine.foldedHeightM != null
+      ? "Výška se sklopeným zábradlím"
+      : "Transportní výška";
+  }
+
   function transportHeightText(machine) {
     if (machine.foldedHeightText) return machine.foldedHeightText;
     if (machine.foldedHeightM != null) return `${fmt(machine.foldedHeightM)} m`;
@@ -194,7 +200,7 @@
       ["Pohon", machine.drive || "Neuvedeno"],
       ["Délka", machine.dimensions?.lengthM != null ? `${fmt(machine.dimensions.lengthM)} m` : "Neuvedeno"],
       ["Šířka", machine.dimensions?.widthM != null ? `${fmt(machine.dimensions.widthM)} m` : "Neuvedeno"],
-      ["Transportní / průjezdná výška", transportHeightText(machine)],
+      [transportHeightLabel(machine), transportHeightText(machine)],
       ...(machine.platformText && !/neuvedeno/i.test(machine.platformText) ? [["Rozměr koše", machine.platformText]] : []),
       ["Max. náklon podvozku", machine.maxChassisTiltText || "Neuvedeno"],
       ["Stabilizátory", machineHasStabilizers(machine) ? "Ano" : "Ne"]
@@ -294,7 +300,7 @@
           <div class="spec-row"><span>Pohon</span><strong>${esc(machine.drive || "Neuvedeno")}</strong></div>
           <div class="spec-row"><span>Délka</span><strong>${fmt(machine.dimensions?.lengthM)} m</strong></div>
           <div class="spec-row"><span>Šířka</span><strong>${fmt(machine.dimensions?.widthM)} m</strong></div>
-          <div class="spec-row"><span>Transportní / průjezdná výška</span><strong>${esc(transportHeightText(machine))}</strong></div>
+          <div class="spec-row"><span>${esc(transportHeightLabel(machine))}</span><strong>${esc(transportHeightText(machine))}</strong></div>
           <div class="spec-row"><span>Rozměr koše</span><strong>${esc(machine.platformText || "Neuvedeno")}</strong></div>
           <div class="spec-row"><span>Náklon</span><strong>${esc(machine.maxChassisTiltText || "Neuvedeno")}</strong></div>
         </div>
