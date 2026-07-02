@@ -178,6 +178,61 @@
     </div>`;
   }
 
+  function offerSpecRows(machine) {
+    const rows = [
+      ["Pracovní výška", machine.workingHeightM != null ? `${fmt(machine.workingHeightM)} m` : "Neuvedeno"],
+      ["Nosnost koše", Number(machine.capacityKg) > 0 ? (machine.capacityText || `${fmt(machine.capacityKg)} kg`) : (machine.capacityText || "Neuvedeno")],
+      ["Boční dosah", machine.outreachM != null ? `${fmt(machine.outreachM)} m` : "Neuvedeno"],
+      ["Hmotnost", machine.weightKg != null ? `${fmt(machine.weightKg)} kg` : "Neuvedeno"],
+      ["Pohon", machine.drive || "Neuvedeno"],
+      ["Délka", machine.dimensions?.lengthM != null ? `${fmt(machine.dimensions.lengthM)} m` : "Neuvedeno"],
+      ["Šířka", machine.dimensions?.widthM != null ? `${fmt(machine.dimensions.widthM)} m` : "Neuvedeno"],
+      ["Výška stroje", machine.dimensions?.heightM != null ? `${fmt(machine.dimensions.heightM)} m` : "Neuvedeno"],
+      ["Výška se sklopeným zábradlím", machine.foldedHeightText || (machine.foldedHeightM != null ? `${fmt(machine.foldedHeightM)} m` : "Neuvedeno")],
+      ["Rozměr koše", machine.platformText || "Neuvedeno"],
+      ["Max. náklon podvozku", machine.maxChassisTiltText || "Neuvedeno"],
+      ["Stabilizátory", machineHasStabilizers(machine) ? "Ano" : "Ne"]
+    ];
+    return rows;
+  }
+
+  function offerHtml(machine) {
+    const documentUrl = getTechnicalDocumentUrl(machine);
+    const image = imageUrl(machine) || "assets/images/placeholder.svg";
+    const capacity = Number(machine.capacityKg) > 0 ? (machine.capacityText || `${fmt(machine.capacityKg)} kg`) : (machine.capacityText || "Neuvedeno");
+    const priceRows = [machine.priceShort ? ["Krátkodobě", machine.priceShort] : null, machine.priceLong ? ["Dlouhodobě", machine.priceLong] : null].filter(Boolean);
+    const specs = offerSpecRows(machine).map(([label, value]) => `<tr><th>${esc(label)}</th><td>${esc(value)}</td></tr>`).join("");
+    const prices = priceRows.length
+      ? `<section><h2>Cena půjčení</h2><table>${priceRows.map(([label, value]) => `<tr><th>${esc(label)}</th><td>${esc(value)}</td></tr>`).join("")}</table></section>`
+      : "";
+    const sourceLinks = `<section class="links"><h2>Odkazy</h2>
+      ${machine.sourceUrl ? `<p><a href="${esc(machine.sourceUrl)}">Zeppelin CZ - detail stroje</a></p>` : ""}
+      ${documentUrl ? `<p><a href="${esc(documentUrl)}">Technický list</a></p>` : ""}
+    </section>`;
+
+    return `<!doctype html><html lang="cs"><head><meta charset="utf-8"><title>${esc(machine.manufacturer)} ${esc(machine.model)} - nabídka</title>
+      <style>
+        *{box-sizing:border-box}body{font-family:Arial,sans-serif;color:#17191d;margin:0;background:#f3f5f7}.page{width:210mm;min-height:297mm;margin:0 auto;background:#fff;padding:18mm}.top{display:flex;justify-content:space-between;gap:18px;border-bottom:4px solid #f5b400;padding-bottom:14px}.brand{font-weight:900;font-size:14px;letter-spacing:.04em}.date{font-size:12px;color:#66717d;text-align:right}.hero{display:grid;grid-template-columns:1fr 1.1fr;gap:18px;margin-top:20px;align-items:center}.photo{border:1px solid #dfe3e8;border-radius:10px;background:#fff;height:72mm;display:flex;align-items:center;justify-content:center;overflow:hidden}.photo img{max-width:100%;max-height:100%;object-fit:contain}h1{font-size:30px;margin:0 0 8px}h2{font-size:15px;margin:22px 0 8px;text-transform:uppercase;letter-spacing:.05em}.muted{color:#66717d;margin:0}.chips{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:14px}.chip{background:#f4f5f7;border-radius:8px;padding:9px}.chip span{display:block;font-size:11px;color:#66717d}.chip strong{font-size:16px}table{width:100%;border-collapse:collapse}th,td{border-bottom:1px solid #e5e8ec;padding:8px 0;text-align:left;vertical-align:top}th{width:45%;color:#66717d;font-weight:700}.links a{color:#17191d;font-weight:700}.note{margin-top:20px;padding:12px;border:1px solid #f0d77a;background:#fff8df;border-radius:9px;font-size:12px;color:#4a4227}.actions{position:fixed;right:18px;top:18px;display:flex;gap:8px}.actions button{border:0;border-radius:9px;padding:10px 12px;font-weight:800;cursor:pointer}.print{background:#f5b400;color:#17191d}.close{background:#17191d;color:#fff}@media print{body{background:#fff}.page{margin:0;width:auto;min-height:auto}.actions{display:none}a{color:#17191d;text-decoration:none}}
+      </style></head><body><div class="actions"><button class="print" onclick="window.print()">Uložit jako PDF</button><button class="close" onclick="window.close()">Zavřít</button></div><main class="page">
+      <header class="top"><div><div class="brand">Zeppelin CZ | nabídka pracovní plošiny</div><p class="muted">Orientační technický list pro zaslání zákazníkovi</p></div><div class="date">Vygenerováno: ${esc(new Date().toLocaleDateString("cs-CZ"))}</div></header>
+      <section class="hero"><div class="photo"><img src="${esc(image)}" alt="${esc(`${machine.manufacturer} ${machine.model}`)}"></div><div><h1>${esc(machine.manufacturer)} ${esc(machine.model)}</h1><p class="muted">${esc(machine.sourceCategory || "")}</p><div class="chips"><div class="chip"><span>Pracovní výška</span><strong>${fmt(machine.workingHeightM)} m</strong></div><div class="chip"><span>Nosnost koše</span><strong>${esc(capacity)}</strong></div><div class="chip"><span>Boční dosah</span><strong>${fmt(machine.outreachM)} m</strong></div><div class="chip"><span>Hmotnost</span><strong>${fmt(machine.weightKg)} kg</strong></div></div></div></section>
+      <section><h2>Technická data</h2><table>${specs}</table></section>${prices}${sourceLinks}<div class="note"><strong>Poznámka:</strong> Nabídka je orientační. Před potvrzením půjčovny ověřte dostupnost konkrétního stroje, vhodnost pro místo práce a aktuální podmínky pronájmu.</div>
+      </main></body></html>`;
+  }
+
+  function openOfferPdf(machineId) {
+    const machine = machines.find(item => item.id === machineId);
+    if (!machine) return;
+    const popup = window.open("", "_blank", "noopener,noreferrer,width=980,height=900");
+    if (!popup) {
+      alert("Pro vygenerování PDF povolte v prohlížeči vyskakovací okno.");
+      return;
+    }
+    popup.document.open();
+    popup.document.write(offerHtml(machine));
+    popup.document.close();
+    popup.focus();
+  }
   function machineCard(machine, index, requestedFilters = {}) {
     const documentUrl = getTechnicalDocumentUrl(machine);
     const documentButton = documentUrl
@@ -215,6 +270,7 @@
         <div class="machine-actions">
           <a class="link-button primary" target="_blank" rel="noopener" href="${esc(machine.sourceUrl || "#")}">Zeppelin.cz ↗</a>
           ${documentButton}
+          <button class="link-button secondary" type="button" data-offer-pdf="${esc(machine.id)}">PDF nabídka</button>
         </div>
       </div>
     </article>`;
@@ -477,6 +533,10 @@
       setSelectedCategory(null);
       el("resultsSection").classList.add("hidden");
       el("categorySection").scrollIntoView({ behavior: "smooth" });
+    });
+    el("resultsGrid").addEventListener("click", event => {
+      const button = event.target.closest("[data-offer-pdf]");
+      if (button) openOfferPdf(button.dataset.offerPdf);
     });
     el("filterForm").addEventListener("submit", event => {
       event.preventDefault();
