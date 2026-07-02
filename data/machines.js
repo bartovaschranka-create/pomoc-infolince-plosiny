@@ -1,5 +1,5 @@
 window.MACHINE_CATALOG = {
-  "version": "0.7.10",
+  "version": "0.7.11",
   "updatedAt": "2026-07-02",
   "sourceName": "Zeppelin CZ + technicke podklady vyrobcu",
   "machines": [
@@ -986,8 +986,9 @@ window.MACHINE_CATALOG = {
         "widthM": 1.15,
         "heightM": 2.53
       },
-      "foldedHeightM": null,
-      "platformText": "Neuvedeno",
+      "foldedHeightM": 2,
+      "foldedHeightText": "2,00 m",
+      "platformText": "2,30 × 1,12 m + vysunutí 0,91 m",
       "weightKg": 2930,
       "priceShort": "1 140 Kč/den bez DPH",
       "priceLong": "930 Kč/den bez DPH",
@@ -1003,6 +1004,7 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn Zoomlion ZS1012ACLi",
       "datasheetLocalUrl": "assets/datasheets/zoomlion-zs1012acli-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/zoomlion-zs1012acli-technicky-souhrn.pdf",
+      "officialDocumentUrl": "assets/manufacturer-docs/zoomlion-zs-electric-user-manual-en.pdf",
       "units": [
         {
           "serialNumber": "0775500500R010270",
@@ -1128,8 +1130,9 @@ window.MACHINE_CATALOG = {
         "widthM": 2.3,
         "heightM": 2.74
       },
-      "foldedHeightM": null,
-      "platformText": "Neuvedeno",
+      "foldedHeightM": 2.05,
+      "foldedHeightText": "2,05 m",
+      "platformText": "3,98 × 1,83 m + vysunutí 1,30 m vpředu/vzadu",
       "weightKg": 7350,
       "priceShort": "1 840 Kč/den bez DPH",
       "priceLong": "1 360 Kč/den bez DPH",
@@ -1145,6 +1148,7 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn Zoomlion ZS1023RT",
       "datasheetLocalUrl": "assets/datasheets/zoomlion-zs1023rt-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/zoomlion-zs1023rt-technicky-souhrn.pdf",
+      "officialDocumentUrl": "assets/manufacturer-docs/zoomlion-zs1023rt-operation-manual.pdf",
       "hasStabilizers": true,
       "units": [
         {
@@ -1260,8 +1264,9 @@ window.MACHINE_CATALOG = {
         "widthM": 1.75,
         "heightM": 2.74
       },
-      "foldedHeightM": null,
-      "platformText": "Neuvedeno",
+      "foldedHeightM": 2.05,
+      "foldedHeightText": "2,05 m",
+      "platformText": "2,75 × 1,52 m + vysunutí 1,20 m",
       "weightKg": 4900,
       "priceShort": "1 850 Kč/den bez DPH",
       "priceLong": "1 340 Kč/den bez DPH",
@@ -1277,6 +1282,7 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn Zoomlion ZS1218ERT",
       "datasheetLocalUrl": "assets/datasheets/zoomlion-zs1218ert-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/zoomlion-zs1218ert-technicky-souhrn.pdf",
+      "officialDocumentUrl": "assets/manufacturer-docs/zoomlion-zs1218ert-operation-safety-manual.pdf",
       "hasStabilizers": true,
       "units": [
         {
@@ -1502,8 +1508,9 @@ window.MACHINE_CATALOG = {
         "widthM": 1.4,
         "heightM": 2.68
       },
-      "foldedHeightM": null,
-      "platformText": "Neuvedeno",
+      "foldedHeightM": 2.15,
+      "foldedHeightText": "2,15 m",
+      "platformText": "2,67 × 1,12 m + vysunutí 0,91 m",
       "weightKg": 3310,
       "priceShort": "2 060 Kč/den bez DPH",
       "priceLong": "1 730 Kč/den bez DPH",
@@ -1519,6 +1526,7 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn Zoomlion ZS1414ACLi",
       "datasheetLocalUrl": "assets/datasheets/zoomlion-zs1414acli-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/zoomlion-zs1414acli-technicky-souhrn.pdf",
+      "officialDocumentUrl": "assets/manufacturer-docs/zoomlion-zs-electric-user-manual-en.pdf",
       "units": [
         {
           "serialNumber": "0775700501R010108",
@@ -2240,7 +2248,7 @@ window.MACHINE_CATALOG = {
         "heightM": 2.27
       },
       "foldedHeightM": null,
-      "platformText": "Neuvedeno",
+      "platformText": "1,83 × 0,76 m",
       "weightKg": 7100,
       "priceShort": "2 270 Kč/den bez DPH",
       "priceLong": "1 890 Kč/den bez DPH",
@@ -2256,6 +2264,7 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn Zoomlion ZA14J",
       "datasheetLocalUrl": "assets/datasheets/zoomlion-za14j-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/zoomlion-za14j-technicky-souhrn.pdf",
+      "officialDocumentUrl": "assets/manufacturer-docs/zoomlion-za14j-operation-safety-manual.pdf",
       "units": [
         {
           "serialNumber": "0773400000R000324",
