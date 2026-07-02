@@ -1,6 +1,6 @@
 window.MACHINE_CATALOG = {
-  "version": "0.6.0",
-  "updatedAt": "2026-06-30",
+  "version": "0.7.5",
+  "updatedAt": "2026-07-02",
   "sourceName": "Zeppelin CZ + technicke podklady vyrobcu",
   "machines": [
     {
@@ -158,7 +158,7 @@ window.MACHINE_CATALOG = {
       },
       "foldedHeightM": 1.61,
       "foldedHeightText": "1,61 m",
-      "platformText": "Neuvedeno",
+      "platformText": "0,55 × 1,59 m + vysunutí 0,86 m",
       "weightKg": 1237,
       "priceShort": "710 Kč/den bez DPH",
       "priceLong": "550 Kč/den bez DPH",
@@ -273,7 +273,7 @@ window.MACHINE_CATALOG = {
       },
       "foldedHeightM": 1.75,
       "foldedHeightText": "1,75 m",
-      "platformText": "Neuvedeno",
+      "platformText": "0,74 × 1,63 m + vysunutí 0,91 m",
       "weightKg": 1498,
       "priceShort": "740 Kč/den bez DPH",
       "priceLong": "570 Kč/den bez DPH",
@@ -321,7 +321,7 @@ window.MACHINE_CATALOG = {
       },
       "foldedHeightM": 1.75,
       "foldedHeightText": "1,75 m",
-      "platformText": "Neuvedeno",
+      "platformText": "0,81 × 2,26 m + vysunutí 0,91 m",
       "weightKg": 1825,
       "priceShort": "760 Kč/den bez DPH",
       "priceLong": "600 Kč/den bez DPH",
@@ -433,8 +433,8 @@ window.MACHINE_CATALOG = {
         "widthM": 1.17,
         "heightM": 2.13
       },
-      "foldedHeightM": null,
-      "platformText": "Neuvedeno",
+      "foldedHeightM": 1.55,
+      "platformText": "1,15 × 2,26 m + vysunutí 0,91 m",
       "weightKg": 1974,
       "priceShort": "820 Kč/den bez DPH",
       "priceLong": "650 Kč/den bez DPH",
@@ -457,7 +457,8 @@ window.MACHINE_CATALOG = {
           "weightKg": 1775,
           "source": "revize 2025"
         }
-      ]
+      ],
+      "foldedHeightText": "1,55 m"
     },
     {
       "id": "jlg-2632-es",
@@ -486,8 +487,8 @@ window.MACHINE_CATALOG = {
         "widthM": 0.81,
         "heightM": 2.33
       },
-      "foldedHeightM": null,
-      "platformText": "Neuvedeno",
+      "foldedHeightM": 1.94,
+      "platformText": "0,76 × 2,30 m + vysunutí 0,90 m",
       "weightKg": 2135,
       "priceShort": "820 Kč/den bez DPH",
       "priceLong": "650 Kč/den bez DPH",
@@ -515,7 +516,8 @@ window.MACHINE_CATALOG = {
           "weightKg": 2098,
           "source": "revize 2025"
         }
-      ]
+      ],
+      "foldedHeightText": "1,94 m"
     },
     {
       "id": "genie-gs-2632-dc",
@@ -546,7 +548,7 @@ window.MACHINE_CATALOG = {
       },
       "foldedHeightM": 1.91,
       "foldedHeightText": "1,91 m",
-      "platformText": "Neuvedeno",
+      "platformText": "0,81 × 2,26 m + vysunutí 0,91 m",
       "weightKg": 1956,
       "priceShort": "820 Kč/den bez DPH",
       "priceLong": "650 Kč/den bez DPH",
@@ -618,8 +620,8 @@ window.MACHINE_CATALOG = {
         "widthM": 1.17,
         "heightM": 2.26
       },
-      "foldedHeightM": null,
-      "platformText": "1,15 × 2,26 m + vysunutí 0,90 m",
+      "foldedHeightM": 1.68,
+      "platformText": "1,15 × 2,26 m + vysunutí 0,91 m",
       "weightKg": 2447,
       "priceShort": "870 Kč/den bez DPH",
       "priceLong": "710 Kč/den bez DPH",
@@ -636,7 +638,8 @@ window.MACHINE_CATALOG = {
       "datasheetLocalUrl": "assets/datasheets/genie-gs-2646-dc-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/genie-gs-2646-dc-technicky-souhrn.pdf",
       "datasheetSourceUrl": "https://www.zeppelin.cz/fileadmin/helios_files/PDF/RENT/GS-2046-2646-3246.pdf",
-      "dataQualityNote": "Kusove hmotnosti z revizi 2025 uvadely 1972-1974 kg, technicky list Zeppelin pro GS-2646 uvadi 2447 kg; kusove zaznamy byly vyrazeny z presneho vyhledavani."
+      "dataQualityNote": "Kusove hmotnosti z revizi 2025 uvadely 1972-1974 kg, technicky list Zeppelin pro GS-2646 uvadi 2447 kg; kusove zaznamy byly vyrazeny z presneho vyhledavani.",
+      "foldedHeightText": "1,68 m"
     },
     {
       "id": "jlg-2646-es",
@@ -667,7 +670,7 @@ window.MACHINE_CATALOG = {
       },
       "foldedHeightM": 1.97,
       "foldedHeightText": "1,97 m",
-      "platformText": "Neuvedeno",
+      "platformText": "1,12 × 2,50 m + vysunutí 1,27 m",
       "weightKg": 2740,
       "priceShort": "870 Kč/den bez DPH",
       "priceLong": "710 Kč/den bez DPH",
@@ -828,8 +831,8 @@ window.MACHINE_CATALOG = {
         "widthM": 1.17,
         "heightM": 2.39
       },
-      "foldedHeightM": null,
-      "platformText": "Neuvedeno",
+      "foldedHeightM": 1.8,
+      "platformText": "1,15 × 2,26 m + vysunutí 0,91 m",
       "weightKg": 2812,
       "priceShort": "1 140 Kč/den bez DPH",
       "priceLong": "930 Kč/den bez DPH",
@@ -867,7 +870,8 @@ window.MACHINE_CATALOG = {
           "weightKg": 2397,
           "source": "revize 2025"
         }
-      ]
+      ],
+      "foldedHeightText": "1,80 m"
     },
     {
       "id": "genie-gs-3369-rt",
@@ -1027,7 +1031,7 @@ window.MACHINE_CATALOG = {
         "heightM": 2.71
       },
       "foldedHeightM": 2.03,
-      "platformText": "Neuvedeno",
+      "platformText": "1,83 × 3,89 m + vysunutí 1,52 m přední / 1,22 m zadní",
       "weightKg": 6728,
       "priceShort": "1 840 Kč/den bez DPH",
       "priceLong": "1 360 Kč/den bez DPH",
@@ -1162,8 +1166,8 @@ window.MACHINE_CATALOG = {
         "widthM": 1.19,
         "heightM": 2.54
       },
-      "foldedHeightM": null,
-      "platformText": "1,15 × 2,26 m + vysunutí 0,90 m",
+      "foldedHeightM": 1.98,
+      "platformText": "1,18 × 2,26 m + vysunutí 0,91 m",
       "weightKg": 3221,
       "priceShort": "1 410 Kč/den bez DPH",
       "priceLong": "1 080 Kč/den bez DPH",
@@ -1211,7 +1215,8 @@ window.MACHINE_CATALOG = {
           "weightKg": 3180,
           "source": "revize 2025"
         }
-      ]
+      ],
+      "foldedHeightText": "1,98 m"
     },
     {
       "id": "zoomlion-zs1218ert",
@@ -1287,7 +1292,7 @@ window.MACHINE_CATALOG = {
         "heightM": 2.53
       },
       "foldedHeightM": 1.92,
-      "platformText": "Neuvedeno",
+      "platformText": "1,05 × 2,43 m + vysunutí 0,91 m",
       "weightKg": 3175,
       "priceShort": "1 410 Kč/den bez DPH",
       "priceLong": "1 080 Kč/den bez DPH",
@@ -1371,7 +1376,7 @@ window.MACHINE_CATALOG = {
         "heightM": 2.93
       },
       "foldedHeightM": 2.25,
-      "platformText": "Neuvedeno",
+      "platformText": "1,83 × 3,89 m + vysunutí 1,52 m přední / 1,22 m zadní",
       "weightKg": 7163,
       "priceShort": "1 950 Kč/den bez DPH",
       "priceLong": "1 460 Kč/den bez DPH",
@@ -1520,8 +1525,8 @@ window.MACHINE_CATALOG = {
         "widthM": 1.41,
         "heightM": 2.77
       },
-      "foldedHeightM": null,
-      "platformText": "Neuvedeno",
+      "foldedHeightM": 1.98,
+      "platformText": "1,35 × 2,84 m + vysunutí 1,22 m",
       "weightKg": 3701,
       "priceShort": "2 060 Kč/den bez DPH",
       "priceLong": "1 730 Kč/den bez DPH",
@@ -1554,7 +1559,8 @@ window.MACHINE_CATALOG = {
           "weightKg": 3709,
           "source": "revize 2025"
         }
-      ]
+      ],
+      "foldedHeightText": "1,98 m"
     },
     {
       "id": "genie-gs-5390-rt",
@@ -1584,7 +1590,7 @@ window.MACHINE_CATALOG = {
         "heightM": 3.15
       },
       "foldedHeightM": 2.47,
-      "platformText": "Neuvedeno",
+      "platformText": "1,83 × 3,89 m + vysunutí 1,52 m přední / 1,22 m zadní",
       "weightKg": 8050,
       "priceShort": "2 160 Kč/den bez DPH",
       "priceLong": "1 680 Kč/den bez DPH",
@@ -1837,7 +1843,7 @@ window.MACHINE_CATALOG = {
         "heightM": null
       },
       "foldedHeightM": null,
-      "platformText": "Neuvedeno",
+      "platformText": "1,05 × 0,70 m",
       "weightKg": 4900,
       "priceShort": "1 950 Kč/den bez DPH",
       "priceLong": "1 680 Kč/den bez DPH",
@@ -1937,7 +1943,7 @@ window.MACHINE_CATALOG = {
         "heightM": 2.26
       },
       "foldedHeightM": null,
-      "platformText": "Neuvedeno",
+      "platformText": "1,42 × 0,76 m",
       "weightKg": 5171,
       "priceShort": "1 840 Kč/den bez DPH",
       "priceLong": "1 580 Kč/den bez DPH",
@@ -1990,7 +1996,7 @@ window.MACHINE_CATALOG = {
         "heightM": 1.97
       },
       "foldedHeightM": null,
-      "platformText": "Neuvedeno",
+      "platformText": "1,22 × 0,76 m",
       "weightKg": 6850,
       "priceShort": "2 060 Kč/den bez DPH",
       "priceLong": "1 730 Kč/den bez DPH",
@@ -2048,7 +2054,7 @@ window.MACHINE_CATALOG = {
         "heightM": 2.27
       },
       "foldedHeightM": null,
-      "platformText": "Neuvedeno",
+      "platformText": "1,83 × 0,76 m",
       "weightKg": 6250,
       "priceShort": "2 270 Kč/den bez DPH",
       "priceLong": "1 890 Kč/den bez DPH",
@@ -2249,7 +2255,7 @@ window.MACHINE_CATALOG = {
         "heightM": 2
       },
       "foldedHeightM": null,
-      "platformText": "Neuvedeno",
+      "platformText": "1,83 × 0,76 m",
       "weightKg": 7394,
       "priceShort": "2 110 Kč/den bez DPH",
       "priceLong": "1 790 Kč/den bez DPH",
@@ -2380,7 +2386,7 @@ window.MACHINE_CATALOG = {
         "heightM": 2.13
       },
       "foldedHeightM": null,
-      "platformText": "Neuvedeno",
+      "platformText": "1,83 × 0,76 m",
       "weightKg": 6460,
       "priceShort": "2 270 Kč/den bez DPH",
       "priceLong": "1 890 Kč/den bez DPH",
@@ -2426,7 +2432,7 @@ window.MACHINE_CATALOG = {
         "heightM": 2.13
       },
       "foldedHeightM": null,
-      "platformText": "Neuvedeno",
+      "platformText": "1,83 × 0,76 m",
       "weightKg": 7394,
       "priceShort": "2 330 Kč/den bez DPH",
       "priceLong": "1 950 Kč/den bez DPH",
@@ -2484,7 +2490,7 @@ window.MACHINE_CATALOG = {
         "heightM": 2.27
       },
       "foldedHeightM": null,
-      "platformText": "Neuvedeno",
+      "platformText": "1,83 × 0,76 m",
       "weightKg": 7985,
       "priceShort": "2 330 Kč/den bez DPH",
       "priceLong": "1 950 Kč/den bez DPH",
@@ -2572,7 +2578,7 @@ window.MACHINE_CATALOG = {
         "heightM": 2.57
       },
       "foldedHeightM": null,
-      "platformText": "Neuvedeno",
+      "platformText": "1,83 × 0,91 m",
       "weightKg": 10830,
       "priceShort": "3 190 Kč/den bez DPH",
       "priceLong": "2 810 Kč/den bez DPH",
@@ -2625,7 +2631,7 @@ window.MACHINE_CATALOG = {
         "heightM": 2.56
       },
       "foldedHeightM": null,
-      "platformText": "Neuvedeno",
+      "platformText": "2,44 × 0,91 m",
       "weightKg": 10281,
       "priceShort": "3 190 Kč/den bez DPH",
       "priceLong": "2 810 Kč/den bez DPH",
@@ -2688,7 +2694,7 @@ window.MACHINE_CATALOG = {
         "heightM": 3
       },
       "foldedHeightM": null,
-      "platformText": "Neuvedeno",
+      "platformText": "2,44 × 0,91 m",
       "weightKg": 16110,
       "priceShort": "4 750 Kč/den bez DPH",
       "priceLong": "4 100 Kč/den bez DPH",
@@ -2867,7 +2873,7 @@ window.MACHINE_CATALOG = {
         "heightM": null
       },
       "foldedHeightM": null,
-      "platformText": "Neuvedeno na produktové stránce",
+      "platformText": "2,44 × 0,91 m",
       "weightKg": 11902,
       "priceShort": "3 140 Kč/den bez DPH",
       "priceLong": "2 650 Kč/den bez DPH",

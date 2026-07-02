@@ -188,8 +188,10 @@
       ["Délka", machine.dimensions?.lengthM != null ? `${fmt(machine.dimensions.lengthM)} m` : "Neuvedeno"],
       ["Šířka", machine.dimensions?.widthM != null ? `${fmt(machine.dimensions.widthM)} m` : "Neuvedeno"],
       ["Výška stroje", machine.dimensions?.heightM != null ? `${fmt(machine.dimensions.heightM)} m` : "Neuvedeno"],
-      ["Výška se sklopeným zábradlím", machine.foldedHeightText || (machine.foldedHeightM != null ? `${fmt(machine.foldedHeightM)} m` : "Neuvedeno")],
-      ["Rozměr koše", machine.platformText || "Neuvedeno"],
+      ...(machine.category === "scissor" && (machine.foldedHeightText || machine.foldedHeightM != null)
+        ? [["Výška se sklopeným zábradlím", machine.foldedHeightText || `${fmt(machine.foldedHeightM)} m`]]
+        : []),
+      ...(machine.platformText && !/neuvedeno/i.test(machine.platformText) ? [["Rozměr koše", machine.platformText]] : []),
       ["Max. náklon podvozku", machine.maxChassisTiltText || "Neuvedeno"],
       ["Stabilizátory", machineHasStabilizers(machine) ? "Ano" : "Ne"]
     ];
