@@ -1,5 +1,5 @@
 window.MACHINE_CATALOG = {
-  "version": "0.7.9",
+  "version": "0.7.10",
   "updatedAt": "2026-07-02",
   "sourceName": "Zeppelin CZ + technicke podklady vyrobcu",
   "machines": [
@@ -1711,6 +1711,7 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Kloubová plošina JLG Toucan 10E je k pronájmu pro práci v interiérech, kde je potřeba obratnost a tichý provoz.",
       "maxChassisTiltDeg": 2.5,
+      "maxChassisTiltText": "2,5°",
       "dataSources": [
         "Zeppelin CZ",
         "technické podklady výrobce"
@@ -1782,7 +1783,7 @@ window.MACHINE_CATALOG = {
       "verifiedImage": true,
       "description": "Kloubová plošina JLG Toucan 12E je k pronájmu pro přesnou práci ve výškách a výbornou mobilitu v interiéru.",
       "maxChassisTiltDeg": 3,
-      "maxChassisTiltText": "3° / 3°",
+      "maxChassisTiltText": "3°",
       "dataSources": [
         "Zeppelin CZ",
         "technické podklady výrobce"
