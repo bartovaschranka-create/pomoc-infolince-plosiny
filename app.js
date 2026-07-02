@@ -43,7 +43,7 @@
   function imageUrl(machine) {
     if (!machine.image) return "";
     if (/^https?:/i.test(machine.image)) return machine.image;
-    return `https://bartovaschranka-create.github.io/pomoc-infolince-plosiny/${machine.image}`;
+    return new URL(machine.image, document.baseURI).href;
   }
 
   function categoryLabel(categoryId) {
