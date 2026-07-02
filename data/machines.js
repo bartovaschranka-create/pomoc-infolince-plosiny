@@ -1,5 +1,5 @@
 window.MACHINE_CATALOG = {
-  "version": "0.7.11",
+  "version": "0.7.12",
   "updatedAt": "2026-07-02",
   "sourceName": "Zeppelin CZ + technicke podklady vyrobcu",
   "machines": [
@@ -31,7 +31,7 @@ window.MACHINE_CATALOG = {
         "heightM": 1.88
       },
       "foldedHeightM": null,
-      "foldedHeightText": "Pevne zabradli - nelze sklopit; vyska stroje 1,88 m",
+      "foldedHeightText": "Pevné zábradlí - nelze sklopit; výška stroje 1,88 m",
       "platformText": "0,78 × 1,40 m + vysunutí 0,60 m",
       "weightKg": 900,
       "priceShort": "590 Kč/den bez DPH",
