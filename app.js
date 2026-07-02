@@ -46,6 +46,20 @@
     return `https://bartovaschranka-create.github.io/pomoc-infolince-plosiny/${machine.image}`;
   }
 
+  function categoryLabel(categoryId) {
+    return categories.find(category => category.id === categoryId)?.label || "Všechny";
+  }
+
+  function setSelectedCategory(categoryId) {
+    selectedCategory = categoryId || null;
+    document.querySelectorAll(".category-button").forEach(button => {
+      button.classList.toggle("active", selectedCategory && button.dataset.category === selectedCategory);
+    });
+    el("selectedCategoryLabel").textContent = selectedCategory
+      ? `Vybraná kategorie: ${categoryLabel(selectedCategory)}`
+      : "Kategorie: všechny plošiny";
+  }
+
   function renderCategories() {
     el("categoryGrid").innerHTML = categories.map(category => {
       const count = machines.filter(machine => inCategory(machine, category.id)).length;
@@ -58,11 +72,7 @@
   }
 
   function chooseCategory(categoryId) {
-    selectedCategory = categoryId;
-    document.querySelectorAll(".category-button").forEach(button => {
-      button.classList.toggle("active", button.dataset.category === categoryId);
-    });
-    el("selectedCategoryLabel").textContent = `Vybraná kategorie: ${categories.find(category => category.id === categoryId).label}`;
+    setSelectedCategory(categoryId);
     el("filterSection").classList.remove("hidden");
     el("resultsSection").classList.add("hidden");
     el("filterSection").scrollIntoView({ behavior: "smooth" });
@@ -71,7 +81,9 @@
   function filters() {
     return {
       environment: el("environment").value,
+      workType: el("workType").value,
       workingHeight: num("workingHeight"),
+      minCapacity: num("minCapacity"),
       outreach: num("outreach"),
       drive: el("drive").value,
       maxWeight: num("maxWeight"),
@@ -82,11 +94,23 @@
   function match(machine, selectedFilters) {
     if (selectedFilters.environment === "indoor" && (!machine.indoor || machine.driveGroup === "diesel")) return false;
     if (selectedFilters.environment === "outdoor" && !machine.outdoor) return false;
+    if (!machineMatchesWorkType(machine, selectedFilters.workType)) return false;
     if (selectedFilters.workingHeight != null && Number(machine.workingHeightM || 0) < selectedFilters.workingHeight) return false;
+    if (selectedFilters.minCapacity != null && Number(machine.capacityKg || 0) < selectedFilters.minCapacity) return false;
     if (selectedFilters.outreach != null && Number(machine.outreachM || 0) < selectedFilters.outreach) return false;
     if (selectedFilters.drive !== "any" && machine.driveGroup !== selectedFilters.drive) return false;
     if (selectedFilters.maxWeight != null && Number(machine.weightKg || 0) > selectedFilters.maxWeight) return false;
     if (selectedFilters.requiresStabilizers && !machineHasStabilizers(machine)) return false;
+    return true;
+  }
+
+  function machineMatchesWorkType(machine, workType) {
+    if (!workType || workType === "any") return true;
+    if (workType === "straight") return inCategory(machine, "scissor") || inCategory(machine, "mast");
+    if (workType === "obstacle") return inCategory(machine, "articulated") || inCategory(machine, "mast");
+    if (workType === "outreach") return inCategory(machine, "telescopic") || inCategory(machine, "articulated") || inCategory(machine, "trailer") || Number(machine.outreachM || 0) >= 6;
+    if (workType === "narrow") return inCategory(machine, "mast") || Number(machine.dimensions?.widthM || 99) <= 0.85;
+    if (workType === "rough") return machine.driveGroup === "diesel" || inCategory(machine, "telescopic") || (Array.isArray(machine.terrain) && machine.terrain.includes("rough"));
     return true;
   }
 
@@ -137,12 +161,14 @@
     const items = [];
     const heightDelta = deltaText(machine.workingHeightM, requestedFilters.workingHeight, "m");
     const outreachDelta = deltaText(machine.outreachM, requestedFilters.outreach, "m");
+    const capacityDelta = deltaText(machine.capacityKg, requestedFilters.minCapacity, "kg");
     const weightDelta = requestedFilters.maxWeight != null && machine.weightKg != null
       ? deltaText(requestedFilters.maxWeight, machine.weightKg, "kg")
       : "";
 
     if (heightDelta) items.push(`<span><em>Výška</em><strong>${heightDelta}</strong></span>`);
     if (outreachDelta) items.push(`<span><em>Dosah</em><strong>${outreachDelta}</strong></span>`);
+    if (capacityDelta) items.push(`<span><em>Nosnost</em><strong>${capacityDelta}</strong></span>`);
     if (weightDelta) items.push(`<span><em>Hmotnost do</em><strong>${weightDelta}</strong></span>`);
     if (!items.length) return "";
 
@@ -208,11 +234,16 @@
   function runSearch() {
     const selectedFilters = filters();
     const list = machines
-      .filter(machine => inCategory(machine, selectedCategory))
+      .filter(machine => !selectedCategory || inCategory(machine, selectedCategory))
       .filter(machine => match(machine, selectedFilters))
       .sort((a, b) => (a.workingHeightM || 999) - (b.workingHeightM || 999));
-    const category = categories.find(item => item.id === selectedCategory);
-    render(list, `Vhodné ${category.label.toLowerCase()} plošiny`, "Výsledky jsou řazené od nejmenší pracovní výšky.", "", { filters: selectedFilters });
+    const title = selectedCategory
+      ? `Vhodné ${categoryLabel(selectedCategory).toLowerCase()} plošiny`
+      : "Vhodné plošiny napříč kategoriemi";
+    const description = selectedCategory
+      ? "Výsledky jsou řazené od nejmenší pracovní výšky."
+      : "Kategorie není povinná; typ plošiny se odvozuje z vyplněných parametrů a druhu práce.";
+    render(list, title, description, "", { filters: selectedFilters });
   }
 
   function modelMatchesQuery(machine, query) {
@@ -316,6 +347,35 @@
     </article>`;
   }
 
+  function firstNumberFromQuery(query) {
+    const match = String(query || "").replace(",", ".").match(/\d+(?:\.\d+)?/);
+    return match ? Number(match[0]) : null;
+  }
+
+  function smartParameterFilters(query) {
+    const normalizedQuery = normalize(query);
+    const value = firstNumberFromQuery(query);
+    const selectedFilters = {
+      environment: /vnitr|hala|interier/.test(normalizedQuery) ? "indoor" : /venk|teren|terenn/.test(normalizedQuery) ? "outdoor" : "any",
+      workType: /prekaz|kloub/.test(normalizedQuery) ? "obstacle" : /dosah|bok|stran/.test(normalizedQuery) ? "outreach" : /uzk|kompakt|toucan|anten/.test(normalizedQuery) ? "narrow" : /teren|diesel|venk/.test(normalizedQuery) ? "rough" : "any",
+      workingHeight: /vyska|zdvih|metru|metr/.test(normalizedQuery) ? value : null,
+      minCapacity: /nosnost|kos/.test(normalizedQuery) ? value : null,
+      outreach: /dosah|bok|stran/.test(normalizedQuery) ? value : null,
+      drive: /diesel/.test(normalizedQuery) ? "diesel" : /bateri|elektr|aku/.test(normalizedQuery) ? "electric" : "any",
+      maxWeight: /hmotnostdo|vahado/.test(normalizedQuery) ? value : null,
+      requiresStabilizers: /stabiliz|opera|opery/.test(normalizedQuery)
+    };
+    const hasParameter = selectedFilters.workingHeight != null
+      || selectedFilters.minCapacity != null
+      || selectedFilters.outreach != null
+      || selectedFilters.maxWeight != null
+      || selectedFilters.environment !== "any"
+      || selectedFilters.workType !== "any"
+      || selectedFilters.drive !== "any"
+      || selectedFilters.requiresStabilizers;
+    return hasParameter ? selectedFilters : null;
+  }
+
   function renderWeightLookup(query) {
     const serialCandidate = extractSerialCandidate(query);
     const serialMatch = serialCandidate ? findUnitBySerial(serialCandidate) : null;
@@ -360,8 +420,24 @@
       return;
     }
 
-    if (/hmotnost|vaha|vazi|kg/.test(normalizedQuery)) {
+    if (/hmotnostdo|vahado/.test(normalizedQuery)) {
+      const parameterFilters = smartParameterFilters(raw);
+      const list = machines.filter(machine => match(machine, parameterFilters)).sort((a, b) => (a.workingHeightM || 999) - (b.workingHeightM || 999));
+      render(list, "Výsledky podle chytrého zadání", `Dotaz: ${raw}`, "", { filters: parameterFilters });
+      return;
+    }
+
+    if (/hmotnost|vaha|vazi/.test(normalizedQuery)) {
       renderWeightLookup(raw);
+      return;
+    }
+
+    const parameterFilters = smartParameterFilters(raw);
+    if (parameterFilters) {
+      const list = machines
+        .filter(machine => match(machine, parameterFilters))
+        .sort((a, b) => (a.workingHeightM || 999) - (b.workingHeightM || 999));
+      render(list, "Výsledky podle chytrého zadání", `Dotaz: ${raw}`, "", { filters: parameterFilters });
       return;
     }
 
@@ -387,18 +463,18 @@
   function init() {
     machines = (window.MACHINE_CATALOG?.machines || []).filter(machine => machine.active !== false);
     renderCategories();
+    setSelectedCategory(null);
 
     el("categoryGrid").addEventListener("click", event => {
       const button = event.target.closest("[data-category]");
       if (button) chooseCategory(button.dataset.category);
     });
-    el("showAllButton").addEventListener("click", () => render(
-      [...machines].sort((a, b) => (a.workingHeightM || 999) - (b.workingHeightM || 999)),
-      "Celý katalog plošin",
-      "Katalog je řazen podle pracovní výšky."
-    ));
+    el("showAllButton").addEventListener("click", () => {
+      setSelectedCategory(null);
+      runSearch();
+    });
     el("changeCategoryButton").addEventListener("click", () => {
-      el("filterSection").classList.add("hidden");
+      setSelectedCategory(null);
       el("resultsSection").classList.add("hidden");
       el("categorySection").scrollIntoView({ behavior: "smooth" });
     });

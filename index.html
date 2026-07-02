@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#17191d">
   <title>Plošinový poradce | Zeppelin CZ</title>
-  <link rel="stylesheet" href="styles.css?v=0.6.0">
+  <link rel="stylesheet" href="styles.css?v=0.7.0-test">
 </head>
 <body>
   <main class="page-shell">
@@ -14,7 +14,7 @@
         <label class="field">
           <span>Chytré vyhledávání</span>
           <div class="smart-row">
-            <input id="smartSearchInput" type="search" placeholder="např. hmotnost GS-3246, hmotnost GS-3246 + výrobní číslo">
+            <input id="smartSearchInput" type="search" placeholder="např. výška 12 m, dosah 8 m, nosnost 300 kg, hmotnost GS-3246 + výrobní číslo">
             <button class="primary-button" type="submit">Hledat</button>
           </div>
         </label>
@@ -23,16 +23,16 @@
 
     <section id="categorySection" class="panel section-block">
       <div class="section-heading">
-        <div><span class="step">1</span><h2>Vyberte kategorii</h2></div>
-        <button id="showAllButton" class="text-button" type="button">Zobrazit celý katalog</button>
+        <div><span class="step">1</span><h2>Vyberte kategorii volitelně</h2><p>Když kategorii nevyberete, aplikace hledá ve všech plošinách.</p></div>
+        <button id="showAllButton" class="text-button" type="button">Hledat ve všech kategoriích</button>
       </div>
       <div id="categoryGrid" class="category-grid"></div>
     </section>
 
-    <section id="filterSection" class="panel section-block hidden">
+    <section id="filterSection" class="panel section-block">
       <div class="section-heading">
         <div><span class="step">2</span><h2>Zadejte požadavky</h2><p id="selectedCategoryLabel"></p></div>
-        <button id="changeCategoryButton" class="text-button" type="button">Změnit kategorii</button>
+        <button id="changeCategoryButton" class="text-button" type="button">Všechny kategorie</button>
       </div>
       <form id="filterForm">
         <div class="form-grid">
@@ -43,8 +43,21 @@
               <option value="outdoor">Venkovní</option>
             </select>
           </label>
+          <label class="field"><span>Druh práce</span>
+            <select id="workType">
+              <option value="any">Bez omezení</option>
+              <option value="straight">Rovná práce nad sebou</option>
+              <option value="obstacle">Práce přes překážku</option>
+              <option value="outreach">Velký boční dosah</option>
+              <option value="narrow">Úzký prostor / kompaktní stroj</option>
+              <option value="rough">Venkovní / terénní práce</option>
+            </select>
+          </label>
           <label class="field"><span>Minimální pracovní výška</span>
             <div class="input-unit"><input id="workingHeight" type="number" min="0" step="0.1" placeholder="např. 10"><em>m</em></div>
+          </label>
+          <label class="field"><span>Minimální nosnost koše</span>
+            <div class="input-unit"><input id="minCapacity" type="number" min="0" step="1" placeholder="bez omezení"><em>kg</em></div>
           </label>
           <label class="field"><span>Minimální boční dosah</span>
             <div class="input-unit"><input id="outreach" type="number" min="0" step="0.1" placeholder="bez omezení"><em>m</em></div>
@@ -84,9 +97,9 @@
   <footer class="footer">
     <span>Aktuální dostupnost strojů na pobočkách aplikace neověřuje.</span>
   </footer>
-  <div class="fixed-version">0.6.0</div>
+  <div class="fixed-version">0.7.0-test</div>
 
-  <script src="data/machines.js?v=0.6.0"></script>
-  <script src="app.js?v=0.6.0"></script>
+  <script src="data/machines.js?v=0.7.0-test"></script>
+  <script src="app.js?v=0.7.0-test"></script>
 </body>
 </html>
