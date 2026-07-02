@@ -1,5 +1,5 @@
 window.MACHINE_CATALOG = {
-  "version": "0.7.8",
+  "version": "0.7.9",
   "updatedAt": "2026-07-02",
   "sourceName": "Zeppelin CZ + technicke podklady vyrobcu",
   "machines": [
@@ -993,8 +993,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "930 Kč/den bez DPH",
       "verifiedImage": false,
       "description": "Nůžková plošina Zoomlion ZS1012AC-Li nabízena k pronájmu využívá Li-ion technologii pro dlouhý bezemisní provoz.",
-      "maxChassisTiltText": "Neuvedeno ve zdroji",
-      "maxChassisTiltNote": "Produktová stránka Zeppelin neuvádí hodnotu náklonu podvozku; ověřit podle štítku nebo návodu konkrétního stroje.",
+      "maxChassisTiltDeg": 1.5,
+      "maxChassisTiltText": "1,5° / 3°",
       "dataSources": [
         "Zeppelin CZ",
         "technické podklady výrobce"
@@ -1002,7 +1002,14 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn Zoomlion ZS1012ACLi",
       "datasheetLocalUrl": "assets/datasheets/zoomlion-zs1012acli-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/zoomlion-zs1012acli-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/zoomlion-zs1012acli-technicky-souhrn.pdf",
+      "units": [
+        {
+          "serialNumber": "0775500500R010270",
+          "weightKg": 2930,
+          "source": "revize 2026"
+        }
+      ]
     },
     {
       "id": "genie-gs-3390-rt",
@@ -1128,8 +1135,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "1 360 Kč/den bez DPH",
       "verifiedImage": false,
       "description": "Venkovní nůžková plošina Zoomlion ZS1023RT lze pronajmout pro vysokou nosnost, venkovní nasazení a robustní provoz.",
-      "maxChassisTiltText": "Neuvedeno ve zdroji",
-      "maxChassisTiltNote": "Produktová stránka Zeppelin neuvádí hodnotu náklonu podvozku; ověřit podle štítku nebo návodu konkrétního stroje.",
+      "maxChassisTiltDeg": 2,
+      "maxChassisTiltText": "2° / 3°",
       "dataSources": [
         "Zeppelin CZ",
         "technické podklady výrobce"
@@ -1138,7 +1145,14 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn Zoomlion ZS1023RT",
       "datasheetLocalUrl": "assets/datasheets/zoomlion-zs1023rt-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/zoomlion-zs1023rt-technicky-souhrn.pdf",
-      "hasStabilizers": true
+      "hasStabilizers": true,
+      "units": [
+        {
+          "serialNumber": "0774400000R000022",
+          "weightKg": 7350,
+          "source": "revize 2026"
+        }
+      ]
     },
     {
       "id": "genie-gs-4046",
@@ -1253,8 +1267,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "1 340 Kč/den bez DPH",
       "verifiedImage": false,
       "description": "Venkovní nůžková plošina Zoomlion ZS1218ERT je k zapůjčení pro náročné venkovní práce s vysokou nosností.",
-      "maxChassisTiltText": "Neuvedeno ve zdroji",
-      "maxChassisTiltNote": "Produktová stránka Zeppelin neuvádí hodnotu náklonu podvozku; ověřit podle štítku nebo návodu konkrétního stroje.",
+      "maxChassisTiltDeg": 2,
+      "maxChassisTiltText": "2° / 3°",
       "dataSources": [
         "Zeppelin CZ",
         "technické podklady výrobce"
@@ -1263,7 +1277,14 @@ window.MACHINE_CATALOG = {
       "datasheetLabel": "Technický souhrn Zoomlion ZS1218ERT",
       "datasheetLocalUrl": "assets/datasheets/zoomlion-zs1218ert-technicky-souhrn.pdf",
       "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/zoomlion-zs1218ert-technicky-souhrn.pdf",
-      "hasStabilizers": true
+      "hasStabilizers": true,
+      "units": [
+        {
+          "serialNumber": "0773800000R000093",
+          "weightKg": 4900,
+          "source": "revize 2026"
+        }
+      ]
     },
     {
       "id": "jlg-4045-r",
@@ -1488,8 +1509,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "1 730 Kč/den bez DPH",
       "verifiedImage": false,
       "description": "Nůžková plošina Zoomlion ZS1414AC-Li lze pronajmout pro čistý tichý provoz s dlouhou výdrží baterií.",
-      "maxChassisTiltText": "Neuvedeno ve zdroji",
-      "maxChassisTiltNote": "Produktová stránka Zeppelin neuvádí hodnotu náklonu podvozku; ověřit podle štítku nebo návodu konkrétního stroje.",
+      "maxChassisTiltDeg": 1.5,
+      "maxChassisTiltText": "1,5° / 3°",
       "dataSources": [
         "Zeppelin CZ",
         "technické podklady výrobce"
@@ -1497,7 +1518,14 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn Zoomlion ZS1414ACLi",
       "datasheetLocalUrl": "assets/datasheets/zoomlion-zs1414acli-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/zoomlion-zs1414acli-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/zoomlion-zs1414acli-technicky-souhrn.pdf",
+      "units": [
+        {
+          "serialNumber": "0775700501R010108",
+          "weightKg": 3310,
+          "source": "revize 2026"
+        }
+      ]
     },
     {
       "id": "genie-gs-4655-dc",
@@ -2217,8 +2245,8 @@ window.MACHINE_CATALOG = {
       "priceLong": "1 890 Kč/den bez DPH",
       "verifiedImage": false,
       "description": "Kloubová plošina Zoomlion ZA14J lze pronajmout pro bezpečnou práci ve výškách s vysokou přesností ovládání.",
-      "maxChassisTiltText": "Neuvedeno ve zdroji",
-      "maxChassisTiltNote": "Produktová stránka Zeppelin neuvádí hodnotu náklonu podvozku; ověřit podle štítku nebo návodu konkrétního stroje.",
+      "maxChassisTiltDeg": 5,
+      "maxChassisTiltText": "5°",
       "dataSources": [
         "Zeppelin CZ",
         "technické podklady výrobce"
@@ -2226,7 +2254,14 @@ window.MACHINE_CATALOG = {
       "verifiedAt": "2026-06-29",
       "datasheetLabel": "Technický souhrn Zoomlion ZA14J",
       "datasheetLocalUrl": "assets/datasheets/zoomlion-za14j-technicky-souhrn.pdf",
-      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/zoomlion-za14j-technicky-souhrn.pdf"
+      "datasheetUrl": "https://raw.githubusercontent.com/bartovaschranka-create/pomoc-infolince-plosiny/main/assets/datasheets/zoomlion-za14j-technicky-souhrn.pdf",
+      "units": [
+        {
+          "serialNumber": "0773400000R000324",
+          "weightKg": 7100,
+          "source": "revize 2026"
+        }
+      ]
     },
     {
       "id": "genie-z-45-25-jdc",
