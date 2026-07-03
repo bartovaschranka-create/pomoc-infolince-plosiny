@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#17191d">
-  <title>Plošinový poradce | Zeppelin CZ</title>
-  <link rel="stylesheet" href="styles.css?v=0.7.18">
+  <title>Poradce půjčovny | Zeppelin CZ</title>
+  <link rel="stylesheet" href="styles.css?v=0.8.0">
 </head>
 <body>
   <main class="page-shell">
@@ -14,36 +14,47 @@
         <label class="field">
           <span>Chytré vyhledávání</span>
           <div class="smart-row">
-            <input id="smartSearchInput" type="search" placeholder="např. výška 12 m, dosah 8 m, nosnost 300 kg, hmotnost GS-3246 + výrobní číslo">
+            <input id="smartSearchInput" type="search" placeholder="např. plošina 12 m, rypadlo 3 t, elektrocentrála 400 V, hmotnost GS-3246 + výrobní číslo">
             <button class="primary-button" type="submit">Hledat</button>
           </div>
         </label>
       </form>
     </section>
 
+    <section id="groupSection" class="panel section-block">
+      <div class="section-heading">
+        <div><span class="step">1</span><h2>Vyberte skupinu techniky</h2><p>Nejdřív zvolte hlavní část sortimentu půjčovny Zeppelin CZ.</p></div>
+      </div>
+      <div id="groupGrid" class="group-grid"></div>
+    </section>
+
     <section id="categorySection" class="panel section-block">
       <div class="section-heading">
-        <div><span class="step">1</span><h2>Vyberte kategorii volitelně</h2><p>Když kategorii nevyberete, aplikace hledá ve všech plošinách.</p></div>
-        <button id="showAllButton" class="secondary-button" type="button">Hledat ve všech kategoriích</button>
+        <div><span class="step">2</span><h2 id="categoryTitle">Vyberte podkategorii volitelně</h2><p id="categoryDescription">Když podkategorii nevyberete, aplikace hledá v celé vybrané skupině.</p></div>
+        <div class="heading-actions">
+          <button id="changeGroupButton" class="secondary-button" type="button">Změnit skupinu</button>
+          <button id="showAllButton" class="secondary-button" type="button">Hledat ve všech podkategoriích</button>
+        </div>
       </div>
       <div id="categoryGrid" class="category-grid"></div>
     </section>
 
     <section id="filterSection" class="panel section-block">
       <div class="section-heading">
-        <div><span class="step">2</span><h2>Zadejte požadavky</h2><p id="selectedCategoryLabel"></p></div>
-        <button id="changeCategoryButton" class="text-button" type="button">Všechny kategorie</button>
+        <div><span class="step">3</span><h2>Zadejte požadavky</h2><p id="selectedCategoryLabel"></p></div>
+        <button id="changeCategoryButton" class="text-button" type="button">Všechny podkategorie</button>
       </div>
       <form id="filterForm">
+        <div id="configFilterPreview" class="filter-preview hidden"></div>
         <div class="form-grid">
-          <label class="field"><span>Provoz</span>
+          <label class="field"><span id="primaryFilterLabel">Provoz</span>
             <select id="environment">
               <option value="any">Bez omezení</option>
               <option value="indoor">Vnitřní</option>
               <option value="outdoor">Venkovní</option>
             </select>
           </label>
-          <label class="field"><span>Druh práce</span>
+          <label class="field"><span id="secondaryFilterLabel">Druh práce</span>
             <select id="workType">
               <option value="any">Bez omezení</option>
               <option value="straight">Rovná práce nad sebou</option>
@@ -79,7 +90,7 @@
           </label>
         </div>
         <div class="form-actions">
-          <button class="primary-button" type="submit">Vyhledat vhodné plošiny</button>
+          <button id="searchSubmitButton" class="primary-button" type="submit">Vyhledat vhodné plošiny</button>
           <button id="clearFiltersButton" class="secondary-button" type="button">Vymazat filtry</button>
         </div>
       </form>
@@ -97,9 +108,9 @@
   <footer class="footer">
     <span>Aktuální dostupnost strojů na pobočkách aplikace neověřuje.</span>
   </footer>
-  <div class="fixed-version">0.7.18</div>
+  <div class="fixed-version">0.8.0-test</div>
 
-  <script src="data/machines.js?v=0.7.18"></script>
-  <script src="app.js?v=0.7.18"></script>
+  <script src="data/machines.js?v=0.8.0"></script>
+  <script src="app.js?v=0.8.0"></script>
 </body>
 </html>

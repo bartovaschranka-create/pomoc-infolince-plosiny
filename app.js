@@ -1,15 +1,87 @@
 (() => {
   "use strict";
 
-  const categories = [
+  const platformCategories = [
     { id: "scissor", label: "Nůžkové", image: "assets/images/category-scissor.webp", description: "Rovná plocha, sklad, hala" },
     { id: "articulated", label: "Kloubové", image: "assets/images/category-articulated.webp", description: "Přes překážku a do stran" },
     { id: "telescopic", label: "Teleskopické", image: "assets/images/category-telescopic.webp", description: "Velký boční dosah" },
     { id: "trailer", label: "Vlečné", image: "assets/images/category-trailer.webp", description: "Vlečné plošiny OMME" },
     { id: "mast", label: "Anténní", image: "assets/images/category-mast.webp", description: "Toucan a stožárové plošiny" }
   ];
+  const assortmentGroups = [
+    {
+      id: "platforms",
+      label: "Pracovní plošiny",
+      symbol: "P",
+      description: "Nůžkové, kloubové, teleskopické, anténní a vlečné plošiny.",
+      categories: platformCategories,
+      ready: true
+    },
+    {
+      id: "work-machines",
+      label: "Pracovní stroje",
+      symbol: "S",
+      description: "Zemní a manipulační technika podle katalogu půjčovny.",
+      categories: [
+        { id: "tracked-excavators", label: "Pásová rypadla a minirypadla", symbol: "R", description: "Výkopové práce", filters: ["Hmotnost stroje", "Hloubka výkopu"] },
+        { id: "wheeled-excavators", label: "Kolová rypadla", symbol: "R", description: "Mobilní rypadla", filters: ["Hmotnost stroje", "Hloubka výkopu"] },
+        { id: "wheel-loaders", label: "Kolové nakladače", symbol: "N", description: "Nakládka a manipulace", filters: ["Nosnost", "Objem lopaty"] },
+        { id: "skid-steer-loaders", label: "Smykem řízené nakladače", symbol: "N", description: "Kompaktní nakladače", filters: ["Kolový / pásový", "Nosnost"] },
+        { id: "telehandlers", label: "Manipulátory", symbol: "M", description: "Nosnost a výška zdvihu", filters: ["Nosnost", "Výška zdvihu"] },
+        { id: "dumpers", label: "Dumpery", symbol: "D", description: "Převoz materiálu", filters: ["Nosnost", "Objem korby"] },
+        { id: "rollers", label: "Válce", symbol: "V", description: "Hutnění zeminy a asfaltu", filters: ["Zemina / asfalt", "Hmotnost stroje"] }
+      ]
+    },
+    {
+      id: "energy",
+      label: "Energie",
+      symbol: "E",
+      description: "Elektrocentrály, kompresory, světelné věže a rozvaděče.",
+      categories: [
+        { id: "generators", label: "Elektrocentrály", symbol: "E", description: "Mobilní zdroje energie", filters: ["Výkon (kVA)", "230 V / 400 V"] },
+        { id: "compressors", label: "Kompresory", symbol: "K", description: "Stlačený vzduch", filters: ["Tlak (bar)", "Výkon (m³/min)"] },
+        { id: "light-towers", label: "Světelné věže", symbol: "S", description: "Osvětlení stavby", filters: ["Diesel / elektrická", "Výška stožáru"] },
+        { id: "distribution-boards", label: "Rozvaděče", symbol: "R", description: "Staveništní rozvody", filters: ["Proud (A)", "230 V / 400 V"] }
+      ]
+    },
+    {
+      id: "pumps",
+      label: "Čerpací technika",
+      symbol: "Č",
+      description: "Čerpadla, hadice a příslušenství.",
+      categories: [
+        { id: "pumps", label: "Čerpadla", symbol: "Č", description: "Čistá i kalová voda", filters: ["Čistá / kalová voda", "Průtok"] },
+        { id: "hoses", label: "Hadice", symbol: "H", description: "Hadice k čerpací technice", filters: ["Průměr", "Délka"] },
+        { id: "pump-accessories", label: "Příslušenství", symbol: "P", description: "Doplňky k čerpání", filters: ["Typ příslušenství", "Průměr / kompatibilita"] }
+      ]
+    },
+    {
+      id: "climate",
+      label: "Klimatizace a vysoušení",
+      symbol: "K",
+      description: "Odvlhčovače, klimatizace, ohřívače a ventilátory.",
+      categories: [
+        { id: "dehumidifiers", label: "Odvlhčovače", symbol: "O", description: "Vysoušení prostor", filters: ["Velikost prostoru", "Výkon odvlhčení"] },
+        { id: "air-conditioning", label: "Klimatizace", symbol: "K", description: "Chlazení prostor", filters: ["Velikost prostoru", "Chladicí výkon"] },
+        { id: "heaters", label: "Ohřívače", symbol: "O", description: "Dočasné vytápění", filters: ["Druh paliva", "Výkon"] },
+        { id: "fans", label: "Ventilátory", symbol: "V", description: "Proudění vzduchu", filters: ["Průtok vzduchu", "Průměr ventilátoru"] }
+      ]
+    },
+    {
+      id: "other",
+      label: "Ostatní technika",
+      symbol: "O",
+      description: "Příslušenství, adaptéry a ostatní zařízení.",
+      categories: [
+        { id: "accessories", label: "Příslušenství", symbol: "P", description: "Doplňková technika", filters: ["Typ příslušenství", "Kompatibilita"] },
+        { id: "adapters", label: "Adaptéry", symbol: "A", description: "Adaptéry ke strojům", filters: ["Typ adaptéru", "Kompatibilní stroj"] },
+        { id: "other-equipment", label: "Ostatní zařízení", symbol: "Z", description: "Další vybavení půjčovny", filters: ["Druh zařízení", "Hlavní parametr"] }
+      ]
+    }
+  ];
 
   let machines = [];
+  let selectedGroup = "platforms";
   let selectedCategory = null;
 
   const el = id => document.getElementById(id);
@@ -46,8 +118,51 @@
     return new URL(machine.image, document.baseURI).href;
   }
 
+  function activeGroup() {
+    return assortmentGroups.find(group => group.id === selectedGroup) || assortmentGroups[0];
+  }
+
+  function activeCategories() {
+    return activeGroup().categories || [];
+  }
+
+  function isPlatformGroup() {
+    return activeGroup().id === "platforms";
+  }
+
   function categoryLabel(categoryId) {
-    return categories.find(category => category.id === categoryId)?.label || "Všechny";
+    return activeCategories().find(category => category.id === categoryId)?.label || "Všechny";
+  }
+
+  function selectedCategoryConfig() {
+    return activeCategories().find(category => category.id === selectedCategory) || null;
+  }
+
+  function selectedFiltersLabel() {
+    const category = selectedCategoryConfig();
+    const filters = category?.filters || (isPlatformGroup() ? ["Provoz / druh práce", "Pracovní výška"] : ["Hlavní parametr", "Upřesnění"]);
+    return `Filtry: ${filters.slice(0, 2).join(" · ")}`;
+  }
+
+  function renderGroups() {
+    el("groupGrid").innerHTML = assortmentGroups.map(group => {
+      const count = group.id === "platforms" ? machines.length : 0;
+      const countText = group.id === "platforms" ? `${count} strojů v katalogu` : "Kostra připravena pro data";
+      return `<button class="group-button ${group.id === selectedGroup ? "active" : ""}" data-group="${group.id}" type="button">
+        <span class="group-symbol">${esc(group.symbol)}</span>
+        <span><span class="group-label">${esc(group.label)}</span><span class="group-description">${esc(group.description)}</span><span class="group-count">${esc(countText)}</span></span>
+      </button>`;
+    }).join("");
+  }
+
+  function setSelectedGroup(groupId) {
+    selectedGroup = assortmentGroups.some(group => group.id === groupId) ? groupId : "platforms";
+    selectedCategory = null;
+    renderGroups();
+    renderCategories();
+    setSelectedCategory(null);
+    el("filterSection").classList.remove("hidden");
+    el("resultsSection").classList.add("hidden");
   }
 
   function setSelectedCategory(categoryId) {
@@ -56,17 +171,30 @@
       button.classList.toggle("active", selectedCategory && button.dataset.category === selectedCategory);
     });
     el("selectedCategoryLabel").textContent = selectedCategory
-      ? `Vybraná kategorie: ${categoryLabel(selectedCategory)}`
-      : "Kategorie: všechny plošiny";
+      ? `${activeGroup().label}: ${categoryLabel(selectedCategory)} · ${selectedFiltersLabel()}`
+      : `${activeGroup().label}: všechny podkategorie · ${selectedFiltersLabel()}`;
+    updateFilterLabels();
   }
 
   function renderCategories() {
-    el("categoryGrid").innerHTML = categories.map(category => {
-      const count = machines.filter(machine => inCategory(machine, category.id)).length;
+    const group = activeGroup();
+    el("categoryTitle").textContent = `Vyberte podkategorii: ${group.label}`;
+    el("categoryDescription").textContent = group.id === "platforms"
+      ? "Když podkategorii nevyberete, aplikace hledá ve všech plošinách."
+      : "Tato část je připravená jako konfigurační kostra; reálná data doplníme v další fázi.";
+    el("showAllButton").textContent = group.id === "platforms" ? "Hledat ve všech kategoriích" : "Zobrazit celou skupinu";
+    el("categoryGrid").innerHTML = activeCategories().map(category => {
+      const count = group.id === "platforms" ? machines.filter(machine => inCategory(machine, category.id)).length : 0;
+      const icon = category.image
+        ? `<img class="category-photo" src="${esc(category.image)}" alt="${esc(category.label)}" loading="lazy">`
+        : `<span class="category-symbol">${esc(category.symbol || category.label.slice(0, 1))}</span>`;
+      const meta = group.id === "platforms"
+        ? `${count} strojů · ${category.description}`
+        : `${category.description} · ${category.filters?.slice(0, 2).join(" · ") || "filtry připraveny"}`;
       return `<button class="category-button" data-category="${category.id}" type="button">
-        <span class="category-icon"><img class="category-photo" src="${esc(category.image)}" alt="${esc(category.label)} plošina" loading="lazy"></span>
-        <span class="category-label">${category.label}</span>
-        <span class="category-count">${count} strojů · ${category.description}</span>
+        <span class="category-icon">${icon}</span>
+        <span class="category-label">${esc(category.label)}</span>
+        <span class="category-count">${esc(meta)}</span>
       </button>`;
     }).join("");
   }
@@ -76,6 +204,20 @@
     el("filterSection").classList.remove("hidden");
     el("resultsSection").classList.add("hidden");
     el("filterSection").scrollIntoView({ behavior: "smooth" });
+  }
+
+  function updateFilterLabels() {
+    const category = selectedCategoryConfig();
+    const filters = category?.filters || [];
+    el("primaryFilterLabel").textContent = isPlatformGroup() ? "Provoz" : (filters[0] || "Hlavní filtr");
+    el("secondaryFilterLabel").textContent = isPlatformGroup() ? "Druh práce" : (filters[1] || "Upřesnění");
+    document.querySelector("#filterForm .form-grid").classList.toggle("hidden", !isPlatformGroup());
+    el("clearFiltersButton").classList.toggle("hidden", !isPlatformGroup());
+    el("searchSubmitButton").textContent = isPlatformGroup() ? "Vyhledat vhodné plošiny" : "Zobrazit připravenou kategorii";
+    el("configFilterPreview").classList.toggle("hidden", isPlatformGroup());
+    el("configFilterPreview").innerHTML = isPlatformGroup() ? "" : (filters.length
+      ? filters.slice(0, 2).map((filter, index) => `<div class="filter-preview-item"><span>Filtr ${index + 1}</span><strong>${esc(filter)}</strong></div>`).join("")
+      : `<div class="filter-preview-item"><span>Filtr 1</span><strong>Hlavní parametr</strong></div><div class="filter-preview-item"><span>Filtr 2</span><strong>Upřesnění</strong></div>`);
   }
 
   function filters() {
@@ -325,7 +467,7 @@
 
   function render(list, title, description, customHtml = "", context = {}) {
     el("resultsSection").classList.remove("hidden");
-    el("resultsStatus").textContent = customHtml ? "Chytré vyhledávání" : `${list.length} výsledků`;
+    el("resultsStatus").textContent = context.status || (customHtml ? "Chytré vyhledávání" : `${list.length} výsledků`);
     el("resultsTitle").textContent = title;
     el("resultsDescription").textContent = description;
     el("resultsGrid").innerHTML = customHtml || (list.length
@@ -334,7 +476,63 @@
     el("resultsSection").scrollIntoView({ behavior: "smooth" });
   }
 
+  function emptyAssortmentState() {
+    const group = activeGroup();
+    const categories = selectedCategory ? activeCategories().filter(category => category.id === selectedCategory) : activeCategories();
+    const filterItems = categories
+      .flatMap(category => (category.filters || []).map(filter => `${category.label}: ${filter}`))
+      .slice(0, 8);
+    return `<div class="empty">
+      <strong>${esc(group.label)} jsou připravené pro doplnění dat.</strong>
+      V této testovací verzi je hotový strom sortimentu a navigace. Reálné stroje mimo pracovní plošiny doplníme v další fázi podle katalogu Zeppelin CZ.
+      ${filterItems.length ? `<ul>${filterItems.map(item => `<li>${esc(item)}</li>`).join("")}</ul>` : ""}
+    </div>`;
+  }
+
+  function findAssortmentTarget(query) {
+    const normalizedQuery = normalize(query);
+    for (const group of assortmentGroups) {
+      if (normalize(group.label) && normalizedQuery.includes(normalize(group.label))) return { group, category: null };
+      const category = (group.categories || []).find(item => {
+        const label = normalize(item.label);
+        const id = normalize(item.id);
+        return (label && (normalizedQuery.includes(label) || label.includes(normalizedQuery)))
+          || (id && normalizedQuery.includes(id));
+      });
+      if (category) return { group, category };
+    }
+    const aliases = [
+      ["rypadl", "work-machines", "tracked-excavators"],
+      ["nakladac", "work-machines", "wheel-loaders"],
+      ["manipulator", "work-machines", "telehandlers"],
+      ["dumper", "work-machines", "dumpers"],
+      ["valec", "work-machines", "rollers"],
+      ["elektrocentral", "energy", "generators"],
+      ["kompresor", "energy", "compressors"],
+      ["svetelnavez", "energy", "light-towers"],
+      ["rozvadec", "energy", "distribution-boards"],
+      ["cerpadl", "pumps", "pumps"],
+      ["hadic", "pumps", "hoses"],
+      ["odvlhcovac", "climate", "dehumidifiers"],
+      ["klimatizac", "climate", "air-conditioning"],
+      ["ohrivac", "climate", "heaters"],
+      ["ventilator", "climate", "fans"],
+      ["adapter", "other", "adapters"],
+      ["prislusenstvi", "other", "accessories"]
+    ];
+    const match = aliases.find(([alias]) => normalizedQuery.includes(alias));
+    if (!match) return null;
+    const group = assortmentGroups.find(item => item.id === match[1]);
+    const category = group?.categories.find(item => item.id === match[2]) || null;
+    return group ? { group, category } : null;
+  }
+
   function runSearch() {
+    if (!isPlatformGroup()) {
+      const title = selectedCategory ? categoryLabel(selectedCategory) : activeGroup().label;
+      render([], title, "Zatím bez reálných katalogových položek.", emptyAssortmentState(), { status: "Kostra sortimentu" });
+      return;
+    }
     const selectedFilters = filters();
     const list = machines
       .filter(machine => !selectedCategory || inCategory(machine, selectedCategory))
@@ -523,6 +721,14 @@
       return;
     }
 
+    const assortmentTarget = findAssortmentTarget(raw);
+    if (assortmentTarget && assortmentTarget.group.id !== "platforms") {
+      setSelectedGroup(assortmentTarget.group.id);
+      if (assortmentTarget.category) setSelectedCategory(assortmentTarget.category.id);
+      render([], assortmentTarget.category?.label || assortmentTarget.group.label, `Dotaz: ${raw}`, emptyAssortmentState(), { status: "Kostra sortimentu" });
+      return;
+    }
+
     if (/hmotnostdo|vahado/.test(normalizedQuery)) {
       const parameterFilters = smartParameterFilters(raw);
       const list = machines.filter(machine => match(machine, parameterFilters)).sort((a, b) => (a.workingHeightM || 999) - (b.workingHeightM || 999));
@@ -565,9 +771,17 @@
 
   function init() {
     machines = (window.MACHINE_CATALOG?.machines || []).filter(machine => machine.active !== false);
+    renderGroups();
     renderCategories();
     setSelectedCategory(null);
 
+    el("groupGrid").addEventListener("click", event => {
+      const button = event.target.closest("[data-group]");
+      if (button) {
+        setSelectedGroup(button.dataset.group);
+        el("categorySection").scrollIntoView({ behavior: "smooth" });
+      }
+    });
     el("categoryGrid").addEventListener("click", event => {
       const button = event.target.closest("[data-category]");
       if (button) chooseCategory(button.dataset.category);
@@ -575,6 +789,10 @@
     el("showAllButton").addEventListener("click", () => {
       setSelectedCategory(null);
       runSearch();
+    });
+    el("changeGroupButton").addEventListener("click", () => {
+      el("resultsSection").classList.add("hidden");
+      el("groupSection").scrollIntoView({ behavior: "smooth" });
     });
     el("changeCategoryButton").addEventListener("click", () => {
       setSelectedCategory(null);
