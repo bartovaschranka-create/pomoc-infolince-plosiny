@@ -262,7 +262,6 @@
       button.classList.toggle("active", button.dataset.intent === intentId);
     });
     setSelectedGroup(intent.group, { keepIntent: true });
-    if (intent.category) setSelectedCategory(intent.category);
     el("categorySection").scrollIntoView({ behavior: "smooth" });
   }
 
@@ -281,6 +280,7 @@
   function selectedCategoryConfig() {
     return visibleCategories().find(category => category.id === selectedCategory)
       || activeCategories().find(category => category.id === selectedCategory)
+      || (visibleCategories().length === 1 ? visibleCategories()[0] : null)
       || null;
   }
 
@@ -297,7 +297,7 @@
     renderCategories();
     setSelectedCategory(null);
     el("categorySection").classList.remove("hidden");
-    el("filterSection").classList.remove("hidden");
+    el("filterSection").classList.add("hidden");
     el("resultsSection").classList.add("hidden");
   }
 
@@ -352,10 +352,21 @@
     el("primaryFilterLabel").textContent = isPlatformGroup() ? "Provoz" : (filters[0] || "Hlavní filtr");
     el("secondaryFilterLabel").textContent = isPlatformGroup() ? "Druh práce" : (filters[1] || "Upřesnění");
     document.querySelector("#filterForm .form-grid").classList.toggle("hidden", !isPlatformGroup());
-    el("clearFiltersButton").classList.toggle("hidden", !isPlatformGroup());
+    el("clearFiltersButton").classList.remove("hidden");
     el("searchSubmitButton").textContent = isPlatformGroup() ? "Vyhledat vhodné plošiny" : "Vyhledat techniku";
     el("configFilterPreview").classList.toggle("hidden", isPlatformGroup());
     el("configFilterPreview").innerHTML = isPlatformGroup() ? "" : consultationPreview(filters);
+    if (!isPlatformGroup()) el("configFilterPreview").innerHTML = equipmentFilterPanel(filters);
+  }
+
+  function equipmentFilterPanel(filters) {
+    const items = (filters.length ? filters.slice(0, 2) : ["Model / velikost", "HlavnĂ­ technickĂ˝ parametr"]);
+    return `<div class="filter-preview-note">
+      <strong>Parametry pro infolinku</strong>
+      <span>VyplĹte jen to, co zĂˇkaznĂ­k vĂ­. Hodnoty se hledajĂ­ v nĂˇzvu a technickĂ˝ch ĂşdajĂ­ch katalogu Zeppelin CZ.</span>
+    </div>
+    <label class="field equipment-filter-field"><span>Model, znaÄŤka nebo klĂ­ÄŤovĂ© slovo</span><input id="equipmentText" type="search" placeholder="napĹ™. Cat 301.8, Manitou, 400 V"></label>
+    ${items.map((filter, index) => `<label class="field equipment-filter-field"><span>${esc(filter)}</span><input id="equipmentFilter${index + 1}" type="search" placeholder="bez omezenĂ­"></label>`).join("")}`;
   }
 
   function consultationPreview(filters) {
@@ -377,6 +388,21 @@
       maxWeight: num("maxWeight"),
       requiresStabilizers: el("requiresStabilizers").checked
     };
+  }
+
+  function equipmentFilters() {
+    return ["equipmentText", "equipmentFilter1", "equipmentFilter2"]
+      .map(id => document.getElementById(id)?.value || "")
+      .map(value => value.trim())
+      .filter(Boolean);
+  }
+
+  function equipmentMatchesFilters(item, values) {
+    if (!values.length) return true;
+    const text = normalize(`${item.title || ""} ${item.sourceCategory || ""} ${item.searchText || ""}`);
+    return values.every(value => (normalize(value).match(/[a-z0-9]+/g) || [])
+      .filter(part => part.length >= 2)
+      .every(part => text.includes(part)));
   }
 
   function match(machine, selectedFilters) {
@@ -749,8 +775,10 @@
     if (!isPlatformGroup()) {
       const title = selectedCategory ? categoryLabel(selectedCategory) : activeGroup().label;
       const allowedCategories = new Set(visibleCategories().map(category => category.id));
+      const selectedEquipmentFilters = equipmentFilters();
       const list = groupEquipment()
         .filter(item => selectedCategory ? item.category === selectedCategory : allowedCategories.has(item.category))
+        .filter(item => equipmentMatchesFilters(item, selectedEquipmentFilters))
         .sort((a, b) => String(a.title).localeCompare(String(b.title), "cs"));
       renderEquipment(list, title, "Výsledky jsou načtené z veřejného katalogu půjčovny Zeppelin CZ.", `${list.length} položek`);
       return;
@@ -1023,7 +1051,9 @@
     });
     el("showAllButton").addEventListener("click", () => {
       setSelectedCategory(null);
-      runSearch();
+      el("filterSection").classList.remove("hidden");
+      el("resultsSection").classList.add("hidden");
+      el("filterSection").scrollIntoView({ behavior: "smooth" });
     });
     el("changeGroupButton").addEventListener("click", () => {
       el("resultsSection").classList.add("hidden");
