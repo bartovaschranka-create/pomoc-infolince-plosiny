@@ -175,23 +175,37 @@
     return /(attachment|prislusenstvi|adapter|kladivo|lopata|drapak|hak|winch|rotavator|mulcovac|vrtaci|desky)/.test(text);
   }
 
-  function imageLooksLikeAccessory(item) {
+  function isAccessoryCategory(categoryId) {
+    return [
+      "excavator-attachments", "skid-steer-attachments", "adapters", "accessories",
+      "ground-protection", "load-banks"
+    ].includes(categoryId);
+  }
+
+  function imageLooksLikeAccessory(item, allowAccessory = false) {
     const text = normalize(item.image || "");
+    if (allowAccessory) return false;
     return /(lopata|skeleton|kladivo|drapak|hak|winch|rotavator|mulcovac|vrtaci|roznasecidesky)/.test(text)
       && !isAccessoryLike(item);
   }
 
-  function firstEquipmentImage(items) {
-    const preferred = (items || []).find(item => item.image && !isAccessoryLike(item) && !imageLooksLikeAccessory(item));
+  function firstEquipmentImage(items, preferAccessory = false) {
+    const pool = items || [];
+    if (preferAccessory) {
+      const accessory = pool.find(item => item.image && isAccessoryLike(item));
+      if (accessory) return accessory.image;
+      return pool.find(item => item.image)?.image || "";
+    }
+    const preferred = pool.find(item => item.image && !isAccessoryLike(item) && !imageLooksLikeAccessory(item));
     if (preferred) return preferred.image;
-    const nonAccessoryImage = (items || []).find(item => item.image && !imageLooksLikeAccessory(item));
+    const nonAccessoryImage = pool.find(item => item.image && !imageLooksLikeAccessory(item));
     return nonAccessoryImage?.image || "";
   }
 
   function categoryVisual(category, group) {
     const catalogImage = group.id === "platforms"
       ? category.image
-      : firstEquipmentImage(categoryEquipment(category.id, group.id));
+      : firstEquipmentImage(categoryEquipment(category.id, group.id), isAccessoryCategory(category.id));
     return catalogImage
       ? imageTag(catalogImage, "category-photo", category.label)
       : imageTag(category.icon || group.icon, "category-art", category.label);
@@ -207,7 +221,7 @@
     const items = category
       ? categoryEquipment(category.id, group?.id)
       : groupEquipment(group?.id);
-    const image = firstEquipmentImage(items);
+    const image = firstEquipmentImage(items, category ? isAccessoryCategory(category.id) : false);
     return image
       ? imageTag(image, "category-photo", intent.label)
       : imageTag(intent.icon, "category-art", intent.label);
