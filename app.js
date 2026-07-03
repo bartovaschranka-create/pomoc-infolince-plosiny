@@ -185,21 +185,9 @@
     return `Filtry: ${filters.slice(0, 2).join(" · ")}`;
   }
 
-  function renderGroups() {
-    el("groupGrid").innerHTML = assortmentGroups.map(group => {
-      const count = group.id === "platforms" ? machines.length : 0;
-      const countText = group.id === "platforms" ? `${count} strojů v katalogu` : "Kostra připravena pro data";
-      return `<button class="group-button ${group.id === selectedGroup ? "active" : ""}" data-group="${group.id}" type="button">
-        <span class="group-icon">${imageTag(group.icon, "category-art", group.label)}</span>
-        <span><span class="group-label">${esc(group.label)}</span><span class="group-description">${esc(group.description)}</span><span class="group-count">${esc(countText)}</span></span>
-      </button>`;
-    }).join("");
-  }
-
   function setSelectedGroup(groupId) {
     selectedGroup = assortmentGroups.some(group => group.id === groupId) ? groupId : "platforms";
     selectedCategory = null;
-    renderGroups();
     renderCategories();
     setSelectedCategory(null);
     el("filterSection").classList.remove("hidden");
@@ -813,20 +801,12 @@
   function init() {
     machines = (window.MACHINE_CATALOG?.machines || []).filter(machine => machine.active !== false);
     renderIntents();
-    renderGroups();
     renderCategories();
     setSelectedCategory(null);
 
     el("intentGrid").addEventListener("click", event => {
       const button = event.target.closest("[data-intent]");
       if (button) chooseIntent(button.dataset.intent);
-    });
-    el("groupGrid").addEventListener("click", event => {
-      const button = event.target.closest("[data-group]");
-      if (button) {
-        setSelectedGroup(button.dataset.group);
-        el("categorySection").scrollIntoView({ behavior: "smooth" });
-      }
     });
     el("categoryGrid").addEventListener("click", event => {
       const button = event.target.closest("[data-category]");
@@ -838,7 +818,7 @@
     });
     el("changeGroupButton").addEventListener("click", () => {
       el("resultsSection").classList.add("hidden");
-      el("groupSection").scrollIntoView({ behavior: "smooth" });
+      el("intentSection").scrollIntoView({ behavior: "smooth" });
     });
     el("changeCategoryButton").addEventListener("click", () => {
       setSelectedCategory(null);
