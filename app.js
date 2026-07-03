@@ -38,11 +38,15 @@
       categories: [
         { id: "tracked-excavators", label: "Pásová rypadla a minirypadla", icon: "assets/images/work-dig.svg", description: "Výkopové práce", filters: ["Hmotnost stroje", "Hloubka výkopu"] },
         { id: "wheeled-excavators", label: "Kolová rypadla", icon: "assets/images/work-dig.svg", description: "Mobilní rypadla", filters: ["Hmotnost stroje", "Hloubka výkopu"] },
+        { id: "excavator-attachments", label: "Příslušenství k rypadlům", icon: "assets/images/work-tools.svg", description: "Kladiva, drapáky, vrtací zařízení", filters: ["Typ nářadí", "Kompatibilita"] },
         { id: "wheel-loaders", label: "Kolové nakladače", icon: "assets/images/work-load.svg", description: "Nakládka a manipulace", filters: ["Nosnost", "Objem lopaty"] },
+        { id: "backhoe-loaders", label: "Rypadlo-nakladače", icon: "assets/images/work-dig.svg", description: "Univerzální stroje", filters: ["Hmotnost stroje", "Hloubka výkopu"] },
         { id: "skid-steer-loaders", label: "Smykem řízené nakladače", icon: "assets/images/work-load.svg", description: "Kompaktní nakladače", filters: ["Kolový / pásový", "Nosnost"] },
+        { id: "skid-steer-attachments", label: "Příslušenství ke smykovým nakladačům", icon: "assets/images/work-tools.svg", description: "Nářadí k nakladačům", filters: ["Typ nářadí", "Kompatibilita"] },
         { id: "telehandlers", label: "Manipulátory", icon: "assets/images/work-load.svg", description: "Nosnost a výška zdvihu", filters: ["Nosnost", "Výška zdvihu"] },
         { id: "dumpers", label: "Dumpery", icon: "assets/images/work-haul.svg", description: "Převoz materiálu", filters: ["Nosnost", "Objem korby"] },
-        { id: "rollers", label: "Válce", icon: "assets/images/work-compact.svg", description: "Hutnění zeminy a asfaltu", filters: ["Zemina / asfalt", "Hmotnost stroje"] }
+        { id: "rollers", label: "Válce", icon: "assets/images/work-compact.svg", description: "Hutnění zeminy a asfaltu", filters: ["Zemina / asfalt", "Hmotnost stroje"] },
+        { id: "dozers", label: "Dozery", icon: "assets/images/work-compact.svg", description: "Planýrování a zemní práce", filters: ["Hmotnost stroje", "Typ podvozku"] }
       ]
     },
     {
@@ -54,6 +58,7 @@
         { id: "generators", label: "Elektrocentrály", icon: "assets/images/work-power.svg", description: "Mobilní zdroje energie", filters: ["Výkon (kVA)", "230 V / 400 V"] },
         { id: "compressors", label: "Kompresory", icon: "assets/images/work-power.svg", description: "Stlačený vzduch", filters: ["Tlak (bar)", "Výkon (m³/min)"] },
         { id: "light-towers", label: "Světelné věže", icon: "assets/images/work-light.svg", description: "Osvětlení stavby", filters: ["Diesel / elektrická", "Výška stožáru"] },
+        { id: "load-banks", label: "Odporová zátěž", icon: "assets/images/work-distribution.svg", description: "Testování zdrojů", filters: ["Výkon", "Napětí"] },
         { id: "distribution-boards", label: "Rozvaděče", icon: "assets/images/work-distribution.svg", description: "Staveništní rozvody", filters: ["Proud (A)", "230 V / 400 V"] }
       ]
     },
@@ -88,12 +93,22 @@
       categories: [
         { id: "accessories", label: "Příslušenství", icon: "assets/images/work-tools.svg", description: "Doplňková technika", filters: ["Typ příslušenství", "Kompatibilita"] },
         { id: "adapters", label: "Adaptéry", icon: "assets/images/work-tools.svg", description: "Adaptéry ke strojům", filters: ["Typ adaptéru", "Kompatibilní stroj"] },
+        { id: "trailers", label: "Přívěsné vozíky", icon: "assets/images/work-haul.svg", description: "Přeprava techniky", filters: ["Užitná hmotnost", "Typ vozíku"] },
+        { id: "containers", label: "Kontejnery", icon: "assets/images/work-tools.svg", description: "Skladovací a úložné kontejnery", filters: ["Rozměr", "Typ kontejneru"] },
+        { id: "small-mechanization", label: "Malá mechanizace", icon: "assets/images/work-tools.svg", description: "Kladiva, pily, nivelace", filters: ["Typ nářadí", "Výkon"] },
+        { id: "ground-protection", label: "Roznášecí desky", icon: "assets/images/work-tools.svg", description: "Ochrana povrchu", filters: ["Rozměr", "Zatížení"] },
+        { id: "landscape", label: "Krajinářská technika", icon: "assets/images/work-tools.svg", description: "Frézy, štěpkovače a rýhovače", filters: ["Typ stroje", "Hmotnost"] },
+        { id: "compaction", label: "Vibrační a hutnicí technika", icon: "assets/images/work-compact.svg", description: "Desky, pěchy, válce", filters: ["Typ hutnění", "Hmotnost"] },
+        { id: "crushing-screening", label: "Drtičky, třídičky a dopravníky", icon: "assets/images/work-load.svg", description: "Zpracování materiálu", filters: ["Typ stroje", "Výkon"] },
+        { id: "cleaning", label: "Tlakové čističe a vysavače", icon: "assets/images/work-tools.svg", description: "Čištění a údržba", filters: ["Tlak", "Ohřev vody"] },
+        { id: "scaffolding", label: "Lešení", icon: "assets/images/work-lift.svg", description: "Pojízdné lešení", filters: ["Pracovní výška", "Rozměr"] },
         { id: "other-equipment", label: "Ostatní zařízení", icon: "assets/images/work-tools.svg", description: "Další vybavení půjčovny", filters: ["Druh zařízení", "Hlavní parametr"] }
       ]
     }
   ];
 
   let machines = [];
+  let equipmentItems = [];
   let selectedGroup = "platforms";
   let selectedCategory = null;
 
@@ -143,6 +158,14 @@
     return activeGroup().id === "platforms";
   }
 
+  function groupEquipment(groupId = selectedGroup) {
+    return equipmentItems.filter(item => item.group === groupId);
+  }
+
+  function categoryEquipment(categoryId, groupId = selectedGroup) {
+    return groupEquipment(groupId).filter(item => item.category === categoryId);
+  }
+
   function imageTag(src, className, alt) {
     return `<img class="${className}" src="${esc(src)}" alt="${esc(alt)}" loading="lazy">`;
   }
@@ -173,6 +196,14 @@
 
   function categoryLabel(categoryId) {
     return activeCategories().find(category => category.id === categoryId)?.label || "Všechny";
+  }
+
+  function globalCategoryLabel(categoryId) {
+    for (const group of assortmentGroups) {
+      const category = (group.categories || []).find(item => item.id === categoryId);
+      if (category) return category.label;
+    }
+    return "Katalog";
   }
 
   function selectedCategoryConfig() {
@@ -210,16 +241,18 @@
     el("categoryTitle").textContent = `Vyberte podkategorii: ${group.label}`;
     el("categoryDescription").textContent = group.id === "platforms"
       ? "Když podkategorii nevyberete, aplikace hledá ve všech plošinách."
-      : "Tato část je připravená jako konfigurační kostra; reálná data doplníme v další fázi.";
+      : "Když podkategorii nevyberete, aplikace hledá v celé vybrané skupině podle katalogu Zeppelin CZ.";
     el("showAllButton").textContent = group.id === "platforms" ? "Hledat ve všech kategoriích" : "Zobrazit celou skupinu";
     el("categoryGrid").innerHTML = activeCategories().map(category => {
-      const count = group.id === "platforms" ? machines.filter(machine => inCategory(machine, category.id)).length : 0;
+      const count = group.id === "platforms"
+        ? machines.filter(machine => inCategory(machine, category.id)).length
+        : categoryEquipment(category.id, group.id).length;
       const icon = category.image
         ? imageTag(category.image, "category-photo", category.label)
         : imageTag(category.icon || group.icon, "category-art", category.label);
       const meta = group.id === "platforms"
         ? `${count} strojů · ${category.description}`
-        : `${category.description} · ${category.filters?.slice(0, 2).join(" · ") || "filtry připraveny"}`;
+        : `${count} položek · ${category.description}`;
       return `<button class="category-button" data-category="${category.id}" type="button">
         <span class="category-icon">${icon}</span>
         <span class="category-label">${esc(category.label)}</span>
@@ -240,9 +273,9 @@
     const filters = category?.filters || [];
     el("primaryFilterLabel").textContent = isPlatformGroup() ? "Provoz" : (filters[0] || "Hlavní filtr");
     el("secondaryFilterLabel").textContent = isPlatformGroup() ? "Druh práce" : (filters[1] || "Upřesnění");
-    document.querySelector("#filterForm .form-grid").classList.toggle("hidden", !isPlatformGroup());
-    el("clearFiltersButton").classList.toggle("hidden", !isPlatformGroup());
-    el("searchSubmitButton").textContent = isPlatformGroup() ? "Vyhledat vhodné plošiny" : "Zobrazit připravenou kategorii";
+    document.querySelector("#filterForm .form-grid").classList.remove("hidden");
+    el("clearFiltersButton").classList.remove("hidden");
+    el("searchSubmitButton").textContent = isPlatformGroup() ? "Vyhledat vhodné plošiny" : "Vyhledat techniku";
     el("configFilterPreview").classList.toggle("hidden", isPlatformGroup());
     el("configFilterPreview").innerHTML = isPlatformGroup() ? "" : (filters.length
       ? filters.slice(0, 2).map((filter, index) => `<div class="filter-preview-item"><span>Filtr ${index + 1}</span><strong>${esc(filter)}</strong></div>`).join("")
@@ -494,6 +527,66 @@
     </article>`;
   }
 
+  function equipmentImageUrl(item) {
+    if (!item.image) return "assets/images/placeholder.svg";
+    return item.image;
+  }
+
+  function equipmentMatches(item, selectedFilters = {}) {
+    const text = normalize(`${item.title || ""} ${item.sourceCategory || ""} ${item.searchText || ""}`);
+    if (selectedFilters.maxWeight != null) {
+      const weightMatch = `${item.searchText || ""}`.match(/hmotnost\s+([0-9.,]+)/i);
+      if (weightMatch) {
+        const weightKg = Number(weightMatch[1].replace(".", "").replace(",", "."));
+        if (weightKg > selectedFilters.maxWeight) return false;
+      }
+    }
+    if (selectedFilters.drive === "electric" && !/(elektr|bateri|aku|230|400)/.test(text)) return false;
+    if (selectedFilters.drive === "diesel" && !/(diesel|nafta|motor)/.test(text)) return false;
+    return true;
+  }
+
+  function equipmentSearchMatches(item, query) {
+    const compact = normalize(query);
+    if (!compact) return true;
+    const text = `${item.title || ""} ${item.sourceCategory || ""} ${item.searchText || ""} ${item.group || ""} ${item.category || ""}`;
+    return normalize(text).includes(compact);
+  }
+
+  function equipmentCard(item, index) {
+    const specs = Array.isArray(item.specs) ? item.specs.slice(0, 7) : [];
+    return `<article class="machine-card equipment-card">
+      <div class="machine-image-wrap">
+        <span class="badge">Shoda č. ${index + 1}</span>
+        <img class="machine-image" src="${esc(equipmentImageUrl(item))}" alt="${esc(item.title)}" onerror="this.src='assets/images/placeholder.svg'">
+      </div>
+      <div class="machine-content">
+        <h3 class="machine-title">${esc(item.title)}</h3>
+        <p class="muted">${esc(globalCategoryLabel(item.category))} · ${esc(item.source || "Zeppelin CZ")}</p>
+        <div class="spec-panel always-open">
+          <h4>Technické údaje</h4>
+          ${specs.length
+            ? specs.map(row => `<div class="spec-row"><span>${esc(row.label)}</span><strong>${esc(row.value)}</strong></div>`).join("")
+            : `<div class="spec-row"><span>Parametry</span><strong>Načíst na Zeppelin.cz</strong></div>`}
+        </div>
+        <div class="machine-actions">
+          <a class="link-button primary" target="_blank" rel="noopener" href="${esc(item.sourceUrl || "#")}">Zeppelin.cz ↗</a>
+        </div>
+      </div>
+    </article>`;
+  }
+
+  function renderEquipment(list, title, description, status = "") {
+    el("resultsSection").classList.remove("hidden");
+    el("resultsStatus").textContent = status || `${list.length} výsledků`;
+    el("resultsTitle").textContent = title;
+    el("resultsDescription").textContent = description;
+    el("resultsGrid").innerHTML = list.length
+      ? list.map((item, index) => equipmentCard(item, index)).join("")
+      : emptyAssortmentState();
+    el("resultsSection").scrollIntoView({ behavior: "smooth" });
+  }
+
   function render(list, title, description, customHtml = "", context = {}) {
     el("resultsSection").classList.remove("hidden");
     el("resultsStatus").textContent = context.status || (customHtml ? "Chytré vyhledávání" : `${list.length} výsledků`);
@@ -512,8 +605,8 @@
       .flatMap(category => (category.filters || []).map(filter => `${category.label}: ${filter}`))
       .slice(0, 8);
     return `<div class="empty">
-      <strong>${esc(group.label)} jsou připravené pro doplnění dat.</strong>
-      V této testovací verzi je hotový strom sortimentu a navigace. Reálné stroje mimo pracovní plošiny doplníme v další fázi podle katalogu Zeppelin CZ.
+      <strong>Pro zadané parametry nebyla nalezena položka.</strong>
+      Zkuste zrušit podkategorii, zadat kratší název modelu nebo otevřít související skupinu na webu Zeppelin CZ.
       ${filterItems.length ? `<ul>${filterItems.map(item => `<li>${esc(item)}</li>`).join("")}</ul>` : ""}
     </div>`;
   }
@@ -532,13 +625,16 @@
     }
     const aliases = [
       ["rypadl", "work-machines", "tracked-excavators"],
+      ["kladiv", "work-machines", "excavator-attachments"],
       ["nakladac", "work-machines", "wheel-loaders"],
       ["manipulator", "work-machines", "telehandlers"],
       ["dumper", "work-machines", "dumpers"],
       ["valec", "work-machines", "rollers"],
+      ["dozer", "work-machines", "dozers"],
       ["elektrocentral", "energy", "generators"],
       ["kompresor", "energy", "compressors"],
       ["svetelnavez", "energy", "light-towers"],
+      ["osvetlovac", "energy", "light-towers"],
       ["rozvadec", "energy", "distribution-boards"],
       ["cerpadl", "pumps", "pumps"],
       ["hadic", "pumps", "hoses"],
@@ -546,6 +642,15 @@
       ["klimatizac", "climate", "air-conditioning"],
       ["ohrivac", "climate", "heaters"],
       ["ventilator", "climate", "fans"],
+      ["prives", "other", "trailers"],
+      ["kontejner", "other", "containers"],
+      ["vibrac", "other", "compaction"],
+      ["stepkovac", "other", "landscape"],
+      ["parez", "other", "landscape"],
+      ["drtic", "other", "crushing-screening"],
+      ["tridic", "other", "crushing-screening"],
+      ["cistic", "other", "cleaning"],
+      ["leseni", "other", "scaffolding"],
       ["adapter", "other", "adapters"],
       ["prislusenstvi", "other", "accessories"]
     ];
@@ -558,8 +663,13 @@
 
   function runSearch() {
     if (!isPlatformGroup()) {
+      const selectedFilters = filters();
       const title = selectedCategory ? categoryLabel(selectedCategory) : activeGroup().label;
-      render([], title, "Zatím bez reálných katalogových položek.", emptyAssortmentState(), { status: "Kostra sortimentu" });
+      const list = groupEquipment()
+        .filter(item => !selectedCategory || item.category === selectedCategory)
+        .filter(item => equipmentMatches(item, selectedFilters))
+        .sort((a, b) => String(a.title).localeCompare(String(b.title), "cs"));
+      renderEquipment(list, title, "Výsledky jsou načtené z veřejného katalogu půjčovny Zeppelin CZ.", `${list.length} položek`);
       return;
     }
     const selectedFilters = filters();
@@ -754,7 +864,11 @@
     if (assortmentTarget && assortmentTarget.group.id !== "platforms") {
       setSelectedGroup(assortmentTarget.group.id);
       if (assortmentTarget.category) setSelectedCategory(assortmentTarget.category.id);
-      render([], assortmentTarget.category?.label || assortmentTarget.group.label, `Dotaz: ${raw}`, emptyAssortmentState(), { status: "Kostra sortimentu" });
+      const list = equipmentItems
+        .filter(item => item.group === assortmentTarget.group.id)
+        .filter(item => !assortmentTarget.category || item.category === assortmentTarget.category.id)
+        .sort((a, b) => String(a.title).localeCompare(String(b.title), "cs"));
+      renderEquipment(list, assortmentTarget.category?.label || assortmentTarget.group.label, `Dotaz: ${raw}`, `${list.length} položek`);
       return;
     }
 
@@ -791,6 +905,16 @@
     if (/toucan|anten|stoz|vertik/.test(normalizedQuery)) list = list.filter(isMast);
     if (/vlec|omme/.test(normalizedQuery)) list = list.filter(machine => machine.category === "trailer");
 
+    if (!list.length) {
+      const equipmentList = equipmentItems
+        .filter(item => equipmentSearchMatches(item, raw))
+        .sort((a, b) => String(a.title).localeCompare(String(b.title), "cs"));
+      if (equipmentList.length) {
+        renderEquipment(equipmentList, "Výsledky chytrého hledání", `Dotaz: ${raw}`, `${equipmentList.length} položek`);
+        return;
+      }
+    }
+
     render(
       list.sort((a, b) => (a.workingHeightM || 999) - (b.workingHeightM || 999)),
       "Výsledky chytrého hledání",
@@ -800,6 +924,7 @@
 
   function init() {
     machines = (window.MACHINE_CATALOG?.machines || []).filter(machine => machine.active !== false);
+    equipmentItems = (window.EQUIPMENT_CATALOG?.items || []);
     renderIntents();
     renderCategories();
     setSelectedCategory(null);
