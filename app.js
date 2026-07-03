@@ -10,15 +10,15 @@
   ];
   const workIntents = [
     { id: "lift-people", label: "Zvedat osoby / pracovat ve výšce", description: "Servis, montáže, sklad, hala nebo práce venku.", icon: "assets/images/work-lift.svg", group: "platforms" },
-    { id: "dig", label: "Kopat nebo hloubit výkop", description: "Rýhy, základy, výkopové práce.", icon: "assets/images/work-dig.svg", group: "work-machines", category: "tracked-excavators" },
-    { id: "load", label: "Nakládat materiál", description: "Lopata, nakládka, manipulace se sypkým materiálem.", icon: "assets/images/work-load.svg", group: "work-machines", category: "wheel-loaders" },
-    { id: "lift-material", label: "Zvedat a přesouvat materiál", description: "Palety, břemena, práce s výškou zdvihu.", icon: "assets/images/work-load.svg", group: "work-machines", category: "telehandlers" },
-    { id: "haul-earth", label: "Vyvážet zeminu", description: "Převoz zeminy a materiálu v korbě.", icon: "assets/images/work-haul.svg", group: "work-machines", category: "dumpers" },
-    { id: "compact", label: "Hutnit zeminu nebo asfalt", description: "Válcování, hutnění podkladů a povrchů.", icon: "assets/images/work-compact.svg", group: "work-machines", category: "rollers" },
-    { id: "power", label: "Napájet stavbu elektřinou", description: "Elektrocentrála, rozvaděč, 230 V / 400 V.", icon: "assets/images/work-power.svg", group: "energy", category: "generators" },
-    { id: "air", label: "Potřebuji stlačený vzduch", description: "Kompresor podle tlaku a výkonu.", icon: "assets/images/work-power.svg", group: "energy", category: "compressors" },
-    { id: "pump-water", label: "Čerpat vodu", description: "Čistá voda, kalová voda, hadice a průtok.", icon: "assets/images/work-pump.svg", group: "pumps", category: "pumps" },
-    { id: "dry-cool-heat", label: "Vysoušet, chladit nebo topit", description: "Odvlhčovače, klimatizace, ohřívače, ventilátory.", icon: "assets/images/work-climate.svg", group: "climate" },
+    { id: "dig", label: "Kopat nebo hloubit výkop", description: "Rýhy, základy, výkopové práce.", icon: "assets/images/work-dig.svg", group: "work-machines", category: "tracked-excavators", categories: ["tracked-excavators", "wheeled-excavators", "backhoe-loaders"] },
+    { id: "load", label: "Nakládat materiál", description: "Lopata, nakládka, manipulace se sypkým materiálem.", icon: "assets/images/work-load.svg", group: "work-machines", category: "wheel-loaders", categories: ["wheel-loaders", "skid-steer-loaders", "telehandlers"] },
+    { id: "lift-material", label: "Zvedat a přesouvat materiál", description: "Palety, břemena, práce s výškou zdvihu.", icon: "assets/images/work-load.svg", group: "work-machines", category: "telehandlers", categories: ["telehandlers", "wheel-loaders"] },
+    { id: "haul-earth", label: "Vyvážet zeminu", description: "Převoz zeminy a materiálu v korbě.", icon: "assets/images/work-haul.svg", group: "work-machines", category: "dumpers", categories: ["dumpers"] },
+    { id: "compact", label: "Hutnit zeminu nebo asfalt", description: "Válcování, hutnění podkladů a povrchů.", icon: "assets/images/work-compact.svg", group: "work-machines", category: "rollers", categories: ["rollers"] },
+    { id: "power", label: "Napájet stavbu elektřinou", description: "Elektrocentrála, rozvaděč, 230 V / 400 V.", icon: "assets/images/work-power.svg", group: "energy", category: "generators", categories: ["generators", "distribution-boards", "light-towers", "load-banks"] },
+    { id: "air", label: "Potřebuji stlačený vzduch", description: "Kompresor podle tlaku a výkonu.", icon: "assets/images/work-power.svg", group: "energy", category: "compressors", categories: ["compressors"] },
+    { id: "pump-water", label: "Čerpat vodu", description: "Čistá voda, kalová voda, hadice a průtok.", icon: "assets/images/work-pump.svg", group: "pumps", category: "pumps", categories: ["pumps", "hoses", "pump-accessories"] },
+    { id: "dry-cool-heat", label: "Vysoušet, chladit nebo topit", description: "Odvlhčovače, klimatizace, ohřívače, ventilátory.", icon: "assets/images/work-climate.svg", group: "climate", categories: ["dehumidifiers", "air-conditioning", "heaters", "fans"] },
     { id: "accessories", label: "Potřebuji příslušenství nebo adaptér", description: "Doplňky, adaptéry a ostatní zařízení.", icon: "assets/images/work-tools.svg", group: "other" }
   ];
   const assortmentGroups = [
@@ -111,6 +111,7 @@
   let equipmentItems = [];
   let selectedGroup = "platforms";
   let selectedCategory = null;
+  let selectedIntent = null;
 
   const el = id => document.getElementById(id);
   const num = id => {
@@ -152,6 +153,19 @@
 
   function activeCategories() {
     return activeGroup().categories || [];
+  }
+
+  function activeIntent() {
+    return workIntents.find(intent => intent.id === selectedIntent) || null;
+  }
+
+  function visibleCategories() {
+    const group = activeGroup();
+    const intent = activeIntent();
+    const categories = activeCategories();
+    if (!intent || intent.group !== group.id || !Array.isArray(intent.categories)) return categories;
+    const allowed = new Set(intent.categories);
+    return categories.filter(category => allowed.has(category.id));
   }
 
   function isPlatformGroup() {
@@ -243,10 +257,11 @@
   function chooseIntent(intentId) {
     const intent = workIntents.find(item => item.id === intentId);
     if (!intent) return;
+    selectedIntent = intentId;
     document.querySelectorAll(".intent-button").forEach(button => {
       button.classList.toggle("active", button.dataset.intent === intentId);
     });
-    setSelectedGroup(intent.group);
+    setSelectedGroup(intent.group, { keepIntent: true });
     if (intent.category) setSelectedCategory(intent.category);
     el("categorySection").scrollIntoView({ behavior: "smooth" });
   }
@@ -264,7 +279,9 @@
   }
 
   function selectedCategoryConfig() {
-    return activeCategories().find(category => category.id === selectedCategory) || null;
+    return visibleCategories().find(category => category.id === selectedCategory)
+      || activeCategories().find(category => category.id === selectedCategory)
+      || null;
   }
 
   function selectedFiltersLabel() {
@@ -273,7 +290,8 @@
     return `Filtry: ${filters.slice(0, 2).join(" · ")}`;
   }
 
-  function setSelectedGroup(groupId) {
+  function setSelectedGroup(groupId, options = {}) {
+    if (!options.keepIntent) selectedIntent = null;
     selectedGroup = assortmentGroups.some(group => group.id === groupId) ? groupId : "platforms";
     selectedCategory = null;
     renderCategories();
@@ -295,12 +313,16 @@
 
   function renderCategories() {
     const group = activeGroup();
+    const intent = activeIntent();
+    const categories = visibleCategories();
     el("categoryTitle").textContent = `Vyberte podkategorii: ${group.label}`;
-    el("categoryDescription").textContent = group.id === "platforms"
-      ? "Když podkategorii nevyberete, aplikace hledá ve všech plošinách."
-      : "Když podkategorii nevyberete, aplikace hledá v celé vybrané skupině podle katalogu Zeppelin CZ.";
-    el("showAllButton").textContent = group.id === "platforms" ? "Hledat ve všech kategoriích" : "Zobrazit celou skupinu";
-    el("categoryGrid").innerHTML = activeCategories().map(category => {
+    el("categoryDescription").textContent = intent && intent.group === group.id && categories.length < activeCategories().length
+      ? `Zobrazuji jen typy, které dávají smysl pro: ${intent.label}.`
+      : group.id === "platforms"
+        ? "Když podkategorii nevyberete, aplikace hledá ve všech plošinách."
+        : "Když podkategorii nevyberete, aplikace hledá v celé vybrané skupině podle katalogu Zeppelin CZ.";
+    el("showAllButton").textContent = group.id === "platforms" ? "Hledat ve všech kategoriích" : "Zobrazit tento výběr";
+    el("categoryGrid").innerHTML = categories.map(category => {
       const count = group.id === "platforms"
         ? machines.filter(machine => inCategory(machine, category.id)).length
         : categoryEquipment(category.id, group.id).length;
@@ -328,13 +350,19 @@
     const filters = category?.filters || [];
     el("primaryFilterLabel").textContent = isPlatformGroup() ? "Provoz" : (filters[0] || "Hlavní filtr");
     el("secondaryFilterLabel").textContent = isPlatformGroup() ? "Druh práce" : (filters[1] || "Upřesnění");
-    document.querySelector("#filterForm .form-grid").classList.remove("hidden");
-    el("clearFiltersButton").classList.remove("hidden");
+    document.querySelector("#filterForm .form-grid").classList.toggle("hidden", !isPlatformGroup());
+    el("clearFiltersButton").classList.toggle("hidden", !isPlatformGroup());
     el("searchSubmitButton").textContent = isPlatformGroup() ? "Vyhledat vhodné plošiny" : "Vyhledat techniku";
     el("configFilterPreview").classList.toggle("hidden", isPlatformGroup());
-    el("configFilterPreview").innerHTML = isPlatformGroup() ? "" : (filters.length
-      ? filters.slice(0, 2).map((filter, index) => `<div class="filter-preview-item"><span>Filtr ${index + 1}</span><strong>${esc(filter)}</strong></div>`).join("")
-      : `<div class="filter-preview-item"><span>Filtr 1</span><strong>Hlavní parametr</strong></div><div class="filter-preview-item"><span>Filtr 2</span><strong>Upřesnění</strong></div>`);
+    el("configFilterPreview").innerHTML = isPlatformGroup() ? "" : consultationPreview(filters);
+  }
+
+  function consultationPreview(filters) {
+    const items = (filters.length ? filters.slice(0, 2) : ["Model / velikost", "Hlavní technický parametr"]);
+    return `<div class="filter-preview-note">
+      <strong>Co si ověřit na infolince</strong>
+      <span>Vyberte podkategorii nebo rovnou zobrazte vhodnou techniku. Detailní upřesnění řešte podle typu stroje, ne podle filtrů pro plošiny.</span>
+    </div>${items.map((filter, index) => `<div class="filter-preview-item"><span>Dotaz ${index + 1}</span><strong>${esc(filter)}</strong></div>`).join("")}`;
   }
 
   function filters() {
@@ -655,7 +683,7 @@
 
   function emptyAssortmentState() {
     const group = activeGroup();
-    const categories = selectedCategory ? activeCategories().filter(category => category.id === selectedCategory) : activeCategories();
+    const categories = selectedCategory ? visibleCategories().filter(category => category.id === selectedCategory) : visibleCategories();
     const filterItems = categories
       .flatMap(category => (category.filters || []).map(filter => `${category.label}: ${filter}`))
       .slice(0, 8);
@@ -718,11 +746,10 @@
 
   function runSearch() {
     if (!isPlatformGroup()) {
-      const selectedFilters = filters();
       const title = selectedCategory ? categoryLabel(selectedCategory) : activeGroup().label;
+      const allowedCategories = new Set(visibleCategories().map(category => category.id));
       const list = groupEquipment()
-        .filter(item => !selectedCategory || item.category === selectedCategory)
-        .filter(item => equipmentMatches(item, selectedFilters))
+        .filter(item => selectedCategory ? item.category === selectedCategory : allowedCategories.has(item.category))
         .sort((a, b) => String(a.title).localeCompare(String(b.title), "cs"));
       renderEquipment(list, title, "Výsledky jsou načtené z veřejného katalogu půjčovny Zeppelin CZ.", `${list.length} položek`);
       return;
