@@ -9935,7 +9935,7 @@ window.EQUIPMENT_CATALOG = {
       "title": "otočný teleskopický manipulátor Manitou MRT1840",
       "sourceCategory": "Manitou MRT1840",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/stavebni-stroje/nakladace-a-teleskopicke-manipulatory/manitou-mrt1840",
-      "image": "https://www.zeppelin.cz/fileadmin/helios_files/JPG/Rent/winch_1.webp",
+      "image": "",
       "source": "Zeppelin CZ",
       "specs": [
         {
@@ -9976,7 +9976,7 @@ window.EQUIPMENT_CATALOG = {
       "title": "otočný teleskopický manipulátor Manitou MRT1845",
       "sourceCategory": "Manitou MRT1845",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/stavebni-stroje/nakladace-a-teleskopicke-manipulatory/manitou-mrt1845",
-      "image": "https://www.zeppelin.cz/fileadmin/helios_files/JPG/Rent/winch_1.webp",
+      "image": "",
       "source": "Zeppelin CZ",
       "specs": [
         {
@@ -10017,7 +10017,7 @@ window.EQUIPMENT_CATALOG = {
       "title": "otočný teleskopický manipulátor Manitou MRT2150",
       "sourceCategory": "Manitou MRT2150",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/stavebni-stroje/nakladace-a-teleskopicke-manipulatory/manitou-mrt2150",
-      "image": "https://www.zeppelin.cz/fileadmin/helios_files/JPG/Rent/winch_1.webp",
+      "image": "",
       "source": "Zeppelin CZ",
       "specs": [
         {
@@ -10058,7 +10058,7 @@ window.EQUIPMENT_CATALOG = {
       "title": "otočný teleskopický manipulátor Manitou MRT2260",
       "sourceCategory": "Manitou MRT2260",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/stavebni-stroje/nakladace-a-teleskopicke-manipulatory/manitou-mrt2260",
-      "image": "https://www.zeppelin.cz/fileadmin/helios_files/JPG/Rent/winch_1.webp",
+      "image": "",
       "source": "Zeppelin CZ",
       "specs": [
         {
@@ -10210,7 +10210,7 @@ window.EQUIPMENT_CATALOG = {
       "title": "teleskopický manipulátor Manitou MT835",
       "sourceCategory": "Manitou MT835",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/stavebni-stroje/nakladace-a-teleskopicke-manipulatory/manitou-mt835",
-      "image": "https://www.zeppelin.cz/fileadmin/helios_files/JPG/Rent/jerabovy_hak_2,7m_1.webp",
+      "image": "",
       "source": "Zeppelin CZ",
       "specs": [
         {
@@ -10251,7 +10251,7 @@ window.EQUIPMENT_CATALOG = {
       "title": "teleskopický manipulátor Manitou MT933",
       "sourceCategory": "Manitou MT933",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/stavebni-stroje/nakladace-a-teleskopicke-manipulatory/manitou-mt933",
-      "image": "https://www.zeppelin.cz/fileadmin/helios_files/JPG/Rent/jerabovy_hak_2,7m_1.webp",
+      "image": "",
       "source": "Zeppelin CZ",
       "specs": [
         {
@@ -12000,7 +12000,7 @@ window.EQUIPMENT_CATALOG = {
       "title": "Cat M315",
       "sourceCategory": "",
       "sourceUrl": "https://www.zeppelin.cz/pujcovna-stroju/stavebni-stroje/kolova-rypadla/cat-m315",
-      "image": "https://www.zeppelin.cz/fileadmin/helios_files/JPG/Rent/skeletonova_lopata_1.webp",
+      "image": "",
       "source": "Zeppelin CZ",
       "specs": [
         {

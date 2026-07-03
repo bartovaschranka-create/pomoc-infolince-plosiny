@@ -162,7 +162,29 @@ def parse_specs(html):
     return rows
 
 
-def best_image(images, title, slug):
+def accessory_category(category):
+    return category in {
+        "excavator-attachments", "skid-steer-attachments", "adapters", "accessories",
+        "ground-protection", "load-banks"
+    }
+
+
+def accessory_like(text):
+    value = slugify(text)
+    return any(term in value for term in [
+        "kladivo", "lopata", "skeleton", "drapak", "hak", "winch", "rotavator",
+        "mulcovac", "vrtaci", "roznaseci-desky", "plosina"
+    ])
+
+
+def bad_machine_image(image, title, category):
+    if accessory_category(category) or accessory_like(title):
+        return False
+    haystack = slugify(f"{image['src']} {image['alt']}")
+    return accessory_like(haystack)
+
+
+def best_image(images, title, slug, category):
     normalized_title = slugify(title).replace("-", "")
     for image in images:
         src = image["src"]
@@ -170,13 +192,19 @@ def best_image(images, title, slug):
         haystack = f"{src} {alt}".lower()
         if "no-img" in haystack or "logotype" in haystack or "dlazdice" in haystack:
             continue
+        if bad_machine_image(image, title, category):
+            continue
         if normalized_title and normalized_title in slugify(haystack).replace("-", ""):
             return src
         if slug and slug in haystack:
             return src
+    if not accessory_category(category) and not accessory_like(title):
+        return ""
     for image in images:
         haystack = f"{image['src']} {image['alt']}".lower()
         if "helios_files" in haystack and "no-img" not in haystack and "logotype" not in haystack:
+            if bad_machine_image(image, title, category):
+                continue
             return image["src"]
     return ""
 
@@ -221,7 +249,7 @@ def detail(url, fallback_title, group, category):
     item_id = slugify(urlparse(url).path.strip("/").split("/")[-1])
     image_parser = ImageParser()
     image_parser.feed(html)
-    image = download_image(best_image(image_parser.images, title, item_id), item_id)
+    image = download_image(best_image(image_parser.images, title, item_id, category), item_id)
     specs = parse_specs(html)
     final_group, final_category = classify(group, category, title)
     return {

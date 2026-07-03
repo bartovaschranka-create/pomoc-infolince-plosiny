@@ -170,8 +170,22 @@
     return `<img class="${className}" src="${esc(src)}" alt="${esc(alt)}" loading="lazy">`;
   }
 
+  function isAccessoryLike(item) {
+    const text = normalize(`${item.title || ""} ${item.category || ""}`);
+    return /(attachment|prislusenstvi|adapter|kladivo|lopata|drapak|hak|winch|rotavator|mulcovac|vrtaci|desky)/.test(text);
+  }
+
+  function imageLooksLikeAccessory(item) {
+    const text = normalize(item.image || "");
+    return /(lopata|skeleton|kladivo|drapak|hak|winch|rotavator|mulcovac|vrtaci|roznasecidesky)/.test(text)
+      && !isAccessoryLike(item);
+  }
+
   function firstEquipmentImage(items) {
-    return (items || []).find(item => item.image)?.image || "";
+    const preferred = (items || []).find(item => item.image && !isAccessoryLike(item) && !imageLooksLikeAccessory(item));
+    if (preferred) return preferred.image;
+    const nonAccessoryImage = (items || []).find(item => item.image && !imageLooksLikeAccessory(item));
+    return nonAccessoryImage?.image || "";
   }
 
   function categoryVisual(category, group) {
