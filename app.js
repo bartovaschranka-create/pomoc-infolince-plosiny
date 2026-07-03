@@ -296,6 +296,7 @@
     selectedCategory = null;
     renderCategories();
     setSelectedCategory(null);
+    el("categorySection").classList.remove("hidden");
     el("filterSection").classList.remove("hidden");
     el("resultsSection").classList.add("hidden");
   }
@@ -1008,8 +1009,9 @@
     machines = (window.MACHINE_CATALOG?.machines || []).filter(machine => machine.active !== false);
     equipmentItems = (window.EQUIPMENT_CATALOG?.items || []);
     renderIntents();
-    renderCategories();
-    setSelectedCategory(null);
+    el("categorySection").classList.add("hidden");
+    el("filterSection").classList.add("hidden");
+    el("resultsSection").classList.add("hidden");
 
     el("intentGrid").addEventListener("click", event => {
       const button = event.target.closest("[data-intent]");
