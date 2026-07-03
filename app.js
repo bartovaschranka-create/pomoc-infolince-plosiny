@@ -8,11 +8,24 @@
     { id: "trailer", label: "Vlečné", image: "assets/images/category-trailer.webp", description: "Vlečné plošiny OMME" },
     { id: "mast", label: "Anténní", image: "assets/images/category-mast.webp", description: "Toucan a stožárové plošiny" }
   ];
+  const workIntents = [
+    { id: "lift-people", label: "Zvedat osoby / pracovat ve výšce", description: "Servis, montáže, sklad, hala nebo práce venku.", icon: "assets/images/work-lift.svg", group: "platforms" },
+    { id: "dig", label: "Kopat nebo hloubit výkop", description: "Rýhy, základy, výkopové práce.", icon: "assets/images/work-dig.svg", group: "work-machines", category: "tracked-excavators" },
+    { id: "load", label: "Nakládat materiál", description: "Lopata, nakládka, manipulace se sypkým materiálem.", icon: "assets/images/work-load.svg", group: "work-machines", category: "wheel-loaders" },
+    { id: "lift-material", label: "Zvedat a přesouvat materiál", description: "Palety, břemena, práce s výškou zdvihu.", icon: "assets/images/work-load.svg", group: "work-machines", category: "telehandlers" },
+    { id: "haul-earth", label: "Vyvážet zeminu", description: "Převoz zeminy a materiálu v korbě.", icon: "assets/images/work-haul.svg", group: "work-machines", category: "dumpers" },
+    { id: "compact", label: "Hutnit zeminu nebo asfalt", description: "Válcování, hutnění podkladů a povrchů.", icon: "assets/images/work-compact.svg", group: "work-machines", category: "rollers" },
+    { id: "power", label: "Napájet stavbu elektřinou", description: "Elektrocentrála, rozvaděč, 230 V / 400 V.", icon: "assets/images/work-power.svg", group: "energy", category: "generators" },
+    { id: "air", label: "Potřebuji stlačený vzduch", description: "Kompresor podle tlaku a výkonu.", icon: "assets/images/work-power.svg", group: "energy", category: "compressors" },
+    { id: "pump-water", label: "Čerpat vodu", description: "Čistá voda, kalová voda, hadice a průtok.", icon: "assets/images/work-pump.svg", group: "pumps", category: "pumps" },
+    { id: "dry-cool-heat", label: "Vysoušet, chladit nebo topit", description: "Odvlhčovače, klimatizace, ohřívače, ventilátory.", icon: "assets/images/work-climate.svg", group: "climate" },
+    { id: "accessories", label: "Potřebuji příslušenství nebo adaptér", description: "Doplňky, adaptéry a ostatní zařízení.", icon: "assets/images/work-tools.svg", group: "other" }
+  ];
   const assortmentGroups = [
     {
       id: "platforms",
       label: "Pracovní plošiny",
-      symbol: "P",
+      icon: "assets/images/work-lift.svg",
       description: "Nůžkové, kloubové, teleskopické, anténní a vlečné plošiny.",
       categories: platformCategories,
       ready: true
@@ -20,62 +33,62 @@
     {
       id: "work-machines",
       label: "Pracovní stroje",
-      symbol: "S",
+      icon: "assets/images/work-dig.svg",
       description: "Zemní a manipulační technika podle katalogu půjčovny.",
       categories: [
-        { id: "tracked-excavators", label: "Pásová rypadla a minirypadla", symbol: "R", description: "Výkopové práce", filters: ["Hmotnost stroje", "Hloubka výkopu"] },
-        { id: "wheeled-excavators", label: "Kolová rypadla", symbol: "R", description: "Mobilní rypadla", filters: ["Hmotnost stroje", "Hloubka výkopu"] },
-        { id: "wheel-loaders", label: "Kolové nakladače", symbol: "N", description: "Nakládka a manipulace", filters: ["Nosnost", "Objem lopaty"] },
-        { id: "skid-steer-loaders", label: "Smykem řízené nakladače", symbol: "N", description: "Kompaktní nakladače", filters: ["Kolový / pásový", "Nosnost"] },
-        { id: "telehandlers", label: "Manipulátory", symbol: "M", description: "Nosnost a výška zdvihu", filters: ["Nosnost", "Výška zdvihu"] },
-        { id: "dumpers", label: "Dumpery", symbol: "D", description: "Převoz materiálu", filters: ["Nosnost", "Objem korby"] },
-        { id: "rollers", label: "Válce", symbol: "V", description: "Hutnění zeminy a asfaltu", filters: ["Zemina / asfalt", "Hmotnost stroje"] }
+        { id: "tracked-excavators", label: "Pásová rypadla a minirypadla", icon: "assets/images/work-dig.svg", description: "Výkopové práce", filters: ["Hmotnost stroje", "Hloubka výkopu"] },
+        { id: "wheeled-excavators", label: "Kolová rypadla", icon: "assets/images/work-dig.svg", description: "Mobilní rypadla", filters: ["Hmotnost stroje", "Hloubka výkopu"] },
+        { id: "wheel-loaders", label: "Kolové nakladače", icon: "assets/images/work-load.svg", description: "Nakládka a manipulace", filters: ["Nosnost", "Objem lopaty"] },
+        { id: "skid-steer-loaders", label: "Smykem řízené nakladače", icon: "assets/images/work-load.svg", description: "Kompaktní nakladače", filters: ["Kolový / pásový", "Nosnost"] },
+        { id: "telehandlers", label: "Manipulátory", icon: "assets/images/work-load.svg", description: "Nosnost a výška zdvihu", filters: ["Nosnost", "Výška zdvihu"] },
+        { id: "dumpers", label: "Dumpery", icon: "assets/images/work-haul.svg", description: "Převoz materiálu", filters: ["Nosnost", "Objem korby"] },
+        { id: "rollers", label: "Válce", icon: "assets/images/work-compact.svg", description: "Hutnění zeminy a asfaltu", filters: ["Zemina / asfalt", "Hmotnost stroje"] }
       ]
     },
     {
       id: "energy",
       label: "Energie",
-      symbol: "E",
+      icon: "assets/images/work-power.svg",
       description: "Elektrocentrály, kompresory, světelné věže a rozvaděče.",
       categories: [
-        { id: "generators", label: "Elektrocentrály", symbol: "E", description: "Mobilní zdroje energie", filters: ["Výkon (kVA)", "230 V / 400 V"] },
-        { id: "compressors", label: "Kompresory", symbol: "K", description: "Stlačený vzduch", filters: ["Tlak (bar)", "Výkon (m³/min)"] },
-        { id: "light-towers", label: "Světelné věže", symbol: "S", description: "Osvětlení stavby", filters: ["Diesel / elektrická", "Výška stožáru"] },
-        { id: "distribution-boards", label: "Rozvaděče", symbol: "R", description: "Staveništní rozvody", filters: ["Proud (A)", "230 V / 400 V"] }
+        { id: "generators", label: "Elektrocentrály", icon: "assets/images/work-power.svg", description: "Mobilní zdroje energie", filters: ["Výkon (kVA)", "230 V / 400 V"] },
+        { id: "compressors", label: "Kompresory", icon: "assets/images/work-power.svg", description: "Stlačený vzduch", filters: ["Tlak (bar)", "Výkon (m³/min)"] },
+        { id: "light-towers", label: "Světelné věže", icon: "assets/images/work-light.svg", description: "Osvětlení stavby", filters: ["Diesel / elektrická", "Výška stožáru"] },
+        { id: "distribution-boards", label: "Rozvaděče", icon: "assets/images/work-distribution.svg", description: "Staveništní rozvody", filters: ["Proud (A)", "230 V / 400 V"] }
       ]
     },
     {
       id: "pumps",
       label: "Čerpací technika",
-      symbol: "Č",
+      icon: "assets/images/work-pump.svg",
       description: "Čerpadla, hadice a příslušenství.",
       categories: [
-        { id: "pumps", label: "Čerpadla", symbol: "Č", description: "Čistá i kalová voda", filters: ["Čistá / kalová voda", "Průtok"] },
-        { id: "hoses", label: "Hadice", symbol: "H", description: "Hadice k čerpací technice", filters: ["Průměr", "Délka"] },
-        { id: "pump-accessories", label: "Příslušenství", symbol: "P", description: "Doplňky k čerpání", filters: ["Typ příslušenství", "Průměr / kompatibilita"] }
+        { id: "pumps", label: "Čerpadla", icon: "assets/images/work-pump.svg", description: "Čistá i kalová voda", filters: ["Čistá / kalová voda", "Průtok"] },
+        { id: "hoses", label: "Hadice", icon: "assets/images/work-hose.svg", description: "Hadice k čerpací technice", filters: ["Průměr", "Délka"] },
+        { id: "pump-accessories", label: "Příslušenství", icon: "assets/images/work-tools.svg", description: "Doplňky k čerpání", filters: ["Typ příslušenství", "Průměr / kompatibilita"] }
       ]
     },
     {
       id: "climate",
       label: "Klimatizace a vysoušení",
-      symbol: "K",
+      icon: "assets/images/work-climate.svg",
       description: "Odvlhčovače, klimatizace, ohřívače a ventilátory.",
       categories: [
-        { id: "dehumidifiers", label: "Odvlhčovače", symbol: "O", description: "Vysoušení prostor", filters: ["Velikost prostoru", "Výkon odvlhčení"] },
-        { id: "air-conditioning", label: "Klimatizace", symbol: "K", description: "Chlazení prostor", filters: ["Velikost prostoru", "Chladicí výkon"] },
-        { id: "heaters", label: "Ohřívače", symbol: "O", description: "Dočasné vytápění", filters: ["Druh paliva", "Výkon"] },
-        { id: "fans", label: "Ventilátory", symbol: "V", description: "Proudění vzduchu", filters: ["Průtok vzduchu", "Průměr ventilátoru"] }
+        { id: "dehumidifiers", label: "Odvlhčovače", icon: "assets/images/work-climate.svg", description: "Vysoušení prostor", filters: ["Velikost prostoru", "Výkon odvlhčení"] },
+        { id: "air-conditioning", label: "Klimatizace", icon: "assets/images/work-climate.svg", description: "Chlazení prostor", filters: ["Velikost prostoru", "Chladicí výkon"] },
+        { id: "heaters", label: "Ohřívače", icon: "assets/images/work-climate.svg", description: "Dočasné vytápění", filters: ["Druh paliva", "Výkon"] },
+        { id: "fans", label: "Ventilátory", icon: "assets/images/work-climate.svg", description: "Proudění vzduchu", filters: ["Průtok vzduchu", "Průměr ventilátoru"] }
       ]
     },
     {
       id: "other",
       label: "Ostatní technika",
-      symbol: "O",
+      icon: "assets/images/work-tools.svg",
       description: "Příslušenství, adaptéry a ostatní zařízení.",
       categories: [
-        { id: "accessories", label: "Příslušenství", symbol: "P", description: "Doplňková technika", filters: ["Typ příslušenství", "Kompatibilita"] },
-        { id: "adapters", label: "Adaptéry", symbol: "A", description: "Adaptéry ke strojům", filters: ["Typ adaptéru", "Kompatibilní stroj"] },
-        { id: "other-equipment", label: "Ostatní zařízení", symbol: "Z", description: "Další vybavení půjčovny", filters: ["Druh zařízení", "Hlavní parametr"] }
+        { id: "accessories", label: "Příslušenství", icon: "assets/images/work-tools.svg", description: "Doplňková technika", filters: ["Typ příslušenství", "Kompatibilita"] },
+        { id: "adapters", label: "Adaptéry", icon: "assets/images/work-tools.svg", description: "Adaptéry ke strojům", filters: ["Typ adaptéru", "Kompatibilní stroj"] },
+        { id: "other-equipment", label: "Ostatní zařízení", icon: "assets/images/work-tools.svg", description: "Další vybavení půjčovny", filters: ["Druh zařízení", "Hlavní parametr"] }
       ]
     }
   ];
@@ -130,6 +143,34 @@
     return activeGroup().id === "platforms";
   }
 
+  function imageTag(src, className, alt) {
+    return `<img class="${className}" src="${esc(src)}" alt="${esc(alt)}" loading="lazy">`;
+  }
+
+  function routeLabel(intent) {
+    const group = assortmentGroups.find(item => item.id === intent.group);
+    const category = group?.categories.find(item => item.id === intent.category);
+    return category ? `${group.label} · ${category.label}` : group?.label || "";
+  }
+
+  function renderIntents() {
+    el("intentGrid").innerHTML = workIntents.map(intent => `<button class="intent-button" data-intent="${intent.id}" type="button">
+      <span class="intent-icon">${imageTag(intent.icon, "category-art", intent.label)}</span>
+      <span><span class="intent-label">${esc(intent.label)}</span><span class="intent-description">${esc(intent.description)}</span><span class="intent-route">${esc(routeLabel(intent))}</span></span>
+    </button>`).join("");
+  }
+
+  function chooseIntent(intentId) {
+    const intent = workIntents.find(item => item.id === intentId);
+    if (!intent) return;
+    document.querySelectorAll(".intent-button").forEach(button => {
+      button.classList.toggle("active", button.dataset.intent === intentId);
+    });
+    setSelectedGroup(intent.group);
+    if (intent.category) setSelectedCategory(intent.category);
+    el("categorySection").scrollIntoView({ behavior: "smooth" });
+  }
+
   function categoryLabel(categoryId) {
     return activeCategories().find(category => category.id === categoryId)?.label || "Všechny";
   }
@@ -149,7 +190,7 @@
       const count = group.id === "platforms" ? machines.length : 0;
       const countText = group.id === "platforms" ? `${count} strojů v katalogu` : "Kostra připravena pro data";
       return `<button class="group-button ${group.id === selectedGroup ? "active" : ""}" data-group="${group.id}" type="button">
-        <span class="group-symbol">${esc(group.symbol)}</span>
+        <span class="group-icon">${imageTag(group.icon, "category-art", group.label)}</span>
         <span><span class="group-label">${esc(group.label)}</span><span class="group-description">${esc(group.description)}</span><span class="group-count">${esc(countText)}</span></span>
       </button>`;
     }).join("");
@@ -186,8 +227,8 @@
     el("categoryGrid").innerHTML = activeCategories().map(category => {
       const count = group.id === "platforms" ? machines.filter(machine => inCategory(machine, category.id)).length : 0;
       const icon = category.image
-        ? `<img class="category-photo" src="${esc(category.image)}" alt="${esc(category.label)}" loading="lazy">`
-        : `<span class="category-symbol">${esc(category.symbol || category.label.slice(0, 1))}</span>`;
+        ? imageTag(category.image, "category-photo", category.label)
+        : imageTag(category.icon || group.icon, "category-art", category.label);
       const meta = group.id === "platforms"
         ? `${count} strojů · ${category.description}`
         : `${category.description} · ${category.filters?.slice(0, 2).join(" · ") || "filtry připraveny"}`;
@@ -771,10 +812,15 @@
 
   function init() {
     machines = (window.MACHINE_CATALOG?.machines || []).filter(machine => machine.active !== false);
+    renderIntents();
     renderGroups();
     renderCategories();
     setSelectedCategory(null);
 
+    el("intentGrid").addEventListener("click", event => {
+      const button = event.target.closest("[data-intent]");
+      if (button) chooseIntent(button.dataset.intent);
+    });
     el("groupGrid").addEventListener("click", event => {
       const button = event.target.closest("[data-group]");
       if (button) {

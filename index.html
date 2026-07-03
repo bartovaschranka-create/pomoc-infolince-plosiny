@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#17191d">
   <title>Poradce půjčovny | Zeppelin CZ</title>
-  <link rel="stylesheet" href="styles.css?v=0.8.0">
+  <link rel="stylesheet" href="styles.css?v=0.8.1">
 </head>
 <body>
   <main class="page-shell">
@@ -21,16 +21,23 @@
       </form>
     </section>
 
+    <section id="intentSection" class="panel section-block">
+      <div class="section-heading">
+        <div><span class="step">1</span><h2>Co budete dělat?</h2><p>Vyberte typ práce a aplikace nabídne odpovídající část sortimentu.</p></div>
+      </div>
+      <div id="intentGrid" class="intent-grid"></div>
+    </section>
+
     <section id="groupSection" class="panel section-block">
       <div class="section-heading">
-        <div><span class="step">1</span><h2>Vyberte skupinu techniky</h2><p>Nejdřív zvolte hlavní část sortimentu půjčovny Zeppelin CZ.</p></div>
+        <div><span class="step">2</span><h2>Vyberte skupinu techniky</h2><p>Skupina se může vyplnit automaticky podle zvoleného typu práce.</p></div>
       </div>
       <div id="groupGrid" class="group-grid"></div>
     </section>
 
     <section id="categorySection" class="panel section-block">
       <div class="section-heading">
-        <div><span class="step">2</span><h2 id="categoryTitle">Vyberte podkategorii volitelně</h2><p id="categoryDescription">Když podkategorii nevyberete, aplikace hledá v celé vybrané skupině.</p></div>
+        <div><span class="step">3</span><h2 id="categoryTitle">Vyberte podkategorii volitelně</h2><p id="categoryDescription">Když podkategorii nevyberete, aplikace hledá v celé vybrané skupině.</p></div>
         <div class="heading-actions">
           <button id="changeGroupButton" class="secondary-button" type="button">Změnit skupinu</button>
           <button id="showAllButton" class="secondary-button" type="button">Hledat ve všech podkategoriích</button>
@@ -41,7 +48,7 @@
 
     <section id="filterSection" class="panel section-block">
       <div class="section-heading">
-        <div><span class="step">3</span><h2>Zadejte požadavky</h2><p id="selectedCategoryLabel"></p></div>
+        <div><span class="step">4</span><h2>Zadejte požadavky</h2><p id="selectedCategoryLabel"></p></div>
         <button id="changeCategoryButton" class="text-button" type="button">Všechny podkategorie</button>
       </div>
       <form id="filterForm">
@@ -108,9 +115,9 @@
   <footer class="footer">
     <span>Aktuální dostupnost strojů na pobočkách aplikace neověřuje.</span>
   </footer>
-  <div class="fixed-version">0.8.0-test</div>
+  <div class="fixed-version">0.8.1-test</div>
 
-  <script src="data/machines.js?v=0.8.0"></script>
-  <script src="app.js?v=0.8.0"></script>
+  <script src="data/machines.js?v=0.8.1"></script>
+  <script src="app.js?v=0.8.1"></script>
 </body>
 </html>
