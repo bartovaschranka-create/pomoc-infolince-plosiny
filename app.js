@@ -170,6 +170,35 @@
     return `<img class="${className}" src="${esc(src)}" alt="${esc(alt)}" loading="lazy">`;
   }
 
+  function firstEquipmentImage(items) {
+    return (items || []).find(item => item.image)?.image || "";
+  }
+
+  function categoryVisual(category, group) {
+    const catalogImage = group.id === "platforms"
+      ? category.image
+      : firstEquipmentImage(categoryEquipment(category.id, group.id));
+    return catalogImage
+      ? imageTag(catalogImage, "category-photo", category.label)
+      : imageTag(category.icon || group.icon, "category-art", category.label);
+  }
+
+  function intentVisual(intent) {
+    const group = assortmentGroups.find(item => item.id === intent.group);
+    const category = group?.categories.find(item => item.id === intent.category);
+    if (group?.id === "platforms") {
+      const image = category?.image || platformCategories[0]?.image;
+      return imageTag(image || intent.icon, image ? "category-photo" : "category-art", intent.label);
+    }
+    const items = category
+      ? categoryEquipment(category.id, group?.id)
+      : groupEquipment(group?.id);
+    const image = firstEquipmentImage(items);
+    return image
+      ? imageTag(image, "category-photo", intent.label)
+      : imageTag(intent.icon, "category-art", intent.label);
+  }
+
   function routeLabel(intent) {
     const group = assortmentGroups.find(item => item.id === intent.group);
     const category = group?.categories.find(item => item.id === intent.category);
@@ -178,7 +207,7 @@
 
   function renderIntents() {
     el("intentGrid").innerHTML = workIntents.map(intent => `<button class="intent-button" data-intent="${intent.id}" type="button">
-      <span class="intent-icon">${imageTag(intent.icon, "category-art", intent.label)}</span>
+      <span class="intent-icon">${intentVisual(intent)}</span>
       <span><span class="intent-label">${esc(intent.label)}</span><span class="intent-description">${esc(intent.description)}</span><span class="intent-route">${esc(routeLabel(intent))}</span></span>
     </button>`).join("");
   }
@@ -247,9 +276,7 @@
       const count = group.id === "platforms"
         ? machines.filter(machine => inCategory(machine, category.id)).length
         : categoryEquipment(category.id, group.id).length;
-      const icon = category.image
-        ? imageTag(category.image, "category-photo", category.label)
-        : imageTag(category.icon || group.icon, "category-art", category.label);
+      const icon = categoryVisual(category, group);
       const meta = group.id === "platforms"
         ? `${count} strojů · ${category.description}`
         : `${count} položek · ${category.description}`;
