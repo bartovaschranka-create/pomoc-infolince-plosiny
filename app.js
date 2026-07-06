@@ -13,7 +13,7 @@
     { id: "dig", label: "Kopat nebo hloubit výkop", description: "Rýhy, základy, výkopové práce.", icon: "assets/images/work-dig.svg", group: "work-machines", category: "tracked-excavators", categories: ["tracked-excavators", "wheeled-excavators", "backhoe-loaders"] },
     { id: "load", label: "Nakládat materiál", description: "Lopata, nakládka, manipulace se sypkým materiálem.", icon: "assets/images/work-load.svg", group: "work-machines", category: "wheel-loaders", categories: ["wheel-loaders", "skid-steer-loaders", "telehandlers"] },
     { id: "lift-material", label: "Zvedat a přesouvat materiál", description: "Palety, břemena, práce s výškou zdvihu.", icon: "assets/images/work-load.svg", group: "work-machines", category: "telehandlers", categories: ["telehandlers", "wheel-loaders"] },
-    { id: "haul-earth", label: "Vyvážet zeminu", description: "Převoz zeminy a materiálu v korbě.", icon: "assets/images/work-haul.svg", group: "work-machines", category: "compact-dumpers", categories: ["compact-dumpers", "wheeled-dumpers", "tracked-dumpers", "motor-barrows"] },
+    { id: "haul-earth", label: "Vyvážet zeminu", description: "Převoz zeminy a materiálu v korbě.", icon: "assets/images/work-haul.svg", group: "work-machines", category: "wheeled-dumpers", categories: ["wheeled-dumpers", "tracked-dumpers", "motor-barrows"] },
     { id: "compact", label: "Hutnit zeminu nebo asfalt", description: "Válcování, hutnění podkladů a povrchů.", icon: "assets/images/work-compact.svg", group: "work-machines", category: "rollers", categories: ["rollers"] },
     { id: "power", label: "Napájet stavbu elektřinou", description: "Elektrocentrála, rozvaděč, 230 V / 400 V.", icon: "assets/images/work-power.svg", group: "energy", category: "generators", categories: ["generators", "distribution-boards", "light-towers", "load-banks"] },
     { id: "air", label: "Potřebuji stlačený vzduch", description: "Kompresor podle tlaku a výkonu.", icon: "assets/images/work-power.svg", group: "energy", category: "compressors", categories: ["compressors"] },
@@ -44,8 +44,7 @@
         { id: "skid-steer-loaders", label: "Smykem řízené nakladače", icon: "assets/images/work-load.svg", description: "Kompaktní nakladače", filters: ["Kolový / pásový", "Nosnost"] },
         { id: "skid-steer-attachments", label: "Příslušenství ke smykovým nakladačům", icon: "assets/images/work-tools.svg", description: "Nářadí k nakladačům", filters: ["Typ nářadí", "Kompatibilita"] },
         { id: "telehandlers", label: "Manipulátory", icon: "assets/images/work-load.svg", description: "Nosnost a výška zdvihu", filters: ["Nosnost", "Výška zdvihu"] },
-        { id: "compact-dumpers", label: "Minidumpery / kompaktní", icon: "assets/images/work-haul.svg", description: "Kompaktní dempry AUSA, Bergmann a podobné", filters: ["Nosnost", "Šířka / průjezd"] },
-        { id: "wheeled-dumpers", label: "Kolové dumpery", icon: "assets/images/work-haul.svg", description: "Větší kolové dempry s čelním nebo otočným výsypem", filters: ["Nosnost", "Otočný / čelní výsyp"] },
+        { id: "wheeled-dumpers", label: "Kolové dumpery a minidumpery", icon: "assets/images/work-haul.svg", description: "Kolové dempry, minidumpery AUSA, Bergmann a podobné", filters: ["Nosnost", "Šířka / výsyp"] },
         { id: "tracked-dumpers", label: "Pásové dumpery", icon: "assets/images/work-haul.svg", description: "Pásové dumpery do horšího terénu", filters: ["Nosnost", "Objem korby"] },
         { id: "motor-barrows", label: "Motorová kolečka", icon: "assets/images/work-haul.svg", description: "Kompaktní pásové nebo kolové přepravníky", filters: ["Nosnost", "Typ podvozku"] },
         { id: "rollers", label: "Válce", icon: "assets/images/work-compact.svg", description: "Hutnění zeminy a asfaltu", filters: ["Zemina / asfalt", "Hmotnost stroje"] },
@@ -183,7 +182,7 @@
     if (item.category !== "dumpers") return item.category;
     const text = normalize(`${item.title || ""} ${item.sourceCategory || ""} ${item.searchText || ""}`);
     if (/motorovekolecko|kolovekolecko|tufftruk|messersi|cf/.test(text)) return "motor-barrows";
-    if (/minidamper|minidumper|ausa|bergmann/.test(text)) return "compact-dumpers";
+    if (/minidamper|minidumper|ausa|bergmann/.test(text)) return "wheeled-dumpers";
     if (/pasovy|pasove|morooka|messersi|tufftruk|track/.test(text)) return "tracked-dumpers";
     return "wheeled-dumpers";
   }
@@ -363,7 +362,12 @@
   function chooseCategory(categoryId) {
     setSelectedCategory(categoryId);
     el("filterSection").classList.remove("hidden");
-    el("resultsSection").classList.add("hidden");
+    if (isPlatformGroup()) {
+      el("resultsSection").classList.add("hidden");
+      el("filterSection").scrollIntoView({ behavior: "smooth" });
+      return;
+    }
+    runSearch({ scroll: false });
     el("filterSection").scrollIntoView({ behavior: "smooth" });
   }
 
@@ -402,8 +406,7 @@
       "skid-steer-loaders": "např. Bobcat, pásový, nosnost",
       "skid-steer-attachments": "např. paletizační vidle, zametač, fréza",
       "telehandlers": "např. Manitou MT 625, 6 m, 2,5 t",
-      "compact-dumpers": "např. AUSA D601, Bergmann, úzký průjezd",
-      "wheeled-dumpers": "např. Cat 730, otočný výsyp, nosnost",
+      "wheeled-dumpers": "např. AUSA D601, Bergmann, Cat 730, nosnost",
       "tracked-dumpers": "např. Morooka, pásový dempr, nosnost",
       "motor-barrows": "např. Messersi, TuffTruk, pásové kolečko",
       "rollers": "např. válec asfalt, zemina, hmotnost",
@@ -842,7 +845,7 @@
     </article>`;
   }
 
-  function renderEquipment(list, title, description, status = "") {
+  function renderEquipment(list, title, description, status = "", options = {}) {
     el("resultsSection").classList.remove("hidden");
     el("resultsStatus").textContent = status || `${list.length} výsledků`;
     el("resultsTitle").textContent = title;
@@ -850,7 +853,7 @@
     el("resultsGrid").innerHTML = list.length
       ? list.map((item, index) => equipmentCard(item, index)).join("")
       : emptyAssortmentState();
-    el("resultsSection").scrollIntoView({ behavior: "smooth" });
+    if (options.scroll !== false) el("resultsSection").scrollIntoView({ behavior: "smooth" });
   }
 
   function render(list, title, description, customHtml = "", context = {}) {
@@ -894,9 +897,9 @@
       ["kladiv", "work-machines", "excavator-attachments"],
       ["nakladac", "work-machines", "wheel-loaders"],
       ["manipulator", "work-machines", "telehandlers"],
-      ["minidumper", "work-machines", "compact-dumpers"],
-      ["minidamper", "work-machines", "compact-dumpers"],
-      ["kompaktnidempr", "work-machines", "compact-dumpers"],
+      ["minidumper", "work-machines", "wheeled-dumpers"],
+      ["minidamper", "work-machines", "wheeled-dumpers"],
+      ["kompaktnidempr", "work-machines", "wheeled-dumpers"],
       ["pasovydumper", "work-machines", "tracked-dumpers"],
       ["pasovedumper", "work-machines", "tracked-dumpers"],
       ["kolovydumper", "work-machines", "wheeled-dumpers"],
@@ -934,7 +937,7 @@
     return group ? { group, category } : null;
   }
 
-  function runSearch() {
+  function runSearch(options = {}) {
     if (!isPlatformGroup()) {
       const title = selectedCategory ? categoryLabel(selectedCategory) : activeGroup().label;
       const allowedCategories = new Set(visibleCategories().map(category => category.id));
@@ -943,7 +946,7 @@
         .filter(item => selectedCategory ? equipmentCategory(item) === selectedCategory : allowedCategories.has(equipmentCategory(item)))
         .filter(item => equipmentMatchesFilters(item, selectedEquipmentFilters))
         .sort(equipmentSort);
-      renderEquipment(list, title, "Výsledky jsou načtené z veřejného katalogu půjčovny Zeppelin CZ.", `${list.length} položek`);
+      renderEquipment(list, title, "Výsledky jsou načtené z veřejného katalogu půjčovny Zeppelin CZ. Filtry níže jsou jen volitelné zpřesnění.", `${list.length} položek`, options);
       return;
     }
     const selectedFilters = filters();
@@ -1221,7 +1224,11 @@
     el("showAllButton").addEventListener("click", () => {
       setSelectedCategory(null);
       el("filterSection").classList.remove("hidden");
-      el("resultsSection").classList.add("hidden");
+      if (isPlatformGroup()) {
+        el("resultsSection").classList.add("hidden");
+      } else {
+        runSearch({ scroll: false });
+      }
       el("filterSection").scrollIntoView({ behavior: "smooth" });
     });
     el("changeGroupButton").addEventListener("click", () => {
