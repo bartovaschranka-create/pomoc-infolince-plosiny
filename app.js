@@ -470,6 +470,55 @@
       .every(part => text.includes(part)));
   }
 
+  function parseDecimalNumber(value) {
+    const normalized = String(value || "")
+      .replace(/\s+/g, "")
+      .replace(",", ".");
+    const number = Number(normalized);
+    return Number.isFinite(number) ? number : null;
+  }
+
+  function maxWeightFromQuery(query) {
+    const text = String(query || "").toLowerCase();
+    const match = text.match(/(?:do|max\.?|maximalne|maximálně|nejvic|nejvíc|<=)\s*([0-9]+(?:[\s.,][0-9]+)?)\s*(t|tun|tuny|kg|kilogramu|kilogramů)?/i);
+    if (!match) return null;
+    const value = parseDecimalNumber(match[1]);
+    if (value == null) return null;
+    const unit = normalize(match[2] || "");
+    if (/^t|tun/.test(unit)) return value * 1000;
+    if (/^kg|kil/.test(unit)) return value;
+    return value <= 80 ? value * 1000 : value;
+  }
+
+  function equipmentWeightKg(item) {
+    const specs = Array.isArray(item.specs) ? item.specs : [];
+    const weightSpec = specs.find(row => /hmotnost/i.test(row.label || ""));
+    const source = weightSpec?.value || item.searchText || "";
+    const match = String(source).match(/([0-9]+(?:[\s.,][0-9]+)?)\s*(kg|t|tun|tuny)\b/i);
+    if (!match) return null;
+    const value = parseDecimalNumber(match[1]);
+    if (value == null) return null;
+    return /^t|tun/i.test(match[2]) ? value * 1000 : value;
+  }
+
+  function equipmentQueryConstraints(query) {
+    return {
+      maxWeightKg: maxWeightFromQuery(query)
+    };
+  }
+
+  function equipmentMatchesQueryConstraints(item, constraints) {
+    if (!constraints?.maxWeightKg) return true;
+    const weightKg = equipmentWeightKg(item);
+    return weightKg == null || weightKg <= constraints.maxWeightKg;
+  }
+
+  function equipmentConstraintDescription(query) {
+    const constraints = equipmentQueryConstraints(query);
+    if (!constraints.maxWeightKg) return "";
+    return `Hmotnost do ${fmt(constraints.maxWeightKg)} kg`;
+  }
+
   function match(machine, selectedFilters) {
     if (selectedFilters.environment === "indoor" && (!machine.indoor || machine.driveGroup === "diesel")) return false;
     if (selectedFilters.environment === "outdoor" && !machine.outdoor) return false;
@@ -1089,11 +1138,14 @@
     if (assortmentTarget && assortmentTarget.group.id !== "platforms") {
       setSelectedGroup(assortmentTarget.group.id);
       if (assortmentTarget.category) setSelectedCategory(assortmentTarget.category.id);
+      const constraints = equipmentQueryConstraints(raw);
+      const constraintDescription = equipmentConstraintDescription(raw);
       const list = equipmentItems
         .filter(item => item.group === assortmentTarget.group.id)
         .filter(item => !assortmentTarget.category || equipmentCategory(item) === assortmentTarget.category.id)
+        .filter(item => equipmentMatchesQueryConstraints(item, constraints))
         .sort(equipmentSort);
-      renderEquipment(list, assortmentTarget.category?.label || assortmentTarget.group.label, `Dotaz: ${raw}`, `${list.length} položek`);
+      renderEquipment(list, assortmentTarget.category?.label || assortmentTarget.group.label, constraintDescription ? `Dotaz: ${raw} · ${constraintDescription}` : `Dotaz: ${raw}`, `${list.length} položek`);
       return;
     }
 
@@ -1131,11 +1183,14 @@
     if (/vlec|omme/.test(normalizedQuery)) list = list.filter(machine => machine.category === "trailer");
 
     if (!list.length) {
+      const constraints = equipmentQueryConstraints(raw);
       const equipmentList = equipmentItems
         .filter(item => equipmentSearchMatches(item, raw))
+        .filter(item => equipmentMatchesQueryConstraints(item, constraints))
         .sort(equipmentSort);
       if (equipmentList.length) {
-        renderEquipment(equipmentList, "Výsledky chytrého hledání", `Dotaz: ${raw}`, `${equipmentList.length} položek`);
+        const constraintDescription = equipmentConstraintDescription(raw);
+        renderEquipment(equipmentList, "Výsledky chytrého hledání", constraintDescription ? `Dotaz: ${raw} · ${constraintDescription}` : `Dotaz: ${raw}`, `${equipmentList.length} položek`);
         return;
       }
     }
