@@ -13,7 +13,7 @@
     { id: "dig", label: "Kopat nebo hloubit výkop", description: "Rýhy, základy, výkopové práce.", icon: "assets/images/work-dig.svg", group: "work-machines", category: "tracked-excavators", categories: ["tracked-excavators", "wheeled-excavators", "backhoe-loaders"] },
     { id: "load", label: "Nakládat materiál", description: "Lopata, nakládka, manipulace se sypkým materiálem.", icon: "assets/images/work-load.svg", group: "work-machines", category: "wheel-loaders", categories: ["wheel-loaders", "skid-steer-loaders", "telehandlers"] },
     { id: "lift-material", label: "Zvedat a přesouvat materiál", description: "Palety, břemena, práce s výškou zdvihu.", icon: "assets/images/work-load.svg", group: "work-machines", category: "telehandlers", categories: ["telehandlers", "wheel-loaders"] },
-    { id: "haul-earth", label: "Vyvážet zeminu", description: "Převoz zeminy a materiálu v korbě.", icon: "assets/images/work-haul.svg", group: "work-machines", category: "wheeled-dumpers", categories: ["wheeled-dumpers", "tracked-dumpers", "motor-barrows"] },
+    { id: "haul-earth", label: "Vyvážet zeminu", description: "Převoz zeminy a materiálu v korbě.", icon: "assets/images/work-haul.svg", group: "work-machines", category: "compact-dumpers", categories: ["compact-dumpers", "wheeled-dumpers", "tracked-dumpers", "motor-barrows"] },
     { id: "compact", label: "Hutnit zeminu nebo asfalt", description: "Válcování, hutnění podkladů a povrchů.", icon: "assets/images/work-compact.svg", group: "work-machines", category: "rollers", categories: ["rollers"] },
     { id: "power", label: "Napájet stavbu elektřinou", description: "Elektrocentrála, rozvaděč, 230 V / 400 V.", icon: "assets/images/work-power.svg", group: "energy", category: "generators", categories: ["generators", "distribution-boards", "light-towers", "load-banks"] },
     { id: "air", label: "Potřebuji stlačený vzduch", description: "Kompresor podle tlaku a výkonu.", icon: "assets/images/work-power.svg", group: "energy", category: "compressors", categories: ["compressors"] },
@@ -44,7 +44,8 @@
         { id: "skid-steer-loaders", label: "Smykem řízené nakladače", icon: "assets/images/work-load.svg", description: "Kompaktní nakladače", filters: ["Kolový / pásový", "Nosnost"] },
         { id: "skid-steer-attachments", label: "Příslušenství ke smykovým nakladačům", icon: "assets/images/work-tools.svg", description: "Nářadí k nakladačům", filters: ["Typ nářadí", "Kompatibilita"] },
         { id: "telehandlers", label: "Manipulátory", icon: "assets/images/work-load.svg", description: "Nosnost a výška zdvihu", filters: ["Nosnost", "Výška zdvihu"] },
-        { id: "wheeled-dumpers", label: "Kolové dumpery", icon: "assets/images/work-haul.svg", description: "Kolové dumpery s čelním nebo otočným výsypem", filters: ["Nosnost", "Otočný / čelní výsyp"] },
+        { id: "compact-dumpers", label: "Minidumpery / kompaktní", icon: "assets/images/work-haul.svg", description: "Kompaktní dempry AUSA, Bergmann a podobné", filters: ["Nosnost", "Šířka / průjezd"] },
+        { id: "wheeled-dumpers", label: "Kolové dumpery", icon: "assets/images/work-haul.svg", description: "Větší kolové dempry s čelním nebo otočným výsypem", filters: ["Nosnost", "Otočný / čelní výsyp"] },
         { id: "tracked-dumpers", label: "Pásové dumpery", icon: "assets/images/work-haul.svg", description: "Pásové dumpery do horšího terénu", filters: ["Nosnost", "Objem korby"] },
         { id: "motor-barrows", label: "Motorová kolečka", icon: "assets/images/work-haul.svg", description: "Kompaktní pásové nebo kolové přepravníky", filters: ["Nosnost", "Typ podvozku"] },
         { id: "rollers", label: "Válce", icon: "assets/images/work-compact.svg", description: "Hutnění zeminy a asfaltu", filters: ["Zemina / asfalt", "Hmotnost stroje"] },
@@ -181,7 +182,8 @@
   function equipmentCategory(item) {
     if (item.category !== "dumpers") return item.category;
     const text = normalize(`${item.title || ""} ${item.sourceCategory || ""} ${item.searchText || ""}`);
-    if (/motorovekolecko|minidumper|kolovekolecko/.test(text)) return "motor-barrows";
+    if (/motorovekolecko|kolovekolecko|tufftruk|messersi|cf/.test(text)) return "motor-barrows";
+    if (/minidamper|minidumper|ausa|bergmann/.test(text)) return "compact-dumpers";
     if (/pasovy|pasove|morooka|messersi|tufftruk|track/.test(text)) return "tracked-dumpers";
     return "wheeled-dumpers";
   }
@@ -380,12 +382,56 @@
 
   function equipmentFilterPanel(filters) {
     const items = (filters.length ? filters.slice(0, 2) : ["Model / velikost", "Hlavní technický parametr"]);
+    const placeholder = equipmentSearchPlaceholder();
     return `<div class="filter-preview-note">
       <strong>Parametry pro infolinku</strong>
       <span>Vyplňte jen to, co zákazník ví. Hodnoty se hledají v názvu a technických údajích katalogu Zeppelin CZ.</span>
     </div>
-    <label class="field equipment-filter-field"><span>Model, značka nebo klíčové slovo</span><input id="equipmentText" type="search" placeholder="např. Cat 301.8, Manitou, 400 V"></label>
+    <label class="field equipment-filter-field"><span>Model, značka nebo klíčové slovo</span><input id="equipmentText" type="search" placeholder="${esc(placeholder)}"></label>
     ${items.map((filter, index) => `<label class="field equipment-filter-field"><span>${esc(filter)}</span><input id="equipmentFilter${index + 1}" type="search" placeholder="bez omezení"></label>`).join("")}`;
+  }
+
+  function equipmentSearchPlaceholder() {
+    const categoryId = selectedCategoryConfig()?.id || activeGroup().id;
+    const placeholders = {
+      "tracked-excavators": "např. Cat 301.8, 2 t, hloubka 2,5 m",
+      "wheeled-excavators": "např. kolové rypadlo, 15 t, hloubka výkopu",
+      "excavator-attachments": "např. kladivo, drapák, lopata pro Cat",
+      "wheel-loaders": "např. Cat 906, objem lopaty, nosnost",
+      "backhoe-loaders": "např. traktorbagř, Cat 432, hloubka výkopu",
+      "skid-steer-loaders": "např. Bobcat, pásový, nosnost",
+      "skid-steer-attachments": "např. paletizační vidle, zametač, fréza",
+      "telehandlers": "např. Manitou MT 625, 6 m, 2,5 t",
+      "compact-dumpers": "např. AUSA D601, Bergmann, úzký průjezd",
+      "wheeled-dumpers": "např. Cat 730, otočný výsyp, nosnost",
+      "tracked-dumpers": "např. Morooka, pásový dempr, nosnost",
+      "motor-barrows": "např. Messersi, TuffTruk, pásové kolečko",
+      "rollers": "např. válec asfalt, zemina, hmotnost",
+      "dozers": "např. dozer, pásový, hmotnost",
+      "generators": "např. 60 kVA, 400 V, elektrocentrála",
+      "compressors": "např. 7 bar, kompresor, m3/min",
+      "light-towers": "např. diesel, elektrická, výška stožáru",
+      "load-banks": "např. odporová zátěž, výkon kW",
+      "distribution-boards": "např. rozvaděč 32 A, 400 V",
+      "pumps": "např. kalové čerpadlo, průtok, hadice",
+      "hoses": "např. hadice DN50, délka 20 m",
+      "pump-accessories": "např. spojka, savice, průměr",
+      "dehumidifiers": "např. odvlhčovač, velikost prostoru",
+      "air-conditioning": "např. klimatizace, chladicí výkon",
+      "heaters": "např. naftový ohřívač, výkon kW",
+      "fans": "např. ventilátor, průtok vzduchu",
+      "trailers": "např. přívěsný vozík, brzděný",
+      "containers": "např. skladový kontejner, rozměr",
+      "small-mechanization": "např. bourací kladivo, pila, nivelační laser",
+      "ground-protection": "např. roznášecí deska, rozměr",
+      "landscape": "např. štěpkovač, pařezová fréza",
+      "compaction": "např. vibrační deska, pěch, hmotnost",
+      "crushing-screening": "např. drtič, třídič, dopravník",
+      "cleaning": "např. tlakový čistič, vysavač",
+      "scaffolding": "např. lešení, pracovní výška",
+      "other-equipment": "např. konkrétní název stroje nebo parametr"
+    };
+    return placeholders[categoryId] || "např. značka, model, výkon nebo hlavní parametr";
   }
 
   function consultationPreview(filters) {
@@ -799,6 +845,9 @@
       ["kladiv", "work-machines", "excavator-attachments"],
       ["nakladac", "work-machines", "wheel-loaders"],
       ["manipulator", "work-machines", "telehandlers"],
+      ["minidumper", "work-machines", "compact-dumpers"],
+      ["minidamper", "work-machines", "compact-dumpers"],
+      ["kompaktnidempr", "work-machines", "compact-dumpers"],
       ["pasovydumper", "work-machines", "tracked-dumpers"],
       ["pasovedumper", "work-machines", "tracked-dumpers"],
       ["kolovydumper", "work-machines", "wheeled-dumpers"],
