@@ -282,6 +282,10 @@
       button.classList.toggle("active", button.dataset.intent === intentId);
     });
     setSelectedGroup(intent.group, { keepIntent: true });
+    if (!isPlatformGroup()) {
+      el("filterSection").classList.remove("hidden");
+      runSearch({ scroll: false });
+    }
     el("categorySection").scrollIntoView({ behavior: "smooth" });
   }
 
