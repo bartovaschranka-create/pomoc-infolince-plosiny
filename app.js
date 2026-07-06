@@ -13,7 +13,7 @@
     { id: "dig", label: "Kopat nebo hloubit výkop", description: "Rýhy, základy, výkopové práce.", icon: "assets/images/work-dig.svg", group: "work-machines", category: "tracked-excavators", categories: ["tracked-excavators", "wheeled-excavators", "backhoe-loaders"] },
     { id: "load", label: "Nakládat materiál", description: "Lopata, nakládka, manipulace se sypkým materiálem.", icon: "assets/images/work-load.svg", group: "work-machines", category: "wheel-loaders", categories: ["wheel-loaders", "skid-steer-loaders", "telehandlers"] },
     { id: "lift-material", label: "Zvedat a přesouvat materiál", description: "Palety, břemena, práce s výškou zdvihu.", icon: "assets/images/work-load.svg", group: "work-machines", category: "telehandlers", categories: ["telehandlers", "wheel-loaders"] },
-    { id: "haul-earth", label: "Vyvážet zeminu", description: "Převoz zeminy a materiálu v korbě.", icon: "assets/images/work-haul.svg", group: "work-machines", category: "dumpers", categories: ["dumpers"] },
+    { id: "haul-earth", label: "Vyvážet zeminu", description: "Převoz zeminy a materiálu v korbě.", icon: "assets/images/work-haul.svg", group: "work-machines", category: "wheeled-dumpers", categories: ["wheeled-dumpers", "tracked-dumpers", "motor-barrows"] },
     { id: "compact", label: "Hutnit zeminu nebo asfalt", description: "Válcování, hutnění podkladů a povrchů.", icon: "assets/images/work-compact.svg", group: "work-machines", category: "rollers", categories: ["rollers"] },
     { id: "power", label: "Napájet stavbu elektřinou", description: "Elektrocentrála, rozvaděč, 230 V / 400 V.", icon: "assets/images/work-power.svg", group: "energy", category: "generators", categories: ["generators", "distribution-boards", "light-towers", "load-banks"] },
     { id: "air", label: "Potřebuji stlačený vzduch", description: "Kompresor podle tlaku a výkonu.", icon: "assets/images/work-power.svg", group: "energy", category: "compressors", categories: ["compressors"] },
@@ -44,7 +44,9 @@
         { id: "skid-steer-loaders", label: "Smykem řízené nakladače", icon: "assets/images/work-load.svg", description: "Kompaktní nakladače", filters: ["Kolový / pásový", "Nosnost"] },
         { id: "skid-steer-attachments", label: "Příslušenství ke smykovým nakladačům", icon: "assets/images/work-tools.svg", description: "Nářadí k nakladačům", filters: ["Typ nářadí", "Kompatibilita"] },
         { id: "telehandlers", label: "Manipulátory", icon: "assets/images/work-load.svg", description: "Nosnost a výška zdvihu", filters: ["Nosnost", "Výška zdvihu"] },
-        { id: "dumpers", label: "Dumpery", icon: "assets/images/work-haul.svg", description: "Převoz materiálu", filters: ["Nosnost", "Objem korby"] },
+        { id: "wheeled-dumpers", label: "Kolové dumpery", icon: "assets/images/work-haul.svg", description: "Kolové dumpery s čelním nebo otočným výsypem", filters: ["Nosnost", "Otočný / čelní výsyp"] },
+        { id: "tracked-dumpers", label: "Pásové dumpery", icon: "assets/images/work-haul.svg", description: "Pásové dumpery do horšího terénu", filters: ["Nosnost", "Objem korby"] },
+        { id: "motor-barrows", label: "Motorová kolečka", icon: "assets/images/work-haul.svg", description: "Kompaktní pásové nebo kolové přepravníky", filters: ["Nosnost", "Typ podvozku"] },
         { id: "rollers", label: "Válce", icon: "assets/images/work-compact.svg", description: "Hutnění zeminy a asfaltu", filters: ["Zemina / asfalt", "Hmotnost stroje"] },
         { id: "dozers", label: "Dozery", icon: "assets/images/work-compact.svg", description: "Planýrování a zemní práce", filters: ["Hmotnost stroje", "Typ podvozku"] }
       ]
@@ -176,8 +178,16 @@
     return equipmentItems.filter(item => item.group === groupId);
   }
 
+  function equipmentCategory(item) {
+    if (item.category !== "dumpers") return item.category;
+    const text = normalize(`${item.title || ""} ${item.sourceCategory || ""} ${item.searchText || ""}`);
+    if (/motorovekolecko|minidumper|kolovekolecko/.test(text)) return "motor-barrows";
+    if (/pasovy|pasove|morooka|messersi|tufftruk|track/.test(text)) return "tracked-dumpers";
+    return "wheeled-dumpers";
+  }
+
   function categoryEquipment(categoryId, groupId = selectedGroup) {
-    return groupEquipment(groupId).filter(item => item.category === categoryId);
+    return groupEquipment(groupId).filter(item => equipmentCategory(item) === categoryId);
   }
 
   function imageTag(src, className, alt) {
@@ -185,8 +195,8 @@
   }
 
   function isAccessoryLike(item) {
-    const text = normalize(`${item.title || ""} ${item.category || ""}`);
-    return /(attachment|prislusenstvi|adapter|kladivo|lopata|drapak|hak|winch|rotavator|mulcovac|vrtaci|desky)/.test(text);
+    const text = normalize(`${item.title || ""} ${equipmentCategory(item) || ""}`);
+    return /(attachment|prislusenstvi|adapter|kladivo|lopata|drapak|hak|winch|plosina|rotavator|mulcovac|vrtaci|desky)/.test(text);
   }
 
   function isAccessoryCategory(categoryId) {
@@ -199,8 +209,17 @@
   function imageLooksLikeAccessory(item, allowAccessory = false) {
     const text = normalize(item.image || "");
     if (allowAccessory) return false;
-    return /(lopata|skeleton|kladivo|drapak|hak|winch|rotavator|mulcovac|vrtaci|roznasecidesky)/.test(text)
+    return /(lopata|skeleton|kladivo|drapak|hak|winch|plosina|rotavator|mulcovac|vrtaci|roznasecidesky)/.test(text)
       && !isAccessoryLike(item);
+  }
+
+  function equipmentSort(a, b) {
+    const aCategory = equipmentCategory(a);
+    const bCategory = equipmentCategory(b);
+    const aAccessoryRank = isAccessoryCategory(aCategory) ? 0 : Number(isAccessoryLike(a));
+    const bAccessoryRank = isAccessoryCategory(bCategory) ? 0 : Number(isAccessoryLike(b));
+    return aAccessoryRank - bAccessoryRank
+      || String(a.title).localeCompare(String(b.title), "cs");
   }
 
   function firstEquipmentImage(items, preferAccessory = false) {
@@ -360,13 +379,13 @@
   }
 
   function equipmentFilterPanel(filters) {
-    const items = (filters.length ? filters.slice(0, 2) : ["Model / velikost", "HlavnĂ­ technickĂ˝ parametr"]);
+    const items = (filters.length ? filters.slice(0, 2) : ["Model / velikost", "Hlavní technický parametr"]);
     return `<div class="filter-preview-note">
       <strong>Parametry pro infolinku</strong>
-      <span>VyplĹte jen to, co zĂˇkaznĂ­k vĂ­. Hodnoty se hledajĂ­ v nĂˇzvu a technickĂ˝ch ĂşdajĂ­ch katalogu Zeppelin CZ.</span>
+      <span>Vyplňte jen to, co zákazník ví. Hodnoty se hledají v názvu a technických údajích katalogu Zeppelin CZ.</span>
     </div>
-    <label class="field equipment-filter-field"><span>Model, znaÄŤka nebo klĂ­ÄŤovĂ© slovo</span><input id="equipmentText" type="search" placeholder="napĹ™. Cat 301.8, Manitou, 400 V"></label>
-    ${items.map((filter, index) => `<label class="field equipment-filter-field"><span>${esc(filter)}</span><input id="equipmentFilter${index + 1}" type="search" placeholder="bez omezenĂ­"></label>`).join("")}`;
+    <label class="field equipment-filter-field"><span>Model, značka nebo klíčové slovo</span><input id="equipmentText" type="search" placeholder="např. Cat 301.8, Manitou, 400 V"></label>
+    ${items.map((filter, index) => `<label class="field equipment-filter-field"><span>${esc(filter)}</span><input id="equipmentFilter${index + 1}" type="search" placeholder="bez omezení"></label>`).join("")}`;
   }
 
   function consultationPreview(filters) {
@@ -556,6 +575,38 @@
       </main></body></html>`;
   }
 
+  function equipmentDocumentUrl(item) {
+    return item.documentUrl || item.datasheetUrl || item.sourceUrl || "";
+  }
+
+  function equipmentPriceBlock(item) {
+    const price = item.price || item.priceShort || item.priceText || "";
+    if (price) {
+      return `<div class="price-box"><span>Cena půjčení</span><div><strong>${esc(price)}</strong></div></div>`;
+    }
+    return `<div class="price-box"><span>Cena půjčení</span><div><small>Ověřit podle aktuální pobočky a délky pronájmu</small></div></div>`;
+  }
+
+  function equipmentOfferHtml(item) {
+    const image = equipmentImageUrl(item);
+    const specs = Array.isArray(item.specs) && item.specs.length
+      ? item.specs.map(row => `<tr><th>${esc(row.label)}</th><td>${esc(row.value)}</td></tr>`).join("")
+      : `<tr><th>Technická data</th><td>Detail je dostupný v katalogu Zeppelin CZ.</td></tr>`;
+    const price = item.price || item.priceShort || item.priceText || "Cena bude potvrzena podle pobočky a délky pronájmu.";
+    const documentUrl = equipmentDocumentUrl(item);
+
+    return `<!doctype html><html lang="cs"><head><meta charset="utf-8"><title>${esc(item.title)} - nabídka</title>
+      <style>
+        @page{size:A4;margin:10mm}*{box-sizing:border-box}body{font-family:Arial,sans-serif;color:#17191d;margin:0;background:#f3f5f7}.page{width:210mm;min-height:297mm;margin:0 auto;background:#fff;padding:12mm}.top{display:flex;justify-content:space-between;gap:14px;border-bottom:4px solid #f5b400;padding-bottom:10px}.brand{font-weight:900;font-size:13px;letter-spacing:.04em}.date{font-size:11px;color:#66717d;text-align:right}.hero{display:grid;grid-template-columns:.95fr 1.15fr;gap:14px;margin-top:14px;align-items:center}.photo{border:1px solid #dfe3e8;border-radius:9px;background:#fff;height:56mm;display:flex;align-items:center;justify-content:center;overflow:hidden}.photo img{max-width:100%;max-height:100%;object-fit:contain}h1{font-size:24px;margin:0 0 6px;line-height:1.12}h2{font-size:13px;margin:14px 0 6px;text-transform:uppercase;letter-spacing:.05em}.muted{color:#66717d;margin:0}.chip{background:#f4f5f7;border-radius:8px;padding:8px;margin-top:10px}.chip span{display:block;font-size:10px;color:#66717d}.chip strong{font-size:14px}table{width:100%;border-collapse:collapse;font-size:12px}th,td{border-bottom:1px solid #e5e8ec;padding:5px 0;text-align:left;vertical-align:top}th{width:45%;color:#66717d;font-weight:700}.links a{color:#17191d;font-weight:700}.links p{margin:4px 0}.note{margin-top:12px;padding:9px;border:1px solid #f0d77a;background:#fff8df;border-radius:8px;font-size:11px;line-height:1.35;color:#4a4227}@media print{body{background:#fff}.page{margin:0;width:auto;min-height:auto;padding:0}a{color:#17191d;text-decoration:none}}
+      </style></head><body><main class="page">
+      <header class="top"><div><div class="brand">Zeppelin CZ | nabídka techniky</div><p class="muted">Orientační technický přehled pro zákazníka</p></div><div class="date">Vygenerováno: ${esc(new Date().toLocaleDateString("cs-CZ"))}</div></header>
+      <section class="hero"><div class="photo"><img src="${esc(image)}" alt="${esc(item.title)}"></div><div><h1>${esc(item.title)}</h1><p class="muted">${esc(globalCategoryLabel(equipmentCategory(item)))} · ${esc(item.source || "Zeppelin CZ")}</p><div class="chip"><span>Cena půjčení</span><strong>${esc(price)}</strong></div></div></section>
+      <section><h2>Technická data</h2><table>${specs}</table></section>
+      <section class="links"><h2>Odkazy</h2>${documentUrl ? `<p><a href="${esc(documentUrl)}">Technická data / detail Zeppelin CZ</a></p>` : ""}</section>
+      <div class="note"><strong>Poznámka:</strong> Uvedené hodnoty slouží pro orientační porovnání vybraného typu techniky. U konkrétního stroje se některé údaje mohou lišit podle roku výroby, výbavy a provedení.</div>
+      </main></body></html>`;
+  }
+
   function ensureOfferPreviewStyles() {
     if (document.getElementById("offerPreviewStyles")) return;
     const style = document.createElement("style");
@@ -571,15 +622,18 @@
 
   function openOfferPdf(machineId) {
     const machine = machines.find(item => item.id === machineId);
-    if (!machine) return;
+    const equipment = machine ? null : equipmentItems.find(item => item.id === machineId);
+    if (!machine && !equipment) return;
     ensureOfferPreviewStyles();
     closeOfferPreview();
+    const title = machine ? `${machine.manufacturer} ${machine.model}` : equipment.title;
+    const html = machine ? offerHtml(machine) : equipmentOfferHtml(equipment);
 
     const host = document.createElement("div");
     host.id = "offerPreviewHost";
     host.className = "offer-preview-host";
     host.innerHTML = '<div class="offer-preview-bar"><strong>PDF nabídka: '
-      + esc(machine.manufacturer) + ' ' + esc(machine.model)
+      + esc(title)
       + '</strong><div class="offer-preview-actions">'
       + '<button class="primary-button" type="button" data-print-offer-preview>Uložit jako PDF</button>'
       + '<button class="secondary-button" type="button" data-close-offer-preview>Zavřít náhled</button>'
@@ -587,7 +641,7 @@
     document.body.appendChild(host);
 
     const frame = host.querySelector("iframe");
-    frame.srcdoc = offerHtml(machine);
+    frame.srcdoc = html;
     host.querySelector("[data-close-offer-preview]").addEventListener("click", closeOfferPreview);
     host.querySelector("[data-print-offer-preview]").addEventListener("click", () => {
       frame.contentWindow?.focus();
@@ -659,20 +713,25 @@
   function equipmentSearchMatches(item, query) {
     const compact = normalize(query);
     if (!compact) return true;
-    const text = `${item.title || ""} ${item.sourceCategory || ""} ${item.searchText || ""} ${item.group || ""} ${item.category || ""}`;
+    const text = `${item.title || ""} ${item.sourceCategory || ""} ${item.searchText || ""} ${item.group || ""} ${equipmentCategory(item) || ""}`;
     return normalize(text).includes(compact);
   }
 
   function equipmentCard(item, index) {
     const specs = Array.isArray(item.specs) ? item.specs.slice(0, 7) : [];
+    const documentUrl = equipmentDocumentUrl(item);
+    const documentButton = documentUrl
+      ? `<a class="link-button secondary" target="_blank" rel="noopener" href="${esc(documentUrl)}">Technická data</a>`
+      : "";
     return `<article class="machine-card equipment-card">
       <div class="machine-image-wrap">
         <span class="badge">Shoda č. ${index + 1}</span>
-        <img class="machine-image" src="${esc(equipmentImageUrl(item))}" alt="${esc(item.title)}" onerror="this.src='assets/images/placeholder.svg'">
+        <img class="machine-image" src="${esc(equipmentImageUrl(item))}" alt="" onerror="this.onerror=null;this.src='assets/images/placeholder.svg'">
       </div>
       <div class="machine-content">
         <h3 class="machine-title">${esc(item.title)}</h3>
-        <p class="muted">${esc(globalCategoryLabel(item.category))} · ${esc(item.source || "Zeppelin CZ")}</p>
+        <p class="muted">${esc(globalCategoryLabel(equipmentCategory(item)))} · ${esc(item.source || "Zeppelin CZ")}</p>
+        ${equipmentPriceBlock(item)}
         <div class="spec-panel always-open">
           <h4>Technické údaje</h4>
           ${specs.length
@@ -681,6 +740,8 @@
         </div>
         <div class="machine-actions">
           <a class="link-button primary" target="_blank" rel="noopener" href="${esc(item.sourceUrl || "#")}">Zeppelin.cz ↗</a>
+          ${documentButton}
+          <button class="link-button secondary" type="button" data-offer-pdf="${esc(item.id)}">PDF nabídka</button>
         </div>
       </div>
     </article>`;
@@ -738,7 +799,11 @@
       ["kladiv", "work-machines", "excavator-attachments"],
       ["nakladac", "work-machines", "wheel-loaders"],
       ["manipulator", "work-machines", "telehandlers"],
-      ["dumper", "work-machines", "dumpers"],
+      ["pasovydumper", "work-machines", "tracked-dumpers"],
+      ["pasovedumper", "work-machines", "tracked-dumpers"],
+      ["kolovydumper", "work-machines", "wheeled-dumpers"],
+      ["kolovedumper", "work-machines", "wheeled-dumpers"],
+      ["dumper", "work-machines", "wheeled-dumpers"],
       ["valec", "work-machines", "rollers"],
       ["dozer", "work-machines", "dozers"],
       ["elektrocentral", "energy", "generators"],
@@ -777,9 +842,9 @@
       const allowedCategories = new Set(visibleCategories().map(category => category.id));
       const selectedEquipmentFilters = equipmentFilters();
       const list = groupEquipment()
-        .filter(item => selectedCategory ? item.category === selectedCategory : allowedCategories.has(item.category))
+        .filter(item => selectedCategory ? equipmentCategory(item) === selectedCategory : allowedCategories.has(equipmentCategory(item)))
         .filter(item => equipmentMatchesFilters(item, selectedEquipmentFilters))
-        .sort((a, b) => String(a.title).localeCompare(String(b.title), "cs"));
+        .sort(equipmentSort);
       renderEquipment(list, title, "Výsledky jsou načtené z veřejného katalogu půjčovny Zeppelin CZ.", `${list.length} položek`);
       return;
     }
@@ -977,8 +1042,8 @@
       if (assortmentTarget.category) setSelectedCategory(assortmentTarget.category.id);
       const list = equipmentItems
         .filter(item => item.group === assortmentTarget.group.id)
-        .filter(item => !assortmentTarget.category || item.category === assortmentTarget.category.id)
-        .sort((a, b) => String(a.title).localeCompare(String(b.title), "cs"));
+        .filter(item => !assortmentTarget.category || equipmentCategory(item) === assortmentTarget.category.id)
+        .sort(equipmentSort);
       renderEquipment(list, assortmentTarget.category?.label || assortmentTarget.group.label, `Dotaz: ${raw}`, `${list.length} položek`);
       return;
     }
@@ -1019,7 +1084,7 @@
     if (!list.length) {
       const equipmentList = equipmentItems
         .filter(item => equipmentSearchMatches(item, raw))
-        .sort((a, b) => String(a.title).localeCompare(String(b.title), "cs"));
+        .sort(equipmentSort);
       if (equipmentList.length) {
         renderEquipment(equipmentList, "Výsledky chytrého hledání", `Dotaz: ${raw}`, `${equipmentList.length} položek`);
         return;
