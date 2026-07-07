@@ -39,15 +39,15 @@
         { id: "tracked-excavators", label: "Pásová rypadla a minirypadla", icon: "assets/images/work-dig.svg", description: "Výkopové práce", filters: ["Hmotnost stroje", "Hloubka výkopu"] },
         { id: "wheeled-excavators", label: "Kolová rypadla", icon: "assets/images/work-dig.svg", description: "Mobilní rypadla", filters: ["Hmotnost stroje", "Hloubka výkopu"] },
         { id: "excavator-attachments", label: "Příslušenství k rypadlům", icon: "assets/images/work-tools.svg", description: "Kladiva, drapáky, vrtací zařízení", filters: ["Typ nářadí", "Kompatibilita"] },
-        { id: "wheel-loaders", label: "Kolové nakladače", icon: "assets/images/work-load.svg", description: "Nakládka a manipulace", filters: ["Nosnost", "Objem lopaty"] },
+        { id: "wheel-loaders", label: "Kolové nakladače", icon: "assets/images/work-load.svg", description: "Nakládka a manipulace", filters: ["Hmotnost stroje do", "Objem lopaty / nakládací výška"] },
         { id: "backhoe-loaders", label: "Rypadlo-nakladače", icon: "assets/images/work-dig.svg", description: "Univerzální stroje", filters: ["Hmotnost stroje", "Hloubka výkopu"] },
-        { id: "skid-steer-loaders", label: "Smykem řízené nakladače", icon: "assets/images/work-load.svg", description: "Kompaktní nakladače", filters: ["Kolový / pásový", "Nosnost"] },
+        { id: "skid-steer-loaders", label: "Smykem řízené nakladače", icon: "assets/images/work-load.svg", description: "Kompaktní nakladače", filters: ["Hmotnost stroje do", "Nosnost / šířka stroje"] },
         { id: "skid-steer-attachments", label: "Příslušenství ke smykovým nakladačům", icon: "assets/images/work-tools.svg", description: "Nářadí k nakladačům", filters: ["Typ nářadí", "Kompatibilita"] },
-        { id: "telehandlers", label: "Manipulátory", icon: "assets/images/work-load.svg", description: "Nosnost a výška zdvihu", filters: ["Nosnost", "Výška zdvihu"] },
-        { id: "wheeled-dumpers", label: "Kolové dumpery a minidumpery", icon: "assets/images/work-haul.svg", description: "Kolové dempry, minidumpery AUSA, Bergmann a podobné", filters: ["Nosnost", "Šířka / výsyp"] },
-        { id: "tracked-dumpers", label: "Pásové dumpery", icon: "assets/images/work-haul.svg", description: "Pásové dumpery do horšího terénu", filters: ["Nosnost", "Objem korby"] },
-        { id: "motor-barrows", label: "Motorová kolečka", icon: "assets/images/work-haul.svg", description: "Kompaktní pásové nebo kolové přepravníky", filters: ["Nosnost", "Typ podvozku"] },
-        { id: "rollers", label: "Válce", icon: "assets/images/work-compact.svg", description: "Hutnění zeminy a asfaltu", filters: ["Zemina / asfalt", "Hmotnost stroje"] },
+        { id: "telehandlers", label: "Manipulátory", icon: "assets/images/work-load.svg", description: "Nosnost a výška zdvihu", filters: ["Nosnost / výška zdvihu", "Hmotnost stroje do"] },
+        { id: "wheeled-dumpers", label: "Kolové dumpery a minidumpery", icon: "assets/images/work-haul.svg", description: "Kolové dempry, minidumpery AUSA, Bergmann a podobné", filters: ["Nosnost / objem korby", "Šířka / typ výsypu"] },
+        { id: "tracked-dumpers", label: "Pásové dumpery", icon: "assets/images/work-haul.svg", description: "Pásové dumpery do horšího terénu", filters: ["Nosnost / objem korby", "Hmotnost stroje do"] },
+        { id: "motor-barrows", label: "Motorová kolečka", icon: "assets/images/work-haul.svg", description: "Kompaktní pásové nebo kolové přepravníky", filters: ["Nosnost / objem korby", "Šířka / typ podvozku"] },
+        { id: "rollers", label: "Válce", icon: "assets/images/work-compact.svg", description: "Hutnění zeminy a asfaltu", filters: ["Hmotnost stroje / pracovní šířka", "Zemina / asfalt"] },
         { id: "dozers", label: "Dozery", icon: "assets/images/work-compact.svg", description: "Planýrování a zemní práce", filters: ["Hmotnost stroje", "Typ podvozku"] }
       ]
     },
@@ -308,9 +308,29 @@
       || null;
   }
 
-  function selectedFiltersLabel() {
+  function equipmentFilterProfile() {
     const category = selectedCategoryConfig();
-    const filters = category?.filters || (isPlatformGroup() ? ["Provoz / druh práce", "Pracovní výška"] : ["Hlavní parametr", "Upřesnění"]);
+    if (category?.filters?.length) return category.filters;
+    const intent = activeIntent();
+    const intentFilters = {
+      dig: ["Hmotnost stroje do", "Hloubka výkopu / šířka stroje"],
+      load: ["Hmotnost stroje do", "Objem lopaty / nakládací výška"],
+      "lift-material": ["Nosnost / výška zdvihu", "Hmotnost stroje do"],
+      "haul-earth": ["Nosnost / objem korby", "Šířka stroje / typ výsypu"],
+      compact: ["Hmotnost stroje / pracovní šířka", "Zemina / asfalt"],
+      power: ["Výkon (kVA)", "230 V / 400 V"],
+      air: ["Tlak (bar)", "Výkon (m3/min)"],
+      "pump-water": ["Čistá / kalová voda", "Průtok / průměr hadice"],
+      "dry-cool-heat": ["Velikost prostoru", "Výkon / druh energie"],
+      accessories: ["Typ příslušenství", "Kompatibilní stroj"]
+    };
+    return intentFilters[intent?.id] || (isPlatformGroup()
+      ? ["Provoz / druh práce", "Pracovní výška"]
+      : ["Hmotnost / výkon / nosnost", "Rozměr / dosah / průtok"]);
+  }
+
+  function selectedFiltersLabel() {
+    const filters = equipmentFilterProfile();
     return `Filtry: ${filters.slice(0, 2).join(" · ")}`;
   }
 
@@ -376,8 +396,7 @@
   }
 
   function updateFilterLabels() {
-    const category = selectedCategoryConfig();
-    const filters = category?.filters || [];
+    const filters = equipmentFilterProfile();
     el("primaryFilterLabel").textContent = isPlatformGroup() ? "Provoz" : (filters[0] || "Hlavní filtr");
     el("secondaryFilterLabel").textContent = isPlatformGroup() ? "Druh práce" : (filters[1] || "Upřesnění");
     document.querySelector("#filterForm .form-grid").classList.toggle("hidden", !isPlatformGroup());
@@ -389,19 +408,29 @@
   }
 
   function equipmentFilterPanel(filters) {
-    const items = (filters.length ? filters.slice(0, 2) : ["Model / velikost", "Hlavní technický parametr"]);
+    const items = (filters.length ? filters.slice(0, 2) : equipmentFilterProfile().slice(0, 2));
     const placeholder = equipmentSearchPlaceholder();
     return `<div class="filter-preview-note">
       <strong>Parametry pro infolinku</strong>
       <span>Vyplňte jen to, co zákazník ví. Hodnoty se hledají v názvu a technických údajích katalogu Zeppelin CZ.</span>
     </div>
-    <label class="field equipment-filter-field"><span>Model, značka nebo klíčové slovo</span><input id="equipmentText" type="search" placeholder="${esc(placeholder)}"></label>
+    <label class="field equipment-filter-field"><span>Značka, model nebo typ stroje</span><input id="equipmentText" type="search" placeholder="${esc(placeholder)}"></label>
     ${items.map((filter, index) => `<label class="field equipment-filter-field"><span>${esc(filter)}</span><input id="equipmentFilter${index + 1}" type="search" placeholder="bez omezení"></label>`).join("")}`;
   }
 
   function equipmentSearchPlaceholder() {
-    const categoryId = selectedCategoryConfig()?.id || activeGroup().id;
+    const categoryId = selectedCategoryConfig()?.id || activeIntent()?.id || activeGroup().id;
     const placeholders = {
+      dig: "např. Cat 301.8, minirypadlo, hloubka 2,5 m",
+      load: "např. Cat 906, Kramer, 0,8 m3, nakládací výška",
+      "lift-material": "např. Manitou MT 625, 6 m, 2,5 t",
+      "haul-earth": "např. AUSA D601, Morooka, objem korby",
+      compact: "např. válec 3 t, asfalt, šířka 1300 mm",
+      power: "např. 60 kVA, 400 V, elektrocentrála",
+      air: "např. kompresor 7 bar, m3/min",
+      "pump-water": "např. kalové čerpadlo, průtok, DN50",
+      "dry-cool-heat": "např. odvlhčovač, klimatizace, výkon kW",
+      accessories: "např. kladivo, lopata, adaptér, kompatibilita",
       "tracked-excavators": "např. Cat 301.8, 2 t, hloubka 2,5 m",
       "wheeled-excavators": "např. kolové rypadlo, 15 t, hloubka výkopu",
       "excavator-attachments": "např. kladivo, drapák, lopata pro Cat",
@@ -464,17 +493,28 @@
 
   function equipmentFilters() {
     return ["equipmentText", "equipmentFilter1", "equipmentFilter2"]
-      .map(id => document.getElementById(id)?.value || "")
-      .map(value => value.trim())
-      .filter(Boolean);
+      .map((id, index) => ({
+        value: (document.getElementById(id)?.value || "").trim(),
+        label: index === 0 ? "Značka, model nebo typ stroje" : equipmentFilterProfile()[index - 1] || ""
+      }))
+      .filter(item => item.value);
   }
 
   function equipmentMatchesFilters(item, values) {
     if (!values.length) return true;
     const text = normalize(`${item.title || ""} ${item.sourceCategory || ""} ${item.searchText || ""}`);
-    return values.every(value => (normalize(value).match(/[a-z0-9]+/g) || [])
-      .filter(part => part.length >= 2)
-      .every(part => text.includes(part)));
+    return values.every(filter => {
+      const value = typeof filter === "string" ? filter : filter.value;
+      const label = typeof filter === "string" ? "" : filter.label;
+      const normalizedLabel = normalize(label);
+      if (/hmotnost.*do|hmotnoststrojedo/.test(normalizedLabel)) {
+        const maxWeightKg = maxWeightFromQuery(`do ${value}`);
+        if (maxWeightKg != null) return equipmentMatchesQueryConstraints(item, { maxWeightKg });
+      }
+      return (normalize(value).match(/[a-z0-9]+/g) || [])
+        .filter(part => part.length >= 2)
+        .every(part => text.includes(part));
+    });
   }
 
   function parseDecimalNumber(value) {
