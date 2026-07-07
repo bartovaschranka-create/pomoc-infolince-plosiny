@@ -761,7 +761,6 @@
 
     return `<article class="machine-card">
       <div class="machine-image-wrap">
-        <span class="badge">Shoda č. ${index + 1}</span>
         <img class="machine-image" src="${esc(imageUrl(machine))}" alt="${esc(`${machine.manufacturer} ${machine.model}`)}" onerror="this.src='assets/images/placeholder.svg'">
       </div>
       <div class="machine-content">
@@ -794,7 +793,13 @@
   }
 
   function equipmentImageUrl(item) {
-    if (!item.image) return "assets/images/placeholder.svg";
+    if (!item.image) {
+      const title = normalize(item.title);
+      if (/manitoumrt/.test(title)) return "https://www.zeppelin.cz/fileadmin/helios_files/JPG/Rent/MT932_a_MT1440.thumb.webp";
+      if (/manitoumt(835|933|935)/.test(title)) return "https://www.zeppelin.cz/fileadmin/helios_files/JPG/Rent/MT932_a_MT1440.thumb.webp";
+      if (/manitoupse/.test(title)) return "https://www.zeppelin.cz/fileadmin/helios_files/JPG/Rent/MT625_1.thumb.webp";
+      return "assets/images/placeholder.svg";
+    }
     return item.image;
   }
 
@@ -827,7 +832,6 @@
       : "";
     return `<article class="machine-card equipment-card">
       <div class="machine-image-wrap">
-        <span class="badge">Shoda č. ${index + 1}</span>
         <img class="machine-image" src="${esc(equipmentImageUrl(item))}" alt="" onerror="this.onerror=null;this.src='assets/images/placeholder.svg'">
       </div>
       <div class="machine-content">
